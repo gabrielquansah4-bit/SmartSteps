@@ -1,1 +1,505 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Smart Steps | Learn. Practice. Improve.</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:linear-gradient(135deg,#eef7ff,#f8f4ff);
+    min-height:100vh;
+    color:#172033;
+}
+
+/* HEADER */
+header{
+    padding:22px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:25px;
+    font-weight:800;
+}
+
+.logo-icon{
+    width:44px;
+    height:44px;
+    border-radius:13px;
+    background:#5b5ce2;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:23px;
+}
+
+.tag{
+    color:#667085;
+    font-size:14px;
+}
+
+/* HERO */
+.hero{
+    min-height:calc(100vh - 90px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:40px 7%;
+}
+
+.hero-content{
+    width:100%;
+    max-width:1100px;
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:60px;
+    align-items:center;
+}
+
+.hero-text h1{
+    font-size:56px;
+    line-height:1.05;
+    margin-bottom:20px;
+}
+
+.hero-text h1 span{
+    color:#5b5ce2;
+}
+
+.hero-text p{
+    font-size:19px;
+    line-height:1.7;
+    color:#667085;
+    max-width:580px;
+    margin-bottom:30px;
+}
+
+.features{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.feature{
+    background:white;
+    padding:12px 17px;
+    border-radius:14px;
+    box-shadow:0 5px 20px rgba(0,0,0,.05);
+    font-size:14px;
+}
+
+/* LOGIN CARD */
+.card{
+    background:white;
+    padding:35px;
+    border-radius:25px;
+    box-shadow:0 20px 50px rgba(43,52,80,.12);
+}
+
+.card h2{
+    font-size:27px;
+    margin-bottom:8px;
+}
+
+.card-subtitle{
+    color:#667085;
+    margin-bottom:25px;
+}
+
+label{
+    display:block;
+    margin-bottom:7px;
+    font-weight:600;
+    font-size:14px;
+}
+
+input,
+select{
+    width:100%;
+    padding:14px;
+    border:1px solid #d9deea;
+    border-radius:12px;
+    font-size:15px;
+    margin-bottom:18px;
+    outline:none;
+}
+
+input:focus,
+select:focus{
+    border-color:#5b5ce2;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:13px;
+    background:#5b5ce2;
+    color:white;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.2s;
+}
+
+button:hover{
+    transform:translateY(-2px);
+    opacity:.95;
+}
+
+.note{
+    text-align:center;
+    color:#98a2b3;
+    font-size:12px;
+    margin-top:15px;
+}
+
+/* DASHBOARD PREVIEW */
+.preview{
+    margin-top:28px;
+    padding:18px;
+    border-radius:18px;
+    background:#f7f8ff;
+}
+
+.preview-title{
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:12px;
+}
+
+.subject-row{
+    display:flex;
+    gap:8px;
+}
+
+.subject{
+    flex:1;
+    background:white;
+    padding:12px 6px;
+    border-radius:12px;
+    text-align:center;
+    font-size:12px;
+}
+
+.subject-icon{
+    font-size:22px;
+    display:block;
+    margin-bottom:5px;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:25px;
+    color:#98a2b3;
+    font-size:13px;
+}
+
+/* MOBILE */
+@media(max-width:800px){
+
+    header{
+        padding:18px 5%;
+    }
+
+    .tag{
+        display:none;
+    }
+
+    .hero{
+        padding:25px 5%;
+    }
+
+    .hero-content{
+        grid-template-columns:1fr;
+        gap:35px;
+    }
+
+    .hero-text{
+        text-align:center;
+    }
+
+    .hero-text h1{
+        font-size:42px;
+    }
+
+    .hero-text p{
+        font-size:16px;
+    }
+
+    .features{
+        justify-content:center;
+    }
+
+    .card{
+        padding:25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        <div class="logo-icon">★</div>
+        <div>Smart Steps</div>
+    </div>
+
+    <div class="tag">
+        Learn. Practice. Improve.
+    </div>
+
+</header>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <!-- LEFT SIDE -->
+
+        <div class="hero-text">
+
+            <h1>
+                Take your next
+                <span>Smart Step.</span>
+            </h1>
+
+            <p>
+                A fun and simple way for Primary and JHS students
+                to learn Mathematics, Science and Computing,
+                practise questions and improve their skills.
+            </p>
+
+            <div class="features">
+
+                <div class="feature">
+                    🧮 Mathematics
+                </div>
+
+                <div class="feature">
+                    🔬 Science
+                </div>
+
+                <div class="feature">
+                    💻 Computing
+                </div>
+
+                <div class="feature">
+                    🏆 Learn & Improve
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- LOGIN CARD -->
+
+        <div class="card">
+
+            <h2>👋 Welcome!</h2>
+
+            <p class="card-subtitle">
+                Let's get you ready to learn.
+            </p>
+
+            <form id="studentForm">
+
+                <label for="studentName">
+                    Student Name
+                </label>
+
+                <input
+                    type="text"
+                    id="studentName"
+                    placeholder="Enter your name"
+                    required
+                >
+
+
+                <label for="studentClass">
+                    Select Your Class
+                </label>
+
+                <select id="studentClass" required>
+
+                    <option value="">
+                        Choose your class
+                    </option>
+
+                    <optgroup label="Primary">
+
+                        <option>Primary 1</option>
+                        <option>Primary 2</option>
+                        <option>Primary 3</option>
+                        <option>Primary 4</option>
+                        <option>Primary 5</option>
+                        <option>Primary 6</option>
+
+                    </optgroup>
+
+                    <optgroup label="JHS">
+
+                        <option>JHS 1</option>
+                        <option>JHS 2</option>
+                        <option>JHS 3</option>
+
+                    </optgroup>
+
+                </select>
+
+
+                <button type="submit">
+                    🚀 Start Learning
+                </button>
+
+            </form>
+
+
+            <div class="preview">
+
+                <div class="preview-title">
+                    What you can learn
+                </div>
+
+                <div class="subject-row">
+
+                    <div class="subject">
+                        <span class="subject-icon">🧮</span>
+                        Maths
+                    </div>
+
+                    <div class="subject">
+                        <span class="subject-icon">🔬</span>
+                        Science
+                    </div>
+
+                    <div class="subject">
+                        <span class="subject-icon">💻</span>
+                        Computing
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="note">
+                Your learning information is saved on this device.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    © 2026 Smart Steps · Learn. Practice. Improve.
+
+</footer>
+
+
+<script>
+
+document
+.getElementById("studentForm")
+.addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+    const name =
+        document.getElementById("studentName").value.trim();
+
+    const studentClass =
+        document.getElementById("studentClass").value;
+
+
+    if(!name || !studentClass){
+
+        alert("Please enter your name and select your class.");
+
+        return;
+    }
+
+
+    /*
+        Save the student's basic information.
+
+        We will use this later for:
+        - Dashboard
+        - Progress
+        - Scores
+        - Achievements
+        - Study history
+    */
+
+    const student = {
+
+        name:name,
+
+        class:studentClass,
+
+        joinedDate:new Date().toISOString(),
+
+        progress:{
+
+            mathematics:0,
+
+            science:0,
+
+            computing:0
+
+        }
+
+    };
+
+
+    localStorage.setItem(
+        "smartStepsStudent",
+        JSON.stringify(student)
+    );
+
+
+    /*
+        For now we display a message.
+
+        In the next step this will take the
+        student to the actual dashboard.
+    */
+
+    alert(
+        "Welcome " +
+        name +
+        "! Your Smart Steps journey is ready."
+    );
+
+});
+
+</script>
+
+</body>
+</html>
+```
