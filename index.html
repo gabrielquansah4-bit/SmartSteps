@@ -7,6 +7,7 @@
 <title>Smart Steps</title>
 
 <style>
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -28,9 +29,9 @@ button{
     display:none !important;
 }
 
-/* =========================
+/* =================================
    LANDING PAGE
-========================= */
+================================= */
 
 #landingPage{
     min-height:100vh;
@@ -133,9 +134,9 @@ button{
     background:#4338ca;
 }
 
-/* =========================
+/* =================================
    DASHBOARD
-========================= */
+================================= */
 
 #dashboard{
     min-height:100vh;
@@ -265,7 +266,7 @@ button{
     border-radius:10px;
 }
 
-/* SECTION */
+/* SECTIONS */
 
 .section-title{
     font-size:22px;
@@ -342,7 +343,7 @@ button{
     color:#4338ca;
 }
 
-/* QUICK PRACTICE */
+/* PRACTICE */
 
 .practice-grid{
     display:grid;
@@ -421,9 +422,9 @@ button{
     margin-top:5px;
 }
 
-/* =========================
+/* =================================
    TOPICS PAGE
-========================= */
+================================= */
 
 #topicsPage{
     min-height:100vh;
@@ -513,6 +514,7 @@ button{
     align-items:center;
     justify-content:center;
     font-weight:bold;
+    flex-shrink:0;
 }
 
 .topic-card h3{
@@ -538,13 +540,261 @@ button{
     background:#4338ca;
 }
 
+/* =================================
+   LESSON PAGE
+================================= */
+
+#lessonPage{
+    min-height:100vh;
+    background:#f5f7fb;
+}
+
+.lesson-header{
+    background:white;
+    border-bottom:1px solid #e6e9f0;
+    padding:15px 5%;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    position:sticky;
+    top:0;
+    z-index:10;
+}
+
+.lesson-header-info h2{
+    font-size:20px;
+}
+
+.lesson-header-info p{
+    color:#667085;
+    font-size:13px;
+    margin-top:3px;
+}
+
+.lesson-content{
+    max-width:850px;
+    margin:auto;
+    padding:30px 20px 100px;
+}
+
+/* LESSON HERO */
+
+.lesson-hero{
+    background:linear-gradient(135deg,#4f46e5,#7c3aed);
+    color:white;
+    padding:30px;
+    border-radius:22px;
+    margin-bottom:22px;
+}
+
+.lesson-hero .lesson-label{
+    font-size:13px;
+    opacity:.85;
+    margin-bottom:8px;
+}
+
+.lesson-hero h1{
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+.lesson-hero p{
+    opacity:.9;
+    line-height:1.6;
+}
+
+/* LESSON CARDS */
+
+.lesson-card{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:20px;
+    padding:25px;
+    margin-bottom:18px;
+}
+
+.lesson-card h2{
+    margin-bottom:14px;
+}
+
+.lesson-card p{
+    line-height:1.7;
+    color:#475467;
+    margin-bottom:12px;
+}
+
+.example-box{
+    background:#eef2ff;
+    border-left:5px solid #4f46e5;
+    padding:18px;
+    border-radius:12px;
+    margin-top:15px;
+}
+
+.example-box strong{
+    display:block;
+    margin-bottom:8px;
+    color:#3730a3;
+}
+
+.number-example{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:12px;
+}
+
+.number-ball{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    background:#4f46e5;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+}
+
+/* PRACTICE */
+
+.practice-question{
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:15px;
+    padding:20px;
+    margin-bottom:15px;
+}
+
+.question-number{
+    color:#4f46e5;
+    font-weight:bold;
+    font-size:13px;
+    margin-bottom:7px;
+}
+
+.question-text{
+    font-size:18px;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.answer-options{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+}
+
+.answer-option{
+    border:2px solid #e2e8f0;
+    background:white;
+    padding:13px;
+    border-radius:10px;
+    text-align:left;
+    font-size:15px;
+}
+
+.answer-option:hover{
+    border-color:#a5b4fc;
+    background:#eef2ff;
+}
+
+.answer-option.selected{
+    border-color:#4f46e5;
+    background:#eef2ff;
+}
+
+.answer-option.correct{
+    border-color:#16a34a;
+    background:#dcfce7;
+}
+
+.answer-option.wrong{
+    border-color:#dc2626;
+    background:#fee2e2;
+}
+
+.check-btn{
+    width:100%;
+    border:none;
+    background:#4f46e5;
+    color:white;
+    padding:15px;
+    border-radius:12px;
+    font-weight:bold;
+    font-size:16px;
+    margin-top:10px;
+}
+
+.check-btn:hover{
+    background:#4338ca;
+}
+
+/* RESULT */
+
+.result-card{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+    margin-top:20px;
+}
+
+.result-icon{
+    font-size:50px;
+    margin-bottom:10px;
+}
+
+.result-card h2{
+    margin-bottom:8px;
+}
+
+.result-score{
+    font-size:38px;
+    font-weight:bold;
+    color:#4f46e5;
+    margin:15px 0;
+}
+
+.result-message{
+    color:#667085;
+    margin-bottom:20px;
+}
+
+.result-buttons{
+    display:flex;
+    gap:10px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.result-btn{
+    border:none;
+    padding:12px 18px;
+    border-radius:11px;
+    font-weight:bold;
+}
+
+.primary-result-btn{
+    background:#4f46e5;
+    color:white;
+}
+
+.secondary-result-btn{
+    background:#eef2ff;
+    color:#4338ca;
+}
+
 /* MOBILE NAV */
 
 .mobile-nav{
     display:none;
 }
 
-/* RESPONSIVE */
+/* =================================
+   RESPONSIVE
+================================= */
 
 @media(max-width:850px){
 
@@ -560,6 +810,7 @@ button{
     .achievement-grid{
         grid-template-columns:1fr;
     }
+
 }
 
 @media(max-width:600px){
@@ -621,22 +872,21 @@ button{
     }
 
     .topic-card{
-        align-items:flex-start;
-    }
-
-    .topic-card{
         flex-direction:column;
+        align-items:flex-start;
     }
 
     .learn-btn{
         width:100%;
     }
 
-    .topics-content{
+    .topics-content,
+    .lesson-content{
         padding:20px 15px 90px;
     }
 
-    .topics-header{
+    .topics-header,
+    .lesson-header{
         padding:12px 15px;
     }
 
@@ -644,15 +894,42 @@ button{
         padding:8px 9px;
         font-size:12px;
     }
+
+    .lesson-hero{
+        padding:24px;
+    }
+
+    .lesson-hero h1{
+        font-size:27px;
+    }
+
+    .lesson-card{
+        padding:20px;
+    }
+
+    .answer-options{
+        grid-template-columns:1fr;
+    }
+
+    .result-buttons{
+        flex-direction:column;
+    }
+
+    .result-btn{
+        width:100%;
+    }
+
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- =========================
+
+<!-- =================================
      LANDING PAGE
-========================= -->
+================================= -->
 
 <section id="landingPage">
 
@@ -667,15 +944,20 @@ button{
         </p>
 
         <div class="subject-preview">
+
             <span>📐 Mathematics</span>
             <span>🔬 Science</span>
             <span>💻 Computing</span>
+
         </div>
 
         <form id="studentForm">
 
             <div class="form-group">
-                <label for="studentName">Your Name</label>
+
+                <label for="studentName">
+                    Your Name
+                </label>
 
                 <input
                     type="text"
@@ -683,7 +965,9 @@ button{
                     placeholder="Enter your name"
                     required
                 >
+
             </div>
+
 
             <div class="form-group">
 
@@ -691,7 +975,10 @@ button{
                     Select Your Class
                 </label>
 
-                <select id="studentClass" required>
+                <select
+                    id="studentClass"
+                    required
+                >
 
                     <option value="">
                         Choose your class
@@ -712,7 +999,11 @@ button{
 
             </div>
 
-            <button class="start-btn" type="submit">
+
+            <button
+                class="start-btn"
+                type="submit"
+            >
                 Start Learning 🚀
             </button>
 
@@ -723,21 +1014,30 @@ button{
 </section>
 
 
-<!-- =========================
-     DASHBOARD
-========================= -->
 
-<section id="dashboard" class="hidden">
+<!-- =================================
+     DASHBOARD
+================================= -->
+
+<section
+    id="dashboard"
+    class="hidden"
+>
 
     <header class="topbar">
 
         <div class="brand">
 
-            <div class="brand-icon">★</div>
+            <div class="brand-icon">
+                ★
+            </div>
 
-            <span>Smart Steps</span>
+            <span>
+                Smart Steps
+            </span>
 
         </div>
+
 
         <div class="top-actions">
 
@@ -762,13 +1062,15 @@ button{
 
     <main class="dashboard-content">
 
+
         <div class="welcome">
 
             <div>
 
                 <h2>
-                    Welcome, <span id="studentDisplayName">
-                    Student
+                    Welcome,
+                    <span id="studentDisplayName">
+                        Student
                     </span>! 👋
                 </h2>
 
@@ -777,6 +1079,7 @@ button{
                 </p>
 
             </div>
+
 
             <div
                 class="class-badge"
@@ -788,6 +1091,7 @@ button{
         </div>
 
 
+
         <!-- DAILY GOAL -->
 
         <div class="goal-card">
@@ -795,16 +1099,23 @@ button{
             <div class="goal-top">
 
                 <div>
-                    <strong>Today's Learning Goal</strong>
+
+                    <strong>
+                        Today's Learning Goal
+                    </strong>
 
                     <p>
                         Complete 3 learning activities today
                     </p>
+
                 </div>
 
-                <strong>2 / 3</strong>
+                <strong>
+                    2 / 3
+                </strong>
 
             </div>
+
 
             <div class="progress-bar">
 
@@ -815,13 +1126,16 @@ button{
         </div>
 
 
+
         <!-- SUBJECTS -->
 
         <h2 class="section-title">
             What do you want to learn?
         </h2>
 
+
         <div class="subject-grid">
+
 
             <div class="subject-card">
 
@@ -829,7 +1143,9 @@ button{
                     📐
                 </div>
 
-                <h3>Mathematics</h3>
+                <h3>
+                    Mathematics
+                </h3>
 
                 <p>
                     Numbers, calculations, shapes,
@@ -846,13 +1162,16 @@ button{
             </div>
 
 
+
             <div class="subject-card">
 
                 <div class="subject-icon science-icon">
                     🔬
                 </div>
 
-                <h3>Science</h3>
+                <h3>
+                    Science
+                </h3>
 
                 <p>
                     Discover living things, matter,
@@ -869,13 +1188,16 @@ button{
             </div>
 
 
+
             <div class="subject-card">
 
                 <div class="subject-icon computing-icon">
                     💻
                 </div>
 
-                <h3>Computing</h3>
+                <h3>
+                    Computing
+                </h3>
 
                 <p>
                     Learn computers, digital skills,
@@ -891,7 +1213,9 @@ button{
 
             </div>
 
+
         </div>
+
 
 
         <!-- QUICK PRACTICE -->
@@ -900,24 +1224,58 @@ button{
             Quick Practice
         </h2>
 
+
         <div class="practice-grid">
 
-            <div class="practice-card">
-                <strong>📐 5 Maths Questions</strong>
-                <span>Test your maths skills</span>
+            <div
+                class="practice-card"
+                onclick="quickPractice('Mathematics')"
+            >
+
+                <strong>
+                    📐 5 Maths Questions
+                </strong>
+
+                <span>
+                    Test your maths skills
+                </span>
+
             </div>
 
-            <div class="practice-card">
-                <strong>🔬 5 Science Questions</strong>
-                <span>Test what you know</span>
+
+            <div
+                class="practice-card"
+                onclick="quickPractice('Science')"
+            >
+
+                <strong>
+                    🔬 5 Science Questions
+                </strong>
+
+                <span>
+                    Test what you know
+                </span>
+
             </div>
 
-            <div class="practice-card">
-                <strong>💻 5 Computing Questions</strong>
-                <span>Challenge yourself</span>
+
+            <div
+                class="practice-card"
+                onclick="quickPractice('Computing')"
+            >
+
+                <strong>
+                    💻 5 Computing Questions
+                </strong>
+
+                <span>
+                    Challenge yourself
+                </span>
+
             </div>
 
         </div>
+
 
 
         <!-- PROGRESS -->
@@ -926,9 +1284,12 @@ button{
             My Progress
         </h2>
 
+
         <div class="stats-grid">
 
+
             <div class="stat-card">
+
                 <div
                     class="stat-number"
                     id="topicsCompleted"
@@ -939,6 +1300,7 @@ button{
                 <div class="stat-label">
                     Topics Completed
                 </div>
+
             </div>
 
 
@@ -992,13 +1354,16 @@ button{
         </div>
 
 
+
         <!-- ACHIEVEMENTS -->
 
         <h2 class="section-title">
             Achievements
         </h2>
 
+
         <div class="achievement-grid">
+
 
             <div class="achievement">
 
@@ -1050,9 +1415,12 @@ button{
 
             </div>
 
+
         </div>
 
+
     </main>
+
 
 
     <!-- MOBILE NAV -->
@@ -1060,28 +1428,47 @@ button{
     <nav class="mobile-nav">
 
         <button onclick="goHome()">
+
             <span>🏠</span>
+
             Home
+
         </button>
+
 
         <button onclick="openSubject('Mathematics')">
+
             <span>📚</span>
+
             Learn
+
         </button>
 
-        <button onclick="quickPractice('General')">
+
+        <button onclick="quickPractice('Mathematics')">
+
             <span>🧠</span>
+
             Practice
+
         </button>
+
 
         <button onclick="showProgress()">
+
             <span>📊</span>
+
             Progress
+
         </button>
 
+
         <button onclick="showProfile()">
+
             <span>👤</span>
+
             Profile
+
         </button>
 
     </nav>
@@ -1089,11 +1476,16 @@ button{
 </section>
 
 
-<!-- =========================
-     TOPICS PAGE
-========================= -->
 
-<section id="topicsPage" class="hidden">
+<!-- =================================
+     TOPICS PAGE
+================================= -->
+
+<section
+    id="topicsPage"
+    class="hidden"
+>
+
 
     <header class="topics-header">
 
@@ -1104,6 +1496,7 @@ button{
             ←
         </button>
 
+
         <div class="topics-header-info">
 
             <h2 id="topicsSubject">
@@ -1111,10 +1504,13 @@ button{
             </h2>
 
             <p>
+
                 <span id="topicsClass">
                     Primary 1
                 </span>
+
                 • Choose a topic to begin
+
             </p>
 
         </div>
@@ -1122,12 +1518,14 @@ button{
     </header>
 
 
+
     <main class="topics-content">
+
 
         <div class="topic-intro">
 
             <h1 id="topicWelcome">
-                Mathematics 📐
+                Mathematics 📚
             </h1>
 
             <p>
@@ -1141,46 +1539,165 @@ button{
             class="topic-list"
             id="topicList"
         >
-
         </div>
+
 
     </main>
 
 </section>
 
 
+
+<!-- =================================
+     LESSON PAGE
+================================= -->
+
+<section
+    id="lessonPage"
+    class="hidden"
+>
+
+
+    <header class="lesson-header">
+
+
+        <button
+            class="back-btn"
+            onclick="backToTopics()"
+        >
+            ←
+        </button>
+
+
+        <div class="lesson-header-info">
+
+            <h2 id="lessonSubject">
+                Mathematics
+            </h2>
+
+            <p id="lessonClass">
+                Primary 1 • Numbers
+            </p>
+
+        </div>
+
+
+    </header>
+
+
+
+    <main class="lesson-content">
+
+
+        <!-- LESSON HERO -->
+
+        <div class="lesson-hero">
+
+            <div class="lesson-label">
+                TODAY'S LESSON
+            </div>
+
+            <h1 id="lessonTitle">
+                Numbers
+            </h1>
+
+            <p id="lessonSubtitle">
+                Let's learn about numbers!
+            </p>
+
+        </div>
+
+
+
+        <!-- LESSON CONTENT -->
+
+        <div id="lessonBody">
+
+            <!-- Filled by JavaScript -->
+
+        </div>
+
+
+
+        <!-- PRACTICE -->
+
+        <div
+            id="practiceSection"
+            class="hidden"
+        >
+
+            <div class="lesson-card">
+
+                <h2>
+                    🧠 Quick Practice
+                </h2>
+
+                <p>
+                    Choose the correct answer for each question.
+                </p>
+
+
+                <div id="questionsContainer">
+                </div>
+
+
+                <button
+                    class="check-btn"
+                    onclick="checkAnswers()"
+                >
+                    Check My Answers
+                </button>
+
+            </div>
+
+
+            <div
+                id="resultContainer"
+                class="hidden"
+            >
+            </div>
+
+        </div>
+
+
+    </main>
+
+</section>
+
+
+
 <script>
 
-/* ===================================
-   STARTER CURRICULUM TOPICS
-=================================== */
+/* =================================
+   CURRICULUM TOPICS
+================================= */
 
 const curriculum = {
 
     "Primary 1": {
 
         "Mathematics": [
-            ["Numbers", "Learn to identify and count numbers."],
-            ["Addition", "Learn simple addition."],
-            ["Subtraction", "Learn simple subtraction."],
-            ["Shapes", "Explore basic shapes around you."],
-            ["Measurement", "Learn about length, weight and size."]
+            ["Numbers","Learn to identify and count numbers."],
+            ["Addition","Learn simple addition."],
+            ["Subtraction","Learn simple subtraction."],
+            ["Shapes","Explore basic shapes around you."],
+            ["Measurement","Learn about length, weight and size."]
         ],
 
         "Science": [
-            ["My Body", "Learn about parts of the human body."],
-            ["Living Things", "Discover things that are alive."],
-            ["Plants", "Learn about plants and their parts."],
-            ["Animals", "Explore different kinds of animals."],
-            ["Our Environment", "Learn about the world around us."]
+            ["My Body","Learn about parts of the human body."],
+            ["Living Things","Discover things that are alive."],
+            ["Plants","Learn about plants and their parts."],
+            ["Animals","Explore different kinds of animals."],
+            ["Our Environment","Learn about the world around us."]
         ],
 
         "Computing": [
-            ["Computers", "Discover what computers are."],
-            ["Parts of a Computer", "Learn about basic computer parts."],
-            ["Using a Mouse", "Learn how to use a computer mouse."],
-            ["Using a Keyboard", "Learn about the keyboard."],
-            ["Computer Safety", "Learn how to use computers safely."]
+            ["Computers","Discover what computers are."],
+            ["Parts of a Computer","Learn about basic computer parts."],
+            ["Using a Mouse","Learn how to use a computer mouse."],
+            ["Using a Keyboard","Learn about the keyboard."],
+            ["Computer Safety","Learn how to use computers safely."]
         ]
 
     },
@@ -1189,27 +1706,27 @@ const curriculum = {
     "Primary 2": {
 
         "Mathematics": [
-            ["Numbers", "Read, write and compare numbers."],
-            ["Addition", "Practise addition with larger numbers."],
-            ["Subtraction", "Practise subtraction."],
-            ["Multiplication", "Discover basic multiplication."],
-            ["Shapes", "Identify and describe common shapes."]
+            ["Numbers","Read, write and compare numbers."],
+            ["Addition","Practise addition with larger numbers."],
+            ["Subtraction","Practise subtraction."],
+            ["Multiplication","Discover basic multiplication."],
+            ["Shapes","Identify and describe common shapes."]
         ],
 
         "Science": [
-            ["Plants", "Explore plant parts and their functions."],
-            ["Animals", "Learn about different animals."],
-            ["The Human Body", "Discover important body parts."],
-            ["Materials", "Explore different materials."],
-            ["Weather", "Learn about different types of weather."]
+            ["Plants","Explore plant parts and their functions."],
+            ["Animals","Learn about different animals."],
+            ["The Human Body","Discover important body parts."],
+            ["Materials","Explore different materials."],
+            ["Weather","Learn about different types of weather."]
         ],
 
         "Computing": [
-            ["Computer Parts", "Identify basic computer components."],
-            ["Keyboard Skills", "Practise using keyboard keys."],
-            ["Mouse Skills", "Practise pointing and clicking."],
-            ["Digital Safety", "Learn safe computer habits."],
-            ["Files and Folders", "Understand basic file organisation."]
+            ["Computer Parts","Identify basic computer components."],
+            ["Keyboard Skills","Practise using keyboard keys."],
+            ["Mouse Skills","Practise pointing and clicking."],
+            ["Digital Safety","Learn safe computer habits."],
+            ["Files and Folders","Understand basic file organisation."]
         ]
 
     },
@@ -1218,27 +1735,27 @@ const curriculum = {
     "Primary 3": {
 
         "Mathematics": [
-            ["Place Value", "Understand the value of digits."],
-            ["Addition and Subtraction", "Solve addition and subtraction problems."],
-            ["Multiplication", "Learn multiplication facts."],
-            ["Division", "Discover basic division."],
-            ["Fractions", "Understand simple fractions."]
+            ["Place Value","Understand the value of digits."],
+            ["Addition and Subtraction","Solve addition and subtraction problems."],
+            ["Multiplication","Learn multiplication facts."],
+            ["Division","Discover basic division."],
+            ["Fractions","Understand simple fractions."]
         ],
 
         "Science": [
-            ["Plants", "Learn how plants grow."],
-            ["Animals", "Study animal groups and features."],
-            ["Matter", "Explore solids, liquids and gases."],
-            ["Energy", "Discover different forms of energy."],
-            ["Environment", "Learn how to care for our environment."]
+            ["Plants","Learn how plants grow."],
+            ["Animals","Study animal groups and features."],
+            ["Matter","Explore solids, liquids and gases."],
+            ["Energy","Discover different forms of energy."],
+            ["Environment","Learn how to care for our environment."]
         ],
 
         "Computing": [
-            ["Computer Hardware", "Explore computer hardware."],
-            ["Software", "Understand what software is."],
-            ["Typing", "Improve keyboard skills."],
-            ["Internet Basics", "Learn what the internet is."],
-            ["Digital Safety", "Stay safe online."]
+            ["Computer Hardware","Explore computer hardware."],
+            ["Software","Understand what software is."],
+            ["Typing","Improve keyboard skills."],
+            ["Internet Basics","Learn what the internet is."],
+            ["Digital Safety","Stay safe online."]
         ]
 
     },
@@ -1247,27 +1764,27 @@ const curriculum = {
     "Primary 4": {
 
         "Mathematics": [
-            ["Whole Numbers", "Work with larger whole numbers."],
-            ["Factors and Multiples", "Explore factors and multiples."],
-            ["Fractions", "Work with different fractions."],
-            ["Decimals", "Understand decimal numbers."],
-            ["Geometry", "Explore angles and shapes."]
+            ["Whole Numbers","Work with larger whole numbers."],
+            ["Factors and Multiples","Explore factors and multiples."],
+            ["Fractions","Work with different fractions."],
+            ["Decimals","Understand decimal numbers."],
+            ["Geometry","Explore angles and shapes."]
         ],
 
         "Science": [
-            ["Human Body", "Explore body systems."],
-            ["Plants", "Study plant growth and functions."],
-            ["Matter", "Explore properties of materials."],
-            ["Energy", "Learn about energy and its uses."],
-            ["The Environment", "Understand environmental issues."]
+            ["Human Body","Explore body systems."],
+            ["Plants","Study plant growth and functions."],
+            ["Matter","Explore properties of materials."],
+            ["Energy","Learn about energy and its uses."],
+            ["The Environment","Understand environmental issues."]
         ],
 
         "Computing": [
-            ["Computer Hardware", "Learn about computer components."],
-            ["Operating Systems", "Understand operating systems."],
-            ["Word Processing", "Create and edit documents."],
-            ["Internet", "Learn how the internet works."],
-            ["Cyber Safety", "Practise safe digital behaviour."]
+            ["Computer Hardware","Learn about computer components."],
+            ["Operating Systems","Understand operating systems."],
+            ["Word Processing","Create and edit documents."],
+            ["Internet","Learn how the internet works."],
+            ["Cyber Safety","Practise safe digital behaviour."]
         ]
 
     },
@@ -1276,27 +1793,27 @@ const curriculum = {
     "Primary 5": {
 
         "Mathematics": [
-            ["Number Operations", "Solve problems using number operations."],
-            ["Fractions", "Add, subtract and compare fractions."],
-            ["Decimals", "Work with decimal numbers."],
-            ["Percentages", "Understand basic percentages."],
-            ["Measurement", "Solve measurement problems."]
+            ["Number Operations","Solve problems using number operations."],
+            ["Fractions","Add, subtract and compare fractions."],
+            ["Decimals","Work with decimal numbers."],
+            ["Percentages","Understand basic percentages."],
+            ["Measurement","Solve measurement problems."]
         ],
 
         "Science": [
-            ["Living Things", "Study characteristics of living things."],
-            ["Human Health", "Learn about healthy living."],
-            ["Matter", "Explore changes in matter."],
-            ["Energy", "Study energy and its transformations."],
-            ["Earth and Space", "Explore our planet and space."]
+            ["Living Things","Study characteristics of living things."],
+            ["Human Health","Learn about healthy living."],
+            ["Matter","Explore changes in matter."],
+            ["Energy","Study energy and its transformations."],
+            ["Earth and Space","Explore our planet and space."]
         ],
 
         "Computing": [
-            ["Data", "Understand basic data concepts."],
-            ["Spreadsheets", "Learn basic spreadsheet skills."],
-            ["Presentations", "Create simple presentations."],
-            ["Internet Research", "Learn how to search responsibly."],
-            ["Cybersecurity", "Understand basic online security."]
+            ["Data","Understand basic data concepts."],
+            ["Spreadsheets","Learn basic spreadsheet skills."],
+            ["Presentations","Create simple presentations."],
+            ["Internet Research","Learn how to search responsibly."],
+            ["Cybersecurity","Understand basic online security."]
         ]
 
     },
@@ -1305,27 +1822,27 @@ const curriculum = {
     "Primary 6": {
 
         "Mathematics": [
-            ["Number Systems", "Work with different number concepts."],
-            ["Fractions and Decimals", "Solve fraction and decimal problems."],
-            ["Percentages", "Solve percentage problems."],
-            ["Geometry", "Explore shapes, angles and space."],
-            ["Statistics", "Read and interpret simple data."]
+            ["Number Systems","Work with different number concepts."],
+            ["Fractions and Decimals","Solve fraction and decimal problems."],
+            ["Percentages","Solve percentage problems."],
+            ["Geometry","Explore shapes, angles and space."],
+            ["Statistics","Read and interpret simple data."]
         ],
 
         "Science": [
-            ["Human Systems", "Learn about major body systems."],
-            ["Life Cycles", "Explore life cycles of organisms."],
-            ["Matter and Energy", "Study matter and energy."],
-            ["Forces", "Explore forces and motion."],
-            ["Environment", "Understand environmental protection."]
+            ["Human Systems","Learn about major body systems."],
+            ["Life Cycles","Explore life cycles of organisms."],
+            ["Matter and Energy","Study matter and energy."],
+            ["Forces","Explore forces and motion."],
+            ["Environment","Understand environmental protection."]
         ],
 
         "Computing": [
-            ["Computer Systems", "Understand how computer systems work."],
-            ["Algorithms", "Learn step-by-step problem solving."],
-            ["Programming Concepts", "Explore basic programming ideas."],
-            ["Data", "Understand and organise data."],
-            ["Online Safety", "Develop responsible digital habits."]
+            ["Computer Systems","Understand how computer systems work."],
+            ["Algorithms","Learn step-by-step problem solving."],
+            ["Programming Concepts","Explore basic programming ideas."],
+            ["Data","Understand and organise data."],
+            ["Online Safety","Develop responsible digital habits."]
         ]
 
     },
@@ -1334,27 +1851,27 @@ const curriculum = {
     "JHS 1": {
 
         "Mathematics": [
-            ["Number and Numeration", "Explore number concepts and operations."],
-            ["Fractions", "Solve problems involving fractions."],
-            ["Decimals", "Work with decimals."],
-            ["Algebra", "Begin working with algebraic expressions."],
-            ["Geometry", "Explore angles, lines and shapes."]
+            ["Number and Numeration","Explore number concepts and operations."],
+            ["Fractions","Solve problems involving fractions."],
+            ["Decimals","Work with decimals."],
+            ["Algebra","Begin working with algebraic expressions."],
+            ["Geometry","Explore angles, lines and shapes."]
         ],
 
         "Science": [
-            ["Living Cells", "Explore the basic unit of life."],
-            ["Matter", "Study matter and its properties."],
-            ["Energy", "Explore different forms of energy."],
-            ["Forces", "Understand forces and motion."],
-            ["The Environment", "Study ecosystems and environmental care."]
+            ["Living Cells","Explore the basic unit of life."],
+            ["Matter","Study matter and its properties."],
+            ["Energy","Explore different forms of energy."],
+            ["Forces","Understand forces and motion."],
+            ["The Environment","Study ecosystems and environmental care."]
         ],
 
         "Computing": [
-            ["Computer Systems", "Understand computer systems."],
-            ["Data Representation", "Learn how computers represent data."],
-            ["Algorithms", "Develop step-by-step solutions."],
-            ["Programming", "Explore basic programming concepts."],
-            ["Cybersecurity", "Learn how to stay secure online."]
+            ["Computer Systems","Understand computer systems."],
+            ["Data Representation","Learn how computers represent data."],
+            ["Algorithms","Develop step-by-step solutions."],
+            ["Programming","Explore basic programming concepts."],
+            ["Cybersecurity","Learn how to stay secure online."]
         ]
 
     },
@@ -1363,27 +1880,27 @@ const curriculum = {
     "JHS 2": {
 
         "Mathematics": [
-            ["Integers", "Work with positive and negative numbers."],
-            ["Algebra", "Solve algebraic expressions."],
-            ["Linear Equations", "Solve simple equations."],
-            ["Geometry", "Study geometric relationships."],
-            ["Statistics", "Analyse and interpret data."]
+            ["Integers","Work with positive and negative numbers."],
+            ["Algebra","Solve algebraic expressions."],
+            ["Linear Equations","Solve simple equations."],
+            ["Geometry","Study geometric relationships."],
+            ["Statistics","Analyse and interpret data."]
         ],
 
         "Science": [
-            ["Cells", "Study cells and their functions."],
-            ["Human Systems", "Explore major body systems."],
-            ["Chemical Substances", "Explore substances and mixtures."],
-            ["Electricity", "Learn about electrical circuits."],
-            ["Ecology", "Study relationships in ecosystems."]
+            ["Cells","Study cells and their functions."],
+            ["Human Systems","Explore major body systems."],
+            ["Chemical Substances","Explore substances and mixtures."],
+            ["Electricity","Learn about electrical circuits."],
+            ["Ecology","Study relationships in ecosystems."]
         ],
 
         "Computing": [
-            ["Programming", "Develop simple programs."],
-            ["Algorithms", "Design algorithms to solve problems."],
-            ["Databases", "Understand basic databases."],
-            ["Networks", "Learn about computer networks."],
-            ["Cybersecurity", "Explore digital security."]
+            ["Programming","Develop simple programs."],
+            ["Algorithms","Design algorithms to solve problems."],
+            ["Databases","Understand basic databases."],
+            ["Networks","Learn about computer networks."],
+            ["Cybersecurity","Explore digital security."]
         ]
 
     },
@@ -1392,27 +1909,27 @@ const curriculum = {
     "JHS 3": {
 
         "Mathematics": [
-            ["Number", "Solve advanced number problems."],
-            ["Algebra", "Work with algebraic expressions and equations."],
-            ["Geometry", "Solve geometry problems."],
-            ["Statistics", "Analyse and interpret statistical data."],
-            ["Probability", "Understand basic probability."]
+            ["Number","Solve advanced number problems."],
+            ["Algebra","Work with algebraic expressions and equations."],
+            ["Geometry","Solve geometry problems."],
+            ["Statistics","Analyse and interpret statistical data."],
+            ["Probability","Understand basic probability."]
         ],
 
         "Science": [
-            ["Human Reproduction", "Learn about human reproductive systems."],
-            ["Genetics", "Explore basic inheritance concepts."],
-            ["Energy", "Study energy transformations."],
-            ["Electricity", "Solve electrical problems."],
-            ["Environment", "Explore environmental sustainability."]
+            ["Human Reproduction","Learn about human reproductive systems."],
+            ["Genetics","Explore basic inheritance concepts."],
+            ["Energy","Study energy transformations."],
+            ["Electricity","Solve electrical problems."],
+            ["Environment","Explore environmental sustainability."]
         ],
 
         "Computing": [
-            ["Programming", "Develop problem-solving programs."],
-            ["Data Management", "Work with structured data."],
-            ["Computer Networks", "Understand network concepts."],
-            ["Cybersecurity", "Learn about digital threats and protection."],
-            ["Digital Citizenship", "Develop responsible digital behaviour."]
+            ["Programming","Develop problem-solving programs."],
+            ["Data Management","Work with structured data."],
+            ["Computer Networks","Understand network concepts."],
+            ["Cybersecurity","Learn about digital threats and protection."],
+            ["Digital Citizenship","Develop responsible digital behaviour."]
         ]
 
     }
@@ -1420,9 +1937,154 @@ const curriculum = {
 };
 
 
-/* ===================================
+/* =================================
+   LESSON DATABASE
+================================= */
+
+const lessons = {
+
+    "Primary 1": {
+
+        "Mathematics": {
+
+            "Numbers": {
+
+                title:"Numbers",
+
+                subtitle:
+                    "Let's learn how to recognise, count and use numbers.",
+
+                content:`
+
+                    <div class="lesson-card">
+
+                        <h2>
+                            📖 What is a number?
+                        </h2>
+
+                        <p>
+                            A number tells us <strong>how many</strong>
+                            things there are.
+                        </p>
+
+                        <p>
+                            We use numbers every day. We use them
+                            when we count toys, books, pencils,
+                            people and many other things.
+                        </p>
+
+                        <div class="example-box">
+
+                            <strong>
+                                Example
+                            </strong>
+
+                            <p>
+                                If you have 3 pencils, the number
+                                that tells us how many pencils you
+                                have is <strong>3</strong>.
+                            </p>
+
+                            <div class="number-example">
+
+                                <div class="number-ball">1</div>
+                                <div class="number-ball">2</div>
+                                <div class="number-ball">3</div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="lesson-card">
+
+                        <h2>
+                            🔢 Counting Numbers
+                        </h2>
+
+                        <p>
+                            We can count numbers from 1 upwards.
+                        </p>
+
+                        <p>
+                            1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+                        </p>
+
+                        <p>
+                            When we count, each number tells us
+                            the total number of things we have counted.
+                        </p>
+
+                    </div>
+
+
+                    <div class="lesson-card">
+
+                        <h2>
+                            💡 Remember
+                        </h2>
+
+                        <p>
+                            Numbers help us know <strong>how many</strong>
+                            things there are.
+                        </p>
+
+                        <p>
+                            Try counting things around you!
+                        </p>
+
+                    </div>
+
+                `,
+
+                questions:[
+
+                    {
+                        question:"Which number comes after 3?",
+                        options:["2","4","5","1"],
+                        answer:"4"
+                    },
+
+                    {
+                        question:"How many objects are there if you have 5 pencils?",
+                        options:["3","4","5","6"],
+                        answer:"5"
+                    },
+
+                    {
+                        question:"Which number comes before 7?",
+                        options:["5","6","8","9"],
+                        answer:"6"
+                    },
+
+                    {
+                        question:"Which number is the biggest?",
+                        options:["2","8","4","1"],
+                        answer:"8"
+                    },
+
+                    {
+                        question:"What comes after 9?",
+                        options:["8","10","7","6"],
+                        answer:"10"
+                    }
+
+                ]
+
+            }
+
+        }
+
+    }
+
+};
+
+
+/* =================================
    ELEMENTS
-=================================== */
+================================= */
 
 const landingPage =
     document.getElementById("landingPage");
@@ -1433,73 +2095,93 @@ const dashboard =
 const topicsPage =
     document.getElementById("topicsPage");
 
+const lessonPage =
+    document.getElementById("lessonPage");
+
 const studentForm =
     document.getElementById("studentForm");
 
 
-/* ===================================
+/* =================================
    START LEARNING
-=================================== */
+================================= */
 
-studentForm.addEventListener("submit", function(event){
+studentForm.addEventListener(
+    "submit",
+    function(event){
 
-    event.preventDefault();
-
-    const name =
-        document.getElementById("studentName").value.trim();
-
-    const studentClass =
-        document.getElementById("studentClass").value;
-
-    if(!name || !studentClass){
-
-        alert("Please enter your name and select your class.");
-
-        return;
-    }
+        event.preventDefault();
 
 
-    const student = {
+        const name =
+            document.getElementById(
+                "studentName"
+            ).value.trim();
 
-        name:name,
 
-        class:studentClass,
+        const studentClass =
+            document.getElementById(
+                "studentClass"
+            ).value;
 
-        joinedDate:new Date().toISOString(),
 
-        progress:{
-            topics:0,
-            questions:0,
-            bestScore:0,
-            streak:0
+        if(!name || !studentClass){
+
+            alert(
+                "Please enter your name and select your class."
+            );
+
+            return;
+
         }
 
-    };
+
+        const student = {
+
+            name:name,
+
+            class:studentClass,
+
+            joinedDate:new Date().toISOString(),
+
+            progress:{
+                topics:0,
+                questions:0,
+                bestScore:0,
+                streak:0
+            }
+
+        };
 
 
-    localStorage.setItem(
-        "smartStepsStudent",
-        JSON.stringify(student)
-    );
+        localStorage.setItem(
+            "smartStepsStudent",
+            JSON.stringify(student)
+        );
 
 
-    showDashboard();
+        showDashboard();
 
-});
+    }
+);
 
 
-/* ===================================
+/* =================================
    SHOW DASHBOARD
-=================================== */
+================================= */
 
 function showDashboard(){
 
     const savedStudent =
-        localStorage.getItem("smartStepsStudent");
+        localStorage.getItem(
+            "smartStepsStudent"
+        );
+
 
     if(!savedStudent){
 
         return;
+
     }
 
 
@@ -1511,26 +2193,30 @@ function showDashboard(){
 
     topicsPage.classList.add("hidden");
 
+    lessonPage.classList.add("hidden");
+
     dashboard.classList.remove("hidden");
 
 
     document.getElementById(
         "studentDisplayName"
-    ).textContent = student.name;
+    ).textContent =
+        student.name;
 
 
     document.getElementById(
         "studentDisplayClass"
-    ).textContent = student.class;
+    ).textContent =
+        student.class;
 
 
     document.getElementById(
         "profileInitial"
     ).textContent =
-        student.name.charAt(0).toUpperCase();
+        student.name
+        .charAt(0)
+        .toUpperCase();
 
-
-    /* Progress */
 
     if(student.progress){
 
@@ -1562,20 +2248,26 @@ function showDashboard(){
 }
 
 
-/* ===================================
+/* =================================
    OPEN SUBJECT
-=================================== */
+================================= */
 
 function openSubject(subject){
 
     const savedStudent =
-        localStorage.getItem("smartStepsStudent");
+        localStorage.getItem(
+            "smartStepsStudent"
+        );
+
 
     if(!savedStudent){
 
-        alert("Please start learning first.");
+        alert(
+            "Please start learning first."
+        );
 
         return;
+
     }
 
 
@@ -1593,9 +2285,12 @@ function openSubject(subject){
 
     if(!topics){
 
-        alert("Topics are not available yet.");
+        alert(
+            "Topics are not available yet."
+        );
 
         return;
+
     }
 
 
@@ -1603,17 +2298,21 @@ function openSubject(subject){
 
     landingPage.classList.add("hidden");
 
+    lessonPage.classList.add("hidden");
+
     topicsPage.classList.remove("hidden");
 
 
     document.getElementById(
         "topicsSubject"
-    ).textContent = subject;
+    ).textContent =
+        subject;
 
 
     document.getElementById(
         "topicsClass"
-    ).textContent = studentClass;
+    ).textContent =
+        studentClass;
 
 
     document.getElementById(
@@ -1623,104 +2322,762 @@ function openSubject(subject){
 
 
     const topicList =
-        document.getElementById("topicList");
+        document.getElementById(
+            "topicList"
+        );
 
 
     topicList.innerHTML = "";
 
 
-    topics.forEach(function(topic,index){
+    topics.forEach(
+        function(topic,index){
 
-        const topicCard =
-            document.createElement("div");
-
-        topicCard.className = "topic-card";
+            const topicCard =
+                document.createElement("div");
 
 
-        topicCard.innerHTML = `
+            topicCard.className =
+                "topic-card";
 
-            <div class="topic-left">
 
-                <div class="topic-number">
-                    ${index + 1}
+            topicCard.innerHTML = `
+
+                <div class="topic-left">
+
+                    <div class="topic-number">
+                        ${index + 1}
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            ${topic[0]}
+                        </h3>
+
+                        <p>
+                            ${topic[1]}
+                        </p>
+
+                    </div>
+
                 </div>
 
-                <div>
 
-                    <h3>
-                        ${topic[0]}
-                    </h3>
+                <button
+                    class="learn-btn"
+                    onclick="openLesson('${subject}', '${topic[0]}')"
+                >
+                    Learn →
+                </button>
 
-                    <p>
-                        ${topic[1]}
-                    </p>
-
-                </div>
-
-            </div>
-
-            <button
-                class="learn-btn"
-                onclick="openLesson('${subject}', '${topic[0]}')"
-            >
-                Learn →
-            </button>
-
-        `;
+            `;
 
 
-        topicList.appendChild(topicCard);
+            topicList.appendChild(
+                topicCard
+            );
 
-    });
-
-}
-
-
-/* ===================================
-   OPEN LESSON
-=================================== */
-
-function openLesson(subject,topic){
-
-    alert(
-        subject +
-        " → " +
-        topic +
-        "\n\nLesson content will be added in the next module. 🚀"
+        }
     );
 
 }
 
 
-/* ===================================
+/* =================================
+   OPEN LESSON
+================================= */
+
+function openLesson(subject,topic){
+
+    const savedStudent =
+        localStorage.getItem(
+            "smartStepsStudent"
+        );
+
+
+    if(!savedStudent){
+
+        return;
+
+    }
+
+
+    const student =
+        JSON.parse(savedStudent);
+
+
+    topicsPage.classList.add("hidden");
+
+    dashboard.classList.add("hidden");
+
+    lessonPage.classList.remove("hidden");
+
+
+    document.getElementById(
+        "lessonSubject"
+    ).textContent =
+        subject;
+
+
+    document.getElementById(
+        "lessonClass"
+    ).textContent =
+        student.class +
+        " • " +
+        topic;
+
+
+    const lesson =
+        lessons[
+            student.class
+        ]?.[
+            subject
+        ]?.[
+            topic
+        ];
+
+
+    const lessonBody =
+        document.getElementById(
+            "lessonBody"
+        );
+
+
+    const practiceSection =
+        document.getElementById(
+            "practiceSection"
+        );
+
+
+    const resultContainer =
+        document.getElementById(
+            "resultContainer"
+        );
+
+
+    if(lesson){
+
+        document.getElementById(
+            "lessonTitle"
+        ).textContent =
+            lesson.title;
+
+
+        document.getElementById(
+            "lessonSubtitle"
+        ).textContent =
+            lesson.subtitle;
+
+
+        lessonBody.innerHTML =
+            lesson.content;
+
+
+        practiceSection.classList.remove(
+            "hidden"
+        );
+
+
+        resultContainer.classList.add(
+            "hidden"
+        );
+
+
+        loadQuestions(
+            lesson.questions
+        );
+
+    }
+
+    else{
+
+        document.getElementById(
+            "lessonTitle"
+        ).textContent =
+            topic;
+
+
+        document.getElementById(
+            "lessonSubtitle"
+        ).textContent =
+            "This lesson is coming soon!";
+
+
+        lessonBody.innerHTML = `
+
+            <div class="lesson-card">
+
+                <h2>
+                    🚀 Coming Soon
+                </h2>
+
+                <p>
+                    We are preparing this lesson
+                    for you.
+                </p>
+
+                <p>
+                    Come back soon to learn,
+                    practise and improve!
+                </p>
+
+            </div>
+
+        `;
+
+
+        practiceSection.classList.add(
+            "hidden"
+        );
+
+    }
+
+}
+
+
+/* =================================
+   LOAD QUESTIONS
+================================= */
+
+let currentQuestions = [];
+
+
+function loadQuestions(questions){
+
+    currentQuestions =
+        questions;
+
+
+    const container =
+        document.getElementById(
+            "questionsContainer"
+        );
+
+
+    container.innerHTML = "";
+
+
+    questions.forEach(
+        function(question,index){
+
+            const questionBox =
+                document.createElement("div");
+
+
+            questionBox.className =
+                "practice-question";
+
+
+            let optionsHTML = "";
+
+
+            question.options.forEach(
+                function(option){
+
+                    optionsHTML += `
+
+                        <button
+                            class="answer-option"
+                            data-question="${index}"
+                            data-answer="${option}"
+                            onclick="selectAnswer(this)"
+                        >
+                            ${option}
+                        </button>
+
+                    `;
+
+                }
+            );
+
+
+            questionBox.innerHTML = `
+
+                <div class="question-number">
+                    QUESTION ${index + 1}
+                </div>
+
+                <div class="question-text">
+                    ${question.question}
+                </div>
+
+                <div class="answer-options">
+
+                    ${optionsHTML}
+
+                </div>
+
+            `;
+
+
+            container.appendChild(
+                questionBox
+            );
+
+        }
+    );
+
+}
+
+
+/* =================================
+   SELECT ANSWER
+================================= */
+
+function selectAnswer(button){
+
+    const questionNumber =
+        button.dataset.question;
+
+
+    const allButtons =
+        document.querySelectorAll(
+            `.answer-option[data-question="${questionNumber}"]`
+        );
+
+
+    allButtons.forEach(
+        function(btn){
+
+            btn.classList.remove(
+                "selected"
+            );
+
+        }
+    );
+
+
+    button.classList.add(
+        "selected"
+    );
+
+}
+
+
+/* =================================
+   CHECK ANSWERS
+================================= */
+
+function checkAnswers(){
+
+    let score = 0;
+
+    let answered = 0;
+
+
+    currentQuestions.forEach(
+        function(question,index){
+
+            const selected =
+                document.querySelector(
+                    `.answer-option[data-question="${index}"].selected`
+                );
+
+
+            const options =
+                document.querySelectorAll(
+                    `.answer-option[data-question="${index}"]`
+                );
+
+
+            options.forEach(
+                function(option){
+
+                    option.classList.remove(
+                        "correct",
+                        "wrong"
+                    );
+
+
+                    if(
+                        option.dataset.answer ===
+                        question.answer
+                    ){
+
+                        option.classList.add(
+                            "correct"
+                        );
+
+                    }
+
+                }
+            );
+
+
+            if(selected){
+
+                answered++;
+
+
+                if(
+                    selected.dataset.answer ===
+                    question.answer
+                ){
+
+                    score++;
+
+                }
+
+                else{
+
+                    selected.classList.add(
+                        "wrong"
+                    );
+
+                }
+
+            }
+
+        }
+    );
+
+
+    if(answered < currentQuestions.length){
+
+        alert(
+            "Please answer all the questions before checking your answers."
+        );
+
+        return;
+
+    }
+
+
+    const percentage =
+        Math.round(
+            (score / currentQuestions.length) * 100
+        );
+
+
+    updateProgress(
+        score,
+        currentQuestions.length,
+        percentage
+    );
+
+
+    showResult(
+        score,
+        currentQuestions.length,
+        percentage
+    );
+
+}
+
+
+/* =================================
+   SHOW RESULT
+================================= */
+
+function showResult(
+    score,
+    total,
+    percentage
+){
+
+    const resultContainer =
+        document.getElementById(
+            "resultContainer"
+        );
+
+
+    let icon =
+        "🎉";
+
+    let message =
+        "Excellent work! Keep learning and improving!";
+
+
+    if(percentage < 50){
+
+        icon =
+            "💪";
+
+        message =
+            "Good try! Review the lesson and try again.";
+
+    }
+
+    else if(percentage < 80){
+
+        icon =
+            "👏";
+
+        message =
+            "Good job! A little more practice will help.";
+
+    }
+
+
+    resultContainer.innerHTML = `
+
+        <div class="result-card">
+
+            <div class="result-icon">
+                ${icon}
+            </div>
+
+            <h2>
+                Practice Complete!
+            </h2>
+
+            <div class="result-score">
+                ${percentage}%
+            </div>
+
+            <p class="result-message">
+                You got ${score} out of ${total}
+                questions correct.
+                <br><br>
+                ${message}
+            </p>
+
+            <div class="result-buttons">
+
+                <button
+                    class="result-btn secondary-result-btn"
+                    onclick="backToTopics()"
+                >
+                    Back to Topics
+                </button>
+
+                <button
+                    class="result-btn primary-result-btn"
+                    onclick="retryLesson()"
+                >
+                    Try Again
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    resultContainer.classList.remove(
+        "hidden"
+    );
+
+
+    resultContainer.scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =================================
+   UPDATE PROGRESS
+================================= */
+
+function updateProgress(
+    score,
+    total,
+    percentage
+){
+
+    const savedStudent =
+        localStorage.getItem(
+            "smartStepsStudent"
+        );
+
+
+    if(!savedStudent){
+
+        return;
+
+    }
+
+
+    const student =
+        JSON.parse(savedStudent);
+
+
+    if(!student.progress){
+
+        student.progress = {
+
+            topics:0,
+
+            questions:0,
+
+            bestScore:0,
+
+            streak:0
+
+        };
+
+    }
+
+
+    student.progress.questions += total;
+
+
+    if(
+        percentage >
+        student.progress.bestScore
+    ){
+
+        student.progress.bestScore =
+            percentage;
+
+    }
+
+
+    if(score === total){
+
+        student.progress.topics += 1;
+
+    }
+
+
+    localStorage.setItem(
+        "smartStepsStudent",
+        JSON.stringify(student)
+    );
+
+
+    document.getElementById(
+        "topicsCompleted"
+    ).textContent =
+        student.progress.topics;
+
+
+    document.getElementById(
+        "questionsAnswered"
+    ).textContent =
+        student.progress.questions;
+
+
+    document.getElementById(
+        "bestScore"
+    ).textContent =
+        student.progress.bestScore + "%";
+
+}
+
+
+/* =================================
+   RETRY LESSON
+================================= */
+
+function retryLesson(){
+
+    const savedStudent =
+        localStorage.getItem(
+            "smartStepsStudent"
+        );
+
+
+    if(!savedStudent){
+
+        return;
+
+    }
+
+
+    const student =
+        JSON.parse(savedStudent);
+
+
+    const subject =
+        document.getElementById(
+            "lessonSubject"
+        ).textContent;
+
+
+    const classAndTopic =
+        document.getElementById(
+            "lessonClass"
+        ).textContent;
+
+
+    const topic =
+        classAndTopic.split(" • ")[1];
+
+
+    openLesson(
+        subject,
+        topic
+    );
+
+}
+
+
+/* =================================
+   BACK TO TOPICS
+================================= */
+
+function backToTopics(){
+
+    lessonPage.classList.add(
+        "hidden"
+    );
+
+
+    dashboard.classList.add(
+        "hidden"
+    );
+
+
+    topicsPage.classList.remove(
+        "hidden"
+    );
+
+}
+
+
+/* =================================
    BACK TO DASHBOARD
-=================================== */
+================================= */
 
 function backToDashboard(){
 
-    topicsPage.classList.add("hidden");
+    topicsPage.classList.add(
+        "hidden"
+    );
 
-    dashboard.classList.remove("hidden");
+
+    lessonPage.classList.add(
+        "hidden"
+    );
+
+
+    dashboard.classList.remove(
+        "hidden"
+    );
 
 }
 
 
-/* ===================================
+/* =================================
    HOME
-=================================== */
+================================= */
 
 function goHome(){
 
-    topicsPage.classList.add("hidden");
+    topicsPage.classList.add(
+        "hidden"
+    );
 
-    dashboard.classList.remove("hidden");
+
+    lessonPage.classList.add(
+        "hidden"
+    );
+
+
+    dashboard.classList.remove(
+        "hidden"
+    );
 
 }
 
 
-/* ===================================
+/* =================================
    QUICK PRACTICE
-=================================== */
+================================= */
 
 function quickPractice(subject){
 
@@ -1733,32 +3090,22 @@ function quickPractice(subject){
 }
 
 
-/* ===================================
+/* =================================
    PROGRESS
-=================================== */
+================================= */
 
 function showProgress(){
 
-    alert(
-        "Your Progress\n\n" +
-        "Your detailed progress page will be added soon. 📊"
-    );
-
-}
-
-
-/* ===================================
-   PROFILE
-=================================== */
-
-function showProfile(){
-
     const savedStudent =
-        localStorage.getItem("smartStepsStudent");
+        localStorage.getItem(
+            "smartStepsStudent"
+        );
+
 
     if(!savedStudent){
 
         return;
+
     }
 
 
@@ -1767,28 +3114,78 @@ function showProfile(){
 
 
     alert(
-        "Student Profile\n\n" +
-        "Name: " +
-        student.name +
-        "\nClass: " +
-        student.class
+
+        "Your Progress\n\n" +
+
+        "Topics Completed: " +
+        (student.progress.topics || 0) +
+
+        "\nQuestions Answered: " +
+        (student.progress.questions || 0) +
+
+        "\nBest Score: " +
+        (student.progress.bestScore || 0) +
+        "%"
+
     );
 
 }
 
 
-/* ===================================
+/* =================================
+   PROFILE
+================================= */
+
+function showProfile(){
+
+    const savedStudent =
+        localStorage.getItem(
+            "smartStepsStudent"
+        );
+
+
+    if(!savedStudent){
+
+        return;
+
+    }
+
+
+    const student =
+        JSON.parse(savedStudent);
+
+
+    alert(
+
+        "Student Profile\n\n" +
+
+        "Name: " +
+        student.name +
+
+        "\nClass: " +
+        student.class
+
+    );
+
+}
+
+
+/* =================================
    LOGOUT
-=================================== */
+================================= */
 
 function logout(){
 
     const confirmLogout =
-        confirm("Are you sure you want to log out?");
+        confirm(
+            "Are you sure you want to log out?"
+        );
+
 
     if(!confirmLogout){
 
         return;
+
     }
 
 
@@ -1797,37 +3194,53 @@ function logout(){
     );
 
 
-    dashboard.classList.add("hidden");
-
-    topicsPage.classList.add("hidden");
-
-    landingPage.classList.remove("hidden");
+    dashboard.classList.add(
+        "hidden"
+    );
 
 
-    document.getElementById(
-        "studentForm"
-    ).reset();
+    topicsPage.classList.add(
+        "hidden"
+    );
+
+
+    lessonPage.classList.add(
+        "hidden"
+    );
+
+
+    landingPage.classList.remove(
+        "hidden"
+    );
+
+
+    studentForm.reset();
 
 }
 
 
-/* ===================================
+/* =================================
    AUTO LOGIN
-=================================== */
+================================= */
 
-window.addEventListener("load",function(){
+window.addEventListener(
+    "load",
+    function(){
 
-    const savedStudent =
-        localStorage.getItem("smartStepsStudent");
+        const savedStudent =
+            localStorage.getItem(
+                "smartStepsStudent"
+            );
 
 
-    if(savedStudent){
+        if(savedStudent){
 
-        showDashboard();
+            showDashboard();
+
+        }
 
     }
-
-});
+);
 
 </script>
 
