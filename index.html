@@ -1,14 +1,12 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Smart Steps | Learn. Practice. Improve.</title>
+<title>Smart Steps</title>
 
 <style>
-
 *{
     box-sizing:border-box;
     margin:0;
@@ -21,234 +19,132 @@ body{
     color:#172033;
 }
 
-/* =========================
-   GENERAL
-========================= */
-
 button{
-    cursor:pointer;
-    border:none;
     font-family:inherit;
+    cursor:pointer;
 }
 
 .hidden{
     display:none !important;
 }
 
-
 /* =========================
    LANDING PAGE
 ========================= */
 
-.landing-page{
+#landingPage{
     min-height:100vh;
-    background:linear-gradient(135deg,#eef7ff,#f8f4ff);
+    background:linear-gradient(135deg,#4f46e5,#7c3aed);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
 }
 
-
-/* HEADER */
-
-header{
-    padding:22px 7%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+.landing-card{
+    width:100%;
+    max-width:500px;
+    background:white;
+    border-radius:28px;
+    padding:35px 30px;
+    box-shadow:0 20px 60px rgba(0,0,0,.18);
+    text-align:center;
 }
 
 .logo{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    font-size:25px;
-    font-weight:800;
-}
-
-.logo-icon{
-    width:44px;
-    height:44px;
-    border-radius:13px;
-    background:#5b5ce2;
+    width:70px;
+    height:70px;
+    border-radius:20px;
+    background:#4f46e5;
     color:white;
     display:flex;
     justify-content:center;
     align-items:center;
-    font-size:23px;
+    font-size:35px;
+    margin:0 auto 18px;
 }
 
-.tag{
-    color:#667085;
-    font-size:14px;
-}
-
-
-/* HERO */
-
-.hero{
-    min-height:calc(100vh - 90px);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:40px 7%;
-}
-
-.hero-content{
-    width:100%;
-    max-width:1100px;
-    display:grid;
-    grid-template-columns:1.1fr .9fr;
-    gap:60px;
-    align-items:center;
-}
-
-.hero-text h1{
-    font-size:56px;
-    line-height:1.05;
-    margin-bottom:20px;
-}
-
-.hero-text h1 span{
-    color:#5b5ce2;
-}
-
-.hero-text p{
-    font-size:19px;
-    line-height:1.7;
-    color:#667085;
-    max-width:580px;
-    margin-bottom:30px;
-}
-
-.features{
-    display:flex;
-    gap:15px;
-    flex-wrap:wrap;
-}
-
-.feature{
-    background:white;
-    padding:12px 17px;
-    border-radius:14px;
-    box-shadow:0 5px 20px rgba(0,0,0,.05);
-    font-size:14px;
-}
-
-
-/* LOGIN CARD */
-
-.card{
-    background:white;
-    padding:35px;
-    border-radius:25px;
-    box-shadow:0 20px 50px rgba(43,52,80,.12);
-}
-
-.card h2{
-    font-size:27px;
+.landing-card h1{
+    font-size:34px;
     margin-bottom:8px;
 }
 
-.card-subtitle{
+.tagline{
     color:#667085;
     margin-bottom:25px;
 }
 
-label{
-    display:block;
-    margin-bottom:7px;
-    font-weight:600;
-    font-size:14px;
+.subject-preview{
+    display:flex;
+    gap:8px;
+    justify-content:center;
+    flex-wrap:wrap;
+    margin-bottom:28px;
 }
 
-input,
-select{
+.subject-preview span{
+    background:#eef2ff;
+    color:#4338ca;
+    padding:8px 13px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.form-group{
+    text-align:left;
+    margin-bottom:16px;
+}
+
+.form-group label{
+    display:block;
+    font-weight:bold;
+    margin-bottom:7px;
+}
+
+.form-group input,
+.form-group select{
     width:100%;
     padding:14px;
     border:1px solid #d9deea;
     border-radius:12px;
-    font-size:15px;
-    margin-bottom:18px;
+    font-size:16px;
     outline:none;
 }
 
-input:focus,
-select:focus{
-    border-color:#5b5ce2;
+.form-group input:focus,
+.form-group select:focus{
+    border-color:#4f46e5;
 }
 
-.primary-button{
+.start-btn{
     width:100%;
+    border:none;
+    background:#4f46e5;
+    color:white;
     padding:15px;
     border-radius:13px;
-    background:#5b5ce2;
-    color:white;
     font-size:16px;
-    font-weight:700;
+    font-weight:bold;
+    margin-top:5px;
 }
 
-.primary-button:hover{
-    opacity:.9;
+.start-btn:hover{
+    background:#4338ca;
 }
-
-.note{
-    text-align:center;
-    color:#98a2b3;
-    font-size:12px;
-    margin-top:15px;
-}
-
-
-/* PREVIEW */
-
-.preview{
-    margin-top:28px;
-    padding:18px;
-    border-radius:18px;
-    background:#f7f8ff;
-}
-
-.preview-title{
-    font-size:13px;
-    font-weight:700;
-    margin-bottom:12px;
-}
-
-.subject-row{
-    display:flex;
-    gap:8px;
-}
-
-.subject{
-    flex:1;
-    background:white;
-    padding:12px 6px;
-    border-radius:12px;
-    text-align:center;
-    font-size:12px;
-}
-
-.subject-icon{
-    font-size:22px;
-    display:block;
-    margin-bottom:5px;
-}
-
 
 /* =========================
    DASHBOARD
 ========================= */
 
-.dashboard{
+#dashboard{
     min-height:100vh;
-    background:#f5f7fb;
 }
 
-
-/* DASHBOARD HEADER */
-
-.dashboard-header{
+.topbar{
     background:white;
-    border-bottom:1px solid #e8eaf0;
-    padding:16px 5%;
+    border-bottom:1px solid #e6e9f0;
+    padding:15px 5%;
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -257,80 +153,69 @@ select:focus{
     z-index:10;
 }
 
-.dashboard-logo{
+.brand{
     display:flex;
     align-items:center;
-    gap:9px;
-    font-size:21px;
-    font-weight:800;
+    gap:10px;
+    font-weight:bold;
+    font-size:20px;
 }
 
-.dashboard-logo-icon{
+.brand-icon{
     width:38px;
     height:38px;
     border-radius:11px;
-    background:#5b5ce2;
+    background:#4f46e5;
     color:white;
     display:flex;
     justify-content:center;
     align-items:center;
 }
 
-.header-right{
+.top-actions{
     display:flex;
     align-items:center;
-    gap:15px;
+    gap:12px;
 }
 
-.notification{
+.logout-btn{
+    border:none;
+    background:#fee2e2;
+    color:#b91c1c;
+    padding:9px 13px;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+.profile{
     width:38px;
     height:38px;
-    background:#f1f2ff;
     border-radius:50%;
+    background:#ddd6fe;
+    color:#5b21b6;
     display:flex;
     justify-content:center;
     align-items:center;
-    font-size:18px;
+    font-weight:bold;
 }
 
-.profile-small{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    font-weight:600;
-}
-
-.profile-circle{
-    width:36px;
-    height:36px;
-    background:#e8e8ff;
-    color:#5b5ce2;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:800;
-}
-
-
-/* MAIN */
-
-.dashboard-main{
-    max-width:1200px;
+.dashboard-content{
+    max-width:1150px;
     margin:auto;
-    padding:35px 5% 100px;
+    padding:35px 20px 100px;
 }
-
-
-/* WELCOME */
 
 .welcome{
-    margin-bottom:28px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    margin-bottom:25px;
 }
 
-.welcome h1{
+.welcome h2{
     font-size:30px;
-    margin-bottom:7px;
+    margin-bottom:5px;
 }
 
 .welcome p{
@@ -338,212 +223,181 @@ select:focus{
 }
 
 .class-badge{
-    display:inline-block;
-    margin-top:10px;
-    background:#e8e8ff;
-    color:#4c4dcc;
-    padding:7px 13px;
+    background:#ede9fe;
+    color:#5b21b6;
+    padding:10px 15px;
     border-radius:20px;
-    font-size:13px;
-    font-weight:700;
+    font-weight:bold;
 }
 
+/* GOAL */
 
-/* DAILY GOAL */
-
-.goal{
-    background:linear-gradient(135deg,#5b5ce2,#7778ed);
+.goal-card{
+    background:linear-gradient(135deg,#4f46e5,#6366f1);
     color:white;
-    border-radius:22px;
-    padding:25px;
-    margin-bottom:30px;
+    padding:22px;
+    border-radius:20px;
+    margin-bottom:28px;
 }
 
 .goal-top{
     display:flex;
     justify-content:space-between;
-    align-items:center;
-    gap:20px;
+    margin-bottom:13px;
 }
 
-.goal h2{
-    margin-bottom:7px;
-}
-
-.goal p{
+.goal-card p{
     opacity:.9;
     font-size:14px;
 }
 
-.goal-number{
-    font-size:28px;
-    font-weight:800;
-}
-
 .progress-bar{
-    width:100%;
     height:9px;
-    background:rgba(255,255,255,.3);
-    border-radius:20px;
+    background:rgba(255,255,255,.25);
+    border-radius:10px;
     overflow:hidden;
-    margin-top:20px;
 }
 
 .progress-fill{
     width:65%;
     height:100%;
     background:white;
-    border-radius:20px;
+    border-radius:10px;
 }
-
 
 /* SECTION */
 
 .section-title{
-    font-size:20px;
+    font-size:22px;
     margin-bottom:15px;
 }
 
-
-/* SUBJECTS */
+/* SUBJECT CARDS */
 
 .subject-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:18px;
-    margin-bottom:35px;
+    margin-bottom:30px;
 }
 
 .subject-card{
     background:white;
+    padding:22px;
     border-radius:20px;
-    padding:25px;
-    box-shadow:0 5px 20px rgba(0,0,0,.05);
+    border:1px solid #e7eaf1;
     transition:.2s;
-    cursor:pointer;
 }
 
 .subject-card:hover{
-    transform:translateY(-4px);
-    box-shadow:0 12px 25px rgba(0,0,0,.09);
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(0,0,0,.07);
 }
 
-.subject-card-icon{
-    width:58px;
-    height:58px;
-    border-radius:17px;
+.subject-icon{
+    width:52px;
+    height:52px;
+    border-radius:15px;
     display:flex;
-    align-items:center;
     justify-content:center;
-    font-size:29px;
-    margin-bottom:17px;
+    align-items:center;
+    font-size:26px;
+    margin-bottom:15px;
 }
 
-.math{
-    background:#fff3df;
+.math-icon{
+    background:#dbeafe;
 }
 
-.science{
-    background:#e7f8ef;
+.science-icon{
+    background:#dcfce7;
 }
 
-.computing{
-    background:#e9e9ff;
+.computing-icon{
+    background:#fef3c7;
 }
 
 .subject-card h3{
-    margin-bottom:8px;
+    margin-bottom:7px;
 }
 
 .subject-card p{
     color:#667085;
-    font-size:13px;
+    font-size:14px;
     line-height:1.5;
-    margin-bottom:17px;
+    margin-bottom:18px;
 }
 
-.explore{
-    color:#5b5ce2;
-    font-weight:700;
-    font-size:13px;
+.subject-btn{
+    border:none;
+    background:#f1f3f9;
+    padding:10px 14px;
+    border-radius:10px;
+    font-weight:bold;
+    color:#344054;
 }
 
+.subject-btn:hover{
+    background:#e0e7ff;
+    color:#4338ca;
+}
 
 /* QUICK PRACTICE */
 
-.quick-grid{
+.practice-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:15px;
-    margin-bottom:35px;
+    margin-bottom:30px;
 }
 
-.quick-card{
+.practice-card{
     background:white;
-    border:1px solid #e8eaf0;
-    border-radius:16px;
+    border:1px solid #e7eaf1;
+    border-radius:17px;
     padding:18px;
-    display:flex;
-    align-items:center;
-    gap:13px;
-    cursor:pointer;
 }
 
-.quick-card:hover{
-    border-color:#5b5ce2;
-}
-
-.quick-icon{
-    font-size:24px;
-}
-
-.quick-card strong{
+.practice-card strong{
     display:block;
-    margin-bottom:4px;
+    margin-bottom:7px;
 }
 
-.quick-card span{
-    font-size:12px;
+.practice-card span{
     color:#667085;
+    font-size:13px;
 }
-
 
 /* STATS */
 
-.stats{
+.stats-grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:15px;
-    margin-bottom:35px;
+    margin-bottom:30px;
 }
 
 .stat-card{
     background:white;
-    padding:20px;
-    border-radius:18px;
-    text-align:center;
+    border:1px solid #e7eaf1;
+    border-radius:17px;
+    padding:18px;
 }
 
-.stat-icon{
-    font-size:23px;
-    margin-bottom:8px;
-}
-
-.stat-value{
+.stat-number{
     font-size:25px;
-    font-weight:800;
-    margin-bottom:4px;
+    font-weight:bold;
+    margin-bottom:5px;
 }
 
 .stat-label{
     color:#667085;
-    font-size:12px;
+    font-size:13px;
 }
-
 
 /* ACHIEVEMENTS */
 
-.achievements{
+.achievement-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:15px;
@@ -551,133 +405,196 @@ select:focus{
 
 .achievement{
     background:white;
-    padding:18px;
+    border:1px solid #e7eaf1;
     border-radius:17px;
-    display:flex;
-    align-items:center;
-    gap:12px;
+    padding:18px;
 }
 
 .achievement-icon{
-    font-size:28px;
+    font-size:25px;
+    margin-bottom:10px;
 }
 
-.achievement strong{
-    display:block;
-    font-size:14px;
+.achievement p{
+    color:#667085;
+    font-size:13px;
+    margin-top:5px;
+}
+
+/* =========================
+   TOPICS PAGE
+========================= */
+
+#topicsPage{
+    min-height:100vh;
+    background:#f5f7fb;
+}
+
+.topics-header{
+    background:white;
+    border-bottom:1px solid #e6e9f0;
+    padding:15px 5%;
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.back-btn{
+    border:none;
+    background:#eef2ff;
+    color:#4338ca;
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    font-size:20px;
+}
+
+.topics-header-info h2{
+    font-size:21px;
+}
+
+.topics-header-info p{
+    color:#667085;
+    font-size:13px;
+    margin-top:3px;
+}
+
+.topics-content{
+    max-width:900px;
+    margin:auto;
+    padding:30px 20px 100px;
+}
+
+.topic-intro{
+    background:linear-gradient(135deg,#4f46e5,#6366f1);
+    color:white;
+    padding:25px;
+    border-radius:20px;
+    margin-bottom:25px;
+}
+
+.topic-intro h1{
+    margin-bottom:8px;
+}
+
+.topic-intro p{
+    opacity:.9;
+}
+
+.topic-list{
+    display:grid;
+    gap:14px;
+}
+
+.topic-card{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:17px;
+    padding:18px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.topic-left{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.topic-number{
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    background:#eef2ff;
+    color:#4338ca;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+}
+
+.topic-card h3{
     margin-bottom:4px;
 }
 
-.achievement span{
-    font-size:11px;
+.topic-card p{
     color:#667085;
+    font-size:13px;
 }
 
+.learn-btn{
+    border:none;
+    background:#4f46e5;
+    color:white;
+    padding:10px 15px;
+    border-radius:10px;
+    font-weight:bold;
+    white-space:nowrap;
+}
 
-/* BOTTOM NAV */
+.learn-btn:hover{
+    background:#4338ca;
+}
 
-.bottom-nav{
+/* MOBILE NAV */
+
+.mobile-nav{
     display:none;
 }
 
+/* RESPONSIVE */
 
-/* LOGOUT */
+@media(max-width:850px){
 
-.logout-button{
-    background:#fff0f0;
-    color:#d64545;
-    padding:9px 14px;
-    border-radius:10px;
-    font-size:12px;
-    font-weight:700;
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:800px){
-
-    header{
-        padding:18px 5%;
-    }
-
-    .tag{
-        display:none;
-    }
-
-    .hero{
-        padding:25px 5%;
-    }
-
-    .hero-content{
-        grid-template-columns:1fr;
-        gap:35px;
-    }
-
-    .hero-text{
-        text-align:center;
-    }
-
-    .hero-text h1{
-        font-size:42px;
-    }
-
-    .hero-text p{
-        font-size:16px;
-    }
-
-    .features{
-        justify-content:center;
-    }
-
-    .card{
-        padding:25px;
-    }
-
-
-    .dashboard-header{
-        padding:13px 4%;
-    }
-
-    .profile-small span{
-        display:none;
-    }
-
-    .dashboard-main{
-        padding:25px 4% 90px;
-    }
-
-    .welcome h1{
-        font-size:25px;
-    }
-
-    .goal-top{
-        align-items:flex-start;
-    }
-
-    .goal-number{
-        font-size:22px;
-    }
-
-    .subject-grid{
+    .subject-grid,
+    .practice-grid{
         grid-template-columns:1fr;
     }
 
-    .quick-grid{
-        grid-template-columns:1fr;
-    }
-
-    .stats{
+    .stats-grid{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .achievements{
+    .achievement-grid{
         grid-template-columns:1fr;
     }
+}
 
-    .bottom-nav{
+@media(max-width:600px){
+
+    .landing-card{
+        padding:28px 20px;
+    }
+
+    .landing-card h1{
+        font-size:29px;
+    }
+
+    .topbar{
+        padding:12px 15px;
+    }
+
+    .brand{
+        font-size:17px;
+    }
+
+    .welcome{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+    .welcome h2{
+        font-size:25px;
+    }
+
+    .dashboard-content{
+        padding:25px 15px 90px;
+    }
+
+    .mobile-nav{
+        display:flex;
         position:fixed;
         bottom:0;
         left:0;
@@ -685,147 +602,100 @@ select:focus{
         background:white;
         border-top:1px solid #e5e7eb;
         height:65px;
-        display:flex;
         justify-content:space-around;
         align-items:center;
         z-index:20;
     }
 
-    .bottom-nav div{
-        text-align:center;
-        font-size:11px;
+    .mobile-nav button{
+        border:none;
+        background:none;
         color:#667085;
+        font-size:11px;
     }
 
-    .bottom-nav .active{
-        color:#5b5ce2;
-        font-weight:700;
-    }
-
-    .bottom-nav span{
+    .mobile-nav span{
         display:block;
         font-size:20px;
-        margin-bottom:2px;
+        margin-bottom:3px;
     }
 
-}
+    .topic-card{
+        align-items:flex-start;
+    }
 
+    .topic-card{
+        flex-direction:column;
+    }
+
+    .learn-btn{
+        width:100%;
+    }
+
+    .topics-content{
+        padding:20px 15px 90px;
+    }
+
+    .topics-header{
+        padding:12px 15px;
+    }
+
+    .logout-btn{
+        padding:8px 9px;
+        font-size:12px;
+    }
+}
 </style>
 </head>
 
-
 <body>
 
-
-<!-- =====================================================
+<!-- =========================
      LANDING PAGE
-===================================================== -->
+========================= -->
 
-<div id="landingPage" class="landing-page">
+<section id="landingPage">
 
-<header>
+    <div class="landing-card">
 
-    <div class="logo">
+        <div class="logo">★</div>
 
-        <div class="logo-icon">
-            ★
-        </div>
+        <h1>Smart Steps</h1>
 
-        <div>
-            Smart Steps
-        </div>
-
-    </div>
-
-    <div class="tag">
-        Learn. Practice. Improve.
-    </div>
-
-</header>
-
-
-<section class="hero">
-
-<div class="hero-content">
-
-
-    <!-- LEFT -->
-
-    <div class="hero-text">
-
-        <h1>
-            Take your next
-            <span>Smart Step.</span>
-        </h1>
-
-        <p>
-            A fun and simple way for Primary and JHS students
-            to learn Mathematics, Science and Computing,
-            practise questions and improve their skills.
+        <p class="tagline">
+            Learn. Practice. Improve.
         </p>
 
-
-        <div class="features">
-
-            <div class="feature">
-                🧮 Mathematics
-            </div>
-
-            <div class="feature">
-                🔬 Science
-            </div>
-
-            <div class="feature">
-                💻 Computing
-            </div>
-
-            <div class="feature">
-                🏆 Learn & Improve
-            </div>
-
+        <div class="subject-preview">
+            <span>📐 Mathematics</span>
+            <span>🔬 Science</span>
+            <span>💻 Computing</span>
         </div>
-
-    </div>
-
-
-    <!-- LOGIN -->
-
-    <div class="card">
-
-        <h2>
-            👋 Welcome!
-        </h2>
-
-        <p class="card-subtitle">
-            Let's get you ready to learn.
-        </p>
-
 
         <form id="studentForm">
 
-            <label>
-                Student Name
-            </label>
+            <div class="form-group">
+                <label for="studentName">Your Name</label>
 
-            <input
-                type="text"
-                id="studentName"
-                placeholder="Enter your name"
-                required
-            >
+                <input
+                    type="text"
+                    id="studentName"
+                    placeholder="Enter your name"
+                    required
+                >
+            </div>
 
+            <div class="form-group">
 
-            <label>
-                Select Your Class
-            </label>
+                <label for="studentClass">
+                    Select Your Class
+                </label>
 
-            <select id="studentClass" required>
+                <select id="studentClass" required>
 
-                <option value="">
-                    Choose your class
-                </option>
-
-                <optgroup label="Primary">
+                    <option value="">
+                        Choose your class
+                    </option>
 
                     <option>Primary 1</option>
                     <option>Primary 2</option>
@@ -834,669 +704,802 @@ select:focus{
                     <option>Primary 5</option>
                     <option>Primary 6</option>
 
-                </optgroup>
-
-                <optgroup label="JHS">
-
                     <option>JHS 1</option>
                     <option>JHS 2</option>
                     <option>JHS 3</option>
 
-                </optgroup>
+                </select>
 
-            </select>
+            </div>
 
-
-            <button
-                type="submit"
-                class="primary-button"
-            >
-                🚀 Start Learning
+            <button class="start-btn" type="submit">
+                Start Learning 🚀
             </button>
 
         </form>
 
-
-        <div class="preview">
-
-            <div class="preview-title">
-                What you can learn
-            </div>
-
-            <div class="subject-row">
-
-                <div class="subject">
-                    <span class="subject-icon">🧮</span>
-                    Maths
-                </div>
-
-                <div class="subject">
-                    <span class="subject-icon">🔬</span>
-                    Science
-                </div>
-
-                <div class="subject">
-                    <span class="subject-icon">💻</span>
-                    Computing
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="note">
-            Your learning information is saved on this device.
-        </div>
-
     </div>
-
-</div>
 
 </section>
 
-</div>
 
+<!-- =========================
+     DASHBOARD
+========================= -->
 
+<section id="dashboard" class="hidden">
 
-<!-- =====================================================
-     STUDENT DASHBOARD
-===================================================== -->
+    <header class="topbar">
 
-<div
-    id="dashboard"
-    class="dashboard hidden"
->
+        <div class="brand">
 
+            <div class="brand-icon">★</div>
 
-<!-- HEADER -->
+            <span>Smart Steps</span>
 
-<div class="dashboard-header">
-
-    <div class="dashboard-logo">
-
-        <div class="dashboard-logo-icon">
-            ★
         </div>
 
-        Smart Steps
+        <div class="top-actions">
 
-    </div>
-
-
-    <div class="header-right">
-
-        <div class="notification">
-            🔔
-        </div>
-
-
-        <div class="profile-small">
+            <button
+                class="logout-btn"
+                onclick="logout()"
+            >
+                Logout
+            </button>
 
             <div
+                class="profile"
                 id="profileInitial"
-                class="profile-circle"
             >
                 S
             </div>
 
-            <span id="headerStudentName">
-                Student
-            </span>
-
         </div>
 
-
-        <button
-            id="logoutButton"
-            class="logout-button"
-        >
-            Logout
-        </button>
-
-    </div>
-
-</div>
+    </header>
 
 
+    <main class="dashboard-content">
 
-<!-- MAIN -->
-
-<main class="dashboard-main">
-
-
-    <!-- WELCOME -->
-
-    <section class="welcome">
-
-        <h1>
-            👋 Hello,
-            <span id="studentDisplayName">
-                Student
-            </span>!
-        </h1>
-
-        <p>
-            Ready to take your next Smart Step?
-        </p>
-
-        <span
-            id="studentDisplayClass"
-            class="class-badge"
-        >
-            Student
-        </span>
-
-    </section>
-
-
-
-    <!-- DAILY GOAL -->
-
-    <section class="goal">
-
-        <div class="goal-top">
+        <div class="welcome">
 
             <div>
 
                 <h2>
-                    🎯 Today's Learning Goal
+                    Welcome, <span id="studentDisplayName">
+                    Student
+                    </span>! 👋
                 </h2>
 
                 <p>
-                    Complete 3 learning activities today.
+                    Ready to take your next Smart Step?
                 </p>
 
             </div>
 
-            <div class="goal-number">
-                2 / 3
+            <div
+                class="class-badge"
+                id="studentDisplayClass"
+            >
+                Primary 1
             </div>
 
         </div>
 
 
-        <div class="progress-bar">
+        <!-- DAILY GOAL -->
 
-            <div class="progress-fill"></div>
+        <div class="goal-card">
 
-        </div>
+            <div class="goal-top">
 
-    </section>
+                <div>
+                    <strong>Today's Learning Goal</strong>
 
+                    <p>
+                        Complete 3 learning activities today
+                    </p>
+                </div>
 
+                <strong>2 / 3</strong>
 
-    <!-- SUBJECTS -->
-
-    <h2 class="section-title">
-        📚 What do you want to study?
-    </h2>
-
-
-    <section class="subject-grid">
-
-
-        <div
-            class="subject-card"
-            onclick="openSubject('Mathematics')"
-        >
-
-            <div class="subject-card-icon math">
-                🧮
             </div>
 
-            <h3>
-                Mathematics
-            </h3>
+            <div class="progress-bar">
 
-            <p>
-                Numbers, problem solving,
-                shapes, measurements and more.
-            </p>
-
-            <div class="explore">
-                Explore Mathematics →
-            </div>
-
-        </div>
-
-
-
-        <div
-            class="subject-card"
-            onclick="openSubject('Science')"
-        >
-
-            <div class="subject-card-icon science">
-                🔬
-            </div>
-
-            <h3>
-                Science
-            </h3>
-
-            <p>
-                Explore living things, matter,
-                energy, the environment and more.
-            </p>
-
-            <div class="explore">
-                Explore Science →
-            </div>
-
-        </div>
-
-
-
-        <div
-            class="subject-card"
-            onclick="openSubject('Computing')"
-        >
-
-            <div class="subject-card-icon computing">
-                💻
-            </div>
-
-            <h3>
-                Computing
-            </h3>
-
-            <p>
-                Learn about computers, coding,
-                digital skills and technology.
-            </p>
-
-            <div class="explore">
-                Explore Computing →
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- QUICK PRACTICE -->
-
-    <h2 class="section-title">
-        ⚡ Quick Practice
-    </h2>
-
-
-    <section class="quick-grid">
-
-
-        <div
-            class="quick-card"
-            onclick="quickPractice('Mathematics')"
-        >
-
-            <div class="quick-icon">
-                🧮
-            </div>
-
-            <div>
-
-                <strong>
-                    5 Maths Questions
-                </strong>
-
-                <span>
-                    Test yourself
-                </span>
+                <div class="progress-fill"></div>
 
             </div>
 
         </div>
 
 
+        <!-- SUBJECTS -->
 
-        <div
-            class="quick-card"
-            onclick="quickPractice('Science')"
-        >
+        <h2 class="section-title">
+            What do you want to learn?
+        </h2>
 
-            <div class="quick-icon">
-                🔬
+        <div class="subject-grid">
+
+            <div class="subject-card">
+
+                <div class="subject-icon math-icon">
+                    📐
+                </div>
+
+                <h3>Mathematics</h3>
+
+                <p>
+                    Numbers, calculations, shapes,
+                    measurements and more.
+                </p>
+
+                <button
+                    class="subject-btn"
+                    onclick="openSubject('Mathematics')"
+                >
+                    View Topics →
+                </button>
+
             </div>
 
-            <div>
 
-                <strong>
-                    5 Science Questions
-                </strong>
+            <div class="subject-card">
 
-                <span>
-                    Test yourself
-                </span>
+                <div class="subject-icon science-icon">
+                    🔬
+                </div>
+
+                <h3>Science</h3>
+
+                <p>
+                    Discover living things, matter,
+                    energy, the environment and more.
+                </p>
+
+                <button
+                    class="subject-btn"
+                    onclick="openSubject('Science')"
+                >
+                    View Topics →
+                </button>
+
+            </div>
+
+
+            <div class="subject-card">
+
+                <div class="subject-icon computing-icon">
+                    💻
+                </div>
+
+                <h3>Computing</h3>
+
+                <p>
+                    Learn computers, digital skills,
+                    coding concepts and technology.
+                </p>
+
+                <button
+                    class="subject-btn"
+                    onclick="openSubject('Computing')"
+                >
+                    View Topics →
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- QUICK PRACTICE -->
+
+        <h2 class="section-title">
+            Quick Practice
+        </h2>
+
+        <div class="practice-grid">
+
+            <div class="practice-card">
+                <strong>📐 5 Maths Questions</strong>
+                <span>Test your maths skills</span>
+            </div>
+
+            <div class="practice-card">
+                <strong>🔬 5 Science Questions</strong>
+                <span>Test what you know</span>
+            </div>
+
+            <div class="practice-card">
+                <strong>💻 5 Computing Questions</strong>
+                <span>Challenge yourself</span>
+            </div>
+
+        </div>
+
+
+        <!-- PROGRESS -->
+
+        <h2 class="section-title">
+            My Progress
+        </h2>
+
+        <div class="stats-grid">
+
+            <div class="stat-card">
+                <div
+                    class="stat-number"
+                    id="topicsCompleted"
+                >
+                    0
+                </div>
+
+                <div class="stat-label">
+                    Topics Completed
+                </div>
+            </div>
+
+
+            <div class="stat-card">
+
+                <div
+                    class="stat-number"
+                    id="questionsAnswered"
+                >
+                    0
+                </div>
+
+                <div class="stat-label">
+                    Questions Answered
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div
+                    class="stat-number"
+                    id="bestScore"
+                >
+                    0%
+                </div>
+
+                <div class="stat-label">
+                    Best Score
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div
+                    class="stat-number"
+                    id="streak"
+                >
+                    0
+                </div>
+
+                <div class="stat-label">
+                    Day Streak
+                </div>
 
             </div>
 
         </div>
 
 
+        <!-- ACHIEVEMENTS -->
 
-        <div
-            class="quick-card"
-            onclick="quickPractice('Computing')"
-        >
+        <h2 class="section-title">
+            Achievements
+        </h2>
 
-            <div class="quick-icon">
-                💻
-            </div>
+        <div class="achievement-grid">
 
-            <div>
+            <div class="achievement">
 
-                <strong>
-                    5 Computing Questions
-                </strong>
-
-                <span>
-                    Test yourself
-                </span>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- PROGRESS -->
-
-    <h2 class="section-title">
-        📊 My Progress
-    </h2>
-
-
-    <section class="stats">
-
-
-        <div class="stat-card">
-
-            <div class="stat-icon">
-                📚
-            </div>
-
-            <div class="stat-value">
-                0
-            </div>
-
-            <div class="stat-label">
-                Topics Completed
-            </div>
-
-        </div>
-
-
-
-        <div class="stat-card">
-
-            <div class="stat-icon">
-                📝
-            </div>
-
-            <div class="stat-value">
-                0
-            </div>
-
-            <div class="stat-label">
-                Questions Answered
-            </div>
-
-        </div>
-
-
-
-        <div class="stat-card">
-
-            <div class="stat-icon">
-                ⭐
-            </div>
-
-            <div class="stat-value">
-                0%
-            </div>
-
-            <div class="stat-label">
-                Best Score
-            </div>
-
-        </div>
-
-
-
-        <div class="stat-card">
-
-            <div class="stat-icon">
-                🔥
-            </div>
-
-            <div class="stat-value">
-                0
-            </div>
-
-            <div class="stat-label">
-                Day Streak
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- ACHIEVEMENTS -->
-
-    <h2 class="section-title">
-        🏆 Achievements
-    </h2>
-
-
-    <section class="achievements">
-
-
-        <div class="achievement">
-
-            <div class="achievement-icon">
-                ⭐
-            </div>
-
-            <div>
+                <div class="achievement-icon">
+                    ⭐
+                </div>
 
                 <strong>
                     First Smart Step
                 </strong>
 
-                <span>
-                    Start your first lesson
-                </span>
+                <p>
+                    Start your learning journey.
+                </p>
 
             </div>
 
-        </div>
 
+            <div class="achievement">
 
-
-        <div class="achievement">
-
-            <div class="achievement-icon">
-                🧮
-            </div>
-
-            <div>
+                <div class="achievement-icon">
+                    🧮
+                </div>
 
                 <strong>
                     Maths Explorer
                 </strong>
 
-                <span>
-                    Complete Maths topics
-                </span>
+                <p>
+                    Complete your first maths topic.
+                </p>
 
             </div>
 
-        </div>
 
+            <div class="achievement">
 
-
-        <div class="achievement">
-
-            <div class="achievement-icon">
-                🔥
-            </div>
-
-            <div>
+                <div class="achievement-icon">
+                    🔥
+                </div>
 
                 <strong>
                     3-Day Streak
                 </strong>
 
-                <span>
-                    Study for 3 days in a row
-                </span>
+                <p>
+                    Learn for three days in a row.
+                </p>
 
             </div>
 
         </div>
 
-    </section>
+    </main>
 
 
-</main>
+    <!-- MOBILE NAV -->
+
+    <nav class="mobile-nav">
+
+        <button onclick="goHome()">
+            <span>🏠</span>
+            Home
+        </button>
+
+        <button onclick="openSubject('Mathematics')">
+            <span>📚</span>
+            Learn
+        </button>
+
+        <button onclick="quickPractice('General')">
+            <span>🧠</span>
+            Practice
+        </button>
+
+        <button onclick="showProgress()">
+            <span>📊</span>
+            Progress
+        </button>
+
+        <button onclick="showProfile()">
+            <span>👤</span>
+            Profile
+        </button>
+
+    </nav>
+
+</section>
 
 
+<!-- =========================
+     TOPICS PAGE
+========================= -->
 
-<!-- MOBILE NAVIGATION -->
+<section id="topicsPage" class="hidden">
 
-<nav class="bottom-nav">
+    <header class="topics-header">
 
-    <div class="active">
-        <span>🏠</span>
-        Home
-    </div>
+        <button
+            class="back-btn"
+            onclick="backToDashboard()"
+        >
+            ←
+        </button>
 
-    <div>
-        <span>📚</span>
-        Learn
-    </div>
+        <div class="topics-header-info">
 
-    <div>
-        <span>🧠</span>
-        Practice
-    </div>
+            <h2 id="topicsSubject">
+                Mathematics
+            </h2>
 
-    <div>
-        <span>🏆</span>
-        Progress
-    </div>
+            <p>
+                <span id="topicsClass">
+                    Primary 1
+                </span>
+                • Choose a topic to begin
+            </p>
 
-    <div>
-        <span>👤</span>
-        Profile
-    </div>
+        </div>
 
-</nav>
+    </header>
 
 
-</div>
+    <main class="topics-content">
 
+        <div class="topic-intro">
+
+            <h1 id="topicWelcome">
+                Mathematics 📐
+            </h1>
+
+            <p>
+                Choose a topic and take your next Smart Step.
+            </p>
+
+        </div>
+
+
+        <div
+            class="topic-list"
+            id="topicList"
+        >
+
+        </div>
+
+    </main>
+
+</section>
 
 
 <script>
 
-/* =====================================================
-   STUDENT SETUP
-===================================================== */
+/* ===================================
+   STARTER CURRICULUM TOPICS
+=================================== */
+
+const curriculum = {
+
+    "Primary 1": {
+
+        "Mathematics": [
+            ["Numbers", "Learn to identify and count numbers."],
+            ["Addition", "Learn simple addition."],
+            ["Subtraction", "Learn simple subtraction."],
+            ["Shapes", "Explore basic shapes around you."],
+            ["Measurement", "Learn about length, weight and size."]
+        ],
+
+        "Science": [
+            ["My Body", "Learn about parts of the human body."],
+            ["Living Things", "Discover things that are alive."],
+            ["Plants", "Learn about plants and their parts."],
+            ["Animals", "Explore different kinds of animals."],
+            ["Our Environment", "Learn about the world around us."]
+        ],
+
+        "Computing": [
+            ["Computers", "Discover what computers are."],
+            ["Parts of a Computer", "Learn about basic computer parts."],
+            ["Using a Mouse", "Learn how to use a computer mouse."],
+            ["Using a Keyboard", "Learn about the keyboard."],
+            ["Computer Safety", "Learn how to use computers safely."]
+        ]
+
+    },
+
+
+    "Primary 2": {
+
+        "Mathematics": [
+            ["Numbers", "Read, write and compare numbers."],
+            ["Addition", "Practise addition with larger numbers."],
+            ["Subtraction", "Practise subtraction."],
+            ["Multiplication", "Discover basic multiplication."],
+            ["Shapes", "Identify and describe common shapes."]
+        ],
+
+        "Science": [
+            ["Plants", "Explore plant parts and their functions."],
+            ["Animals", "Learn about different animals."],
+            ["The Human Body", "Discover important body parts."],
+            ["Materials", "Explore different materials."],
+            ["Weather", "Learn about different types of weather."]
+        ],
+
+        "Computing": [
+            ["Computer Parts", "Identify basic computer components."],
+            ["Keyboard Skills", "Practise using keyboard keys."],
+            ["Mouse Skills", "Practise pointing and clicking."],
+            ["Digital Safety", "Learn safe computer habits."],
+            ["Files and Folders", "Understand basic file organisation."]
+        ]
+
+    },
+
+
+    "Primary 3": {
+
+        "Mathematics": [
+            ["Place Value", "Understand the value of digits."],
+            ["Addition and Subtraction", "Solve addition and subtraction problems."],
+            ["Multiplication", "Learn multiplication facts."],
+            ["Division", "Discover basic division."],
+            ["Fractions", "Understand simple fractions."]
+        ],
+
+        "Science": [
+            ["Plants", "Learn how plants grow."],
+            ["Animals", "Study animal groups and features."],
+            ["Matter", "Explore solids, liquids and gases."],
+            ["Energy", "Discover different forms of energy."],
+            ["Environment", "Learn how to care for our environment."]
+        ],
+
+        "Computing": [
+            ["Computer Hardware", "Explore computer hardware."],
+            ["Software", "Understand what software is."],
+            ["Typing", "Improve keyboard skills."],
+            ["Internet Basics", "Learn what the internet is."],
+            ["Digital Safety", "Stay safe online."]
+        ]
+
+    },
+
+
+    "Primary 4": {
+
+        "Mathematics": [
+            ["Whole Numbers", "Work with larger whole numbers."],
+            ["Factors and Multiples", "Explore factors and multiples."],
+            ["Fractions", "Work with different fractions."],
+            ["Decimals", "Understand decimal numbers."],
+            ["Geometry", "Explore angles and shapes."]
+        ],
+
+        "Science": [
+            ["Human Body", "Explore body systems."],
+            ["Plants", "Study plant growth and functions."],
+            ["Matter", "Explore properties of materials."],
+            ["Energy", "Learn about energy and its uses."],
+            ["The Environment", "Understand environmental issues."]
+        ],
+
+        "Computing": [
+            ["Computer Hardware", "Learn about computer components."],
+            ["Operating Systems", "Understand operating systems."],
+            ["Word Processing", "Create and edit documents."],
+            ["Internet", "Learn how the internet works."],
+            ["Cyber Safety", "Practise safe digital behaviour."]
+        ]
+
+    },
+
+
+    "Primary 5": {
+
+        "Mathematics": [
+            ["Number Operations", "Solve problems using number operations."],
+            ["Fractions", "Add, subtract and compare fractions."],
+            ["Decimals", "Work with decimal numbers."],
+            ["Percentages", "Understand basic percentages."],
+            ["Measurement", "Solve measurement problems."]
+        ],
+
+        "Science": [
+            ["Living Things", "Study characteristics of living things."],
+            ["Human Health", "Learn about healthy living."],
+            ["Matter", "Explore changes in matter."],
+            ["Energy", "Study energy and its transformations."],
+            ["Earth and Space", "Explore our planet and space."]
+        ],
+
+        "Computing": [
+            ["Data", "Understand basic data concepts."],
+            ["Spreadsheets", "Learn basic spreadsheet skills."],
+            ["Presentations", "Create simple presentations."],
+            ["Internet Research", "Learn how to search responsibly."],
+            ["Cybersecurity", "Understand basic online security."]
+        ]
+
+    },
+
+
+    "Primary 6": {
+
+        "Mathematics": [
+            ["Number Systems", "Work with different number concepts."],
+            ["Fractions and Decimals", "Solve fraction and decimal problems."],
+            ["Percentages", "Solve percentage problems."],
+            ["Geometry", "Explore shapes, angles and space."],
+            ["Statistics", "Read and interpret simple data."]
+        ],
+
+        "Science": [
+            ["Human Systems", "Learn about major body systems."],
+            ["Life Cycles", "Explore life cycles of organisms."],
+            ["Matter and Energy", "Study matter and energy."],
+            ["Forces", "Explore forces and motion."],
+            ["Environment", "Understand environmental protection."]
+        ],
+
+        "Computing": [
+            ["Computer Systems", "Understand how computer systems work."],
+            ["Algorithms", "Learn step-by-step problem solving."],
+            ["Programming Concepts", "Explore basic programming ideas."],
+            ["Data", "Understand and organise data."],
+            ["Online Safety", "Develop responsible digital habits."]
+        ]
+
+    },
+
+
+    "JHS 1": {
+
+        "Mathematics": [
+            ["Number and Numeration", "Explore number concepts and operations."],
+            ["Fractions", "Solve problems involving fractions."],
+            ["Decimals", "Work with decimals."],
+            ["Algebra", "Begin working with algebraic expressions."],
+            ["Geometry", "Explore angles, lines and shapes."]
+        ],
+
+        "Science": [
+            ["Living Cells", "Explore the basic unit of life."],
+            ["Matter", "Study matter and its properties."],
+            ["Energy", "Explore different forms of energy."],
+            ["Forces", "Understand forces and motion."],
+            ["The Environment", "Study ecosystems and environmental care."]
+        ],
+
+        "Computing": [
+            ["Computer Systems", "Understand computer systems."],
+            ["Data Representation", "Learn how computers represent data."],
+            ["Algorithms", "Develop step-by-step solutions."],
+            ["Programming", "Explore basic programming concepts."],
+            ["Cybersecurity", "Learn how to stay secure online."]
+        ]
+
+    },
+
+
+    "JHS 2": {
+
+        "Mathematics": [
+            ["Integers", "Work with positive and negative numbers."],
+            ["Algebra", "Solve algebraic expressions."],
+            ["Linear Equations", "Solve simple equations."],
+            ["Geometry", "Study geometric relationships."],
+            ["Statistics", "Analyse and interpret data."]
+        ],
+
+        "Science": [
+            ["Cells", "Study cells and their functions."],
+            ["Human Systems", "Explore major body systems."],
+            ["Chemical Substances", "Explore substances and mixtures."],
+            ["Electricity", "Learn about electrical circuits."],
+            ["Ecology", "Study relationships in ecosystems."]
+        ],
+
+        "Computing": [
+            ["Programming", "Develop simple programs."],
+            ["Algorithms", "Design algorithms to solve problems."],
+            ["Databases", "Understand basic databases."],
+            ["Networks", "Learn about computer networks."],
+            ["Cybersecurity", "Explore digital security."]
+        ]
+
+    },
+
+
+    "JHS 3": {
+
+        "Mathematics": [
+            ["Number", "Solve advanced number problems."],
+            ["Algebra", "Work with algebraic expressions and equations."],
+            ["Geometry", "Solve geometry problems."],
+            ["Statistics", "Analyse and interpret statistical data."],
+            ["Probability", "Understand basic probability."]
+        ],
+
+        "Science": [
+            ["Human Reproduction", "Learn about human reproductive systems."],
+            ["Genetics", "Explore basic inheritance concepts."],
+            ["Energy", "Study energy transformations."],
+            ["Electricity", "Solve electrical problems."],
+            ["Environment", "Explore environmental sustainability."]
+        ],
+
+        "Computing": [
+            ["Programming", "Develop problem-solving programs."],
+            ["Data Management", "Work with structured data."],
+            ["Computer Networks", "Understand network concepts."],
+            ["Cybersecurity", "Learn about digital threats and protection."],
+            ["Digital Citizenship", "Develop responsible digital behaviour."]
+        ]
+
+    }
+
+};
+
+
+/* ===================================
+   ELEMENTS
+=================================== */
+
+const landingPage =
+    document.getElementById("landingPage");
+
+const dashboard =
+    document.getElementById("dashboard");
+
+const topicsPage =
+    document.getElementById("topicsPage");
 
 const studentForm =
     document.getElementById("studentForm");
 
 
-studentForm.addEventListener(
-    "submit",
-    function(event){
+/* ===================================
+   START LEARNING
+=================================== */
 
-        event.preventDefault();
+studentForm.addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+    const name =
+        document.getElementById("studentName").value.trim();
+
+    const studentClass =
+        document.getElementById("studentClass").value;
+
+    if(!name || !studentClass){
+
+        alert("Please enter your name and select your class.");
+
+        return;
+    }
 
 
-        const name =
-            document
-            .getElementById("studentName")
-            .value
-            .trim();
+    const student = {
 
+        name:name,
 
-        const studentClass =
-            document
-            .getElementById("studentClass")
-            .value;
+        class:studentClass,
 
+        joinedDate:new Date().toISOString(),
 
-        if(!name || !studentClass){
-
-            alert(
-                "Please enter your name and select your class."
-            );
-
-            return;
-
+        progress:{
+            topics:0,
+            questions:0,
+            bestScore:0,
+            streak:0
         }
 
-
-        const student = {
-
-            name:name,
-
-            class:studentClass,
-
-            joinedDate:new Date().toISOString(),
-
-            progress:{
-
-                topics:0,
-
-                questions:0,
-
-                bestScore:0,
-
-                streak:0
-
-            }
-
-        };
+    };
 
 
-        localStorage.setItem(
-            "smartStepsStudent",
-            JSON.stringify(student)
-        );
+    localStorage.setItem(
+        "smartStepsStudent",
+        JSON.stringify(student)
+    );
 
 
-        showDashboard();
+    showDashboard();
 
-    }
-);
-
+});
 
 
-/* =====================================================
+/* ===================================
    SHOW DASHBOARD
-===================================================== */
+=================================== */
 
 function showDashboard(){
 
     const savedStudent =
-        localStorage.getItem(
-            "smartStepsStudent"
-        );
-
+        localStorage.getItem("smartStepsStudent");
 
     if(!savedStudent){
 
         return;
-
     }
 
 
@@ -1504,134 +1507,329 @@ function showDashboard(){
         JSON.parse(savedStudent);
 
 
-    document
-        .getElementById("landingPage")
-        .classList
-        .add("hidden");
+    landingPage.classList.add("hidden");
+
+    topicsPage.classList.add("hidden");
+
+    dashboard.classList.remove("hidden");
 
 
-    document
-        .getElementById("dashboard")
-        .classList
-        .remove("hidden");
+    document.getElementById(
+        "studentDisplayName"
+    ).textContent = student.name;
 
 
-    document
-        .getElementById("studentDisplayName")
-        .textContent =
-        student.name;
+    document.getElementById(
+        "studentDisplayClass"
+    ).textContent = student.class;
 
 
-    document
-        .getElementById("headerStudentName")
-        .textContent =
-        student.name;
+    document.getElementById(
+        "profileInitial"
+    ).textContent =
+        student.name.charAt(0).toUpperCase();
 
 
-    document
-        .getElementById("studentDisplayClass")
-        .textContent =
-        student.class;
+    /* Progress */
+
+    if(student.progress){
+
+        document.getElementById(
+            "topicsCompleted"
+        ).textContent =
+            student.progress.topics || 0;
 
 
-    document
-        .getElementById("profileInitial")
-        .textContent =
-        student.name
-        .charAt(0)
-        .toUpperCase();
+        document.getElementById(
+            "questionsAnswered"
+        ).textContent =
+            student.progress.questions || 0;
+
+
+        document.getElementById(
+            "bestScore"
+        ).textContent =
+            (student.progress.bestScore || 0) + "%";
+
+
+        document.getElementById(
+            "streak"
+        ).textContent =
+            student.progress.streak || 0;
+
+    }
 
 }
 
 
-
-/* =====================================================
-   LOGOUT
-===================================================== */
-
-document
-    .getElementById("logoutButton")
-    .addEventListener(
-        "click",
-        function(){
-
-            localStorage.removeItem(
-                "smartStepsStudent"
-            );
-
-
-            document
-                .getElementById("dashboard")
-                .classList
-                .add("hidden");
-
-
-            document
-                .getElementById("landingPage")
-                .classList
-                .remove("hidden");
-
-
-            document
-                .getElementById("studentForm")
-                .reset();
-
-        }
-    );
-
-
-
-/* =====================================================
-   SUBJECT BUTTONS
-===================================================== */
+/* ===================================
+   OPEN SUBJECT
+=================================== */
 
 function openSubject(subject){
 
+    const savedStudent =
+        localStorage.getItem("smartStepsStudent");
+
+    if(!savedStudent){
+
+        alert("Please start learning first.");
+
+        return;
+    }
+
+
+    const student =
+        JSON.parse(savedStudent);
+
+
+    const studentClass =
+        student.class;
+
+
+    const topics =
+        curriculum[studentClass][subject];
+
+
+    if(!topics){
+
+        alert("Topics are not available yet.");
+
+        return;
+    }
+
+
+    dashboard.classList.add("hidden");
+
+    landingPage.classList.add("hidden");
+
+    topicsPage.classList.remove("hidden");
+
+
+    document.getElementById(
+        "topicsSubject"
+    ).textContent = subject;
+
+
+    document.getElementById(
+        "topicsClass"
+    ).textContent = studentClass;
+
+
+    document.getElementById(
+        "topicWelcome"
+    ).textContent =
+        subject + " 📚";
+
+
+    const topicList =
+        document.getElementById("topicList");
+
+
+    topicList.innerHTML = "";
+
+
+    topics.forEach(function(topic,index){
+
+        const topicCard =
+            document.createElement("div");
+
+        topicCard.className = "topic-card";
+
+
+        topicCard.innerHTML = `
+
+            <div class="topic-left">
+
+                <div class="topic-number">
+                    ${index + 1}
+                </div>
+
+                <div>
+
+                    <h3>
+                        ${topic[0]}
+                    </h3>
+
+                    <p>
+                        ${topic[1]}
+                    </p>
+
+                </div>
+
+            </div>
+
+            <button
+                class="learn-btn"
+                onclick="openLesson('${subject}', '${topic[0]}')"
+            >
+                Learn →
+            </button>
+
+        `;
+
+
+        topicList.appendChild(topicCard);
+
+    });
+
+}
+
+
+/* ===================================
+   OPEN LESSON
+=================================== */
+
+function openLesson(subject,topic){
+
     alert(
         subject +
-        " lessons are coming next! 🚀"
+        " → " +
+        topic +
+        "\n\nLesson content will be added in the next module. 🚀"
     );
 
 }
 
+
+/* ===================================
+   BACK TO DASHBOARD
+=================================== */
+
+function backToDashboard(){
+
+    topicsPage.classList.add("hidden");
+
+    dashboard.classList.remove("hidden");
+
+}
+
+
+/* ===================================
+   HOME
+=================================== */
+
+function goHome(){
+
+    topicsPage.classList.add("hidden");
+
+    dashboard.classList.remove("hidden");
+
+}
+
+
+/* ===================================
+   QUICK PRACTICE
+=================================== */
 
 function quickPractice(subject){
 
     alert(
-        "Quick " +
+        "Quick Practice\n\n" +
         subject +
-        " practice is coming next! 🧠"
+        " practice questions will be added next. 🧠"
     );
 
 }
 
 
+/* ===================================
+   PROGRESS
+=================================== */
 
-/* =====================================================
-   CHECK FOR EXISTING STUDENT
-===================================================== */
+function showProgress(){
 
-window.addEventListener(
-    "load",
-    function(){
+    alert(
+        "Your Progress\n\n" +
+        "Your detailed progress page will be added soon. 📊"
+    );
 
-        const savedStudent =
-            localStorage.getItem(
-                "smartStepsStudent"
-            );
+}
 
 
-        if(savedStudent){
+/* ===================================
+   PROFILE
+=================================== */
 
-            showDashboard();
+function showProfile(){
 
-        }
+    const savedStudent =
+        localStorage.getItem("smartStepsStudent");
+
+    if(!savedStudent){
+
+        return;
+    }
+
+
+    const student =
+        JSON.parse(savedStudent);
+
+
+    alert(
+        "Student Profile\n\n" +
+        "Name: " +
+        student.name +
+        "\nClass: " +
+        student.class
+    );
+
+}
+
+
+/* ===================================
+   LOGOUT
+=================================== */
+
+function logout(){
+
+    const confirmLogout =
+        confirm("Are you sure you want to log out?");
+
+    if(!confirmLogout){
+
+        return;
+    }
+
+
+    localStorage.removeItem(
+        "smartStepsStudent"
+    );
+
+
+    dashboard.classList.add("hidden");
+
+    topicsPage.classList.add("hidden");
+
+    landingPage.classList.remove("hidden");
+
+
+    document.getElementById(
+        "studentForm"
+    ).reset();
+
+}
+
+
+/* ===================================
+   AUTO LOGIN
+=================================== */
+
+window.addEventListener("load",function(){
+
+    const savedStudent =
+        localStorage.getItem("smartStepsStudent");
+
+
+    if(savedStudent){
+
+        showDashboard();
 
     }
-);
+
+});
 
 </script>
 
 </body>
 </html>
-```
