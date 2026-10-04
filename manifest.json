@@ -1,0 +1,15 @@
+{
+  "name": "Smart Steps",
+  "short_name": "Smart Steps",
+  "description": "Learn. Practice. Improve.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f7fb",
+  "theme_color": "#2563eb",
+  "orientation": "portrait",
+  "lang": "en",
+  "categories": [
+    "education"
+  ]
+}
