@@ -3,7 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<!-- Smart Steps App / PWA -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#2563eb">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Smart Steps">
+
 <title>Smart Steps — Learn. Practice. Improve.</title>
+
 <style>
 *{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f5f7fb;color:#172033}
 header{background:linear-gradient(135deg,#2563eb,#7c3aed);color:#fff;padding:18px 20px;position:sticky;top:0;z-index:20}
@@ -33,27 +43,39 @@ button:hover{opacity:.92}.secondary{background:#e9eefb;color:#1e3a8a}.danger{bac
 @media(max-width:720px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.topic-card{align-items:flex-start;flex-wrap:wrap}.topic-card h3{min-width:calc(100% - 52px)}.topic-card button{width:100%}}
 </style>
 </head>
+
 <body>
+
 <header>
   <div class="brand">📚 Smart Steps</div>
   <div class="tagline">Learn. Practice. Improve.</div>
 </header>
 
 <main>
+
 <section id="loginPage" class="page active">
   <div class="card login">
     <div class="logo">🎓</div>
     <h1>Welcome to Smart Steps</h1>
     <p>Learn, practise and improve one step at a time.</p>
+
     <label>Student Name</label>
     <input id="studentName" placeholder="Enter your name">
+
     <label>Class</label>
     <select id="studentClass">
       <option value="">Select your class</option>
-      <option>Primary 1</option><option>Primary 2</option><option>Primary 3</option>
-      <option>Primary 4</option><option>Primary 5</option><option>Primary 6</option>
-      <option>JHS 1</option><option>JHS 2</option><option>JHS 3</option>
+      <option>Primary 1</option>
+      <option>Primary 2</option>
+      <option>Primary 3</option>
+      <option>Primary 4</option>
+      <option>Primary 5</option>
+      <option>Primary 6</option>
+      <option>JHS 1</option>
+      <option>JHS 2</option>
+      <option>JHS 3</option>
     </select>
+
     <button onclick="startLearning()">Start Learning 🚀</button>
   </div>
 </section>
@@ -65,18 +87,44 @@ button:hover{opacity:.92}.secondary{background:#e9eefb;color:#1e3a8a}.danger{bac
     <strong>Today's Learning Goal:</strong>
     <p>Complete one lesson and practise what you learned.</p>
   </div>
+
   <h2>Subjects</h2>
+
   <div class="grid">
-    <div class="subject math" onclick="openSubject('Mathematics')"><div>➗</div><h3>Mathematics</h3><p>Numbers, reasoning and problem solving.</p></div>
-    <div class="subject science" onclick="openSubject('Science')"><div>🔬</div><h3>Science</h3><p>Discover how the world works.</p></div>
-    <div class="subject computing" onclick="openSubject('Computing')"><div>💻</div><h3>Computing</h3><p>Technology, digital skills and problem solving.</p></div>
+    <div class="subject math" onclick="openSubject('Mathematics')">
+      <div>➗</div>
+      <h3>Mathematics</h3>
+      <p>Numbers, reasoning and problem solving.</p>
+    </div>
+
+    <div class="subject science" onclick="openSubject('Science')">
+      <div>🔬</div>
+      <h3>Science</h3>
+      <p>Discover how the world works.</p>
+    </div>
+
+    <div class="subject computing" onclick="openSubject('Computing')">
+      <div>💻</div>
+      <h3>Computing</h3>
+      <p>Technology, digital skills and problem solving.</p>
+    </div>
   </div>
-  <div class="card"><h3>⚡ Quick Practice</h3><p>Review completed topics and improve your score.</p><button onclick="showProgress()">View My Progress</button></div>
+
+  <div class="card">
+    <h3>⚡ Quick Practice</h3>
+    <p>Review completed topics and improve your score.</p>
+    <button onclick="showProgress()">View My Progress</button>
+  </div>
 </section>
 
 <section id="topicsPage" class="page">
   <button class="back" onclick="showDashboard()">← Dashboard</button>
-  <div class="hero"><h2 id="topicsTitle"></h2><p id="topicsSubtitle"></p></div>
+
+  <div class="hero">
+    <h2 id="topicsTitle"></h2>
+    <p id="topicsSubtitle"></p>
+  </div>
+
   <div id="topicsContainer"></div>
 </section>
 
@@ -87,35 +135,92 @@ button:hover{opacity:.92}.secondary{background:#e9eefb;color:#1e3a8a}.danger{bac
 
 <section id="practicePage" class="page">
   <button class="back" onclick="openLesson(currentTopic)">← Lesson</button>
-  <div class="hero"><h2 id="practiceTitle"></h2><p>Answer all questions, then check your answers.</p></div>
+
+  <div class="hero">
+    <h2 id="practiceTitle"></h2>
+    <p>Answer all questions, then check your answers.</p>
+  </div>
+
   <div id="questionsContainer"></div>
+
   <button onclick="checkAnswers()">Check Answers ✓</button>
 </section>
 
 <section id="resultPage" class="page">
   <div class="card center">
-    <div style="font-size:55px">🏆</div><h1 id="resultTitle"></h1>
-    <p id="resultText"></p><div class="progressbar"><div id="resultBar"></div></div>
-    <br><button onclick="openLesson(currentTopic)">Review Lesson</button>
-    <button class="secondary" onclick="openSubject(currentSubject)">Back to Topics</button>
+    <div style="font-size:55px">🏆</div>
+
+    <h1 id="resultTitle"></h1>
+    <p id="resultText"></p>
+
+    <div class="progressbar">
+      <div id="resultBar"></div>
+    </div>
+
+    <br>
+
+    <button onclick="openLesson(currentTopic)">Review Lesson</button>
+    <button class="secondary" onclick="openSubject(currentSubject)">
+      Back to Topics
+    </button>
   </div>
 </section>
 
 <section id="progressPage" class="page">
   <button class="back" onclick="showDashboard()">← Dashboard</button>
-  <div class="card"><h2>📈 My Progress</h2><div class="stats">
-    <div class="stat"><strong id="statTopics">0</strong>Topics Completed</div>
-    <div class="stat"><strong id="statQuestions">0</strong>Questions Answered</div>
-    <div class="stat"><strong id="statBest">0%</strong>Best Score</div>
-  </div></div>
-  <div class="card"><h3>Topic Completion</h3><div class="progressbar"><div id="overallBar"></div></div><p id="overallText"></p></div>
+
+  <div class="card">
+    <h2>📈 My Progress</h2>
+
+    <div class="stats">
+      <div class="stat">
+        <strong id="statTopics">0</strong>
+        Topics Completed
+      </div>
+
+      <div class="stat">
+        <strong id="statQuestions">0</strong>
+        Questions Answered
+      </div>
+
+      <div class="stat">
+        <strong id="statBest">0%</strong>
+        Best Score
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Topic Completion</h3>
+
+    <div class="progressbar">
+      <div id="overallBar"></div>
+    </div>
+
+    <p id="overallText"></p>
+  </div>
 </section>
 
 <section id="profilePage" class="page">
   <button class="back" onclick="showDashboard()">← Dashboard</button>
-  <div class="card"><h2>👤 My Profile</h2><p><strong>Name:</strong> <span id="profileName"></span></p><p><strong>Class:</strong> <span id="profileClass"></span></p>
-  <button class="danger" onclick="logout()">Log Out</button></div>
+
+  <div class="card">
+    <h2>👤 My Profile</h2>
+
+    <p>
+      <strong>Name:</strong>
+      <span id="profileName"></span>
+    </p>
+
+    <p>
+      <strong>Class:</strong>
+      <span id="profileClass"></span>
+    </p>
+
+    <button class="danger" onclick="logout()">Log Out</button>
+  </div>
 </section>
+
 </main>
 
 <div class="bottom" id="bottomNav" style="display:none">
@@ -125,194 +230,1332 @@ button:hover{opacity:.92}.secondary{background:#e9eefb;color:#1e3a8a}.danger{bac
 </div>
 
 <script>
-const curriculum = {"Primary 1": {"Mathematics": ["Numbers and Counting", "Comparing Numbers", "Place Value", "Addition", "Subtraction", "Multiplication as Repeated Addition", "Division and Sharing", "Fractions", "Shapes", "Patterns", "Measurement", "Time", "Money", "Position and Direction", "Simple Data and Charts"], "Science": ["Living and Non-Living Things", "Plants", "Parts of a Plant", "Animals", "Animal Groups", "Our Body", "Our Five Senses", "Food and Nutrition", "Water", "Air", "Weather", "Light and Shadows", "Sound", "Materials Around Us", "Keeping Our Environment Clean"], "Computing": ["What is a Computer?", "Parts of a Computer", "Uses of Computers", "Keyboard", "Mouse", "Monitor", "Printer", "Computer Icons", "Opening and Closing Programs", "Typing Practice", "Drawing on a Computer", "Saving and Opening Files", "Computer Care", "Computer Safety", "Introduction to the Internet"]}, "Primary 2": {"Mathematics": ["Numbers and Place Value", "Comparing Numbers", "Addition", "Subtraction", "Multiplication", "Division", "Fractions", "Money", "Time", "Length and Height", "Mass", "Capacity", "Shapes", "Patterns", "Simple Data"], "Science": ["Plants and Their Needs", "Parts of Plants", "Animals", "Animal Habitats", "The Human Body", "Healthy Living", "Materials", "Solids and Liquids", "Water", "Air", "Weather", "Light", "Sound", "Heat", "Keeping Our Environment Clean"], "Computing": ["Computer Parts", "Keyboard", "Mouse Skills", "Monitor", "Printer", "Input and Output Devices", "Files", "Folders", "Typing", "Drawing Programs", "Word Processing", "Computer Care", "Computer Safety", "Internet Basics", "Digital Responsibility"]}, "Primary 3": {"Mathematics": ["Numbers and Place Value", "Addition and Subtraction", "Multiplication", "Division", "Fractions", "Decimals", "Money", "Time", "Length and Perimeter", "Mass and Capacity", "Shapes", "Angles", "Patterns", "Data and Tables", "Bar Charts"], "Science": ["Plants", "Parts and Functions of Plants", "Animals", "Animal Groups", "Habitats", "Matter", "Changes in Matter", "Light", "Sound", "Heat", "Forces", "The Human Body", "Food and Nutrition", "Weather", "The Environment"], "Computing": ["Input Devices", "Output Devices", "Storage Devices", "Keyboard Skills", "Mouse Skills", "Files and Folders", "Word Processing", "Presentations", "Drawing Tools", "Internet Basics", "Search Skills", "Digital Safety", "Passwords", "Algorithms", "Problem Solving with Computers"]}, "Primary 4": {"Mathematics": ["Place Value", "Addition", "Subtraction", "Multiplication", "Division", "Factors and Multiples", "Fractions", "Decimals", "Money", "Time", "Perimeter", "Area", "Angles", "Shapes and Symmetry", "Data and Charts"], "Science": ["Plants", "Animal Groups", "Habitats", "Matter", "Changes of State", "Energy", "Heat", "Light", "Sound", "Forces", "The Human Body", "Digestion", "Food and Nutrition", "Weather and Climate", "The Environment"], "Computing": ["Computer Hardware", "Software", "Operating Systems", "Word Processing", "Presentation Software", "Internet", "Search Engines", "Email", "Networks", "Data", "Storage", "Online Safety", "Passwords and Privacy", "Algorithms", "Problem Solving"]}, "Primary 5": {"Mathematics": ["Whole Numbers", "Factors and Multiples", "Fractions", "Decimals", "Percentages", "Ratio", "Money", "Time", "Measurement", "Perimeter", "Area", "Angles", "Geometry", "Data and Graphs", "Problem Solving"], "Science": ["The Human Body", "Nutrition", "Digestion", "Respiration", "Plants", "Reproduction in Plants", "Matter", "Energy", "Forces", "Light", "Sound", "Electricity", "Weather", "Environment", "Conservation"], "Computing": ["Computer Networks", "Internet", "Data", "Information", "Word Processing", "Presentations", "Spreadsheets", "Algorithms", "Programming Concepts", "Digital Citizenship", "Cyber Safety", "Passwords", "Privacy", "Digital Research", "Problem Solving"]}, "Primary 6": {"Mathematics": ["Whole Numbers and Operations", "Factors and Multiples", "Fractions", "Decimals", "Percentages", "Ratio and Proportion", "Money and Profit", "Time and Timetables", "Measurement", "Perimeter and Area", "Angles", "Geometry", "Data Handling", "Probability", "Mathematical Problem Solving"], "Science": ["Living Things", "Human Body Systems", "Nutrition and Digestion", "Respiration", "Reproduction", "Plants and Reproduction", "Matter", "Energy", "Electricity", "Magnetism", "Forces and Motion", "Light", "Sound", "Environment", "Scientific Investigation"], "Computing": ["Computer Systems", "Hardware and Software", "Operating Systems", "Networks", "Internet Services", "Data and Information", "Word Processing", "Spreadsheets", "Presentations", "Databases", "Algorithms", "Programming", "Cybersecurity", "Digital Citizenship", "Computational Problem Solving"]}, "JHS 1": {"Mathematics": ["Number Systems", "Integers", "Fractions", "Decimals", "Percentages", "Ratio", "Rates", "Algebraic Expressions", "Linear Equations", "Geometry", "Angles", "Perimeter and Area", "Data Handling", "Probability", "Problem Solving"], "Science": ["Scientific Method", "Cells", "Living Things", "Nutrition", "Digestion", "Respiration", "Reproduction", "Matter", "Mixtures", "Energy", "Heat", "Light", "Sound", "Forces", "Environment"], "Computing": ["Computer Systems", "Data Representation", "Hardware", "Software", "Operating Systems", "Networks", "Internet", "Cybersecurity", "Digital Citizenship", "Word Processing", "Spreadsheets", "Databases", "Algorithms", "Programming", "Problem Solving"]}, "JHS 2": {"Mathematics": ["Number Bases", "Indices", "Standard Form", "Ratio and Proportion", "Percentages", "Algebraic Expressions", "Equations", "Simultaneous Equations", "Geometry", "Construction", "Mensuration", "Graphs", "Statistics", "Probability", "Problem Solving"], "Science": ["Cells and Tissues", "Nutrition", "Transport Systems", "Respiration", "Excretion", "Reproduction", "Inheritance", "Matter", "Chemical Changes", "Energy", "Electricity", "Magnetism", "Waves", "Forces", "Ecology"], "Computing": ["Computer Architecture", "Data Representation", "Networks", "Internet Protocols", "Cyber Threats", "Cybersecurity", "Databases", "Spreadsheets", "Programming", "Algorithms", "Web Technology", "Digital Communication", "Privacy", "Ethics", "Computational Thinking"]}, "JHS 3": {"Mathematics": ["Real Numbers", "Indices and Logarithms", "Surds", "Algebra", "Equations", "Sequences", "Functions", "Coordinate Geometry", "Geometry", "Mensuration", "Trigonometry", "Statistics", "Probability", "Financial Mathematics", "Advanced Problem Solving"], "Science": ["Cells", "Human Body Systems", "Genetics", "Reproduction", "Health", "Chemical Reactions", "Acids and Bases", "Energy", "Electricity", "Electromagnetism", "Waves", "Light", "Forces", "Environment", "Scientific Investigation"], "Computing": ["Computer Architecture", "Data and Information", "Networks", "Internet Technologies", "Cybersecurity", "Cryptography", "Databases", "Spreadsheets", "Programming", "Algorithms", "Web Technologies", "Artificial Intelligence", "Digital Ethics", "Data Analysis", "Computational Problem Solving"]}};
+
+const curriculum = {
+  "Primary 1": {
+    "Mathematics": [
+      "Numbers and Counting",
+      "Comparing Numbers",
+      "Place Value",
+      "Addition",
+      "Subtraction",
+      "Multiplication as Repeated Addition",
+      "Division and Sharing",
+      "Fractions",
+      "Shapes",
+      "Patterns",
+      "Measurement",
+      "Time",
+      "Money",
+      "Position and Direction",
+      "Simple Data and Charts"
+    ],
+    "Science": [
+      "Living and Non-Living Things",
+      "Plants",
+      "Parts of a Plant",
+      "Animals",
+      "Animal Groups",
+      "Our Body",
+      "Our Five Senses",
+      "Food and Nutrition",
+      "Water",
+      "Air",
+      "Weather",
+      "Light and Shadows",
+      "Sound",
+      "Materials Around Us",
+      "Keeping Our Environment Clean"
+    ],
+    "Computing": [
+      "What is a Computer?",
+      "Parts of a Computer",
+      "Uses of Computers",
+      "Keyboard",
+      "Mouse",
+      "Monitor",
+      "Printer",
+      "Computer Icons",
+      "Opening and Closing Programs",
+      "Typing Practice",
+      "Drawing on a Computer",
+      "Saving and Opening Files",
+      "Computer Care",
+      "Computer Safety",
+      "Introduction to the Internet"
+    ]
+  },
+
+  "Primary 2": {
+    "Mathematics": [
+      "Numbers and Place Value",
+      "Comparing Numbers",
+      "Addition",
+      "Subtraction",
+      "Multiplication",
+      "Division",
+      "Fractions",
+      "Money",
+      "Time",
+      "Length and Height",
+      "Mass",
+      "Capacity",
+      "Shapes",
+      "Patterns",
+      "Simple Data"
+    ],
+    "Science": [
+      "Plants and Their Needs",
+      "Parts of Plants",
+      "Animals",
+      "Animal Habitats",
+      "The Human Body",
+      "Healthy Living",
+      "Materials",
+      "Solids and Liquids",
+      "Water",
+      "Air",
+      "Weather",
+      "Light",
+      "Sound",
+      "Heat",
+      "Keeping Our Environment Clean"
+    ],
+    "Computing": [
+      "Computer Parts",
+      "Keyboard",
+      "Mouse Skills",
+      "Monitor",
+      "Printer",
+      "Input and Output Devices",
+      "Files",
+      "Folders",
+      "Typing",
+      "Drawing Programs",
+      "Word Processing",
+      "Computer Care",
+      "Computer Safety",
+      "Internet Basics",
+      "Digital Responsibility"
+    ]
+  },
+
+  "Primary 3": {
+    "Mathematics": [
+      "Numbers and Place Value",
+      "Addition and Subtraction",
+      "Multiplication",
+      "Division",
+      "Fractions",
+      "Decimals",
+      "Money",
+      "Time",
+      "Length and Perimeter",
+      "Mass and Capacity",
+      "Shapes",
+      "Angles",
+      "Patterns",
+      "Data and Tables",
+      "Bar Charts"
+    ],
+    "Science": [
+      "Plants",
+      "Parts and Functions of Plants",
+      "Animals",
+      "Animal Groups",
+      "Habitats",
+      "Matter",
+      "Changes in Matter",
+      "Light",
+      "Sound",
+      "Heat",
+      "Forces",
+      "The Human Body",
+      "Food and Nutrition",
+      "Weather",
+      "The Environment"
+    ],
+    "Computing": [
+      "Input Devices",
+      "Output Devices",
+      "Storage Devices",
+      "Keyboard Skills",
+      "Mouse Skills",
+      "Files and Folders",
+      "Word Processing",
+      "Presentations",
+      "Drawing Tools",
+      "Internet Basics",
+      "Search Skills",
+      "Digital Safety",
+      "Passwords",
+      "Algorithms",
+      "Problem Solving with Computers"
+    ]
+  },
+
+  "Primary 4": {
+    "Mathematics": [
+      "Place Value",
+      "Addition",
+      "Subtraction",
+      "Multiplication",
+      "Division",
+      "Factors and Multiples",
+      "Fractions",
+      "Decimals",
+      "Money",
+      "Time",
+      "Perimeter",
+      "Area",
+      "Angles",
+      "Shapes and Symmetry",
+      "Data and Charts"
+    ],
+    "Science": [
+      "Plants",
+      "Animal Groups",
+      "Habitats",
+      "Matter",
+      "Changes of State",
+      "Energy",
+      "Heat",
+      "Light",
+      "Sound",
+      "Forces",
+      "The Human Body",
+      "Digestion",
+      "Food and Nutrition",
+      "Weather and Climate",
+      "The Environment"
+    ],
+    "Computing": [
+      "Computer Hardware",
+      "Software",
+      "Operating Systems",
+      "Word Processing",
+      "Presentation Software",
+      "Internet",
+      "Search Engines",
+      "Email",
+      "Networks",
+      "Data",
+      "Storage",
+      "Online Safety",
+      "Passwords and Privacy",
+      "Algorithms",
+      "Problem Solving"
+    ]
+  },
+
+  "Primary 5": {
+    "Mathematics": [
+      "Whole Numbers",
+      "Factors and Multiples",
+      "Fractions",
+      "Decimals",
+      "Percentages",
+      "Ratio",
+      "Money",
+      "Time",
+      "Measurement",
+      "Perimeter",
+      "Area",
+      "Angles",
+      "Geometry",
+      "Data and Graphs",
+      "Problem Solving"
+    ],
+    "Science": [
+      "The Human Body",
+      "Nutrition",
+      "Digestion",
+      "Respiration",
+      "Plants",
+      "Reproduction in Plants",
+      "Matter",
+      "Energy",
+      "Forces",
+      "Light",
+      "Sound",
+      "Electricity",
+      "Weather",
+      "Environment",
+      "Conservation"
+    ],
+    "Computing": [
+      "Computer Networks",
+      "Internet",
+      "Data",
+      "Information",
+      "Word Processing",
+      "Presentations",
+      "Spreadsheets",
+      "Algorithms",
+      "Programming Concepts",
+      "Digital Citizenship",
+      "Cyber Safety",
+      "Passwords",
+      "Privacy",
+      "Digital Research",
+      "Problem Solving"
+    ]
+  },
+
+  "Primary 6": {
+    "Mathematics": [
+      "Whole Numbers and Operations",
+      "Factors and Multiples",
+      "Fractions",
+      "Decimals",
+      "Percentages",
+      "Ratio and Proportion",
+      "Money and Profit",
+      "Time and Timetables",
+      "Measurement",
+      "Perimeter and Area",
+      "Angles",
+      "Geometry",
+      "Data Handling",
+      "Probability",
+      "Mathematical Problem Solving"
+    ],
+    "Science": [
+      "Living Things",
+      "Human Body Systems",
+      "Nutrition and Digestion",
+      "Respiration",
+      "Reproduction",
+      "Plants and Reproduction",
+      "Matter",
+      "Energy",
+      "Electricity",
+      "Magnetism",
+      "Forces and Motion",
+      "Light",
+      "Sound",
+      "Environment",
+      "Scientific Investigation"
+    ],
+    "Computing": [
+      "Computer Systems",
+      "Hardware and Software",
+      "Operating Systems",
+      "Networks",
+      "Internet Services",
+      "Data and Information",
+      "Word Processing",
+      "Spreadsheets",
+      "Presentations",
+      "Databases",
+      "Algorithms",
+      "Programming",
+      "Cybersecurity",
+      "Digital Citizenship",
+      "Computational Problem Solving"
+    ]
+  },
+
+  "JHS 1": {
+    "Mathematics": [
+      "Number Systems",
+      "Integers",
+      "Fractions",
+      "Decimals",
+      "Percentages",
+      "Ratio",
+      "Rates",
+      "Algebraic Expressions",
+      "Linear Equations",
+      "Geometry",
+      "Angles",
+      "Perimeter and Area",
+      "Data Handling",
+      "Probability",
+      "Problem Solving"
+    ],
+    "Science": [
+      "Scientific Method",
+      "Cells",
+      "Living Things",
+      "Nutrition",
+      "Digestion",
+      "Respiration",
+      "Reproduction",
+      "Matter",
+      "Mixtures",
+      "Energy",
+      "Heat",
+      "Light",
+      "Sound",
+      "Forces",
+      "Environment"
+    ],
+    "Computing": [
+      "Computer Systems",
+      "Data Representation",
+      "Hardware",
+      "Software",
+      "Operating Systems",
+      "Networks",
+      "Internet",
+      "Cybersecurity",
+      "Digital Citizenship",
+      "Word Processing",
+      "Spreadsheets",
+      "Databases",
+      "Algorithms",
+      "Programming",
+      "Problem Solving"
+    ]
+  },
+
+  "JHS 2": {
+    "Mathematics": [
+      "Number Bases",
+      "Indices",
+      "Standard Form",
+      "Ratio and Proportion",
+      "Percentages",
+      "Algebraic Expressions",
+      "Equations",
+      "Simultaneous Equations",
+      "Geometry",
+      "Construction",
+      "Mensuration",
+      "Graphs",
+      "Statistics",
+      "Probability",
+      "Problem Solving"
+    ],
+    "Science": [
+      "Cells and Tissues",
+      "Nutrition",
+      "Transport Systems",
+      "Respiration",
+      "Excretion",
+      "Reproduction",
+      "Inheritance",
+      "Matter",
+      "Chemical Changes",
+      "Energy",
+      "Electricity",
+      "Magnetism",
+      "Waves",
+      "Forces",
+      "Ecology"
+    ],
+    "Computing": [
+      "Computer Architecture",
+      "Data Representation",
+      "Networks",
+      "Internet Protocols",
+      "Cyber Threats",
+      "Cybersecurity",
+      "Databases",
+      "Spreadsheets",
+      "Programming",
+      "Algorithms",
+      "Web Technology",
+      "Digital Communication",
+      "Privacy",
+      "Ethics",
+      "Computational Thinking"
+    ]
+  },
+
+  "JHS 3": {
+    "Mathematics": [
+      "Real Numbers",
+      "Indices and Logarithms",
+      "Surds",
+      "Algebra",
+      "Equations",
+      "Sequences",
+      "Functions",
+      "Coordinate Geometry",
+      "Geometry",
+      "Mensuration",
+      "Trigonometry",
+      "Statistics",
+      "Probability",
+      "Financial Mathematics",
+      "Advanced Problem Solving"
+    ],
+    "Science": [
+      "Cells",
+      "Human Body Systems",
+      "Genetics",
+      "Reproduction",
+      "Health",
+      "Chemical Reactions",
+      "Acids and Bases",
+      "Energy",
+      "Electricity",
+      "Electromagnetism",
+      "Waves",
+      "Light",
+      "Forces",
+      "Environment",
+      "Scientific Investigation"
+    ],
+    "Computing": [
+      "Computer Architecture",
+      "Data and Information",
+      "Networks",
+      "Internet Technologies",
+      "Cybersecurity",
+      "Cryptography",
+      "Databases",
+      "Spreadsheets",
+      "Programming",
+      "Algorithms",
+      "Web Technologies",
+      "Artificial Intelligence",
+      "Digital Ethics",
+      "Data Analysis",
+      "Computational Problem Solving"
+    ]
+  }
+};
+
 let currentSubject="";
 let currentTopic="";
 let currentQuestions=[];
 let selectedAnswers={};
 
 function getStudent(){
-  try{return JSON.parse(localStorage.getItem("smartStepsStudent"))||null}catch(e){return null}
+  try{
+    return JSON.parse(localStorage.getItem("smartStepsStudent"))||null;
+  }catch(e){
+    return null;
+  }
 }
-function saveStudent(s){localStorage.setItem("smartStepsStudent",JSON.stringify(s))}
+
+function saveStudent(s){
+  localStorage.setItem("smartStepsStudent",JSON.stringify(s));
+}
+
 function getProgress(){
   const s=getStudent();
-  return s?.progress||{topics:0,questions:0,best:0,completedTopics:[],streak:0};
+  return s?.progress||{
+    topics:0,
+    questions:0,
+    best:0,
+    completedTopics:[],
+    streak:0
+  };
 }
-function hideAllPages(){document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"))}
-function showPage(id){hideAllPages();document.getElementById(id).classList.add("active")}
+
+function hideAllPages(){
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+}
+
+function showPage(id){
+  hideAllPages();
+  document.getElementById(id).classList.add("active");
+}
+
 function showDashboard(){
-  const s=getStudent(); if(!s){showPage("loginPage");return}
+  const s=getStudent();
+
+  if(!s){
+    showPage("loginPage");
+    return;
+  }
+
   document.getElementById("welcomeText").textContent="Welcome, "+s.name+" 👋";
-  document.getElementById("bottomNav").style.display="flex"; showPage("dashboardPage");
+  document.getElementById("bottomNav").style.display="flex";
+
+  showPage("dashboardPage");
 }
+
 function startLearning(){
   const name=document.getElementById("studentName").value.trim();
   const className=document.getElementById("studentClass").value;
-  if(!name||!className){alert("Please enter your name and select your class.");return}
-  saveStudent({name,className,progress:getProgress()});
+
+  if(!name||!className){
+    alert("Please enter your name and select your class.");
+    return;
+  }
+
+  saveStudent({
+    name,
+    className,
+    progress:getProgress()
+  });
+
   showDashboard();
 }
+
 function openSubject(subject){
   const student=getStudent();
-  if(!student){alert("Please start learning first.");return}
+
+  if(!student){
+    alert("Please start learning first.");
+    return;
+  }
+
   currentSubject=subject;
+
   const classData=curriculum[student.className];
-  if(!classData){alert("Class curriculum not found. Please log out and select your class again.");return}
+
+  if(!classData){
+    alert("Class curriculum not found. Please log out and select your class again.");
+    return;
+  }
+
   const topics=classData[subject];
-  if(!Array.isArray(topics)){alert("Topics for this subject could not be loaded.");return}
+
+  if(!Array.isArray(topics)){
+    alert("Topics for this subject could not be loaded.");
+    return;
+  }
+
   document.getElementById("topicsTitle").textContent=subject;
-  document.getElementById("topicsSubtitle").textContent=student.className+" • "+topics.length+" topics";
-  const container=document.getElementById("topicsContainer"); container.innerHTML="";
+  document.getElementById("topicsSubtitle").textContent=
+    student.className+" • "+topics.length+" topics";
+
+  const container=document.getElementById("topicsContainer");
+  container.innerHTML="";
+
   topics.forEach((topic,index)=>{
-    const completed=getProgress().completedTopics.includes(student.className+"|"+subject+"|"+topic);
-    const div=document.createElement("div"); div.className="topic-card";
-    const number=document.createElement("div"); number.className="topic-number"; number.textContent=index+1;
-    const title=document.createElement("h3"); title.textContent=topic;
+
+    const completed=getProgress().completedTopics.includes(
+      student.className+"|"+subject+"|"+topic
+    );
+
+    const div=document.createElement("div");
+    div.className="topic-card";
+
+    const number=document.createElement("div");
+    number.className="topic-number";
+    number.textContent=index+1;
+
+    const title=document.createElement("h3");
+    title.textContent=topic;
+
     div.append(number,title);
-    if(completed){const badge=document.createElement("span");badge.className="badge";badge.textContent="✓ Completed";div.appendChild(badge)}
-    const button=document.createElement("button");button.style.marginTop="12px";button.textContent=completed?"Review Topic":"Study Topic";
-    button.addEventListener("click",()=>openLesson(topic)); div.appendChild(button);container.appendChild(div);
+
+    if(completed){
+      const badge=document.createElement("span");
+      badge.className="badge";
+      badge.textContent="✓ Completed";
+      div.appendChild(badge);
+    }
+
+    const button=document.createElement("button");
+
+    button.style.marginTop="12px";
+    button.textContent=completed?"Review Topic":"Study Topic";
+
+    button.addEventListener("click",()=>openLesson(topic));
+
+    div.appendChild(button);
+    container.appendChild(div);
   });
+
   showPage("topicsPage");
 }
+
 function levelNumber(className){
-  const m=className.match(/\d+/); return m?parseInt(m[0]):1;
+  const m=className.match(/\d+/);
+  return m?parseInt(m[0]):1;
 }
+
 function getIntroduction(topic,subject,level){
-  return topic+" is an important part of "+subject+". In this lesson, you will build a clear understanding of the main ideas, practise using them and connect them to situations you may meet at school or in everyday life.";
+  return topic+" is an important part of "+subject+
+  ". In this lesson, you will build a clear understanding of the main ideas, practise using them and connect them to situations you may meet at school or in everyday life.";
 }
+
 function getNotes(topic,subject,level){
-  const depth=level<=2?"At this level, focus on simple meanings, clear examples and correct vocabulary.":level<=4?"At this level, connect the main idea to rules, steps, examples and everyday situations.":"At this level, you should explain ideas clearly, identify relationships, justify answers and apply knowledge to unfamiliar situations.";
-  return "<p><strong>"+topic+"</strong> should be studied as both knowledge and a skill. Learn the important terms first, then understand how the idea works and finally practise applying it.</p><p>"+depth+" Do not only memorise an answer: ask what the information means, why it is true, and how it can be used to solve a problem.</p><p><strong>Study habit:</strong> Read the example, try a similar question without looking at the answer, then explain your method in your own words.</p>";
+
+  const depth=level<=2
+    ?"At this level, focus on simple meanings, clear examples and correct vocabulary."
+    :level<=4
+    ?"At this level, connect the main idea to rules, steps, examples and everyday situations."
+    :"At this level, you should explain ideas clearly, identify relationships, justify answers and apply knowledge to unfamiliar situations.";
+
+  return `
+    <p><strong>${topic}</strong> should be studied as both knowledge and a skill.</p>
+    <p>Learn the important terms first, then understand how the idea works and finally practise applying it.</p>
+    <p>${depth}</p>
+    <p><strong>Study habit:</strong> Read the example, try a similar question without looking at the answer, then explain your method in your own words.</p>
+  `;
 }
+
 function getExplanation(topic,subject,level){
-  return "<p>Start by identifying exactly what the question or situation is asking. Next, identify the facts or information you already know. Then choose a suitable rule, process, method or strategy. Work carefully, check the result and explain your conclusion.</p><p>As you move to higher classes, questions may combine more than one idea. When this happens, break the problem into smaller steps instead of trying to solve everything at once.</p>";
+
+  return `
+    <p>Start by identifying exactly what the question or situation is asking.
+    Next, identify the facts or information you already know.
+    Then choose a suitable rule, process, method or strategy.</p>
+
+    <p>Work carefully, check the result and explain your conclusion.
+    As you move to higher classes, questions may combine more than one idea.
+    When this happens, break the problem into smaller steps instead of trying to solve everything at once.</p>
+  `;
 }
+
 function getExamples(topic,subject,level){
-  return "<div class='example'><strong>Worked Example 1:</strong><br>Read the question carefully. Identify the known information, choose the correct method, carry out the steps in order, and check whether the final answer makes sense.</div><div class='example'><strong>Worked Example 2:</strong><br>Imagine the same idea in a real situation. Explain what you would do first, what evidence or information you would use, and how you would decide whether your answer is reasonable.</div>";
+
+  return `
+    <div class="example">
+      <strong>Worked Example 1:</strong><br>
+      Read the question carefully. Identify the known information,
+      choose the correct method, carry out the steps in order,
+      and check whether the final answer makes sense.
+    </div>
+
+    <div class="example">
+      <strong>Worked Example 2:</strong><br>
+      Imagine the same idea in a real situation.
+      Explain what you would do first, what evidence or information
+      you would use, and how you would decide whether your answer is reasonable.
+    </div>
+  `;
 }
+
 function getThinking(topic,subject,level){
+
   return "Why do you think this topic matters? What could happen if someone used the wrong method or misunderstood the information? Can you find a different way to reach or justify the same conclusion?";
 }
+
 function getActivity(topic,subject,level){
+
   return "Practical Activity: Find an example of '"+topic+"' around you or create a simple example yourself. Record what you observe, organise the information and explain what you learned.";
 }
+
 function getRealLife(topic,subject,level){
+
   return "Real-Life Application: Think about school, home, work, money, communication, technology or the environment. Identify one situation where knowledge of "+topic+" would help someone make a better decision or solve a problem.";
 }
+
 function getRemember(topic,subject,level){
-  return "<ul><li>Know the key meaning and vocabulary.</li><li>Understand the steps or rules involved.</li><li>Practise before checking the answer.</li><li>Always check whether your final answer is reasonable.</li></ul>";
+
+  return `
+    <ul>
+      <li>Know the key meaning and vocabulary.</li>
+      <li>Understand the steps or rules involved.</li>
+      <li>Practise before checking the answer.</li>
+      <li>Always check whether your final answer is reasonable.</li>
+    </ul>
+  `;
 }
+
 function openLesson(topic){
+
   currentTopic=topic;
-  const student=getStudent(); if(!student)return;
+
+  const student=getStudent();
+
+  if(!student)return;
+
   const level=levelNumber(student.className);
+
   document.getElementById("lessonContainer").innerHTML=`
-    <div class="hero"><h2>${escapeHTML(topic)}</h2><p>${escapeHTML(student.className)} • ${escapeHTML(currentSubject)}</p></div>
-    <div class="lesson-section"><h3>📖 Topic Introduction</h3><p>${escapeHTML(getIntroduction(topic,currentSubject,level))}</p></div>
-    <div class="lesson-section"><h3>📝 Short Notes</h3>${getNotes(topic,currentSubject,level)}</div>
-    <div class="lesson-section"><h3>🔎 Detailed Explanation</h3>${getExplanation(topic,currentSubject,level)}</div>
-    <div class="lesson-section"><h3>✏️ Worked Examples</h3>${getExamples(topic,currentSubject,level)}</div>
-    <div class="lesson-section"><h3>🧠 Let's Think</h3><p>${escapeHTML(getThinking(topic,currentSubject,level))}</p></div>
-    <div class="lesson-section"><h3>🧪 Practical Activity</h3><p>${escapeHTML(getActivity(topic,currentSubject,level))}</p></div>
-    <div class="lesson-section"><h3>🌍 Real-Life Application</h3><p>${escapeHTML(getRealLife(topic,currentSubject,level))}</p></div>
-    <div class="lesson-section"><h3>⭐ Remember</h3>${getRemember(topic,currentSubject,level)}</div>
-    <div class="card"><button onclick="startPractice()">Start Practice — 10 Questions</button></div>`;
+
+    <div class="hero">
+      <h2>${escapeHTML(topic)}</h2>
+      <p>${escapeHTML(student.className)} • ${escapeHTML(currentSubject)}</p>
+    </div>
+
+    <div class="lesson-section">
+      <h3>📖 Topic Introduction</h3>
+      <p>${escapeHTML(getIntroduction(topic,currentSubject,level))}</p>
+    </div>
+
+    <div class="lesson-section">
+      <h3>📝 Short Notes</h3>
+      ${getNotes(topic,currentSubject,level)}
+    </div>
+
+    <div class="lesson-section">
+      <h3>🔎 Detailed Explanation</h3>
+      ${getExplanation(topic,currentSubject,level)}
+    </div>
+
+    <div class="lesson-section">
+      <h3>✏️ Worked Examples</h3>
+      ${getExamples(topic,currentSubject,level)}
+    </div>
+
+    <div class="lesson-section">
+      <h3>🧠 Let's Think</h3>
+      <p>${escapeHTML(getThinking(topic,currentSubject,level))}</p>
+    </div>
+
+    <div class="lesson-section">
+      <h3>🧪 Practical Activity</h3>
+      <p>${escapeHTML(getActivity(topic,currentSubject,level))}</p>
+    </div>
+
+    <div class="lesson-section">
+      <h3>🌍 Real-Life Application</h3>
+      <p>${escapeHTML(getRealLife(topic,currentSubject,level))}</p>
+    </div>
+
+    <div class="lesson-section">
+      <h3>⭐ Remember</h3>
+      ${getRemember(topic,currentSubject,level)}
+    </div>
+
+    <div class="card">
+      <button onclick="startPractice()">Start Practice — 10 Questions</button>
+    </div>
+  `;
+
   showPage("lessonPage");
 }
+
 function makeQuestion(topic,subject,i,level){
+
   const s=subject.toLowerCase();
+
   const bank={
+
     mathematics:[
-      ["What is the most important first step when solving a mathematical problem?","Read and understand what is being asked","Guess immediately","Ignore the numbers","Copy someone else"],
-      ["A shopkeeper records the number of items sold each day. Which mathematical skill helps compare the days?","Working with data","Drawing pictures only","Typing","Using a password"],
-      ["If your answer seems impossible, what should you do?","Check the method and calculation","Submit it immediately","Change the question","Ignore the result"],
-      ["Which approach is best for a multi-step problem?","Break it into smaller steps","Do every step at once","Skip the information","Choose randomly"],
-      ["Why are units important in measurement?","They tell us what the number measures","They make every number larger","They replace calculations","They are only for decoration"],
-      ["A learner gets a different answer from a worked example. What is a useful response?","Compare the steps and find where the methods differ","Erase everything","Assume the example is wrong","Stop practising"],
-      ["Which statement shows mathematical reasoning?","Explaining why an answer is correct","Only writing a number","Guessing quickly","Copying a formula without understanding"],
-      ["When comparing two quantities, what should you identify first?","What each quantity represents","Their colours","Who wrote them","The page number"],
-      ["Why can diagrams help in mathematics?","They can represent information visually","They always give the answer automatically","They replace thinking","They are only for art"],
-      ["Challenge: A real-life problem contains extra information. What should you do?","Identify the information that is relevant to the question","Use every number automatically","Ignore the question","Choose the largest number"]
+
+      [
+        "What is the most important first step when solving a mathematical problem?",
+        "Read and understand what is being asked",
+        "Guess immediately",
+        "Ignore the numbers",
+        "Copy someone else"
+      ],
+
+      [
+        "A shopkeeper records the number of items sold each day. Which mathematical skill helps compare the days?",
+        "Working with data",
+        "Drawing pictures only",
+        "Typing",
+        "Using a password"
+      ],
+
+      [
+        "If your answer seems impossible, what should you do?",
+        "Check the method and calculation",
+        "Submit it immediately",
+        "Change the question",
+        "Ignore the result"
+      ],
+
+      [
+        "Which approach is best for a multi-step problem?",
+        "Break it into smaller steps",
+        "Do every step at once",
+        "Skip the information",
+        "Choose randomly"
+      ],
+
+      [
+        "Why are units important in measurement?",
+        "They tell us what the number measures",
+        "They make every number larger",
+        "They replace calculations",
+        "They are only for decoration"
+      ],
+
+      [
+        "A learner gets a different answer from a worked example. What is a useful response?",
+        "Compare the steps and find where the methods differ",
+        "Erase everything",
+        "Assume the example is wrong",
+        "Stop practising"
+      ],
+
+      [
+        "Which statement shows mathematical reasoning?",
+        "Explaining why an answer is correct",
+        "Only writing a number",
+        "Guessing quickly",
+        "Copying a formula without understanding"
+      ],
+
+      [
+        "When comparing two quantities, what should you identify first?",
+        "What each quantity represents",
+        "Their colours",
+        "Who wrote them",
+        "The page number"
+      ],
+
+      [
+        "Why can diagrams help in mathematics?",
+        "They can represent information visually",
+        "They always give the answer automatically",
+        "They replace thinking",
+        "They are only for art"
+      ],
+
+      [
+        "Challenge: A real-life problem contains extra information. What should you do?",
+        "Identify the information that is relevant to the question",
+        "Use every number automatically",
+        "Ignore the question",
+        "Choose the largest number"
+      ]
+
     ],
+
     science:[
-      ["What is a good first step in a scientific investigation?","Identify the question or problem","Guess the conclusion","Hide the observations","Change the results"],
-      ["Why do scientists record observations?","To collect evidence","To decorate reports","To avoid measurements","To replace experiments"],
-      ["What should you do when an observation disagrees with your expectation?","Record it honestly and investigate why","Change it to match the prediction","Delete it","Ignore it"],
-      ["Which is evidence?","Information collected from observations or measurements","A random opinion","A guess with no basis","A copied answer"],
-      ["Why is a fair test important?","It helps make a comparison meaningful","It guarantees the preferred result","It removes all measurements","It avoids questions"],
-      ["A learner wants to know which material absorbs more water. What should be measured?","The amount of water absorbed","The colour of the material only","The learner's name","The classroom number"],
-      ["Why should measurements include suitable units?","So results can be understood and compared","So numbers look bigger","So no one can check them","Because units are decorative"],
-      ["What can a model help scientists do?","Represent or explain something that may be difficult to observe directly","Replace all evidence","Guarantee a prediction","Avoid testing"],
-      ["What is a conclusion?","A statement supported by the evidence collected","The first guess made","A random opinion","A question with no answer"],
-      ["Challenge: Two results are different. What is a sensible response?","Check the method, measurements and conditions before deciding why","Choose the larger result automatically","Delete one result","Assume someone cheated"]
+
+      [
+        "What is a good first step in a scientific investigation?",
+        "Identify the question or problem",
+        "Guess the conclusion",
+        "Hide the observations",
+        "Change the results"
+      ],
+
+      [
+        "Why do scientists record observations?",
+        "To collect evidence",
+        "To decorate reports",
+        "To avoid measurements",
+        "To replace experiments"
+      ],
+
+      [
+        "What should you do when an observation disagrees with your expectation?",
+        "Record it honestly and investigate why",
+        "Change it to match the prediction",
+        "Delete it",
+        "Ignore it"
+      ],
+
+      [
+        "Which is evidence?",
+        "Information collected from observations or measurements",
+        "A random opinion",
+        "A guess with no basis",
+        "A copied answer"
+      ],
+
+      [
+        "Why is a fair test important?",
+        "It helps make a comparison meaningful",
+        "It guarantees the preferred result",
+        "It removes all measurements",
+        "It avoids questions"
+      ],
+
+      [
+        "A learner wants to know which material absorbs more water. What should be measured?",
+        "The amount of water absorbed",
+        "The colour of the material only",
+        "The learner's name",
+        "The classroom number"
+      ],
+
+      [
+        "Why should measurements include suitable units?",
+        "So results can be understood and compared",
+        "So numbers look bigger",
+        "So no one can check them",
+        "Because units are decorative"
+      ],
+
+      [
+        "What can a model help scientists do?",
+        "Represent or explain something that may be difficult to observe directly",
+        "Replace all evidence",
+        "Guarantee a prediction",
+        "Avoid testing"
+      ],
+
+      [
+        "What is a conclusion?",
+        "A statement supported by the evidence collected",
+        "The first guess made",
+        "A random opinion",
+        "A question with no answer"
+      ],
+
+      [
+        "Challenge: Two results are different. What is a sensible response?",
+        "Check the method, measurements and conditions before deciding why",
+        "Choose the larger result automatically",
+        "Delete one result",
+        "Assume someone cheated"
+      ]
+
     ],
+
     computing:[
-      ["What is a computer system designed to do?","Process information and perform tasks","Only display pictures","Only play music","Only store paper"],
-      ["Why are files organised into folders?","To make information easier to find and manage","To make computers heavier","To delete programs","To change passwords automatically"],
-      ["Why is a strong password important?","It helps protect an account from unauthorised access","It makes the screen brighter","It increases typing speed","It prints documents"],
-      ["What should you do with a suspicious link?","Avoid opening it and verify the source","Click immediately","Share it with everyone","Enter your password"],
-      ["What is an algorithm?","A step-by-step procedure for solving a problem","A computer screen","A printer cable","A type of keyboard"],
-      ["Why should important data be backed up?","To reduce the risk of losing it","To make it public","To remove security","To slow the computer"],
-      ["Which is an input device?","Keyboard","Monitor","Printer","Speaker"],
-      ["Which is an output device?","Monitor","Keyboard","Mouse","Microphone"],
-      ["What is debugging?","Finding and fixing errors in a program or process","Deleting every file","Buying a computer","Changing a username"],
-      ["Challenge: A program gives the wrong result. What should you do first?","Check the instructions, inputs and steps for an error","Assume the computer is always wrong","Delete the program immediately","Ignore the result"]
+
+      [
+        "What is a computer system designed to do?",
+        "Process information and perform tasks",
+        "Only display pictures",
+        "Only play music",
+        "Only store paper"
+      ],
+
+      [
+        "Why are files organised into folders?",
+        "To make information easier to find and manage",
+        "To make computers heavier",
+        "To delete programs",
+        "To change passwords automatically"
+      ],
+
+      [
+        "Why is a strong password important?",
+        "It helps protect an account from unauthorised access",
+        "It makes the screen brighter",
+        "It increases typing speed",
+        "It prints documents"
+      ],
+
+      [
+        "What should you do with a suspicious link?",
+        "Avoid opening it and verify the source",
+        "Click immediately",
+        "Share it with everyone",
+        "Enter your password"
+      ],
+
+      [
+        "What is an algorithm?",
+        "A step-by-step procedure for solving a problem",
+        "A computer screen",
+        "A printer cable",
+        "A type of keyboard"
+      ],
+
+      [
+        "Why should important data be backed up?",
+        "To reduce the risk of losing it",
+        "To make it public",
+        "To remove security",
+        "To slow the computer"
+      ],
+
+      [
+        "Which is an input device?",
+        "Keyboard",
+        "Monitor",
+        "Printer",
+        "Speaker"
+      ],
+
+      [
+        "Which is an output device?",
+        "Monitor",
+        "Keyboard",
+        "Mouse",
+        "Microphone"
+      ],
+
+      [
+        "What is debugging?",
+        "Finding and fixing errors in a program or process",
+        "Deleting every file",
+        "Buying a computer",
+        "Changing a username"
+      ],
+
+      [
+        "Challenge: A program gives the wrong result. What should you do first?",
+        "Check the instructions, inputs and steps for an error",
+        "Assume the computer is always wrong",
+        "Delete the program immediately",
+        "Ignore the result"
+      ]
+
     ]
   };
+
   const q=bank[s][i%bank[s].length];
-  return {question:q[0],options:q.slice(1),answer:q[1]};
+
+  return {
+    question:q[0],
+    options:q.slice(1),
+    answer:q[1]
+  };
 }
-function createQuestions(topic,subject,level){return Array.from({length:10},(_,i)=>makeQuestion(topic,subject,i,level))}
+
+function createQuestions(topic,subject,level){
+
+  return Array.from(
+    {length:10},
+    (_,i)=>makeQuestion(topic,subject,i,level)
+  );
+}
+
 function startPractice(){
-  const student=getStudent();if(!student)return;
-  currentQuestions=createQuestions(currentTopic,currentSubject,levelNumber(student.className));selectedAnswers={};
+
+  const student=getStudent();
+
+  if(!student)return;
+
+  currentQuestions=createQuestions(
+    currentTopic,
+    currentSubject,
+    levelNumber(student.className)
+  );
+
+  selectedAnswers={};
+
   document.getElementById("practiceTitle").textContent=currentTopic;
-  const c=document.getElementById("questionsContainer");c.innerHTML="";
+
+  const c=document.getElementById("questionsContainer");
+
+  c.innerHTML="";
+
   currentQuestions.forEach((q,i)=>{
-    const div=document.createElement("div");div.className="question";
-    div.innerHTML="<h3>"+(i+1)+". "+escapeHTML(q.question)+"</h3>";
+
+    const div=document.createElement("div");
+
+    div.className="question";
+
+    div.innerHTML=
+      "<h3>"+(i+1)+". "+escapeHTML(q.question)+"</h3>";
+
     q.options.forEach((opt,j)=>{
-      const b=document.createElement("button");b.className="option";b.textContent=String.fromCharCode(65+j)+". "+opt;
-      b.onclick=()=>{selectedAnswers[i]=opt;div.querySelectorAll(".option").forEach(x=>x.classList.remove("selected"));b.classList.add("selected")};
+
+      const b=document.createElement("button");
+
+      b.className="option";
+
+      b.textContent=
+        String.fromCharCode(65+j)+". "+opt;
+
+      b.onclick=()=>{
+
+        selectedAnswers[i]=opt;
+
+        div.querySelectorAll(".option")
+          .forEach(x=>x.classList.remove("selected"));
+
+        b.classList.add("selected");
+      };
+
       div.appendChild(b);
-    });c.appendChild(div);
-  });showPage("practicePage");
-}
-function checkAnswers(){
-  if(Object.keys(selectedAnswers).length<currentQuestions.length){alert("Please answer all 10 questions first.");return}
-  let score=0;const boxes=document.querySelectorAll(".question");
-  currentQuestions.forEach((q,i)=>{
-    const box=boxes[i];box.querySelectorAll(".option").forEach(b=>{
-      const text=b.textContent.slice(3);
-      if(text===q.answer)b.classList.add("correct");
-      if(text===selectedAnswers[i]&&text!==q.answer)b.classList.add("wrong");
+
     });
-    if(selectedAnswers[i]===q.answer)score++;
+
+    c.appendChild(div);
   });
-  const percent=score*10;updateProgress(percent);
-  document.getElementById("resultTitle").textContent=percent>=80?"Excellent work! 🎉":percent>=50?"Good effort! 👍":"Keep practising! 💪";
-  document.getElementById("resultText").textContent="You scored "+score+" out of "+currentQuestions.length+" ("+percent+"%).";
-  document.getElementById("resultBar").style.width=percent+"%";showPage("resultPage");
+
+  showPage("practicePage");
 }
+
+function checkAnswers(){
+
+  if(Object.keys(selectedAnswers).length<currentQuestions.length){
+
+    alert("Please answer all 10 questions first.");
+
+    return;
+  }
+
+  let score=0;
+
+  const boxes=document.querySelectorAll(".question");
+
+  currentQuestions.forEach((q,i)=>{
+
+    const box=boxes[i];
+
+    box.querySelectorAll(".option").forEach(b=>{
+
+      const text=b.textContent.slice(3);
+
+      if(text===q.answer)
+        b.classList.add("correct");
+
+      if(
+        text===selectedAnswers[i] &&
+        text!==q.answer
+      )
+        b.classList.add("wrong");
+
+    });
+
+    if(selectedAnswers[i]===q.answer)
+      score++;
+  });
+
+  const percent=score*10;
+
+  updateProgress(percent);
+
+  document.getElementById("resultTitle").textContent=
+    percent>=80
+      ?"Excellent work! 🎉"
+      :percent>=50
+      ?"Good effort! 👍"
+      :"Keep practising! 💪";
+
+  document.getElementById("resultText").textContent=
+    "You scored "+score+" out of "+
+    currentQuestions.length+
+    " ("+percent+"%).";
+
+  document.getElementById("resultBar").style.width=
+    percent+"%";
+
+  showPage("resultPage");
+}
+
 function updateProgress(percent){
-  const s=getStudent();const p=s.progress||{topics:0,questions:0,best:0,completedTopics:[],streak:0};
-  p.questions=(p.questions||0)+currentQuestions.length;p.best=Math.max(p.best||0,percent);
-  const key=s.className+"|"+currentSubject+"|"+currentTopic;
-  if(percent>=80&&!p.completedTopics.includes(key)){p.completedTopics.push(key);p.topics=(p.topics||0)+1;p.streak=(p.streak||0)+1}
-  s.progress=p;saveStudent(s);
+
+  const s=getStudent();
+
+  const p=s.progress||{
+    topics:0,
+    questions:0,
+    best:0,
+    completedTopics:[],
+    streak:0
+  };
+
+  p.questions=
+    (p.questions||0)+currentQuestions.length;
+
+  p.best=
+    Math.max(p.best||0,percent);
+
+  const key=
+    s.className+"|"+
+    currentSubject+"|"+
+    currentTopic;
+
+  if(
+    percent>=80 &&
+    !p.completedTopics.includes(key)
+  ){
+
+    p.completedTopics.push(key);
+
+    p.topics=
+      (p.topics||0)+1;
+
+    p.streak=
+      (p.streak||0)+1;
+  }
+
+  s.progress=p;
+
+  saveStudent(s);
 }
+
 function showProgress(){
-  const p=getProgress(),total=45,pct=Math.min(100,Math.round(((p.topics||0)/total)*100));
-  document.getElementById("statTopics").textContent=p.topics||0;document.getElementById("statQuestions").textContent=p.questions||0;
-  document.getElementById("statBest").textContent=(p.best||0)+"%";document.getElementById("overallBar").style.width=pct+"%";
-  document.getElementById("overallText").textContent=(p.topics||0)+" of "+total+" topics completed ("+pct+"%).";showPage("progressPage");
+
+  const p=getProgress();
+
+  const total=45;
+
+  const pct=Math.min(
+    100,
+    Math.round(((p.topics||0)/total)*100)
+  );
+
+  document.getElementById("statTopics").textContent=
+    p.topics||0;
+
+  document.getElementById("statQuestions").textContent=
+    p.questions||0;
+
+  document.getElementById("statBest").textContent=
+    (p.best||0)+"%";
+
+  document.getElementById("overallBar").style.width=
+    pct+"%";
+
+  document.getElementById("overallText").textContent=
+    (p.topics||0)+
+    " of "+
+    total+
+    " topics completed ("+
+    pct+
+    "%).";
+
+  showPage("progressPage");
 }
-function showProfile(){const s=getStudent();if(!s)return;document.getElementById("profileName").textContent=s.name;document.getElementById("profileClass").textContent=s.className;showPage("profilePage")}
-function logout(){localStorage.removeItem("smartStepsStudent");document.getElementById("bottomNav").style.display="none";showPage("loginPage")}
-function escapeHTML(value){return String(value).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
-document.addEventListener("DOMContentLoaded",()=>{const s=getStudent();if(s){document.getElementById("studentName").value=s.name||"";document.getElementById("studentClass").value=s.className||"";showDashboard()}});
+
+function showProfile(){
+
+  const s=getStudent();
+
+  if(!s)return;
+
+  document.getElementById("profileName").textContent=
+    s.name;
+
+  document.getElementById("profileClass").textContent=
+    s.className;
+
+  showPage("profilePage");
+}
+
+function logout(){
+
+  localStorage.removeItem("smartStepsStudent");
+
+  document.getElementById("bottomNav").style.display="none";
+
+  showPage("loginPage");
+}
+
+function escapeHTML(value){
+
+  return String(value).replace(
+    /[&<>"']/g,
+    c=>({
+      "&":"&amp;",
+      "<":"&lt;",
+      ">":"&gt;",
+      '"':"&quot;",
+      "'":"&#39;"
+    }[c])
+  );
+}
+
+/* Smart Steps App / PWA */
+
+if("serviceWorker" in navigator){
+
+  window.addEventListener("load",()=>{
+
+    navigator.serviceWorker.register("./sw.js")
+
+      .then(()=>{
+        console.log("Smart Steps app is ready");
+      })
+
+      .catch(error=>{
+        console.log(
+          "Smart Steps service worker error:",
+          error
+        );
+      });
+
+  });
+
+}
+
+document.addEventListener(
+  "DOMContentLoaded",
+  ()=>{
+    const s=getStudent();
+
+    if(s){
+
+      document.getElementById("studentName").value=
+        s.name||"";
+
+      document.getElementById("studentClass").value=
+        s.className||"";
+
+      showDashboard();
+    }
+  }
+);
+
 </script>
+
 </body>
 </html>
