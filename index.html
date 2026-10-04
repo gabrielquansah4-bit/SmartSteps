@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Smart Steps | Learn. Practice. Improve.</title>
+<title>Smart Steps</title>
 
 <style>
 *{
@@ -14,323 +14,251 @@
 }
 
 body{
-  font-family:Arial,Helvetica,sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
   background:#f4f7fb;
-  color:#172033;
+  color:#1f2937;
   min-height:100vh;
 }
 
-button,select,input{
+button,
+select,
+input{
   font:inherit;
 }
 
 button{
   cursor:pointer;
+  border:none;
 }
 
 .hidden{
-  display:none!important;
+  display:none !important;
 }
 
 /* =========================
-   HEADER
+   LANDING PAGE
 ========================= */
 
-.topbar{
+#landingPage{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+  background:linear-gradient(135deg,#2563eb,#7c3aed);
+}
+
+.landing-card{
+  width:100%;
+  max-width:500px;
+  background:white;
+  border-radius:25px;
+  padding:35px 25px;
+  box-shadow:0 20px 50px rgba(0,0,0,.2);
+  text-align:center;
+}
+
+.logo{
+  width:75px;
+  height:75px;
+  margin:0 auto 15px;
+  border-radius:22px;
   background:linear-gradient(135deg,#2563eb,#7c3aed);
   color:white;
-  padding:16px 6%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:34px;
+  font-weight:bold;
+}
+
+.logo-text{
+  font-size:32px;
+  font-weight:800;
+  color:#1d4ed8;
+}
+
+.tagline{
+  color:#6b7280;
+  margin:8px 0 25px;
+}
+
+.subject-preview{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-bottom:25px;
+}
+
+.subject-tag{
+  padding:8px 13px;
+  border-radius:20px;
+  background:#eff6ff;
+  color:#1d4ed8;
+  font-size:13px;
+  font-weight:bold;
+}
+
+.form-group{
+  text-align:left;
+  margin-bottom:16px;
+}
+
+.form-group label{
+  display:block;
+  margin-bottom:7px;
+  font-weight:bold;
+  font-size:14px;
+}
+
+.form-group input,
+.form-group select{
+  width:100%;
+  padding:14px;
+  border:1px solid #d1d5db;
+  border-radius:12px;
+  outline:none;
+  background:white;
+}
+
+.form-group input:focus,
+.form-group select:focus{
+  border-color:#2563eb;
+}
+
+.primary-btn{
+  width:100%;
+  padding:15px;
+  border-radius:13px;
+  background:#2563eb;
+  color:white;
+  font-weight:bold;
+  font-size:16px;
+  transition:.2s;
+}
+
+.primary-btn:hover{
+  background:#1d4ed8;
+  transform:translateY(-1px);
+}
+
+/* =========================
+   APP
+========================= */
+
+#app{
+  min-height:100vh;
+}
+
+.topbar{
+  background:white;
+  padding:15px 20px;
   display:flex;
   justify-content:space-between;
   align-items:center;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
   position:sticky;
   top:0;
-  z-index:100;
-  box-shadow:0 3px 15px rgba(0,0,0,.12);
+  z-index:10;
 }
 
 .brand{
   display:flex;
   align-items:center;
   gap:10px;
-  font-size:22px;
+  font-size:20px;
   font-weight:800;
-}
-
-.logo{
-  width:42px;
-  height:42px;
-  border-radius:13px;
-  background:white;
-  color:#2563eb;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:22px;
-}
-
-.header-user{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-size:14px;
-}
-
-.avatar{
-  width:36px;
-  height:36px;
-  border-radius:50%;
-  background:white;
-  color:#2563eb;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-weight:bold;
-}
-
-/* =========================
-   GENERAL
-========================= */
-
-.container{
-  width:min(1100px,92%);
-  margin:auto;
-}
-
-.page{
-  padding:35px 0 100px;
-}
-
-.card{
-  background:white;
-  border-radius:20px;
-  padding:24px;
-  box-shadow:0 8px 30px rgba(15,23,42,.07);
-  margin-bottom:20px;
-}
-
-.btn{
-  border:0;
-  border-radius:12px;
-  padding:13px 20px;
-  font-weight:700;
-  transition:.2s;
-}
-
-.btn:hover{
-  transform:translateY(-1px);
-}
-
-.btn-primary{
-  background:#2563eb;
-  color:white;
-}
-
-.btn-secondary{
-  background:#e8eefc;
   color:#1d4ed8;
 }
 
-.btn-success{
-  background:#16a34a;
+.small-logo{
+  width:38px;
+  height:38px;
+  border-radius:12px;
+  background:linear-gradient(135deg,#2563eb,#7c3aed);
   color:white;
-}
-
-.btn-danger{
-  background:#dc2626;
-  color:white;
-}
-
-.btn-light{
-  background:#f1f5f9;
-  color:#334155;
-}
-
-.back-btn{
-  margin-bottom:20px;
-}
-
-/* =========================
-   LANDING
-========================= */
-
-#landing{
-  min-height:100vh;
-  background:
-    radial-gradient(circle at top left,#dbeafe,transparent 35%),
-    radial-gradient(circle at bottom right,#ede9fe,transparent 35%),
-    #f8fafc;
   display:flex;
   align-items:center;
+  justify-content:center;
+  font-weight:bold;
 }
 
-.hero{
-  display:grid;
-  grid-template-columns:1.15fr .85fr;
-  gap:40px;
-  align-items:center;
+.profile-btn{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:#e0e7ff;
+  color:#3730a3;
+  font-weight:bold;
 }
 
-.hero h1{
-  font-size:clamp(40px,6vw,68px);
-  line-height:1;
-  margin:18px 0;
+.page{
+  max-width:1100px;
+  margin:auto;
+  padding:25px 18px 90px;
 }
 
-.hero h1 span{
-  color:#2563eb;
-}
-
-.tagline{
-  font-size:21px;
-  color:#64748b;
+.welcome{
   margin-bottom:25px;
 }
 
-.badges{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-bottom:30px;
+.welcome h1{
+  font-size:28px;
+  margin-bottom:5px;
 }
 
-.badge{
-  background:white;
-  border:1px solid #e2e8f0;
-  padding:9px 14px;
-  border-radius:999px;
-  font-size:14px;
-  font-weight:600;
-}
-
-.login-card{
-  background:white;
-  padding:30px;
-  border-radius:25px;
-  box-shadow:0 15px 45px rgba(37,99,235,.15);
-}
-
-.login-card h2{
-  margin-bottom:8px;
-}
-
-.login-card p{
-  color:#64748b;
-  margin-bottom:22px;
-}
-
-.field{
-  margin-bottom:17px;
-}
-
-.field label{
-  display:block;
-  margin-bottom:7px;
-  font-size:14px;
-  font-weight:700;
-}
-
-.field input,
-.field select{
-  width:100%;
-  padding:13px 14px;
-  border:1px solid #cbd5e1;
-  border-radius:11px;
-  outline:none;
-  background:white;
-}
-
-.field input:focus,
-.field select:focus{
-  border-color:#2563eb;
-  box-shadow:0 0 0 3px rgba(37,99,235,.1);
-}
-
-.login-card .btn{
-  width:100%;
+.welcome p{
+  color:#6b7280;
 }
 
 /* =========================
    DASHBOARD
 ========================= */
 
-.welcome{
+.goal-card{
   background:linear-gradient(135deg,#2563eb,#7c3aed);
   color:white;
-  border-radius:25px;
-  padding:30px;
+  padding:25px;
+  border-radius:20px;
   margin-bottom:25px;
 }
 
-.welcome h1{
-  margin-bottom:7px;
+.goal-card h2{
+  margin-bottom:8px;
 }
 
-.welcome p{
+.goal-card p{
   opacity:.9;
 }
 
-.goal{
-  margin-top:20px;
-  background:rgba(255,255,255,.14);
-  border-radius:14px;
-  padding:15px;
-}
-
 .section-title{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:15px;
   margin:25px 0 15px;
-}
-
-.section-title h2{
-  font-size:22px;
+  font-size:20px;
 }
 
 .subject-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:18px;
+  gap:15px;
 }
 
 .subject-card{
   background:white;
-  border-radius:20px;
-  padding:25px;
-  box-shadow:0 8px 25px rgba(15,23,42,.07);
-  border:2px solid transparent;
-  transition:.2s;
+  padding:25px 18px;
+  border-radius:18px;
+  box-shadow:0 5px 18px rgba(0,0,0,.06);
   cursor:pointer;
+  transition:.2s;
 }
 
 .subject-card:hover{
-  transform:translateY(-4px);
-  border-color:#bfdbfe;
+  transform:translateY(-3px);
 }
 
 .subject-icon{
-  width:58px;
-  height:58px;
-  border-radius:17px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:28px;
-  margin-bottom:15px;
-}
-
-.math{
-  background:#dbeafe;
-}
-
-.science{
-  background:#dcfce7;
-}
-
-.computing{
-  background:#ede9fe;
+  font-size:35px;
+  margin-bottom:12px;
 }
 
 .subject-card h3{
@@ -338,91 +266,72 @@ button{
 }
 
 .subject-card p{
-  color:#64748b;
+  color:#6b7280;
   font-size:14px;
 }
 
-.dashboard-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:20px;
-  margin-top:20px;
-}
-
-.stat-grid{
+.quick-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:12px;
+  gap:15px;
 }
 
-.stat{
-  background:#f8fafc;
-  padding:18px;
-  border-radius:15px;
+.quick-card{
+  background:white;
+  border-radius:18px;
+  padding:20px;
+  box-shadow:0 5px 18px rgba(0,0,0,.05);
 }
 
-.stat strong{
-  display:block;
-  font-size:28px;
-  color:#2563eb;
-}
-
-.stat span{
-  color:#64748b;
-  font-size:13px;
+.quick-card button{
+  margin-top:12px;
+  padding:10px 15px;
+  border-radius:10px;
+  background:#eff6ff;
+  color:#1d4ed8;
+  font-weight:bold;
 }
 
 /* =========================
    TOPICS
 ========================= */
 
-.topic-header{
-  background:linear-gradient(135deg,#eff6ff,#f5f3ff);
-  border-radius:20px;
-  padding:25px;
+.back-btn{
+  background:#e5e7eb;
+  padding:10px 15px;
+  border-radius:10px;
+  margin-bottom:18px;
+  color:#374151;
+  font-weight:bold;
+}
+
+.page-heading{
   margin-bottom:20px;
 }
 
-.topic-header h1{
-  margin-bottom:7px;
+.page-heading h1{
+  font-size:27px;
+  margin-bottom:5px;
 }
 
-.topic-header p{
-  color:#64748b;
+.page-heading p{
+  color:#6b7280;
 }
 
 .topic-list{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:15px;
+  gap:12px;
 }
 
 .topic-card{
   background:white;
-  padding:20px;
-  border-radius:18px;
+  padding:18px;
+  border-radius:15px;
+  box-shadow:0 3px 12px rgba(0,0,0,.05);
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  gap:15px;
-  box-shadow:0 5px 20px rgba(15,23,42,.06);
-  border:1px solid #e2e8f0;
-}
-
-.topic-number{
-  min-width:42px;
-  height:42px;
-  border-radius:50%;
-  background:#dbeafe;
-  color:#2563eb;
-  display:flex;
   align-items:center;
-  justify-content:center;
-  font-weight:800;
-}
-
-.topic-info{
-  flex:1;
+  gap:15px;
 }
 
 .topic-info h3{
@@ -430,126 +339,145 @@ button{
 }
 
 .topic-info p{
-  color:#64748b;
-  font-size:13px;
+  color:#6b7280;
+  font-size:14px;
+}
+
+.learn-btn{
+  background:#2563eb;
+  color:white;
+  padding:10px 15px;
+  border-radius:10px;
+  font-weight:bold;
+  white-space:nowrap;
 }
 
 /* =========================
    LESSON
 ========================= */
 
-.lesson-header{
-  background:linear-gradient(135deg,#2563eb,#7c3aed);
-  color:white;
-  border-radius:22px;
-  padding:30px;
-  margin-bottom:20px;
-}
-
-.lesson-header small{
-  opacity:.85;
-}
-
-.lesson-header h1{
-  margin:8px 0;
-  font-size:34px;
-}
-
-.lesson-header p{
-  opacity:.9;
-}
-
-.lesson-section{
+.lesson-card{
   background:white;
   border-radius:20px;
   padding:25px;
-  margin-bottom:18px;
-  box-shadow:0 5px 20px rgba(15,23,42,.06);
+  box-shadow:0 5px 20px rgba(0,0,0,.06);
 }
 
-.lesson-section h2{
-  margin-bottom:15px;
+.lesson-card h1{
+  margin-bottom:10px;
+}
+
+.lesson-meta{
+  color:#6b7280;
+  margin-bottom:25px;
+}
+
+.lesson-section{
+  margin-bottom:25px;
+}
+
+.lesson-section h3{
+  margin-bottom:10px;
+  color:#1d4ed8;
 }
 
 .lesson-section p{
   line-height:1.7;
-  color:#475569;
-  margin-bottom:12px;
+  margin-bottom:10px;
 }
 
-.example{
+.example-box{
   background:#eff6ff;
   border-left:5px solid #2563eb;
-  padding:18px;
+  padding:15px;
   border-radius:10px;
-  margin-top:15px;
+  margin-top:12px;
 }
 
-.learning-points{
-  display:grid;
+.lesson-actions{
+  display:flex;
   gap:10px;
+  margin-top:25px;
 }
 
-.learning-point{
-  padding:13px;
-  background:#f8fafc;
-  border-radius:10px;
+.lesson-actions button{
+  flex:1;
+  padding:14px;
+  border-radius:12px;
+  font-weight:bold;
+}
+
+.practice-btn{
+  background:#2563eb;
+  color:white;
 }
 
 /* =========================
    PRACTICE
 ========================= */
 
-.question{
+.question-card{
   background:white;
-  border-radius:20px;
-  padding:24px;
-  margin-bottom:18px;
-  box-shadow:0 5px 20px rgba(15,23,42,.06);
+  padding:22px;
+  border-radius:18px;
+  margin-bottom:15px;
+  box-shadow:0 3px 15px rgba(0,0,0,.05);
 }
 
-.question h3{
-  margin-bottom:18px;
-  line-height:1.5;
+.question-number{
+  color:#2563eb;
+  font-weight:bold;
+  margin-bottom:8px;
 }
 
-.options{
-  display:grid;
-  gap:10px;
+.question-text{
+  font-size:17px;
+  font-weight:bold;
+  margin-bottom:15px;
 }
 
 .option{
+  display:block;
   width:100%;
   text-align:left;
-  padding:14px 16px;
-  background:#f8fafc;
-  border:2px solid #e2e8f0;
-  border-radius:12px;
-  transition:.2s;
+  padding:13px;
+  margin-top:8px;
+  border:1px solid #d1d5db;
+  background:white;
+  border-radius:10px;
 }
 
 .option:hover{
-  border-color:#93c5fd;
-}
-
-.option.selected{
-  border-color:#2563eb;
   background:#eff6ff;
 }
 
-.option.correct{
-  border-color:#16a34a;
-  background:#dcfce7;
+.option.selected{
+  background:#dbeafe;
+  border-color:#2563eb;
+  color:#1d4ed8;
+  font-weight:bold;
 }
 
-.option.wrong{
-  border-color:#dc2626;
-  background:#fee2e2;
+.submit-btn{
+  width:100%;
+  padding:15px;
+  border-radius:13px;
+  background:#16a34a;
+  color:white;
+  font-weight:bold;
+  font-size:16px;
 }
 
-.result{
+/* =========================
+   RESULT
+========================= */
+
+.result-card{
+  background:white;
+  border-radius:22px;
+  padding:30px;
   text-align:center;
-  padding:35px;
+  box-shadow:0 5px 20px rgba(0,0,0,.06);
 }
 
 .score-circle{
@@ -557,46 +485,119 @@ button{
   height:130px;
   border-radius:50%;
   background:#eff6ff;
-  color:#2563eb;
+  color:#1d4ed8;
   display:flex;
   flex-direction:column;
-  align-items:center;
   justify-content:center;
+  align-items:center;
   margin:0 auto 20px;
 }
 
 .score-circle strong{
-  font-size:35px;
+  font-size:34px;
+}
+
+.result-message{
+  margin:15px 0 25px;
+  color:#6b7280;
+}
+
+.result-actions{
+  display:flex;
+  gap:10px;
+}
+
+.result-actions button{
+  flex:1;
+  padding:13px;
+  border-radius:11px;
+  font-weight:bold;
 }
 
 /* =========================
    PROGRESS
 ========================= */
 
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-bottom:25px;
+}
+
+.stat-card{
+  background:white;
+  padding:20px;
+  border-radius:17px;
+  text-align:center;
+  box-shadow:0 3px 12px rgba(0,0,0,.05);
+}
+
+.stat-card strong{
+  display:block;
+  font-size:28px;
+  color:#2563eb;
+  margin-bottom:5px;
+}
+
+.stat-card span{
+  color:#6b7280;
+  font-size:13px;
+}
+
+.progress-box{
+  background:white;
+  padding:20px;
+  border-radius:18px;
+  margin-bottom:15px;
+}
+
 .progress-bar{
-  height:14px;
-  background:#e2e8f0;
+  height:12px;
+  background:#e5e7eb;
   border-radius:20px;
   overflow:hidden;
+  margin-top:10px;
 }
 
 .progress-fill{
   height:100%;
-  background:linear-gradient(90deg,#2563eb,#7c3aed);
-  width:0%;
-  transition:.5s;
+  background:#2563eb;
+  border-radius:20px;
 }
 
-.progress-item{
-  margin-bottom:22px;
+/* =========================
+   PROFILE
+========================= */
+
+.profile-card{
+  background:white;
+  padding:25px;
+  border-radius:20px;
+  text-align:center;
 }
 
-.progress-item div:first-child{
+.profile-avatar{
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  background:#2563eb;
+  color:white;
+  margin:0 auto 15px;
   display:flex;
-  justify-content:space-between;
-  margin-bottom:8px;
-  font-size:14px;
-  font-weight:700;
+  align-items:center;
+  justify-content:center;
+  font-size:30px;
+  font-weight:bold;
+}
+
+.profile-card h2{
+  margin-bottom:5px;
+}
+
+.profile-card p{
+  color:#6b7280;
+  margin-bottom:5px;
 }
 
 /* =========================
@@ -609,97 +610,65 @@ button{
   left:0;
   right:0;
   background:white;
-  border-top:1px solid #e2e8f0;
+  box-shadow:0 -2px 10px rgba(0,0,0,.08);
   display:flex;
   justify-content:space-around;
-  padding:8px;
-  z-index:90;
+  padding:8px 5px;
+  z-index:20;
 }
 
 .bottom-nav button{
   background:none;
-  border:0;
-  color:#64748b;
+  color:#6b7280;
   font-size:12px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:4px;
+  padding:6px 12px;
 }
 
 .bottom-nav button span{
+  display:block;
   font-size:20px;
+  margin-bottom:2px;
 }
 
 .bottom-nav button.active{
   color:#2563eb;
-}
-
-/* =========================
-   PROFILE
-========================= */
-
-.profile-card{
-  text-align:center;
-}
-
-.profile-big{
-  width:90px;
-  height:90px;
-  background:#dbeafe;
-  color:#2563eb;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:35px;
   font-weight:bold;
-  margin:0 auto 15px;
 }
 
 /* =========================
    RESPONSIVE
 ========================= */
 
-@media(max-width:800px){
-
-  .hero{
-    grid-template-columns:1fr;
-  }
-
-  .hero h1{
-    font-size:45px;
-  }
+@media(max-width:700px){
 
   .subject-grid{
     grid-template-columns:1fr;
   }
 
-  .dashboard-grid{
+  .quick-grid{
     grid-template-columns:1fr;
   }
 
-  .topic-list{
+  .stats-grid{
     grid-template-columns:1fr;
   }
 
-  .topbar{
-    padding:12px 4%;
+  .topic-card{
+    align-items:flex-start;
   }
 
-  .header-user{
-    display:none;
+  .lesson-actions,
+  .result-actions{
+    flex-direction:column;
+  }
+
+  .welcome h1{
+    font-size:24px;
   }
 
   .page{
-    padding-top:25px;
-    padding-bottom:90px;
-  }
-}
-
-@media(min-width:801px){
-  .bottom-nav{
-    display:none;
+    padding-left:14px;
+    padding-right:14px;
   }
 }
 </style>
@@ -708,100 +677,64 @@ button{
 <body>
 
 <!-- =========================
-     LANDING
+     LANDING PAGE
 ========================= -->
 
-<section id="landing">
+<section id="landingPage">
 
-<div class="container hero">
+  <div class="landing-card">
 
-<div>
+    <div class="logo">S</div>
 
-<div class="brand">
-<div class="logo">★</div>
-Smart Steps
-</div>
+    <div class="logo-text">Smart Steps</div>
 
-<h1>
-Take your next
-<span>Smart Step.</span>
-</h1>
+    <p class="tagline">Learn. Practice. Improve.</p>
 
-<p class="tagline">
-Learn. Practice. Improve.
-</p>
+    <div class="subject-preview">
+      <span class="subject-tag">➕ Mathematics</span>
+      <span class="subject-tag">🔬 Science</span>
+      <span class="subject-tag">💻 Computing</span>
+    </div>
 
-<div class="badges">
-<div class="badge">📚 Mathematics</div>
-<div class="badge">🔬 Science</div>
-<div class="badge">💻 Computing</div>
-<div class="badge">🏆 Practice</div>
-</div>
+    <div class="form-group">
+      <label for="studentName">Student Name</label>
+      <input
+        type="text"
+        id="studentName"
+        placeholder="Enter your name"
+      >
+    </div>
 
-<p style="color:#64748b;line-height:1.7;max-width:550px;">
-Smart Steps helps students learn important concepts,
-practice what they have learned and track their progress.
-</p>
+    <div class="form-group">
+      <label for="studentClass">Select Your Class</label>
 
-</div>
+      <select id="studentClass">
 
-<div class="login-card">
+        <option value="">Choose your class</option>
 
-<h2>Start Learning 🚀</h2>
+        <optgroup label="Primary">
+          <option value="Primary 1">Primary 1</option>
+          <option value="Primary 2">Primary 2</option>
+          <option value="Primary 3">Primary 3</option>
+          <option value="Primary 4">Primary 4</option>
+          <option value="Primary 5">Primary 5</option>
+          <option value="Primary 6">Primary 6</option>
+        </optgroup>
 
-<p>Enter your name and select your class.</p>
+        <optgroup label="Junior High School">
+          <option value="JHS 1">JHS 1</option>
+          <option value="JHS 2">JHS 2</option>
+          <option value="JHS 3">JHS 3</option>
+        </optgroup>
 
-<div class="field">
+      </select>
+    </div>
 
-<label for="studentName">
-Student Name
-</label>
+    <button class="primary-btn" onclick="startLearning()">
+      Start Learning 🚀
+    </button>
 
-<input
-id="studentName"
-type="text"
-placeholder="Enter your name"
->
-
-</div>
-
-<div class="field">
-
-<label for="studentClass">
-Select Class
-</label>
-
-<select id="studentClass">
-
-<option value="">
-Choose your class
-</option>
-
-<option>Primary 1</option>
-<option>Primary 2</option>
-<option>Primary 3</option>
-<option>Primary 4</option>
-<option>Primary 5</option>
-<option>Primary 6</option>
-
-<option>JHS 1</option>
-<option>JHS 2</option>
-<option>JHS 3</option>
-
-</select>
-
-</div>
-
-<button
-class="btn btn-primary"
-onclick="startLearning()"
->
-Start Learning →
-</button>
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
@@ -810,2708 +743,3326 @@ Start Learning →
      APP
 ========================= -->
 
-<div id="app" class="hidden">
+<section id="app" class="hidden">
 
-<header class="topbar">
+  <header class="topbar">
 
-<div class="brand">
-<div class="logo">★</div>
-Smart Steps
-</div>
+    <div class="brand">
+      <div class="small-logo">S</div>
+      Smart Steps
+    </div>
 
-<div class="header-user">
+    <button
+      class="profile-btn"
+      onclick="showProfile()"
+      id="profileInitial"
+    >
+      S
+    </button>
 
-<span id="headerStudentName"></span>
-
-<div
-class="avatar"
-id="headerAvatar"
->
-</div>
-
-</div>
-
-</header>
+  </header>
 
 
-<main class="container page">
+  <main class="page">
 
-<!-- DASHBOARD -->
+    <!-- DASHBOARD -->
 
-<section id="dashboardPage">
+    <section id="dashboardPage">
 
-<div class="welcome">
+      <div class="welcome">
+        <h1 id="welcomeName">Welcome!</h1>
+        <p id="welcomeClass"></p>
+      </div>
 
-<h1>
-Welcome, <span id="welcomeName"></span>! 👋
-</h1>
+      <div class="goal-card">
 
-<p>
-<span id="welcomeClass"></span> • Keep taking smart steps every day.
-</p>
+        <h2>🎯 Today's Learning Goal</h2>
 
-<div class="goal">
+        <p>
+          Choose a subject and complete one lesson and practice activity today.
+        </p>
 
-<strong>🎯 Today's Learning Goal</strong>
+      </div>
 
-<p style="margin-top:5px;">
-Complete one lesson and practice at least five questions.
-</p>
+      <h2 class="section-title">Choose a Subject</h2>
 
-</div>
+      <div class="subject-grid">
 
-</div>
+        <div
+          class="subject-card"
+          onclick="openSubject('Mathematics')"
+        >
+          <div class="subject-icon">➕</div>
+          <h3>Mathematics</h3>
+          <p>Numbers, calculations, shapes and problem solving.</p>
+        </div>
 
+        <div
+          class="subject-card"
+          onclick="openSubject('Science')"
+        >
+          <div class="subject-icon">🔬</div>
+          <h3>Science</h3>
+          <p>Explore living things, matter, energy and our world.</p>
+        </div>
 
-<div class="section-title">
-<h2>Choose a Subject</h2>
-</div>
+        <div
+          class="subject-card"
+          onclick="openSubject('Computing')"
+        >
+          <div class="subject-icon">💻</div>
+          <h3>Computing</h3>
+          <p>Learn computers, technology, internet safety and more.</p>
+        </div>
 
-
-<div class="subject-grid">
-
-<div
-class="subject-card"
-onclick="openSubject('Mathematics')"
->
-
-<div class="subject-icon math">
-🔢
-</div>
-
-<h3>Mathematics</h3>
-
-<p>
-Numbers, calculations, shapes, measurement and more.
-</p>
-
-</div>
-
-
-<div
-class="subject-card"
-onclick="openSubject('Science')"
->
-
-<div class="subject-icon science">
-🔬
-</div>
-
-<h3>Science</h3>
-
-<p>
-Explore living things, matter, energy, Earth and more.
-</p>
-
-</div>
+      </div>
 
 
-<div
-class="subject-card"
-onclick="openSubject('Computing')"
->
+      <h2 class="section-title">Quick Practice</h2>
 
-<div class="subject-icon computing">
-💻
-</div>
+      <div class="quick-grid">
 
-<h3>Computing</h3>
+        <div class="quick-card">
+          <h3>⚡ Quick Practice</h3>
+          <p>Try five questions and test what you know.</p>
+          <button onclick="quickPractice()">
+            Start Practice
+          </button>
+        </div>
 
-<p>
-Learn about computers, technology, information and safety.
-</p>
+        <div class="quick-card">
+          <h3>📊 My Progress</h3>
+          <p>See your questions, scores and learning progress.</p>
+          <button onclick="showProgress()">
+            View Progress
+          </button>
+        </div>
 
-</div>
+      </div>
 
-</div>
-
-
-<div class="dashboard-grid">
-
-<div class="card">
-
-<div class="section-title" style="margin-top:0;">
-<h2>📈 My Progress</h2>
-</div>
-
-<div class="stat-grid">
-
-<div class="stat">
-<strong id="statTopics">0</strong>
-<span>Topics completed</span>
-</div>
-
-<div class="stat">
-<strong id="statQuestions">0</strong>
-<span>Questions answered</span>
-</div>
-
-<div class="stat">
-<strong id="statBest">0%</strong>
-<span>Best score</span>
-</div>
-
-<div class="stat">
-<strong id="statStreak">0</strong>
-<span>Learning streak</span>
-</div>
-
-</div>
-
-</div>
+    </section>
 
 
-<div class="card">
+    <!-- TOPICS PAGE -->
 
-<h2 style="margin-bottom:15px;">
-⚡ Quick Practice
-</h2>
+    <section id="topicsPage" class="hidden">
 
-<p style="color:#64748b;line-height:1.6;margin-bottom:18px;">
-Choose a subject and start practising what you have learned.
-</p>
+      <button class="back-btn" onclick="backToDashboard()">
+        ← Dashboard
+      </button>
 
-<button
-class="btn btn-primary"
-onclick="quickPractice()"
->
-Start Practice
-</button>
+      <div class="page-heading">
 
-</div>
+        <h1 id="topicsTitle"></h1>
 
-</div>
+        <p id="topicsSubtitle"></p>
+
+      </div>
+
+      <div id="topicList" class="topic-list"></div>
+
+    </section>
+
+
+    <!-- LESSON PAGE -->
+
+    <section id="lessonPage" class="hidden">
+
+      <button class="back-btn" onclick="backToTopics()">
+        ← Topics
+      </button>
+
+      <div id="lessonContent"></div>
+
+    </section>
+
+
+    <!-- PRACTICE PAGE -->
+
+    <section id="practicePage" class="hidden">
+
+      <button class="back-btn" onclick="backToLesson()">
+        ← Lesson
+      </button>
+
+      <div class="page-heading">
+
+        <h1 id="practiceTitle">Practice</h1>
+
+        <p>Choose the best answer for each question.</p>
+
+      </div>
+
+      <div id="questionsContainer"></div>
+
+      <button
+        class="submit-btn"
+        onclick="checkAnswers()"
+      >
+        Submit Answers
+      </button>
+
+    </section>
+
+
+    <!-- RESULT PAGE -->
+
+    <section id="resultPage" class="hidden">
+
+      <div class="result-card">
+
+        <div class="score-circle">
+
+          <strong id="scorePercent">0%</strong>
+
+          <span>Score</span>
+
+        </div>
+
+        <h2 id="resultTitle"></h2>
+
+        <p
+          id="resultMessage"
+          class="result-message"
+        ></p>
+
+        <div class="result-actions">
+
+          <button
+            class="primary-btn"
+            onclick="retryLesson()"
+          >
+            Try Again
+          </button>
+
+          <button
+            class="back-btn"
+            onclick="backToTopics()"
+          >
+            More Topics
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PROGRESS PAGE -->
+
+    <section id="progressPage" class="hidden">
+
+      <button class="back-btn" onclick="backToDashboard()">
+        ← Dashboard
+      </button>
+
+      <div class="page-heading">
+
+        <h1>📊 My Progress</h1>
+
+        <p>Keep learning and improving every day.</p>
+
+      </div>
+
+      <div class="stats-grid">
+
+        <div class="stat-card">
+          <strong id="statTopics">0</strong>
+          <span>Topics Completed</span>
+        </div>
+
+        <div class="stat-card">
+          <strong id="statQuestions">0</strong>
+          <span>Questions Answered</span>
+        </div>
+
+        <div class="stat-card">
+          <strong id="statBestScore">0%</strong>
+          <span>Best Score</span>
+        </div>
+
+      </div>
+
+      <div class="progress-box">
+
+        <h3>📚 Topic Progress</h3>
+
+        <div class="progress-bar">
+          <div
+            class="progress-fill"
+            id="topicProgress"
+            style="width:0%"
+          ></div>
+        </div>
+
+        <p id="topicProgressText">
+          0% completed
+        </p>
+
+      </div>
+
+      <div class="progress-box">
+
+        <h3>🔥 Learning Streak</h3>
+
+        <p id="streakText">
+          0 days
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- PROFILE PAGE -->
+
+    <section id="profilePage" class="hidden">
+
+      <button class="back-btn" onclick="backToDashboard()">
+        ← Dashboard
+      </button>
+
+      <div class="profile-card">
+
+        <div
+          class="profile-avatar"
+          id="profileAvatar"
+        >
+          S
+        </div>
+
+        <h2 id="profileName"></h2>
+
+        <p id="profileClass"></p>
+
+        <p id="profileJoined"></p>
+
+        <br>
+
+        <button
+          class="primary-btn"
+          onclick="logout()"
+        >
+          Log Out
+        </button>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- BOTTOM NAV -->
+
+  <nav class="bottom-nav">
+
+    <button
+      id="navHome"
+      class="active"
+      onclick="backToDashboard()"
+    >
+      <span>🏠</span>
+      Home
+    </button>
+
+    <button onclick="openSubject('Mathematics')">
+      <span>➕</span>
+      Math
+    </button>
+
+    <button onclick="openSubject('Science')">
+      <span>🔬</span>
+      Science
+    </button>
+
+    <button onclick="openSubject('Computing')">
+      <span>💻</span>
+      Computing
+    </button>
+
+    <button onclick="showProgress()">
+      <span>📊</span>
+      Progress
+    </button>
+
+  </nav>
 
 </section>
-
-
-<!-- TOPICS PAGE -->
-
-<section id="topicsPage" class="hidden">
-
-<button
-class="btn btn-light back-btn"
-onclick="backToDashboard()"
->
-← Dashboard
-</button>
-
-<div class="topic-header">
-
-<small id="topicClass"></small>
-
-<h1 id="topicSubject"></h1>
-
-<p>
-Choose a topic to start learning.
-</p>
-
-</div>
-
-<div id="topicList" class="topic-list"></div>
-
-</section>
-
-
-<!-- LESSON PAGE -->
-
-<section id="lessonPage" class="hidden">
-
-<button
-class="btn btn-light back-btn"
-onclick="backToTopics()"
->
-← Topics
-</button>
-
-<div class="lesson-header">
-
-<small id="lessonClass"></small>
-
-<h1 id="lessonTitle"></h1>
-
-<p id="lessonSubtitle"></p>
-
-</div>
-
-<div class="lesson-section">
-
-<h2>🎯 What You Will Learn</h2>
-
-<div
-id="lessonPoints"
-class="learning-points"
-></div>
-
-</div>
-
-
-<div class="lesson-section">
-
-<h2>📖 Let's Learn</h2>
-
-<div id="lessonExplanation"></div>
-
-</div>
-
-
-<div class="lesson-section">
-
-<h2>💡 Example</h2>
-
-<div
-id="lessonExample"
-class="example"
-></div>
-
-</div>
-
-
-<div style="text-align:center;margin:25px 0;">
-
-<button
-class="btn btn-primary"
-onclick="startPractice()"
->
-Start Practice →
-</button>
-
-</div>
-
-</section>
-
-
-<!-- PRACTICE PAGE -->
-
-<section id="practicePage" class="hidden">
-
-<button
-class="btn btn-light back-btn"
-onclick="backToLesson()"
->
-← Lesson
-</button>
-
-<div class="topic-header">
-
-<small id="practiceClass"></small>
-
-<h1 id="practiceTitle">
-Practice
-</h1>
-
-<p>
-Choose the correct answer for each question.
-</p>
-
-</div>
-
-<div id="questionsContainer"></div>
-
-<div style="text-align:center;margin:25px 0;">
-
-<button
-class="btn btn-success"
-onclick="checkAnswers()"
->
-Check My Answers ✓
-</button>
-
-</div>
-
-</section>
-
-
-<!-- RESULT PAGE -->
-
-<section id="resultPage" class="hidden">
-
-<div class="card result">
-
-<div class="score-circle">
-
-<strong id="resultScore">
-0%
-</strong>
-
-<span>Score</span>
-
-</div>
-
-<h1 id="resultTitle">
-Well Done!
-</h1>
-
-<p
-id="resultMessage"
-style="color:#64748b;margin:10px 0 25px;"
-></p>
-
-<div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
-
-<button
-class="btn btn-primary"
-onclick="retryLesson()"
->
-🔄 Try Again
-</button>
-
-<button
-class="btn btn-secondary"
-onclick="backToTopics()"
->
-📚 More Topics
-</button>
-
-<button
-class="btn btn-light"
-onclick="backToDashboard()"
->
-🏠 Dashboard
-</button>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- PROGRESS PAGE -->
-
-<section id="progressPage" class="hidden">
-
-<button
-class="btn btn-light back-btn"
-onclick="backToDashboard()"
->
-← Dashboard
-</button>
-
-<div class="card">
-
-<h1 style="margin-bottom:8px;">
-📈 My Progress
-</h1>
-
-<p style="color:#64748b;margin-bottom:25px;">
-Keep learning and improving.
-</p>
-
-
-<div class="progress-item">
-
-<div>
-<span>Topics Completed</span>
-<strong id="progressTopicsText">0</strong>
-</div>
-
-<div class="progress-bar">
-<div
-id="progressTopics"
-class="progress-fill"
-></div>
-</div>
-
-</div>
-
-
-<div class="progress-item">
-
-<div>
-<span>Questions Answered</span>
-<strong id="progressQuestionsText">0</strong>
-</div>
-
-<div class="progress-bar">
-<div
-id="progressQuestions"
-class="progress-fill"
-></div>
-</div>
-
-</div>
-
-
-<div class="progress-item">
-
-<div>
-<span>Best Score</span>
-<strong id="progressScoreText">0%</strong>
-</div>
-
-<div class="progress-bar">
-<div
-id="progressScore"
-class="progress-fill"
-></div>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- PROFILE PAGE -->
-
-<section id="profilePage" class="hidden">
-
-<button
-class="btn btn-light back-btn"
-onclick="backToDashboard()"
->
-← Dashboard
-</button>
-
-<div class="card profile-card">
-
-<div
-id="profileAvatar"
-class="profile-big"
->
-</div>
-
-<h1 id="profileName"></h1>
-
-<p
-id="profileClass"
-style="color:#64748b;margin:7px 0 25px;"
-></p>
-
-<button
-class="btn btn-danger"
-onclick="logout()"
->
-Logout
-</button>
-
-</div>
-
-</section>
-
-</main>
-
-
-<!-- BOTTOM NAV -->
-
-<nav class="bottom-nav">
-
-<button
-class="active"
-onclick="backToDashboard()"
->
-<span>🏠</span>
-Home
-</button>
-
-<button
-onclick="quickPractice()"
->
-<span>⚡</span>
-Practice
-</button>
-
-<button
-onclick="showProgress()"
->
-<span>📈</span>
-Progress
-</button>
-
-<button
-onclick="showProfile()"
->
-<span>👤</span>
-Profile
-</button>
-
-</nav>
-
-</div>
 
 
 <script>
 
 /* =====================================================
-   SMART STEPS
-   CURRICULUM
+   SMART STEPS JAVASCRIPT
 ===================================================== */
 
-const curriculum = {
 
-"Primary 1":{
-
-"Mathematics":[
-["Numbers","Learn to recognise, count and compare numbers."],
-["Addition","Learn how to put numbers together."],
-["Subtraction","Learn how to take numbers away."],
-["Shapes","Explore common shapes around us."],
-["Measurement","Learn about size, length and simple measurement."]
-],
-
-"Science":[
-["My Body","Learn about parts of the human body."],
-["Living Things","Discover things that are alive."],
-["Plants","Learn about plants and what they need."],
-["Animals","Explore different animals and their features."],
-["Weather","Learn about common weather conditions."]
-],
-
-"Computing":[
-["Computers","Learn what computers are and what they do."],
-["Parts of a Computer","Identify common parts of a computer."],
-["Keyboard","Learn about the computer keyboard."],
-["Mouse","Learn how to use a computer mouse."],
-["Computer Safety","Learn how to use computers safely."]
-]
-
-},
-
-"Primary 2":{
-
-"Mathematics":[
-["Place Value","Understand the value of digits in numbers."],
-["Addition","Add numbers using simple methods."],
-["Subtraction","Subtract numbers correctly."],
-["Multiplication","Begin to understand multiplication."],
-["Shapes","Identify and describe common shapes."]
-],
-
-"Science":[
-["The Human Body","Learn about important body parts."],
-["Plants","Explore plant parts and their functions."],
-["Animals","Learn about different groups of animals."],
-["Materials","Identify common materials around us."],
-["Water","Explore the importance and uses of water."]
-],
-
-"Computing":[
-["Computer Devices","Identify devices used with computers."],
-["Keyboard","Use letters, numbers and special keys."],
-["Mouse Skills","Practise basic mouse actions."],
-["Files","Understand simple computer files."],
-["Digital Safety","Learn basic online and computer safety."]
-]
-
-},
-
-"Primary 3":{
-
-"Mathematics":[
-["Numbers and Place Value","Understand larger numbers and place value."],
-["Addition and Subtraction","Solve addition and subtraction problems."],
-["Multiplication and Division","Learn basic multiplication and division."],
-["Fractions","Understand simple fractions."],
-["Measurement","Measure length, mass, time and capacity."]
-],
-
-"Science":[
-["Plants","Study plant parts and their functions."],
-["Animals","Learn how animals live and survive."],
-["Matter","Explore solids, liquids and gases."],
-["Energy","Learn about common forms of energy."],
-["The Environment","Understand our surroundings and how to care for them."]
-],
-
-"Computing":[
-["Computer Hardware","Learn about physical computer components."],
-["Software","Understand programs and applications."],
-["Word Processing","Create and edit simple documents."],
-["Internet","Learn what the internet is used for."],
-["Digital Safety","Learn safe and responsible technology use."]
-]
-
-},
-
-"Primary 4":{
-
-"Mathematics":[
-["Whole Numbers","Work with whole numbers and place value."],
-["Operations","Solve problems using the four operations."],
-["Fractions","Compare and work with fractions."],
-["Decimals","Understand simple decimal numbers."],
-["Geometry","Explore angles, shapes and lines."]
-],
-
-"Science":[
-["Human Systems","Learn about major systems in the human body."],
-["Plants and Reproduction","Study how plants grow and reproduce."],
-["Matter","Investigate properties of different materials."],
-["Forces","Explore pushes, pulls and forces."],
-["Earth and Space","Learn about Earth and objects in space."]
-],
-
-"Computing":[
-["Computer Components","Study important computer components."],
-["Operating Systems","Understand the role of operating systems."],
-["Word Processing","Use word-processing tools."],
-["Presentations","Create simple digital presentations."],
-["Internet Safety","Learn responsible internet use."]
-]
-
-},
-
-"Primary 5":{
-
-"Mathematics":[
-["Number Operations","Solve problems using number operations."],
-["Fractions","Calculate and compare fractions."],
-["Decimals","Work with decimal numbers."],
-["Percentages","Understand simple percentages."],
-["Geometry","Study angles, shapes and measurements."]
-],
-
-"Science":[
-["The Human Body","Explore body systems and their functions."],
-["Reproduction","Learn basic concepts of reproduction."],
-["Electricity","Explore simple electrical circuits."],
-["Forces and Motion","Understand forces and movement."],
-["The Environment","Study ecosystems and environmental care."]
-],
-
-"Computing":[
-["Computer Networks","Learn how computers communicate."],
-["Data","Understand information and data."],
-["Spreadsheets","Learn basic spreadsheet concepts."],
-["Presentations","Create effective presentations."],
-["Cyber Safety","Understand responsible and safe technology use."]
-]
-
-},
-
-"Primary 6":{
-
-"Mathematics":[
-["Number Systems","Work confidently with numbers."],
-["Fractions and Decimals","Solve problems involving fractions and decimals."],
-["Percentages","Calculate and apply percentages."],
-["Algebra","Begin working with simple algebra."],
-["Geometry and Measurement","Solve geometry and measurement problems."]
-],
-
-"Science":[
-["Human Health","Learn about health and the human body."],
-["Plants and Animals","Study life processes and organisms."],
-["Energy","Explore different forms and uses of energy."],
-["Electricity","Understand electrical circuits."],
-["Environment","Study environmental issues and conservation."]
-],
-
-"Computing":[
-["Computer Systems","Understand how computer systems work."],
-["Algorithms","Learn how instructions solve problems."],
-["Data and Information","Explore how data is represented."],
-["Programming","Learn basic programming concepts."],
-["Online Safety","Develop responsible digital habits."]
-]
-
-},
-
-"JHS 1":{
-
-"Mathematics":[
-["Number Systems","Study integers, factors and multiples."],
-["Fractions and Decimals","Perform operations with fractions and decimals."],
-["Ratio and Proportion","Understand relationships between quantities."],
-["Algebra","Use expressions and simple equations."],
-["Geometry","Study lines, angles and shapes."]
-],
-
-"Science":[
-["Living Cells","Explore cells and their functions."],
-["Matter","Study the properties of matter."],
-["Energy","Explore forms and transformations of energy."],
-["Forces","Understand forces and motion."],
-["Environment","Study ecosystems and environmental interactions."]
-],
-
-"Computing":[
-["Computer Systems","Understand computer systems and components."],
-["Data Representation","Learn how computers represent information."],
-["Algorithms","Develop step-by-step problem solving."],
-["Programming","Explore basic programming concepts."],
-["Internet and Safety","Understand networks and digital safety."]
-]
-
-},
-
-"JHS 2":{
-
-"Mathematics":[
-["Integers and Rational Numbers","Work with different types of numbers."],
-["Algebra","Solve equations and simplify expressions."],
-["Geometry","Explore properties of shapes and angles."],
-["Statistics","Collect and interpret data."],
-["Probability","Understand chance and probability."]
-],
-
-"Science":[
-["Cells and Organisms","Study cells and living organisms."],
-["Human Systems","Explore major systems of the human body."],
-["Chemical Substances","Study substances and their properties."],
-["Electricity","Understand circuits and electrical energy."],
-["Ecology","Explore relationships between organisms and environments."]
-],
-
-"Computing":[
-["Computer Networks","Understand how networks operate."],
-["Databases","Learn how information can be organised."],
-["Algorithms","Design logical solutions to problems."],
-["Programming","Develop basic programs."],
-["Cybersecurity","Learn about digital threats and protection."]
-]
-
-},
-
-"JHS 3":{
-
-"Mathematics":[
-["Number and Numeration","Work with numbers and numerical relationships."],
-["Algebra","Solve and apply algebraic expressions and equations."],
-["Geometry","Apply geometric concepts to problems."],
-["Statistics","Analyse and interpret data."],
-["Probability","Calculate and interpret probability."]
-],
-
-"Science":[
-["Human Reproduction","Study reproduction and human development."],
-["Genetics and Heredity","Explore inherited characteristics."],
-["Chemical Reactions","Understand changes in substances."],
-["Energy and Electricity","Study energy, electricity and their applications."],
-["Environment and Sustainability","Explore environmental challenges and solutions."]
-],
-
-"Computing":[
-["Information Systems","Understand how information systems work."],
-["Programming","Develop computational problem-solving skills."],
-["Databases","Understand structured data and databases."],
-["Networks","Study computer and internet networks."],
-["Cybersecurity","Learn how to protect information and systems."]
-]
-
-}
-
-};
-
-
-/* =====================================================
-   LESSON GENERATOR
-===================================================== */
+/* =========================
+   GLOBAL VARIABLES
+========================= */
 
 let currentSubject = "";
 let currentTopic = "";
+let currentLesson = null;
 let currentQuestions = [];
 let selectedAnswers = {};
 
-
-/*
-  This creates a working lesson for EVERY topic.
-  Later we can replace individual lessons with richer
-  curriculum-specific content without changing the app.
-*/
-
-function createLesson(className,subject,topic,description){
-
-let explanation = "";
-
-if(subject === "Mathematics"){
-
-explanation =
-"Mathematics helps us understand numbers, patterns, shapes and relationships. " +
-"In this lesson, we will explore " + topic.toLowerCase() +
-" and practise using it to solve simple problems.";
-
-}else if(subject === "Science"){
-
-explanation =
-"Science helps us understand the world around us. " +
-"In this lesson, we will explore " + topic.toLowerCase() +
-", observe important ideas and connect them to everyday life.";
-
-}else{
-
-explanation =
-"Computing helps us understand computers, information and digital technology. " +
-"In this lesson, we will explore " + topic.toLowerCase() +
-" and learn how it is used in everyday life.";
-
-}
+const STORAGE_KEY = "smartStepsStudent";
 
 
-return {
+/* =========================
+   CURRICULUM
+========================= */
 
-title:topic,
+const curriculum = {
 
-subtitle:description,
+  "Primary 1": {
 
-points:[
-"Understand the basic idea of " + topic + ".",
-"Learn important words and concepts related to the topic.",
-"Connect what you learn to everyday situations.",
-"Practise what you have learned."
-],
+    Mathematics: [
+      ["Numbers", "Learn to recognize and count numbers."],
+      ["Addition", "Learn simple addition using numbers and objects."],
+      ["Subtraction", "Learn how to take away numbers."],
+      ["Shapes", "Identify common shapes around you."],
+      ["Measurement", "Learn about length, size and simple measurement."]
+    ],
 
-explanation:explanation,
+    Science: [
+      ["Living Things", "Learn about things that are alive."],
+      ["Plants", "Learn about common plants and their parts."],
+      ["Animals", "Learn about animals around us."],
+      ["Our Body", "Learn about important parts of the human body."],
+      ["Water", "Learn why water is important."]
+    ],
 
-example:
-"Think about where you may see or use " +
-topic.toLowerCase() +
-" in everyday life. After learning the topic, try to explain it in your own words.",
+    Computing: [
+      ["Computer Parts", "Learn about basic parts of a computer."],
+      ["Keyboard", "Learn about the computer keyboard."],
+      ["Mouse", "Learn how to use a computer mouse."],
+      ["Computer Safety", "Learn how to use computers safely."],
+      ["Using Computers", "Learn simple ways computers help us."]
+    ]
 
-questions:createQuestions(className,subject,topic)
+  },
+
+
+  "Primary 2": {
+
+    Mathematics: [
+      ["Numbers", "Read, write and compare numbers."],
+      ["Addition", "Add larger numbers using simple methods."],
+      ["Subtraction", "Subtract numbers correctly."],
+      ["Multiplication", "Understand simple multiplication."],
+      ["Shapes", "Identify and describe common shapes."]
+    ],
+
+    Science: [
+      ["Plants", "Learn about plant parts and their uses."],
+      ["Animals", "Learn about different types of animals."],
+      ["The Human Body", "Learn about important body parts."],
+      ["Materials", "Learn about materials around us."],
+      ["Weather", "Learn about different weather conditions."]
+    ],
+
+    Computing: [
+      ["Computer Parts", "Identify common computer hardware."],
+      ["Keyboard", "Use common keyboard keys."],
+      ["Mouse Skills", "Practice using the mouse."],
+      ["Files", "Understand simple computer files."],
+      ["Computer Safety", "Learn safe computer practices."]
+    ]
+
+  },
+
+
+  "Primary 3": {
+
+    Mathematics: [
+      ["Numbers", "Understand place value and number patterns."],
+      ["Addition and Subtraction", "Solve addition and subtraction problems."],
+      ["Multiplication", "Learn multiplication facts."],
+      ["Division", "Understand simple division."],
+      ["Fractions", "Learn about simple fractions."]
+    ],
+
+    Science: [
+      ["Plants", "Understand plant growth and needs."],
+      ["Animals", "Learn about animal groups."],
+      ["Matter", "Explore solids, liquids and gases."],
+      ["Light", "Learn about sources of light."],
+      ["Sound", "Learn how sound is produced."]
+    ],
+
+    Computing: [
+      ["Input Devices", "Learn about devices used to enter information."],
+      ["Output Devices", "Learn about devices that show information."],
+      ["Keyboard Skills", "Improve keyboard knowledge."],
+      ["Internet Basics", "Learn what the internet is."],
+      ["Digital Safety", "Learn how to stay safe online."]
+    ]
+
+  },
+
+
+  "Primary 4": {
+
+    Mathematics: [
+      ["Place Value", "Understand the value of digits in numbers."],
+      ["Operations", "Practice the four basic operations."],
+      ["Fractions", "Understand different types of fractions."],
+      ["Decimals", "Learn about decimal numbers."],
+      ["Geometry", "Learn about lines, angles and shapes."]
+    ],
+
+    Science: [
+      ["Plants", "Study plant structures and functions."],
+      ["Animals", "Study animal groups and characteristics."],
+      ["Matter", "Explore properties of matter."],
+      ["Energy", "Learn about different forms of energy."],
+      ["The Environment", "Understand our relationship with the environment."]
+    ],
+
+    Computing: [
+      ["Computer Hardware", "Learn about computer hardware."],
+      ["Software", "Understand what computer software does."],
+      ["Word Processing", "Learn basic word processing."],
+      ["Internet", "Understand basic internet services."],
+      ["Online Safety", "Learn how to behave safely online."]
+    ]
+
+  },
+
+
+  "Primary 5": {
+
+    Mathematics: [
+      ["Whole Numbers", "Work with larger whole numbers."],
+      ["Fractions", "Add and compare fractions."],
+      ["Decimals", "Work with decimal numbers."],
+      ["Percentages", "Understand simple percentages."],
+      ["Geometry", "Study angles and geometric shapes."]
+    ],
+
+    Science: [
+      ["Human Body", "Learn about major body systems."],
+      ["Plants", "Study plant reproduction and growth."],
+      ["Matter", "Explore changes in matter."],
+      ["Energy", "Study sources and uses of energy."],
+      ["Environment", "Learn about environmental protection."]
+    ],
+
+    Computing: [
+      ["Computer Networks", "Understand how computers communicate."],
+      ["Data", "Learn what data means."],
+      ["Word Processing", "Improve document creation skills."],
+      ["Presentations", "Learn the basics of presentations."],
+      ["Cyber Safety", "Learn how to protect yourself online."]
+    ]
+
+  },
+
+
+  "Primary 6": {
+
+    Mathematics: [
+      ["Numbers", "Review and apply number concepts."],
+      ["Fractions", "Solve problems involving fractions."],
+      ["Decimals and Percentages", "Connect decimals and percentages."],
+      ["Ratio", "Understand simple ratios."],
+      ["Geometry", "Solve problems involving shapes and angles."]
+    ],
+
+    Science: [
+      ["Human Body", "Study major systems of the human body."],
+      ["Reproduction", "Learn basic concepts of reproduction."],
+      ["Matter", "Understand physical changes in matter."],
+      ["Energy", "Explore energy transformation."],
+      ["Environment", "Study environmental conservation."]
+    ],
+
+    Computing: [
+      ["Computer Systems", "Understand basic computer systems."],
+      ["Networks", "Learn how networks connect computers."],
+      ["Data", "Understand data collection and storage."],
+      ["Internet", "Explore internet services."],
+      ["Cybersecurity", "Learn basic cybersecurity practices."]
+    ]
+
+  },
+
+
+  "JHS 1": {
+
+    Mathematics: [
+      ["Number Systems", "Study integers, factors and multiples."],
+      ["Fractions and Decimals", "Perform operations with fractions and decimals."],
+      ["Percentages", "Solve percentage problems."],
+      ["Algebra", "Introduce algebraic expressions."],
+      ["Geometry", "Study angles and geometric properties."]
+    ],
+
+    Science: [
+      ["Living Cells", "Learn about cells and their functions."],
+      ["Human Body", "Study major human body systems."],
+      ["Matter", "Explore particles and states of matter."],
+      ["Energy", "Study forms and sources of energy."],
+      ["Ecosystems", "Understand relationships between organisms."]
+    ],
+
+    Computing: [
+      ["Computer Systems", "Understand the components of a computer system."],
+      ["Data Representation", "Learn how computers represent information."],
+      ["Operating Systems", "Understand the role of operating systems."],
+      ["Networks", "Learn how computer networks work."],
+      ["Internet Safety", "Understand online risks and safety."]
+    ]
+
+  },
+
+
+  "JHS 2": {
+
+    Mathematics: [
+      ["Integers", "Work with positive and negative numbers."],
+      ["Ratio and Proportion", "Solve ratio and proportion problems."],
+      ["Algebra", "Solve algebraic expressions and equations."],
+      ["Statistics", "Collect and interpret data."],
+      ["Geometry", "Study geometric relationships."]
+    ],
+
+    Science: [
+      ["Cells", "Study cell structures and functions."],
+      ["Nutrition", "Learn about nutrients and healthy diets."],
+      ["Forces", "Understand forces and their effects."],
+      ["Electricity", "Learn about simple electrical circuits."],
+      ["Environment", "Study environmental problems and solutions."]
+    ],
+
+    Computing: [
+      ["Programming", "Learn the basic ideas behind programming."],
+      ["Algorithms", "Understand step-by-step problem solving."],
+      ["Databases", "Learn how information can be organized."],
+      ["Networks", "Study computer networking concepts."],
+      ["Cybersecurity", "Understand common digital threats."]
+    ]
+
+  },
+
+
+  "JHS 3": {
+
+    Mathematics: [
+      ["Algebra", "Solve more advanced algebraic problems."],
+      ["Statistics", "Interpret tables, charts and data."],
+      ["Probability", "Understand chance and probability."],
+      ["Geometry", "Solve geometric problems."],
+      ["Mensuration", "Calculate perimeter, area and volume."]
+    ],
+
+    Science: [
+      ["Human Systems", "Study major systems of the human body."],
+      ["Genetics", "Understand basic ideas about heredity."],
+      ["Forces and Motion", "Study movement and forces."],
+      ["Electricity", "Study electrical circuits and safety."],
+      ["Environmental Science", "Study environmental challenges."]
+    ],
+
+    Computing: [
+      ["Programming", "Develop basic programming concepts."],
+      ["Algorithms", "Design solutions using algorithms."],
+      ["Databases", "Understand database concepts."],
+      ["Networks", "Study network technologies."],
+      ["Cybersecurity", "Learn how digital information is protected."]
+    ]
+
+  }
 
 };
 
-}
 
-
-/* =====================================================
-   QUESTION GENERATOR
-===================================================== */
-
-function createQuestions(className,subject,topic){
-
-let questions=[];
-
-
-/* ---------- MATHEMATICS ---------- */
-
-if(subject==="Mathematics"){
-
-if(topic==="Numbers" || topic==="Number Systems" ||
-topic==="Number and Numeration" ||
-topic==="Whole Numbers" ||
-topic==="Numbers and Place Value"){
-
-let base =
-className==="Primary 1" ? 3 :
-className==="Primary 2" ? 7 :
-className==="Primary 3" ? 12 :
-className==="Primary 4" ? 25 :
-className==="Primary 5" ? 45 :
-className==="Primary 6" ? 75 :
-className==="JHS 1" ? 120 :
-className==="JHS 2" ? 250 : 500;
-
-questions=[
-{
-question:`What number comes after ${base}?`,
-options:[
-String(base-1),
-String(base+1),
-String(base+2),
-String(base-2)
-],
-answer:String(base+1)
-},
-{
-question:`What number comes before ${base+5}?`,
-options:[
-String(base+3),
-String(base+4),
-String(base+5),
-String(base+6)
-],
-answer:String(base+4)
-},
-{
-question:`Which number is greater?`,
-options:[
-String(base),
-String(base+2),
-String(base-1),
-String(base-2)
-],
-answer:String(base+2)
-},
-{
-question:`Which number is smaller?`,
-options:[
-String(base+5),
-String(base+3),
-String(base+7),
-String(base+6)
-],
-answer:String(base+3)
-},
-{
-question:`What is ${base} + 1?`,
-options:[
-String(base),
-String(base+1),
-String(base+2),
-String(base-1)
-],
-answer:String(base+1)
-}
-];
-
-}
-
-else if(topic.includes("Addition") ||
-topic.includes("Operations")){
-
-let n =
-className==="Primary 1" ? 2 :
-className==="Primary 2" ? 5 :
-className==="Primary 3" ? 8 :
-className==="Primary 4" ? 15 :
-className==="Primary 5" ? 25 :
-className==="Primary 6" ? 40 :
-className==="JHS 1" ? 60 :
-className==="JHS 2" ? 120 : 250;
-
-questions=[
-{
-question:`What is ${n} + 3?`,
-options:[
-String(n+2),
-String(n+3),
-String(n+4),
-String(n+5)
-],
-answer:String(n+3)
-},
-{
-question:`What is ${n} + 5?`,
-options:[
-String(n+4),
-String(n+5),
-String(n+6),
-String(n+7)
-],
-answer:String(n+5)
-},
-{
-question:`What is 4 + ${n}?`,
-options:[
-String(n+3),
-String(n+4),
-String(n+5),
-String(n+6)
-],
-answer:String(n+4)
-},
-{
-question:`If you have ${n} books and receive 2 more, how many do you have?`,
-options:[
-String(n+1),
-String(n+2),
-String(n+3),
-String(n+4)
-],
-answer:String(n+2)
-},
-{
-question:`Which expression gives ${n+5}?`,
-options:[
-`${n} + 3`,
-`${n} + 4`,
-`${n} + 5`,
-`${n} + 6`
-],
-answer:`${n} + 5`
-}
-];
-
-}
-
-else if(topic.includes("Subtraction")){
-
-let n =
-className==="Primary 1" ? 8 :
-className==="Primary 2" ? 15 :
-className==="Primary 3" ? 25 :
-className==="Primary 4" ? 40 :
-className==="Primary 5" ? 60 :
-className==="Primary 6" ? 90 :
-className==="JHS 1" ? 120 :
-className==="JHS 2" ? 200 : 300;
-
-questions=[
-{
-question:`What is ${n} - 2?`,
-options:[
-String(n-1),
-String(n-2),
-String(n-3),
-String(n-4)
-],
-answer:String(n-2)
-},
-{
-question:`What is ${n} - 5?`,
-options:[
-String(n-3),
-String(n-4),
-String(n-5),
-String(n-6)
-],
-answer:String(n-5)
-},
-{
-question:`What is ${n} - 10?`,
-options:[
-String(n-8),
-String(n-9),
-String(n-10),
-String(n-11)
-],
-answer:String(n-10)
-},
-{
-question:`If you have ${n} items and remove 3, how many remain?`,
-options:[
-String(n-2),
-String(n-3),
-String(n-4),
-String(n-5)
-],
-answer:String(n-3)
-},
-{
-question:`Which expression gives ${n-4}?`,
-options:[
-`${n} - 2`,
-`${n} - 3`,
-`${n} - 4`,
-`${n} - 5`
-],
-answer:`${n} - 4`
-}
-];
-
-}
-
-else if(topic.includes("Multiplication")){
-
-questions=[
-{
-question:"What is 2 × 3?",
-options:["5","6","7","8"],
-answer:"6"
-},
-{
-question:"What is 4 × 2?",
-options:["6","8","10","12"],
-answer:"8"
-},
-{
-question:"What is 5 × 3?",
-options:["10","12","15","20"],
-answer:"15"
-},
-{
-question:"What is 6 × 2?",
-options:["8","10","12","14"],
-answer:"12"
-},
-{
-question:"What is 3 × 4?",
-options:["7","10","12","14"],
-answer:"12"
-}
-];
-
-}
-
-else if(topic.includes("Division")){
-
-questions=[
-{
-question:"What is 6 ÷ 2?",
-options:["2","3","4","5"],
-answer:"3"
-},
-{
-question:"What is 8 ÷ 2?",
-options:["2","3","4","5"],
-answer:"4"
-},
-{
-question:"What is 10 ÷ 2?",
-options:["3","4","5","6"],
-answer:"5"
-},
-{
-question:"What is 12 ÷ 3?",
-options:["3","4","5","6"],
-answer:"4"
-},
-{
-question:"What is 15 ÷ 3?",
-options:["4","5","6","7"],
-answer:"5"
-}
-];
-
-}
-
-else if(topic.includes("Fractions")){
-
-questions=[
-{
-question:"Which fraction means one half?",
-options:["1/2","1/3","2/3","1/4"],
-answer:"1/2"
-},
-{
-question:"How many halves make one whole?",
-options:["1","2","3","4"],
-answer:"2"
-},
-{
-question:"Which fraction is larger?",
-options:["1/4","1/2","1/8","1/10"],
-answer:"1/2"
-},
-{
-question:"What is 1/2 of 10?",
-options:["2","5","6","8"],
-answer:"5"
-},
-{
-question:"Which fraction shows three parts out of four?",
-options:["1/4","2/4","3/4","4/4"],
-answer:"3/4"
-}
-];
-
-}
-
-else if(topic.includes("Percentages")){
-
-questions=[
-{
-question:"What is 50% of 100?",
-options:["25","50","75","100"],
-answer:"50"
-},
-{
-question:"What is 10% of 100?",
-options:["5","10","20","50"],
-answer:"10"
-},
-{
-question:"50% is equal to which fraction?",
-options:["1/2","1/3","1/4","3/4"],
-answer:"1/2"
-},
-{
-question:"25% is equal to which fraction?",
-options:["1/2","1/3","1/4","3/4"],
-answer:"1/4"
-},
-{
-question:"100% means:",
-options:[
-"Nothing",
-"Half",
-"A quarter",
-"The whole amount"
-],
-answer:"The whole amount"
-}
-];
-
-}
-
-else if(topic.includes("Decimals")){
-
-questions=[
-{
-question:"Which is greater?",
-options:["0.2","0.5","0.1","0.05"],
-answer:"0.5"
-},
-{
-question:"What is 0.5 as a fraction?",
-options:["1/2","1/3","1/4","1/5"],
-answer:"1/2"
-},
-{
-question:"What is 0.2 + 0.3?",
-options:["0.3","0.4","0.5","0.6"],
-answer:"0.5"
-},
-{
-question:"Which number is smallest?",
-options:["0.9","0.4","0.7","0.6"],
-answer:"0.4"
-},
-{
-question:"1.0 is equal to:",
-options:["0","1","10","100"],
-answer:"1"
-}
-];
-
-}
-
-else if(topic.includes("Probability")){
-
-questions=[
-{
-question:"What is the probability of getting a head when tossing a fair coin?",
-options:["0","1/4","1/2","1"],
-answer:"1/2"
-},
-{
-question:"An impossible event has probability:",
-options:["0","1/2","1","2"],
-answer:"0"
-},
-{
-question:"A certain event has probability:",
-options:["0","1/4","1/2","1"],
-answer:"1"
-},
-{
-question:"Probability describes:",
-options:[
-"How heavy something is",
-"How likely something is",
-"How long something is",
-"How fast something is"
-],
-answer:"How likely something is"
-},
-{
-question:"A probability cannot be greater than:",
-options:["0","1","2","10"],
-answer:"1"
-}
-];
-
-}
-
-else if(topic.includes("Statistics")){
-
-questions=[
-{
-question:"Statistics involves working with:",
-options:["Data","Only shapes","Only colours","Only sounds"],
-answer:"Data"
-},
-{
-question:"Which can be used to display data?",
-options:["Chart","Shoe","Chair","Door"],
-answer:"Chart"
-},
-{
-question:"The number that occurs most often is called the:",
-options:["Mean","Mode","Range","Total"],
-answer:"Mode"
-},
-{
-question:"A table can be used to:",
-options[
-],
-answer:""
-}
-];
-
-}
-
-/* Fix statistics question set */
-
-if(topic.includes("Statistics")){
-
-questions=[
-{
-question:"Statistics involves working with:",
-options:["Data","Only shapes","Only colours","Only sounds"],
-answer:"Data"
-},
-{
-question:"Which can be used to display data?",
-options:["Chart","Shoe","Chair","Door"],
-answer:"Chart"
-},
-{
-question:"The number that occurs most often is called the:",
-options:["Mean","Mode","Range","Total"],
-answer:"Mode"
-},
-{
-question:"A table can be used to:",
-options:[
-"Organise data",
-"Cook food",
-"Measure temperature only",
-"Play music"
-],
-answer:"Organise data"
-},
-{
-question:"A graph can help us:",
-options:[
-"Understand data",
-"Wash clothes",
-"Build a house",
-"Write with a pen"
-],
-answer:"Understand data"
-}
-];
-
-}
-
-else if(topic.includes("Algebra")){
-
-questions=[
-{
-question:"If x = 5, what is x + 2?",
-options:["5","6","7","8"],
-answer:"7"
-},
-{
-question:"If x = 10, what is x - 3?",
-options:["5","6","7","8"],
-answer:"7"
-},
-{
-question:"Which symbol is commonly used for an unknown number?",
-options:["x","@","#","&"],
-answer:"x"
-},
-{
-question:"If x = 4, what is 2x?",
-options:["4","6","8","10"],
-answer:"8"
-},
-{
-question:"What is x + 0 equal to?",
-options:["0","1","x","2x"],
-answer:"x"
-}
-];
-
-}
-
-else{
-
-questions=[
-{
-question:`Which statement best describes ${topic}?`,
-options:[
-"It is something we can learn and understand.",
-"It is always impossible.",
-"It has no connection to learning.",
-"It cannot be studied."
-],
-answer:"It is something we can learn and understand."
-},
-{
-question:"Why is practice important?",
-options:[
-"It helps improve understanding.",
-"It stops learning.",
-"It makes questions disappear.",
-"It is not useful."
-],
-answer:"It helps improve understanding."
-},
-{
-question:"What should you do when you make a mistake?",
-options:[
-"Learn from it.",
-"Give up.",
-"Ignore everything.",
-"Stop studying."
-],
-answer:"Learn from it."
-},
-{
-question:"Which is a good learning habit?",
-options:[
-"Practising regularly",
-"Never reviewing",
-"Always giving up",
-"Not asking questions"
-],
-answer:"Practising regularly"
-},
-{
-question:"What is the main goal of a lesson?",
-options:[
-"To learn something new.",
-"To avoid learning.",
-"To waste time.",
-"To stop practising."
-],
-answer:"To learn something new."
-}
-];
-
-}
-
-}
-
-
-/* ---------- SCIENCE ---------- */
-
-else if(subject==="Science"){
-
-questions=[
-{
-question:`What is the main purpose of learning about ${topic}?`,
-options:[
-"To understand the world around us.",
-"To avoid observing things.",
-"To stop asking questions.",
-"To avoid experiments."
-],
-answer:"To understand the world around us."
-},
-{
-question:"Science uses observation to:",
-options:[
-"Collect information",
-"Hide information",
-"Stop learning",
-"Make guesses only"
-],
-answer:"Collect information"
-},
-{
-question:"Which is an important scientific habit?",
-options:[
-"Asking questions",
-"Never observing",
-"Never testing ideas",
-"Ignoring evidence"
-],
-answer:"Asking questions"
-},
-{
-question:"What can an experiment help us do?",
-options:[
-"Test an idea",
-"Forget an idea",
-"Stop learning",
-"Avoid evidence"
-],
-answer:"Test an idea"
-},
-{
-question:"Science can help us understand:",
-options:[
-"The world around us",
-"Only books",
-"Only numbers",
-"Nothing"
-],
-answer:"The world around us"
-}
-];
-
-
-/* Special science questions */
-
-if(topic==="Plants"){
-
-questions=[
-{
-question:"Which part of a plant usually takes in water from the soil?",
-options:["Root","Flower","Fruit","Leaf"],
-answer:"Root"
-},
-{
-question:"Which part of a plant usually makes food?",
-options:["Root","Leaf","Stem","Seed"],
-answer:"Leaf"
-},
-{
-question:"What do plants need to grow?",
-options:[
-"Water and light",
-"Only stones",
-"Only plastic",
-"Nothing"
-],
-answer:"Water and light"
-},
-{
-question:"Which part supports the plant?",
-options:["Stem","Fruit","Root hair","Seed"],
-answer:"Stem"
-},
-{
-question:"A seed can grow into a:",
-options:["Plant","Rock","Shoe","Computer"],
-answer:"Plant"
-}
-];
-
-}
-
-if(topic==="Animals"){
-
-questions=[
-{
-question:"Which animal is a mammal?",
-options:["Dog","Fish","Frog","Chicken"],
-answer:"Dog"
-},
-{
-question:"Which animal lives mainly in water?",
-options:["Fish","Goat","Cat","Cow"],
-answer:"Fish"
-},
-{
-question:"Which animal has feathers?",
-options:["Bird","Dog","Fish","Goat"],
-answer:"Bird"
-},
-{
-question:"Animals need food to:",
-options:[
-"Get energy",
-"Become rocks",
-"Stop moving",
-"Disappear"
-],
-answer:"Get energy"
-},
-{
-question:"Which animal lays eggs?",
-options:["Chicken","Cow","Goat","Dog"],
-answer:"Chicken"
-}
-];
-
-}
-
-if(topic==="Matter"){
-
-questions=[
-{
-question:"Which is a solid?",
-options:["Stone","Water","Air","Steam"],
-answer:"Stone"
-},
-{
-question:"Which is a liquid?",
-options:["Water","Stone","Ice","Air"],
-answer:"Water"
-},
-{
-question:"Which is a gas?",
-options:["Air","Water","Stone","Ice"],
-answer:"Air"
-},
-{
-question:"Ice is:",
-options:["Solid","Liquid","Gas","Plasma"],
-answer:"Solid"
-},
-{
-question:"Water can change into ice when it:",
-options:[
-"Freezes",
-"Burns",
-"Disappears",
-"Moves"
-],
-answer:"Freezes"
-}
-];
-
-}
-
-}
-
-
-/* ---------- COMPUTING ---------- */
-
-else{
-
-questions=[
-{
-question:`What is ${topic} mainly connected with?`,
-options:[
-"Computing and technology",
-"Cooking only",
-"Farming only",
-"Sleeping"
-],
-answer:"Computing and technology"
-},
-{
-question:"Computers are used to:",
-options:[
-"Process information",
-"Only make noise",
-"Only play music",
-"Do nothing"
-],
-answer:"Process information"
-},
-{
-question:"Which is a good digital habit?",
-options:[
-"Protecting personal information",
-"Sharing every password",
-"Opening unknown links",
-"Ignoring safety"
-],
-answer:"Protecting personal information"
-},
-{
-question:"What should you do if something online makes you uncomfortable?",
-options:[
-"Tell a trusted adult",
-"Share it with everyone",
-"Give away your password",
-"Ignore all safety rules"
-],
-answer:"Tell a trusted adult"
-},
-{
-question:"Why do we learn computing?",
-options:[
-"To understand and use technology effectively.",
-"To avoid all technology.",
-"To stop learning.",
-"To make computers disappear."
-],
-answer:"To understand and use technology effectively."
-}
-];
-
-
-/* Special computing questions */
-
-if(topic==="Keyboard"){
-
-questions=[
-{
-question:"Which device is used to type letters?",
-options:["Keyboard","Monitor","Speaker","Printer"],
-answer:"Keyboard"
-},
-{
-question:"Which key creates a space between words?",
-options:["Spacebar","Shift","Enter","Esc"],
-answer:"Spacebar"
-},
-{
-question:"Which key is often used to start a new line?",
-options:["Enter","Ctrl","Alt","Caps Lock"],
-answer:"Enter"
-},
-{
-question:"Which key can remove a character to the left of the cursor?",
-options:["Backspace","Shift","Tab","Esc"],
-answer:"Backspace"
-},
-{
-question:"A keyboard contains:",
-options:[
-"Keys",
-"Only wires",
-"Only a screen",
-"Only speakers"
-],
-answer:"Keys"
-}
-];
-
-}
-
-if(topic==="Mouse" || topic==="Mouse Skills"){
-
-questions=[
-{
-question:"Which device is used to point and click?",
-options:["Mouse","Keyboard","Printer","Speaker"],
-answer:"Mouse"
-},
-{
-question:"What does clicking usually mean?",
-options:[
-"Pressing a mouse button",
-"Typing a letter",
-"Turning off the monitor",
-"Printing a document"
-],
-answer:"Pressing a mouse button"
-},
-{
-question:"What does double-click mean?",
-options:[
-"Clicking twice quickly",
-"Typing twice",
-"Moving the keyboard",
-"Turning off the computer"
-],
-answer:"Clicking twice quickly"
-},
-{
-question:"The mouse pointer appears on the:",
-options:["Screen","Keyboard","Printer","Desk only"],
-answer:"Screen"
-},
-{
-question:"A mouse helps us:",
-options:[
-"Select items",
-"Cook food",
-"Print electricity",
-"Measure water"
-],
-answer:"Select items"
-}
-];
-
-}
-
-if(topic==="Computer Safety" ||
-topic==="Digital Safety" ||
-topic==="Internet Safety" ||
-topic==="Online Safety" ||
-topic==="Cyber Safety" ||
-topic==="Cybersecurity"){
-
-questions=[
-{
-question:"Should you share your password with strangers?",
-options:["No","Yes","Always","Sometimes"],
-answer:"No"
-},
-{
-question:"What should you do with a suspicious link?",
-options:[
-"Do not open it",
-"Always click it",
-"Send it to everyone",
-"Give it your password"
-],
-answer:"Do not open it"
-},
-{
-question:"Who can help if something online worries you?",
-options:[
-"A trusted adult",
-"Nobody",
-"A stranger",
-"An unknown website"
-],
-answer:"A trusted adult"
-},
-{
-question:"Personal information should be:",
-options:[
-"Protected",
-"Shared with everyone",
-"Posted everywhere",
-"Given to strangers"
-],
-answer:"Protected"
-},
-{
-question:"A strong password should be:",
-options:[
-"Kept private",
-"Shared publicly",
-"Written on public websites",
-"Given to strangers"
-],
-answer:"Kept private"
-}
-];
-
-}
-
-}
-
-return questions;
-
-}
-
-
-/* =====================================================
-   LOGIN
-===================================================== */
+/* =========================
+   START LEARNING
+========================= */
 
 function startLearning(){
 
-const name =
-document.getElementById("studentName").value.trim();
+  const nameInput = document.getElementById("studentName");
+  const classInput = document.getElementById("studentClass");
 
-const studentClass =
-document.getElementById("studentClass").value;
+  const name = nameInput.value.trim();
+  const studentClass = classInput.value;
 
-if(!name){
+  if(!name){
 
-alert("Please enter the student's name.");
+    alert("Please enter your name.");
 
-return;
+    nameInput.focus();
+
+    return;
+  }
+
+  if(!studentClass){
+
+    alert("Please select your class.");
+
+    classInput.focus();
+
+    return;
+  }
+
+
+  const existing = JSON.parse(
+    localStorage.getItem(STORAGE_KEY) || "null"
+  );
+
+
+  const student = existing || {
+
+    name:name,
+    class:studentClass,
+
+    joinedDate:new Date().toISOString(),
+
+    progress:{
+      topics:0,
+      questions:0,
+      bestScore:0,
+      streak:0
+    }
+
+  };
+
+
+  student.name = name;
+  student.class = studentClass;
+
+
+  if(!student.progress){
+
+    student.progress = {
+      topics:0,
+      questions:0,
+      bestScore:0,
+      streak:0
+    };
+
+  }
+
+
+  localStorage.setItem(
+    STORAGE_KEY,
+    JSON.stringify(student)
+  );
+
+
+  showDashboard();
 
 }
 
-if(!studentClass){
 
-alert("Please select a class.");
-
-return;
-
-}
-
-let student = {
-
-name:name,
-
-class:studentClass,
-
-joinedDate:new Date().toISOString(),
-
-progress:{
-topics:0,
-questions:0,
-bestScore:0,
-streak:0
-}
-
-};
-
-localStorage.setItem(
-"smartStepsStudent",
-JSON.stringify(student)
-);
-
-showDashboard();
-
-}
-
-
-/* =====================================================
-   DASHBOARD
-===================================================== */
+/* =========================
+   SHOW DASHBOARD
+========================= */
 
 function showDashboard(){
 
-const saved =
-localStorage.getItem("smartStepsStudent");
+  const student = getStudent();
 
-if(!saved){
+  if(!student){
 
-showLanding();
+    document.getElementById("landingPage")
+      .classList.remove("hidden");
 
-return;
+    document.getElementById("app")
+      .classList.add("hidden");
 
-}
-
-const student =
-JSON.parse(saved);
-
-document.getElementById("landing")
-.classList.add("hidden");
-
-document.getElementById("app")
-.classList.remove("hidden");
-
-hideAllPages();
-
-document.getElementById("dashboardPage")
-.classList.remove("hidden");
-
-document.getElementById("welcomeName")
-.textContent=student.name;
-
-document.getElementById("welcomeClass")
-.textContent=student.class;
-
-document.getElementById("headerStudentName")
-.textContent=student.name;
-
-const initial =
-student.name.charAt(0).toUpperCase();
-
-document.getElementById("headerAvatar")
-.textContent=initial;
-
-updateStats();
-
-}
+    return;
+  }
 
 
-/* =====================================================
-   OPEN SUBJECT
-===================================================== */
+  document.getElementById("landingPage")
+    .classList.add("hidden");
 
-function openSubject(subject){
+  document.getElementById("app")
+    .classList.remove("hidden");
 
-const student =
-getStudent();
 
-if(!student) return;
+  hideAllPages();
 
-currentSubject=subject;
+  document.getElementById("dashboardPage")
+    .classList.remove("hidden");
 
-hideAllPages();
 
-document.getElementById("topicsPage")
-.classList.remove("hidden");
+  document.getElementById("welcomeName").textContent =
+    "Welcome, " + student.name + "! 👋";
 
-document.getElementById("topicClass")
-.textContent=student.class;
 
-document.getElementById("topicSubject")
-.textContent=subject;
+  document.getElementById("welcomeClass").textContent =
+    student.class;
 
-const list =
-document.getElementById("topicList");
 
-list.innerHTML="";
+  const initial =
+    student.name.charAt(0).toUpperCase();
 
-const topics =
-curriculum[student.class][subject];
 
-topics.forEach((item,index)=>{
+  document.getElementById("profileInitial")
+    .textContent = initial;
 
-const topic=item[0];
 
-const description=item[1];
-
-const card=document.createElement("div");
-
-card.className="topic-card";
-
-card.innerHTML=`
-
-<div class="topic-number">
-${index+1}
-</div>
-
-<div class="topic-info">
-
-<h3>${topic}</h3>
-
-<p>${description}</p>
-
-</div>
-
-<button
-class="btn btn-primary"
-onclick='openLesson(${JSON.stringify(subject)},${JSON.stringify(topic)})'
->
-Learn →
-</button>
-
-`;
-
-list.appendChild(card);
-
-});
+  setActiveNav("navHome");
 
 }
 
 
-/* =====================================================
-   OPEN LESSON
-===================================================== */
-
-function openLesson(subject,topic){
-
-const student =
-getStudent();
-
-if(!student) return;
-
-currentSubject=subject;
-
-currentTopic=topic;
-
-const topics =
-curriculum[student.class][subject];
-
-const found =
-topics.find(item=>item[0]===topic);
-
-const description =
-found ? found[1] : "Learn this topic step by step.";
-
-const lesson =
-createLesson(
-student.class,
-subject,
-topic,
-description
-);
-
-hideAllPages();
-
-document.getElementById("lessonPage")
-.classList.remove("hidden");
-
-document.getElementById("lessonClass")
-.textContent=
-student.class+" • "+subject;
-
-document.getElementById("lessonTitle")
-.textContent=
-lesson.title;
-
-document.getElementById("lessonSubtitle")
-.textContent=
-lesson.subtitle;
-
-
-/* points */
-
-const points =
-document.getElementById("lessonPoints");
-
-points.innerHTML="";
-
-lesson.points.forEach(point=>{
-
-const div=document.createElement("div");
-
-div.className="learning-point";
-
-div.innerHTML="✓ "+point;
-
-points.appendChild(div);
-
-});
-
-
-/* explanation */
-
-document.getElementById("lessonExplanation")
-.innerHTML=
-`<p>${lesson.explanation}</p>`;
-
-
-/* example */
-
-document.getElementById("lessonExample")
-.innerHTML=
-`<p>${lesson.example}</p>`;
-
-
-/* questions */
-
-currentQuestions=
-lesson.questions;
-
-}
-
-
-/* =====================================================
-   PRACTICE
-===================================================== */
-
-function startPractice(){
-
-hideAllPages();
-
-document.getElementById("practicePage")
-.classList.remove("hidden");
-
-const student =
-getStudent();
-
-document.getElementById("practiceClass")
-.textContent=
-student.class+" • "+currentSubject;
-
-document.getElementById("practiceTitle")
-.textContent=
-currentTopic+" Practice";
-
-selectedAnswers={};
-
-const container =
-document.getElementById("questionsContainer");
-
-container.innerHTML="";
-
-currentQuestions.forEach((q,index)=>{
-
-const div=document.createElement("div");
-
-div.className="question";
-
-div.innerHTML=`
-
-<h3>
-${index+1}. ${q.question}
-</h3>
-
-<div
-class="options"
-id="options-${index}"
->
-</div>
-
-`;
-
-container.appendChild(div);
-
-const optionsContainer =
-div.querySelector(".options");
-
-q.options.forEach(option=>{
-
-const button =
-document.createElement("button");
-
-button.className="option";
-
-button.textContent=option;
-
-button.onclick=()=>{
-
-selectAnswer(index,option);
-
-};
-
-optionsContainer.appendChild(button);
-
-});
-
-});
-
-}
-
-
-/* =====================================================
-   SELECT ANSWER
-===================================================== */
-
-function selectAnswer(index,answer){
-
-selectedAnswers[index]=answer;
-
-const options =
-document.querySelectorAll(
-`#options-${index} .option`
-);
-
-options.forEach(button=>{
-
-button.classList.remove("selected");
-
-if(button.textContent===answer){
-
-button.classList.add("selected");
-
-}
-
-});
-
-}
-
-
-/* =====================================================
-   CHECK ANSWERS
-===================================================== */
-
-function checkAnswers(){
-
-if(
-Object.keys(selectedAnswers).length
-<
-currentQuestions.length
-){
-
-alert(
-"Please answer all the questions before checking your score."
-);
-
-return;
-
-}
-
-let correct=0;
-
-currentQuestions.forEach((q,index)=>{
-
-if(
-selectedAnswers[index]===q.answer
-){
-
-correct++;
-
-}
-
-const options =
-document.querySelectorAll(
-`#options-${index} .option`
-);
-
-options.forEach(button=>{
-
-if(button.textContent===q.answer){
-
-button.classList.add("correct");
-
-}
-
-else if(
-button.textContent===selectedAnswers[index]
-){
-
-button.classList.add("wrong");
-
-}
-
-});
-
-});
-
-const score =
-Math.round(
-(correct/currentQuestions.length)*100
-);
-
-updateProgress(score,currentQuestions.length);
-
-showResult(score,correct);
-
-}
-
-
-/* =====================================================
-   RESULT
-===================================================== */
-
-function showResult(score,correct){
-
-hideAllPages();
-
-document.getElementById("resultPage")
-.classList.remove("hidden");
-
-document.getElementById("resultScore")
-.textContent=score+"%";
-
-if(score===100){
-
-document.getElementById("resultTitle")
-.textContent="Excellent! 🏆";
-
-document.getElementById("resultMessage")
-.textContent=
-"You answered every question correctly. Keep taking smart steps!";
-
-}
-else if(score>=80){
-
-document.getElementById("resultTitle")
-.textContent="Great Work! 🌟";
-
-document.getElementById("resultMessage")
-.textContent=
-"You did very well. Review the lesson and keep practising.";
-
-}
-else if(score>=50){
-
-document.getElementById("resultTitle")
-.textContent="Good Effort! 👍";
-
-document.getElementById("resultMessage")
-.textContent=
-"You're making progress. Review the lesson and try again.";
-
-}
-else{
-
-document.getElementById("resultTitle")
-.textContent="Keep Practising! 💪";
-
-document.getElementById("resultMessage")
-.textContent=
-"Don't give up. Go back to the lesson, learn again and try once more.";
-
-}
-
-}
-
-
-/* =====================================================
-   UPDATE PROGRESS
-===================================================== */
-
-function updateProgress(score,totalQuestions){
-
-const student =
-getStudent();
-
-if(!student) return;
-
-if(!student.progress){
-
-student.progress={
-topics:0,
-questions:0,
-bestScore:0,
-streak:0
-};
-
-}
-
-student.progress.questions += totalQuestions;
-
-if(score >
-student.progress.bestScore){
-
-student.progress.bestScore=score;
-
-}
-
-if(score===100){
-
-student.progress.topics++;
-
-student.progress.streak++;
-
-}else{
-
-student.progress.streak=0;
-
-}
-
-localStorage.setItem(
-"smartStepsStudent",
-JSON.stringify(student)
-);
-
-updateStats();
-
-}
-
-
-/* =====================================================
-   STATS
-===================================================== */
-
-function updateStats(){
-
-const student =
-getStudent();
-
-if(!student) return;
-
-const progress =
-student.progress || {};
-
-document.getElementById("statTopics")
-.textContent=
-progress.topics || 0;
-
-document.getElementById("statQuestions")
-.textContent=
-progress.questions || 0;
-
-document.getElementById("statBest")
-.textContent=
-(progress.bestScore || 0)+"%";
-
-document.getElementById("statStreak")
-.textContent=
-progress.streak || 0;
-
-}
-
-
-/* =====================================================
-   RETRY
-===================================================== */
-
-function retryLesson(){
-
-openLesson(
-currentSubject,
-currentTopic
-);
-
-setTimeout(
-startPractice,
-100
-);
-
-}
-
-
-/* =====================================================
-   BACK TO LESSON
-===================================================== */
-
-function backToLesson(){
-
-hideAllPages();
-
-document.getElementById("lessonPage")
-.classList.remove("hidden");
-
-}
-
-
-/* =====================================================
-   BACK TO TOPICS
-===================================================== */
-
-function backToTopics(){
-
-openSubject(currentSubject);
-
-}
-
-
-/* =====================================================
-   BACK TO DASHBOARD
-===================================================== */
-
-function backToDashboard(){
-
-showDashboard();
-
-}
-
-
-/* =====================================================
-   QUICK PRACTICE
-===================================================== */
-
-function quickPractice(){
-
-const student =
-getStudent();
-
-if(!student) return;
-
-const subjects=[
-"Mathematics",
-"Science",
-"Computing"
-];
-
-const randomSubject =
-subjects[
-Math.floor(
-Math.random()*subjects.length
-)
-];
-
-const topics =
-curriculum[student.class][randomSubject];
-
-const randomTopic =
-topics[
-Math.floor(
-Math.random()*topics.length
-)
-][0];
-
-openLesson(
-randomSubject,
-randomTopic
-);
-
-setTimeout(
-startPractice,
-100
-);
-
-}
-
-
-/* =====================================================
-   PROGRESS PAGE
-===================================================== */
-
-function showProgress(){
-
-const student =
-getStudent();
-
-if(!student) return;
-
-hideAllPages();
-
-document.getElementById("progressPage")
-.classList.remove("hidden");
-
-const p=
-student.progress || {};
-
-const topics=
-p.topics || 0;
-
-const questions=
-p.questions || 0;
-
-const score=
-p.bestScore || 0;
-
-document.getElementById("progressTopicsText")
-.textContent=topics;
-
-document.getElementById("progressQuestionsText")
-.textContent=questions;
-
-document.getElementById("progressScoreText")
-.textContent=score+"%";
-
-
-const totalTopics=45;
-
-let topicPercentage=
-Math.min(
-100,
-Math.round(
-(topics/totalTopics)*100
-)
-);
-
-document.getElementById("progressTopics")
-.style.width=
-topicPercentage+"%";
-
-
-let questionPercentage=
-Math.min(
-100,
-Math.round(
-(questions/225)*100
-)
-);
-
-document.getElementById("progressQuestions")
-.style.width=
-questionPercentage+"%";
-
-
-document.getElementById("progressScore")
-.style.width=
-score+"%";
-
-}
-
-
-/* =====================================================
-   PROFILE
-===================================================== */
-
-function showProfile(){
-
-const student =
-getStudent();
-
-if(!student) return;
-
-hideAllPages();
-
-document.getElementById("profilePage")
-.classList.remove("hidden");
-
-document.getElementById("profileName")
-.textContent=student.name;
-
-document.getElementById("profileClass")
-.textContent=student.class;
-
-document.getElementById("profileAvatar")
-.textContent=
-student.name.charAt(0).toUpperCase();
-
-}
-
-
-/* =====================================================
-   LOGOUT
-===================================================== */
-
-function logout(){
-
-localStorage.removeItem(
-"smartStepsStudent"
-);
-
-location.reload();
-
-}
-
-
-/* =====================================================
-   HELPERS
-===================================================== */
+/* =========================
+   GET STUDENT
+========================= */
 
 function getStudent(){
 
-const saved =
-localStorage.getItem(
-"smartStepsStudent"
-);
+  try{
 
-return saved ?
-JSON.parse(saved) :
-null;
+    return JSON.parse(
+      localStorage.getItem(STORAGE_KEY)
+    );
+
+  }catch(error){
+
+    return null;
+
+  }
 
 }
 
+
+/* =========================
+   SUBJECT
+========================= */
+
+function openSubject(subject){
+
+  const student = getStudent();
+
+  if(!student){
+
+    return;
+
+  }
+
+
+  currentSubject = subject;
+
+
+  hideAllPages();
+
+
+  document.getElementById("topicsPage")
+    .classList.remove("hidden");
+
+
+  document.getElementById("topicsTitle")
+    .textContent = subject;
+
+
+  document.getElementById("topicsSubtitle")
+    .textContent =
+      student.class + " • Choose a topic to learn";
+
+
+  const topics =
+    curriculum[student.class][subject];
+
+
+  const list =
+    document.getElementById("topicList");
+
+
+  list.innerHTML = "";
+
+
+  topics.forEach(function(topic,index){
+
+    const card =
+      document.createElement("div");
+
+    card.className = "topic-card";
+
+
+    card.innerHTML = `
+
+      <div class="topic-info">
+
+        <h3>${index + 1}. ${topic[0]}</h3>
+
+        <p>${topic[1]}</p>
+
+      </div>
+
+      <button
+        class="learn-btn"
+        onclick="openLesson(${index})"
+      >
+        Learn →
+      </button>
+
+    `;
+
+
+    list.appendChild(card);
+
+  });
+
+}
+
+
+/* =========================
+   OPEN LESSON
+========================= */
+
+function openLesson(index){
+
+  const student = getStudent();
+
+  if(!student){
+
+    return;
+
+  }
+
+
+  const topics =
+    curriculum[student.class][currentSubject];
+
+
+  const selected =
+    topics[index];
+
+
+  currentTopic = selected[0];
+
+
+  currentLesson =
+    createLesson(
+      student.class,
+      currentSubject,
+      selected[0],
+      selected[1]
+    );
+
+
+  hideAllPages();
+
+
+  document.getElementById("lessonPage")
+    .classList.remove("hidden");
+
+
+  document.getElementById("lessonContent")
+    .innerHTML = `
+
+      <div class="lesson-card">
+
+        <h1>${currentLesson.title}</h1>
+
+        <div class="lesson-meta">
+          ${student.class} • ${currentSubject}
+        </div>
+
+        <div class="lesson-section">
+
+          <h3>📖 What You Will Learn</h3>
+
+          <p>
+            ${currentLesson.introduction}
+          </p>
+
+        </div>
+
+
+        <div class="lesson-section">
+
+          <h3>💡 Key Ideas</h3>
+
+          <p>
+            ${currentLesson.keyIdea}
+          </p>
+
+        </div>
+
+
+        <div class="lesson-section">
+
+          <h3>📝 Example</h3>
+
+          <div class="example-box">
+            ${currentLesson.example}
+          </div>
+
+        </div>
+
+
+        <div class="lesson-section">
+
+          <h3>⭐ Remember</h3>
+
+          <p>
+            ${currentLesson.remember}
+          </p>
+
+        </div>
+
+
+        <div class="lesson-actions">
+
+          <button
+            class="back-btn"
+            onclick="backToTopics()"
+          >
+            Back to Topics
+          </button>
+
+          <button
+            class="practice-btn"
+            onclick="startPractice()"
+          >
+            Start Practice →
+          </button>
+
+        </div>
+
+      </div>
+
+    `;
+
+}
+
+
+/* =========================
+   CREATE LESSON
+========================= */
+
+function createLesson(className,subject,topic,description){
+
+  let introduction =
+    `In this lesson, you will learn about ${topic}. ${description}`;
+
+  let keyIdea =
+    `${topic} is an important part of learning ${subject}. Pay attention to the main ideas and try to connect them with things you already know.`;
+
+  let example =
+    `Think about a simple real-life example of ${topic}. Ask yourself what it means, how it works and where you can see it in everyday life.`;
+
+  let remember =
+    `Understand the idea first, then practice it. Do not be afraid to make mistakes while learning.`;
+
+
+
+  /* Mathematics */
+
+  if(subject === "Mathematics"){
+
+    if(topic.includes("Numbers") || topic.includes("Whole Numbers")){
+
+      introduction =
+        `Numbers are used to count, compare and describe quantities. In ${className}, you will build your understanding of numbers and how they are used.`;
+
+      keyIdea =
+        `Numbers can be arranged in order. The position of a digit can also change its value.`;
+
+      example =
+        `For example, in 25, the digit 2 represents two tens and the digit 5 represents five ones.`;
+
+      remember =
+        `Read numbers carefully and always check the place value of each digit.`;
+
+    }
+
+    else if(
+      topic.includes("Addition") ||
+      topic.includes("Operations")
+    ){
+
+      introduction =
+        `Addition means putting numbers together to find a total. It is one of the basic operations in Mathematics.`;
+
+      keyIdea =
+        `When we add numbers, the answer is called the sum.`;
+
+      example =
+        `For example: 7 + 5 = 12. The numbers 7 and 5 are added together to make 12.`;
+
+      remember =
+        `Line up numbers correctly when solving written addition problems.`;
+
+    }
+
+    else if(topic.includes("Subtraction")){
+
+      introduction =
+        `Subtraction means taking one quantity away from another or finding the difference between numbers.`;
+
+      keyIdea =
+        `The answer in a subtraction problem is called the difference.`;
+
+      example =
+        `For example: 15 - 6 = 9.`;
+
+      remember =
+        `Check your subtraction answer by adding the difference back to the number you subtracted.`;
+
+    }
+
+    else if(topic.includes("Multiplication")){
+
+      introduction =
+        `Multiplication is a quick way of adding equal groups.`;
+
+      keyIdea =
+        `For example, 3 × 4 means three groups of four, which gives 12.`;
+
+      example =
+        `3 × 4 = 12`;
+
+      remember =
+        `Learning multiplication facts makes many Mathematics problems easier.`;
+
+    }
+
+    else if(topic.includes("Division")){
+
+      introduction =
+        `Division means sharing or grouping a quantity into equal parts.`;
+
+      keyIdea =
+        `A division problem asks how many equal groups can be made or how much each group receives.`;
+
+      example =
+        `12 ÷ 3 = 4 because 12 can be shared equally into three groups of four.`;
+
+      remember =
+        `Division and multiplication are closely related.`;
+
+    }
+
+    else if(topic.includes("Fractions")){
+
+      introduction =
+        `A fraction represents part of a whole or part of a group.`;
+
+      keyIdea =
+        `The top number is the numerator and the bottom number is the denominator.`;
+
+      example =
+        `In 3/4, 3 is the numerator and 4 is the denominator.`;
+
+      remember =
+        `The denominator tells you how many equal parts the whole is divided into.`;
+
+    }
+
+    else if(topic.includes("Decimals")){
+
+      introduction =
+        `Decimals are another way of representing numbers and parts of a whole.`;
+
+      keyIdea =
+        `Digits after the decimal point can represent tenths, hundredths and smaller parts.`;
+
+      example =
+        `0.5 means five tenths and is equal to 1/2.`;
+
+      remember =
+        `Always line up decimal points when adding or subtracting decimals.`;
+
+    }
+
+    else if(topic.includes("Percentages")){
+
+      introduction =
+        `A percentage tells us how much something represents out of 100.`;
+
+      keyIdea =
+        `The symbol for percentage is %.`;
+
+      example =
+        `50% means 50 out of 100, which is also equal to one half.`;
+
+      remember =
+        `Percentage means "out of one hundred."`;
+
+    }
+
+    else if(topic.includes("Probability")){
+
+      introduction =
+        `Probability is used to describe how likely something is to happen.`;
+
+      keyIdea =
+        `An event can be impossible, unlikely, equally likely, likely or certain.`;
+
+      example =
+        `When a normal coin is tossed, getting heads is possible and has a probability of 1/2.`;
+
+      remember =
+        `Probability describes chance.`;
+
+    }
+
+    else if(topic.includes("Statistics")){
+
+      introduction =
+        `Statistics helps us collect, organize and understand information or data.`;
+
+      keyIdea =
+        `Tables, charts and graphs can help us understand data more easily.`;
+
+      example =
+        `A class can record the number of books students read and display the results in a chart.`;
+
+      remember =
+        `Look carefully at the information before drawing conclusions.`;
+
+    }
+
+    else if(topic.includes("Algebra")){
+
+      introduction =
+        `Algebra uses letters and symbols to represent unknown numbers.`;
+
+      keyIdea =
+        `A letter such as x can represent a number we do not yet know.`;
+
+      example =
+        `If x + 3 = 8, then x = 5.`;
+
+      remember =
+        `Work step by step when solving algebraic problems.`;
+
+    }
+
+    else if(
+      topic.includes("Geometry") ||
+      topic.includes("Mensuration") ||
+      topic.includes("Shapes")
+    ){
+
+      introduction =
+        `Geometry is the study of shapes, lines, angles, space and measurement.`;
+
+      keyIdea =
+        `Different shapes have different properties such as sides, angles and faces.`;
+
+      example =
+        `A triangle has three sides and three angles.`;
+
+      remember =
+        `Look at the properties of a shape rather than only its appearance.`;
+
+    }
+
+  }
+
+
+  /* Science */
+
+  if(subject === "Science"){
+
+    if(
+      topic.includes("Plant") ||
+      topic.includes("Plants")
+    ){
+
+      introduction =
+        `Plants are living things. They need suitable conditions to grow and survive.`;
+
+      keyIdea =
+        `Plants commonly need water, air, light and suitable conditions for healthy growth.`;
+
+      example =
+        `Roots help a plant take in water from the soil, while leaves help the plant make food.`;
+
+      remember =
+        `Plants are living organisms and have structures that perform different jobs.`;
+
+    }
+
+    else if(
+      topic.includes("Animal") ||
+      topic.includes("Animals")
+    ){
+
+      introduction =
+        `Animals are living things with different body structures, habitats and ways of surviving.`;
+
+      keyIdea =
+        `Animals can be grouped according to their characteristics.`;
+
+      example =
+        `A fish lives mainly in water and has body features that help it survive there.`;
+
+      remember =
+        `Different animals are adapted to different environments.`;
+
+    }
+
+    else if(
+      topic.includes("Matter") ||
+      topic.includes("Materials")
+    ){
+
+      introduction =
+        `Matter is anything that has mass and takes up space.`;
+
+      keyIdea =
+        `Common states of matter include solids, liquids and gases.`;
+
+      example =
+        `A stone is a solid, water is a liquid and air contains gases.`;
+
+      remember =
+        `Materials can have different properties and uses.`;
+
+    }
+
+    else if(topic.includes("Energy")){
+
+      introduction =
+        `Energy allows things to happen and systems to work.`;
+
+      keyIdea =
+        `Energy can come from different sources and can change from one form to another.`;
+
+      example =
+        `The Sun provides light and heat energy that supports life on Earth.`;
+
+      remember =
+        `Energy is important in our daily lives and in nature.`;
+
+    }
+
+    else if(
+      topic.includes("Human") ||
+      topic.includes("Body") ||
+      topic.includes("Nutrition")
+    ){
+
+      introduction =
+        `The human body is made up of many parts and systems that work together.`;
+
+      keyIdea =
+        `Different body parts have different functions.`;
+
+      example =
+        `The heart pumps blood around the body.`;
+
+      remember =
+        `Healthy food, exercise, rest and good hygiene help the body stay healthy.`;
+
+    }
+
+    else if(topic.includes("Environment")){
+
+      introduction =
+        `The environment includes living and non-living things around us.`;
+
+      keyIdea =
+        `People, animals, plants, water, air and land are all connected in the environment.`;
+
+      example =
+        `Planting trees can help protect soil and provide habitats for living things.`;
+
+      remember =
+        `Protecting the environment is everyone's responsibility.`;
+
+    }
+
+    else if(topic.includes("Cells")){
+
+      introduction =
+        `Cells are the basic structural units of living organisms.`;
+
+      keyIdea =
+        `Cells contain structures that help them perform their functions.`;
+
+      example =
+        `Plant and animal cells have similarities but also important differences.`;
+
+      remember =
+        `Living organisms are made from cells.`;
+
+    }
+
+  }
+
+
+  /* Computing */
+
+  if(subject === "Computing"){
+
+    if(
+      topic.includes("Keyboard")
+    ){
+
+      introduction =
+        `A keyboard is an input device used to enter letters, numbers and commands into a computer.`;
+
+      keyIdea =
+        `Different keys perform different functions.`;
+
+      example =
+        `The Enter key can be used to confirm an action or move to a new line when typing.`;
+
+      remember =
+        `Learn the names and functions of common keyboard keys.`;
+
+    }
+
+    else if(
+      topic.includes("Mouse") ||
+      topic.includes("Mouse Skills")
+    ){
+
+      introduction =
+        `A computer mouse is an input device used to control the pointer on a screen.`;
+
+      keyIdea =
+        `Common mouse actions include clicking, double-clicking, right-clicking and dragging.`;
+
+      example =
+        `You can click an icon to select it or double-click it to open it.`;
+
+      remember =
+        `Move the mouse gently and use the correct button for each task.`;
+
+    }
+
+    else if(
+      topic.includes("Computer Safety") ||
+      topic.includes("Digital Safety") ||
+      topic.includes("Online Safety") ||
+      topic.includes("Cyber Safety") ||
+      topic.includes("Cybersecurity") ||
+      topic.includes("Internet Safety")
+    ){
+
+      introduction =
+        `Computer and internet safety means using technology responsibly and protecting information and people from harm.`;
+
+      keyIdea =
+        `Never share passwords or sensitive personal information with strangers online.`;
+
+      example =
+        `If someone online asks for your password, do not give it to them. Tell a trusted adult or teacher.`;
+
+      remember =
+        `Think before you click, share or reply online.`;
+
+    }
+
+    else if(
+      topic.includes("Computer Parts") ||
+      topic.includes("Computer Hardware")
+    ){
+
+      introduction =
+        `Computer hardware refers to the physical parts of a computer that we can see and touch.`;
+
+      keyIdea =
+        `A computer system has different hardware components with different functions.`;
+
+      example =
+        `A keyboard is used to enter information, while a monitor displays information.`;
+
+      remember =
+        `Hardware is the physical part of a computer system.`;
+
+    }
+
+    else if(topic.includes("Software")){
+
+      introduction =
+        `Software consists of programs and instructions that tell a computer what to do.`;
+
+      keyIdea =
+        `Software and hardware work together to make a computer useful.`;
+
+      example =
+        `A word-processing application is software used for creating documents.`;
+
+      remember =
+        `You cannot physically touch software in the same way you can touch hardware.`;
+
+    }
+
+    else if(topic.includes("Networks")){
+
+      introduction =
+        `A computer network connects computers and other devices so they can communicate and share resources.`;
+
+      keyIdea =
+        `Networks can allow devices to share information and resources.`;
+
+      example =
+        `Computers connected to the same school network may be able to share files or a printer.`;
+
+      remember =
+        `A network connects devices so they can communicate.`;
+
+    }
+
+    else if(
+      topic.includes("Programming") ||
+      topic.includes("Algorithms")
+    ){
+
+      introduction =
+        `Programming involves creating instructions that a computer can follow to perform a task.`;
+
+      keyIdea =
+        `An algorithm is a step-by-step method for solving a problem.`;
+
+      example =
+        `An algorithm for making tea could include boiling water, putting a tea bag in a cup and adding hot water.`;
+
+      remember =
+        `Good instructions should be clear and in the correct order.`;
+
+    }
+
+    else if(topic.includes("Data")){
+
+      introduction =
+        `Data is information that can be collected, stored and processed.`;
+
+      keyIdea =
+        `Computers can process large amounts of data quickly.`;
+
+      example =
+        `A school can store student names, classes and examination results as data.`;
+
+      remember =
+        `Data becomes useful when it is organized and interpreted correctly.`;
+
+    }
+
+  }
+
+
+  return {
+
+    title:topic,
+
+    introduction:introduction,
+
+    keyIdea:keyIdea,
+
+    example:example,
+
+    remember:remember
+
+  };
+
+}
+
+
+/* =========================
+   START PRACTICE
+========================= */
+
+function startPractice(){
+
+  const student = getStudent();
+
+  if(!student){
+
+    return;
+
+  }
+
+
+  currentQuestions =
+    createQuestions(
+      student.class,
+      currentSubject,
+      currentTopic
+    );
+
+
+  selectedAnswers = {};
+
+
+  hideAllPages();
+
+
+  document.getElementById("practicePage")
+    .classList.remove("hidden");
+
+
+  document.getElementById("practiceTitle")
+    .textContent =
+      currentTopic + " Practice";
+
+
+  const container =
+    document.getElementById("questionsContainer");
+
+
+  container.innerHTML = "";
+
+
+  currentQuestions.forEach(function(question,index){
+
+    const card =
+      document.createElement("div");
+
+    card.className = "question-card";
+
+
+    let html = `
+
+      <div class="question-number">
+        Question ${index + 1}
+      </div>
+
+      <div class="question-text">
+        ${question.question}
+      </div>
+
+    `;
+
+
+    question.options.forEach(function(option,optionIndex){
+
+      html += `
+
+        <button
+          class="option"
+          id="option-${index}-${optionIndex}"
+          onclick="selectAnswer(${index},${optionIndex})"
+        >
+          ${String.fromCharCode(65 + optionIndex)}.
+          ${option}
+        </button>
+
+      `;
+
+    });
+
+
+    card.innerHTML = html;
+
+    container.appendChild(card);
+
+  });
+
+}
+
+
+/* =========================
+   CREATE QUESTIONS
+========================= */
+
+function createQuestions(className,subject,topic){
+
+  let questions = [];
+
+
+  /* MATHEMATICS */
+
+  if(subject === "Mathematics"){
+
+    if(topic.includes("Numbers")){
+
+      questions = [
+
+        {
+          question:"Which number comes after 4?",
+          options:["3","5","6","2"],
+          answer:1
+        },
+
+        {
+          question:"Which number is greater?",
+          options:["2","5","1","3"],
+          answer:1
+        },
+
+        {
+          question:"How many fingers are on one hand?",
+          options:["3","4","5","6"],
+          answer:2
+        },
+
+        {
+          question:"Which number is even?",
+          options:["3","5","8","9"],
+          answer:2
+        },
+
+        {
+          question:"What is 10 + 0?",
+          options:["0","1","10","20"],
+          answer:2
+        }
+
+      ];
+
+    }
+
+    else if(
+      topic.includes("Addition") ||
+      topic.includes("Operations")
+    ){
+
+      questions = [
+
+        {
+          question:"What is 2 + 3?",
+          options:["4","5","6","7"],
+          answer:1
+        },
+
+        {
+          question:"What is 5 + 4?",
+          options:["7","8","9","10"],
+          answer:2
+        },
+
+        {
+          question:"What is 10 + 2?",
+          options:["11","12","13","14"],
+          answer:1
+        },
+
+        {
+          question:"What is 6 + 3?",
+          options:["8","9","10","11"],
+          answer:1
+        },
+
+        {
+          question:"What is 7 + 2?",
+          options:["8","9","10","11"],
+          answer:1
+        }
+
+      ];
+
+    }
+
+    else if(topic.includes("Subtraction")){
+
+      questions = [
+
+        {
+          question:"What is 5 - 2?",
+          options:["2","3","4","5"],
+          answer:1
+        },
+
+        {
+          question:"What is 9 - 4?",
+          options:["3","4","5","6"],
+          answer:2
+        },
+
+        {
+          question:"What is 10 - 3?",
+          options:["6","7","8","9"],
+          answer:1
+        },
+
+        {
+          question:"What is 8 - 5?",
+          options:["2","3","4","5"],
+          answer:1
+        },
+
+        {
+          question:"What is 7 - 1?",
+          options:["5","6","7","8"],
+          answer:1
+        }
+
+      ];
+
+    }
+
+    else if(topic.includes("Multiplication")){
+
+      questions = [
+
+        {
+          question:"What is 2 × 3?",
+          options:["5","6","7","8"],
+          answer:1
+        },
+
+        {
+          question:"What is 3 × 4?",
+          options:["7","10","12","14"],
+          answer:2
+        },
+
+        {
+          question:"What is 5 × 2?",
+          options:["7","8","10","12"],
+          answer:2
+        },
+
+        {
+          question:"What is 4 × 4?",
+          options:["12","14","16","18"],
+          answer:2
+        },
+
+        {
+          question:"What is 10 × 2?",
+          options:["10","15","20","25"],
+          answer:2
+        }
+
+      ];
+
+    }
+
+    else if(topic.includes("Division")){
+
+      questions = [
+
+        {
+          question:"What is 6 ÷ 2?",
+          options:["2","3","4","5"],
+          answer:1
+        },
+
+        {
+          question:"What is 10 ÷ 2?",
+          options:["3","4","5","6"],
+          answer:2
+        },
+
+        {
+          question:"What is 12 ÷ 3?",
+          options:["3","4","5","6"],
+          answer:1
+        },
+
+        {
+          question:"What is 8 ÷ 4?",
+          options:["1","2","3","4"],
+          answer:1
+        },
+
+        {
+          question:"What is 15 ÷ 5?",
+          options:["2","3","4","5"],
+          answer:1
+        }
+
+      ];
+
+    }
+
+    else if(topic.includes("Fractions")){
+
+      questions = [
+
+        {
+          question:"What is the top number of a fraction called?",
+          options:["Denominator","Numerator","Whole","Decimal"],
+          answer:1
+        },
+
+        {
+          question:"Which fraction represents one half?",
+          options:["1/2","1/3","2/3","3/4"],
+          answer:0
+        },
+
+        {
+          question:"How many equal parts are shown by the denominator in 3/4?",
+          options:["3","4","7","1"],
+          answer:1
+        },
+
+        {
+          question:"Which is larger?",
+          options:["1/4","3/4","1/8","1/10"],
+          answer:1
+        },
+
+        {
+          question:"What is 1/2 + 1/2?",
+          options:["1","2","1/2","3/2"],
+          answer:0
+        }
+
+      ];
+
+    }
+
+    else if(topic.includes("Percentages")){
+
+      questions = [
+
+        {
+          question:"What does percent mean?",
+          options:["Out of 10","Out of 50","Out of 100","Out of 1000"],
+          answer:2
+        },
+
+        {
+          question:"What is 50% as a fraction?",
+          options:["1/2","1/4","3/4","1/5"],
+          answer:0
+        },
+
+        {
+          question:"What is 100% of 20?",
+          options:["5","10","15","20"],
+          answer:3
+        },
+
+        {
+          question:"25% is equal to:",
+          options:["1/2","1/4","3/4","1/10"],
+          answer:1
+        },
+
+        {
+          question:"Which symbol represents percentage?",
+          options:["#","%","&","@"],
+          answer:1
+        }
+
+      ];
+
+    }
+
+    else if(topic.includes("Decimals")){
+
+      questions = [
+
+        {
+          question:"Which number is a decimal?",
+          options:["5","0.5","10","20"],
+          answer:1
+        },
+
+        {
+          question:"What is 0.5 equal to?",
+          options:["1/2","1/3","1/4","2/3"],
+          answer:0
+        },
+
+        {
+          question:"Which is greater?",
+          options:["0.2","0.5","0.1","0.05"],
+          answer:1
+        },
+
+        {
+          question:"How many tenths are in 0.7?",
+          options:["5","6","7","8"],
+          answer:2
+        },
+
+        {
+          question:"What is 0.5 + 0.5?",
+          options:["0.5","1","1.5","2"],
+          answer:1
+        }
+
+      ];
+
+    }
+
+    else if(topic.includes("Probability")){
+
+      questions = [
+
+        {
+          question:"Probability is about:",
+          options:["Size","Chance","Weight","Length"],
+          answer:1
+        },
+
+        {
+          question:"What is the probability of getting heads when a fair coin is tossed?",
+          options:["0","1/2","1","2"],
+          answer:1
+        },
+
+        {
+          question:"An event that cannot happen is:",
+          options:["Certain","Possible","Impossible","Likely"],
+          answer:2
+        },
+
+        {
+          question:"An event that must happen is:",
+          options:["Impossible","Certain","Unlikely","Rare"],
+          answer:1
+        },
+
+        {
+          question:"Which word describes chance?",
+          options:["Probability","Length","Area","Mass"],
+          answer:0
+        }
+
+      ];
+
+    }
+
+    else if(topic.includes("Statistics")){
+
+      questions = [
+
+        {
+          question:"What is data?",
+          options:[
+            "Information collected",
+            "A computer",
+            "A shape",
+            "A number only"
+          ],
+          answer:0
+        },
+
+        {
+          question:"Which can be used to display data?",
+          options:[
+            "Chart",
+            "Chair",
+            "Pencil case",
+            "Shoe"
+          ],
+          answer:0
+        },
+
+        {
+          question:"A table can be used to:",
+          options:[
+            "Organize information",
+            "Cook food",
+            "Measure temperature only",
+            "Play music"
+          ],
+          answer:0
+        },
+
+        {
+          question:"A bar chart uses:",
+          options:[
+            "Bars",
+            "Only circles",
+            "Only words",
+            "Only numbers"
+          ],
+          answer:0
+        },
+
+        {
+          question:"Statistics helps us understand:",
+          options:[
+            "Data",
+            "Shoes",
+            "Clothes",
+            "Buildings only"
+          ],
+          answer:0
+        }
+
+      ];
+
+    }
+
+    else if(topic.includes("Algebra")){
+
+      questions = [
+
+        {
+          question:"In algebra, x can represent:",
+          options:[
+            "An unknown number",
+            "Only zero",
+            "A shape",
+            "A colour"
+          ],
+          answer:0
+        },
+
+        {
+          question:"If x + 3 = 8, what is x?",
+          options:["3","4","5","6"],
+          answer:2
+        },
+
+        {
+          question:"What is 2 + x when x = 4?",
+          options:["4","5","6","7"],
+          answer:2
+        },
+
+        {
+          question:"Which is an algebraic expression?",
+          options:["5","x + 2","10","7"],
+          answer:1
+        },
+
+        {
+          question:"If x = 10, what is x - 4?",
+          options:["4","5","6","7"],
+          answer:2
+        }
+
+      ];
+
+    }
+
+    else {
+
+      questions = [
+
+        {
+          question:"Which subject are you studying?",
+          options:[
+            "Mathematics",
+            "Music",
+            "Art",
+            "History"
+          ],
+          answer:0
+        },
+
+        {
+          question:"What should you do when solving a problem?",
+          options:[
+            "Guess only",
+            "Work carefully",
+            "Ignore it",
+            "Stop immediately"
+          ],
+          answer:1
+        },
+
+        {
+          question:"Which is important in Mathematics?",
+          options:[
+            "Careful thinking",
+            "Guessing only",
+            "Sleeping",
+            "Ignoring instructions"
+          ],
+          answer:0
+        },
+
+        {
+          question:"What should you do after an answer?",
+          options:[
+            "Check it",
+            "Delete it",
+            "Ignore it",
+            "Hide it"
+          ],
+          answer:0
+        },
+
+        {
+          question:"Practice helps you to:",
+          options:[
+            "Improve",
+            "Forget",
+            "Stop learning",
+            "Avoid work"
+          ],
+          answer:0
+        }
+
+      ];
+
+    }
+
+  }
+
+
+  /* SCIENCE */
+
+  else if(subject === "Science"){
+
+    if(topic.includes("Plants")){
+
+      questions = [
+
+        {
+          question:"Which part of a plant usually absorbs water?",
+          options:["Flower","Root","Fruit","Seed"],
+          answer:1
+        },
+
+        {
+          question:"Which part of a plant usually makes food?",
+          options:["Root","Leaf","Flower","Fruit"],
+          answer:1
+        },
+
+        {
+          question:"Plants are:",
+          options:["Living things","Machines","Rocks","Tools"],
+          answer:0
+        },
+
+        {
+          question:"Plants need water to:",
+          options:[
+            "Grow and survive",
+            "Become computers",
+            "Make sounds",
+            "Walk"
+          ],
+          answer:0
+        },
+
+        {
+          question:"Which is a plant?",
+          options:["Mango tree","Dog","Fish","Bird"],
+          answer:0
+        }
+
+      ];
+
+    }
+
+    else if(topic.includes("Animals")){
+
+      questions = [
+
+        {
+          question:"Which is an animal?",
+          options:["Dog","Table","Book","Stone"],
+          answer:0
+        },
+
+        {
+          question:"Which animal lives mainly in water?",
+          options:["Fish","Goat","Chicken","Cow"],
+          answer:0
+        },
+
+        {
+          question:"Animals need food to:",
+          options:[
+            "Survive",
+            "Become computers",
+            "Turn into plants",
+            "Stop growing"
+          ],
+          answer:0
+        },
+
+        {
+          question:"Which animal can fly?",
+          options:["Bird","Fish","Cow","Goat"],
+          answer:0
+        },
+
+        {
+          question:"Animals are:",
+          options:[
+            "Living things",
+            "Machines",
+            "Buildings",
+            "Books"
+          ],
+          answer:0
+        }
+
+      ];
+
+    }
+
+    else if(topic.includes("Matter") || topic.includes("Materials")){
+
+      questions = [
+
+        {
+          question:"Which is a solid?",
+          options:["Stone","Water","Air","Steam"],
+          answer:0
+        },
+
+        {
+          question:"Which is a liquid?",
+          options:["Water","Stone","Wood","Iron"],
+          answer:0
+        },
+
+        {
+          question:"Which state of matter has no fixed shape?",
+          options:["Solid","Liquid","Gas","Stone"],
+          answer:2
+        },
+
+        {
+          question:"Matter takes up:",
+          options:["Space","Nothing","Only light","Only sound"],
+          answer:0
+        },
+
+        {
+          question:"Ice is a:",
+          options:["Solid","Liquid","Gas","Plasma"],
+          answer:0
+        }
+
+      ];
+
+    }
+
+    else if(topic.includes("Energy")){
+
+      questions = [
+
+        {
+          question:"The Sun provides us with:",
+          options:["Light and heat","Only water","Only soil","Only sound"],
+          answer:0
+        },
+
+        {
+          question:"Energy helps things to:",
+          options:["Work","Disappear","Sleep only","Become invisible"],
+          answer:0
+        },
+
+        {
+          question:"Which is a source of energy?",
+          options:["Sun","Chair","Book","Shoe"],
+          answer:0
+        },
+
+        {
+          question:"Electricity is a form of:",
+          options:["Energy","Food","Water","Soil"],
+          answer:0
+        },
+
+        {
+          question:"We use energy:",
+          options:[
+            "Every day",
+            "Never",
+            "Only once",
+            "Only at school"
+          ],
+          answer:0
+        }
+
+      ];
+
+    }
+
+    else {
+
+      questions = [
+
+        {
+          question:"Science helps us understand:",
+          options:[
+            "The world around us",
+            "Only computers",
+            "Only games",
+            "Only numbers"
+          ],
+          answer:0
+        },
+
+        {
+          question:"Which is a living thing?",
+          options:["Plant","Chair","Stone","Table"],
+          answer:0
+        },
+
+        {
+          question:"Which is important when learning Science?",
+          options:[
+            "Observation",
+            "Guessing only",
+            "Ignoring evidence",
+            "Not asking questions"
+          ],
+          answer:0
+        },
+
+        {
+          question:"Scientists use observations to:",
+          options:[
+            "Learn about things",
+            "Destroy information",
+            "Avoid experiments",
+            "Stop learning"
+          ],
+          answer:0
+        },
+
+        {
+          question:"Science can help us:",
+          options:[
+            "Solve problems",
+            "Forget everything",
+            "Avoid questions",
+            "Stop exploring"
+          ],
+          answer:0
+        }
+
+      ];
+
+    }
+
+  }
+
+
+  /* COMPUTING */
+
+  else if(subject === "Computing"){
+
+    if(topic.includes("Keyboard")){
+
+      questions = [
+
+        {
+          question:"A keyboard is an:",
+          options:[
+            "Input device",
+            "Output device",
+            "Animal",
+            "Storage room"
+          ],
+          answer:0
+        },
+
+        {
+          question:"Which key creates a space?",
+          options:[
+            "Spacebar",
+            "Shift",
+            "Enter",
+            "Esc"
+          ],
+          answer:0
+        },
+
+        {
+          question:"Which key is used to move to a new line when typing?",
+          options:[
+            "Enter",
+            "Spacebar",
+            "Ctrl",
+            "Alt"
+          ],
+          answer:0
+        },
+
+        {
+          question:"Which keys are used to type letters?",
+          options:[
+            "Letter keys",
+            "Monitor keys",
+            "Mouse keys",
+            "Screen keys"
+          ],
+          answer:0
+        },
+
+        {
+          question:"A keyboard is used mainly to:",
+          options:[
+            "Enter information",
+            "Display pictures",
+            "Print paper only",
+            "Play sound only"
+          ],
+          answer:0
+        }
+
+      ];
+
+    }
+
+    else if(
+      topic.includes("Mouse")
+    ){
+
+      questions = [
+
+        {
+          question:"A mouse is an:",
+          options:[
+            "Input device",
+            "Output device",
+            "Printer",
+            "Monitor"
+          ],
+          answer:0
+        },
+
+        {
+          question:"Which action selects something?",
+          options:[
+            "Clicking",
+            "Sleeping",
+            "Typing only",
+            "Printing"
+          ],
+          answer:0
+        },
+
+        {
+          question:"Double-clicking usually means:",
+          options:[
+            "Clicking twice quickly",
+            "Clicking once",
+            "Never clicking",
+            "Typing twice"
+          ],
+          answer:0
+        },
+
+        {
+          question:"The mouse controls the:",
+          options:[
+            "Pointer",
+            "Keyboard",
+            "Printer paper",
+            "Speaker"
+          ],
+          answer:0
+        },
+
+        {
+          question:"Dragging means:",
+          options:[
+            "Holding and moving an item",
+            "Turning off the computer",
+            "Typing a letter",
+            "Printing"
+          ],
+          answer:0
+        }
+
+      ];
+
+    }
+
+    else if(
+      topic.includes("Safety") ||
+      topic.includes("Cybersecurity")
+    ){
+
+      questions = [
+
+        {
+          question:"Should you share your password with strangers?",
+          options:["Yes","No","Always","Sometimes"],
+          answer:1
+        },
+
+        {
+          question:"What should you do with suspicious links?",
+          options:[
+            "Click them",
+            "Ignore them",
+            "Share them",
+            "Send them to everyone"
+          ],
+          answer:1
+        },
+
+        {
+          question:"A strong password should be:",
+          options:[
+            "Easy for everyone to guess",
+            "Kept private",
+            "Your name only",
+            "1234"
+          ],
+          answer:1
+        },
+
+        {
+          question:"If something online makes you uncomfortable, you should:",
+          options:[
+            "Tell a trusted adult",
+            "Keep it secret",
+            "Share it",
+            "Give away your password"
+          ],
+          answer:0
+        },
+
+        {
+          question:"Before clicking an unknown link, you should:",
+          options:[
+            "Check it carefully",
+            "Click immediately",
+            "Send it to friends",
+            "Give your password"
+          ],
+          answer:0
+        }
+
+      ];
+
+    }
+
+    else if(
+      topic.includes("Computer Parts") ||
+      topic.includes("Hardware")
+    ){
+
+      questions = [
+
+        {
+          question:"Which device displays information?",
+          options:[
+            "Monitor",
+            "Keyboard",
+            "Mouse",
+            "Microphone"
+          ],
+          answer:0
+        },
+
+        {
+          question:"Which device is used for typing?",
+          options:[
+            "Keyboard",
+            "Monitor",
+            "Speaker",
+            "Printer"
+          ],
+          answer:0
+        },
+
+        {
+          question:"Which device produces sound?",
+          options:[
+            "Speaker",
+            "Keyboard",
+            "Mouse",
+            "Monitor"
+          ],
+          answer:0
+        },
+
+        {
+          question:"Hardware means:",
+          options:[
+            "Physical computer parts",
+            "Computer instructions only",
+            "Internet websites",
+            "Passwords"
+          ],
+          answer:0
+        },
+
+        {
+          question:"Which is hardware?",
+          options:[
+            "Mouse",
+            "Application",
+            "Website",
+            "Password"
+          ],
+          answer:0
+        }
+
+      ];
+
+    }
+
+    else if(topic.includes("Programming") || topic.includes("Algorithms")){
+
+      questions = [
+
+        {
+          question:"An algorithm is:",
+          options:[
+            "A step-by-step method",
+            "A computer screen",
+            "A keyboard",
+            "A password"
+          ],
+          answer:0
+        },
+
+        {
+          question:"Programming involves writing:",
+          options:[
+            "Instructions",
+            "Books only",
+            "Passwords only",
+            "Pictures only"
+          ],
+          answer:0
+        },
+
+        {
+          question:"Good instructions should be:",
+          options:[
+            "Clear",
+            "Confusing",
+            "Missing steps",
+            "Random"
+          ],
+          answer:0
+        },
+
+        {
+          question:"Algorithms help us:",
+          options:[
+            "Solve problems",
+            "Avoid thinking",
+            "Delete computers",
+            "Stop learning"
+          ],
+          answer:0
+        },
+
+        {
+          question:"Which comes first in a step-by-step process?",
+          options:[
+            "The first step",
+            "The last step",
+            "No step",
+            "A random step"
+          ],
+          answer:0
+        }
+
+      ];
+
+    }
+
+    else {
+
+      questions = [
+
+        {
+          question:"A computer is an electronic device that can:",
+          options:[
+            "Process information",
+            "Eat food",
+            "Grow like a plant",
+            "Drink water"
+          ],
+          answer:0
+        },
+
+        {
+          question:"Which is a computer device?",
+          options:[
+            "Keyboard",
+            "Cup",
+            "Shoe",
+            "Plate"
+          ],
+          answer:0
+        },
+
+        {
+          question:"Computing involves:",
+          options:[
+            "Using technology to solve problems",
+            "Only drawing",
+            "Only singing",
+            "Only sleeping"
+          ],
+          answer:0
+        },
+
+        {
+          question:"We should use computers:",
+          options:[
+            "Responsibly",
+            "Carelessly",
+            "Without safety",
+            "To harm others"
+          ],
+          answer:0
+        },
+
+        {
+          question:"Practice helps us:",
+          options:[
+            "Improve our skills",
+            "Forget skills",
+            "Stop learning",
+            "Avoid computers"
+          ],
+          answer:0
+        }
+
+      ];
+
+    }
+
+  }
+
+
+  return questions;
+
+}
+
+
+/* =========================
+   SELECT ANSWER
+========================= */
+
+function selectAnswer(questionIndex,optionIndex){
+
+  selectedAnswers[questionIndex] =
+    optionIndex;
+
+
+  currentQuestions[questionIndex]
+    .options.forEach(function(option,index){
+
+      const button =
+        document.getElementById(
+          `option-${questionIndex}-${index}`
+        );
+
+
+      if(button){
+
+        button.classList.toggle(
+          "selected",
+          index === optionIndex
+        );
+
+      }
+
+    });
+
+}
+
+
+/* =========================
+   CHECK ANSWERS
+========================= */
+
+function checkAnswers(){
+
+  if(!currentQuestions.length){
+
+    return;
+
+  }
+
+
+  let correct = 0;
+
+
+  currentQuestions.forEach(function(question,index){
+
+    if(
+      selectedAnswers[index] !== undefined &&
+      selectedAnswers[index] === question.answer
+    ){
+
+      correct++;
+
+    }
+
+  });
+
+
+  const score =
+    Math.round(
+      (correct / currentQuestions.length) * 100
+    );
+
+
+  updateProgress(
+    score,
+    currentQuestions.length
+  );
+
+
+  showResult(
+    score,
+    correct,
+    currentQuestions.length
+  );
+
+}
+
+
+/* =========================
+   UPDATE PROGRESS
+========================= */
+
+function updateProgress(score,totalQuestions){
+
+  const student = getStudent();
+
+  if(!student){
+
+    return;
+
+  }
+
+
+  if(!student.progress){
+
+    student.progress = {
+      topics:0,
+      questions:0,
+      bestScore:0,
+      streak:0
+    };
+
+  }
+
+
+  student.progress.questions +=
+    totalQuestions;
+
+
+  if(score > student.progress.bestScore){
+
+    student.progress.bestScore = score;
+
+  }
+
+
+  if(score === 100){
+
+    student.progress.topics += 1;
+
+    student.progress.streak += 1;
+
+  }else{
+
+    student.progress.streak = 0;
+
+  }
+
+
+  localStorage.setItem(
+    STORAGE_KEY,
+    JSON.stringify(student)
+  );
+
+}
+
+
+/* =========================
+   SHOW RESULT
+========================= */
+
+function showResult(score,correct,total){
+
+  hideAllPages();
+
+
+  document.getElementById("resultPage")
+    .classList.remove("hidden");
+
+
+  document.getElementById("scorePercent")
+    .textContent = score + "%";
+
+
+  if(score >= 80){
+
+    document.getElementById("resultTitle")
+      .textContent = "Excellent work! 🎉";
+
+
+    document.getElementById("resultMessage")
+      .textContent =
+        `You got ${correct} out of ${total} correct. Keep it up!`;
+
+  }
+
+  else if(score >= 50){
+
+    document.getElementById("resultTitle")
+      .textContent = "Good effort! 👍";
+
+
+    document.getElementById("resultMessage")
+      .textContent =
+        `You got ${correct} out of ${total} correct. Review the lesson and try again.`;
+
+  }
+
+  else{
+
+    document.getElementById("resultTitle")
+      .textContent = "Keep practising! 💪";
+
+
+    document.getElementById("resultMessage")
+      .textContent =
+        `You got ${correct} out of ${total} correct. Don't give up — learning takes practice.`;
+
+  }
+
+}
+
+
+/* =========================
+   RETRY
+========================= */
+
+function retryLesson(){
+
+  startPractice();
+
+}
+
+
+/* =========================
+   BACK TO LESSON
+========================= */
+
+function backToLesson(){
+
+  openLesson(
+    getTopicIndex()
+  );
+
+}
+
+
+/* =========================
+   GET TOPIC INDEX
+========================= */
+
+function getTopicIndex(){
+
+  const student = getStudent();
+
+  if(!student){
+
+    return 0;
+
+  }
+
+
+  const topics =
+    curriculum[student.class][currentSubject];
+
+
+  const index =
+    topics.findIndex(function(topic){
+
+      return topic[0] === currentTopic;
+
+    });
+
+
+  return index >= 0 ? index : 0;
+
+}
+
+
+/* =========================
+   BACK TO TOPICS
+========================= */
+
+function backToTopics(){
+
+  openSubject(currentSubject);
+
+}
+
+
+/* =========================
+   BACK TO DASHBOARD
+========================= */
+
+function backToDashboard(){
+
+  showDashboard();
+
+}
+
+
+/* =========================
+   QUICK PRACTICE
+========================= */
+
+function quickPractice(){
+
+  currentSubject = "Mathematics";
+
+
+  const student = getStudent();
+
+  if(!student){
+
+    return;
+
+  }
+
+
+  const topics =
+    curriculum[student.class].Mathematics;
+
+
+  currentTopic =
+    topics[0][0];
+
+
+  startPractice();
+
+}
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+function showProgress(){
+
+  const student = getStudent();
+
+  if(!student){
+
+    return;
+
+  }
+
+
+  hideAllPages();
+
+
+  document.getElementById("progressPage")
+    .classList.remove("hidden");
+
+
+  const progress =
+    student.progress || {
+
+      topics:0,
+      questions:0,
+      bestScore:0,
+      streak:0
+
+    };
+
+
+  document.getElementById("statTopics")
+    .textContent = progress.topics;
+
+
+  document.getElementById("statQuestions")
+    .textContent = progress.questions;
+
+
+  document.getElementById("statBestScore")
+    .textContent =
+      progress.bestScore + "%";
+
+
+  /*
+    Each class has 15 topics:
+    5 Mathematics
+    5 Science
+    5 Computing
+  */
+
+  const totalTopics = 15;
+
+
+  const percentage =
+    Math.min(
+      100,
+      Math.round(
+        (progress.topics / totalTopics) * 100
+      )
+    );
+
+
+  document.getElementById("topicProgress")
+    .style.width = percentage + "%";
+
+
+  document.getElementById("topicProgressText")
+    .textContent =
+      percentage + "% completed";
+
+
+  document.getElementById("streakText")
+    .textContent =
+      progress.streak +
+      (progress.streak === 1 ? " day" : " days");
+
+}
+
+
+/* =========================
+   PROFILE
+========================= */
+
+function showProfile(){
+
+  const student = getStudent();
+
+  if(!student){
+
+    return;
+
+  }
+
+
+  hideAllPages();
+
+
+  document.getElementById("profilePage")
+    .classList.remove("hidden");
+
+
+  document.getElementById("profileName")
+    .textContent = student.name;
+
+
+  document.getElementById("profileClass")
+    .textContent =
+      "Class: " + student.class;
+
+
+  const joined =
+    new Date(student.joinedDate);
+
+
+  document.getElementById("profileJoined")
+    .textContent =
+      "Learning with Smart Steps since " +
+      joined.toLocaleDateString();
+
+
+  document.getElementById("profileAvatar")
+    .textContent =
+      student.name.charAt(0).toUpperCase();
+
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+function logout(){
+
+  localStorage.removeItem(
+    STORAGE_KEY
+  );
+
+
+  location.reload();
+
+}
+
+
+/* =========================
+   HIDE ALL PAGES
+========================= */
 
 function hideAllPages(){
 
-const pages=[
-"dashboardPage",
-"topicsPage",
-"lessonPage",
-"practicePage",
-"resultPage",
-"progressPage",
-"profilePage"
-];
+  const pages = [
 
-pages.forEach(id=>{
+    "dashboardPage",
+    "topicsPage",
+    "lessonPage",
+    "practicePage",
+    "resultPage",
+    "progressPage",
+    "profilePage"
 
-document.getElementById(id)
-.classList.add("hidden");
+  ];
 
-});
+
+  pages.forEach(function(id){
+
+    const element =
+      document.getElementById(id);
+
+
+    if(element){
+
+      element.classList.add("hidden");
+
+    }
+
+  });
 
 }
 
 
-function showLanding(){
+/* =========================
+   ACTIVE NAV
+========================= */
 
-document.getElementById("landing")
-.classList.remove("hidden");
+function setActiveNav(id){
 
-document.getElementById("app")
-.classList.add("hidden");
+  document
+    .querySelectorAll(".bottom-nav button")
+    .forEach(function(button){
+
+      button.classList.remove("active");
+
+    });
+
+
+  const selected =
+    document.getElementById(id);
+
+
+  if(selected){
+
+    selected.classList.add("active");
+
+  }
 
 }
 
 
-/* =====================================================
+/* =========================
    AUTO LOGIN
-===================================================== */
+========================= */
 
 window.addEventListener(
-"load",
-()=>{
+  "DOMContentLoaded",
+  function(){
 
-const student=
-localStorage.getItem(
-"smartStepsStudent"
-);
+    const student = getStudent();
 
-if(student){
 
-showDashboard();
+    if(student){
 
-}
+      showDashboard();
 
-}
+    }else{
+
+      document.getElementById("landingPage")
+        .classList.remove("hidden");
+
+      document.getElementById("app")
+        .classList.add("hidden");
+
+    }
+
+  }
 );
 
 </script>
