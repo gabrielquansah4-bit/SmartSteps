@@ -2,2381 +2,317 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Smart Steps — Learn. Practice. Improve.</title>
-
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#f4f7fb;
-  color:#172033;
-  min-height:100vh;
-}
-
-button,input,select{font:inherit}
-
-button{
-  cursor:pointer;
-  border:none;
-}
-
-.app{
-  min-height:100vh;
-}
-
-header{
-  background:linear-gradient(135deg,#2563eb,#7c3aed);
-  color:white;
-  padding:18px 22px;
-  position:sticky;
-  top:0;
-  z-index:20;
-  box-shadow:0 3px 15px rgba(0,0,0,.12);
-}
-
-.header-inner{
-  max-width:1100px;
-  margin:auto;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:15px;
-}
-
-.brand{
-  font-size:24px;
-  font-weight:800;
-}
-
-.tagline{
-  font-size:12px;
-  opacity:.9;
-  margin-top:3px;
-}
-
-.header-btn{
-  background:rgba(255,255,255,.18);
-  color:white;
-  padding:9px 14px;
-  border-radius:10px;
-}
-
-main{
-  max-width:1100px;
-  margin:auto;
-  padding:25px 18px 90px;
-}
-
-.page{
-  display:none;
-}
-
-.page.active{
-  display:block;
-}
-
-.card{
-  background:white;
-  border-radius:18px;
-  padding:22px;
-  box-shadow:0 5px 20px rgba(20,30,60,.07);
-  margin-bottom:18px;
-}
-
-.hero{
-  background:linear-gradient(135deg,#2563eb,#7c3aed);
-  color:white;
-  border-radius:24px;
-  padding:30px;
-  margin-bottom:22px;
-}
-
-.hero h1{
-  font-size:32px;
-  margin-bottom:8px;
-}
-
-.hero p{
-  opacity:.92;
-}
-
-.login-box{
-  max-width:560px;
-  margin:55px auto;
-}
-
-.login-box h1{
-  text-align:center;
-  color:#2563eb;
-  font-size:38px;
-  margin-bottom:5px;
-}
-
-.login-box .tag{
-  text-align:center;
-  color:#64748b;
-  margin-bottom:25px;
-}
-
-label{
-  display:block;
-  font-weight:700;
-  margin:15px 0 7px;
-}
-
-input,select{
-  width:100%;
-  padding:13px 14px;
-  border:1px solid #d6dce8;
-  border-radius:11px;
-  outline:none;
-  background:white;
-}
-
-input:focus,select:focus{
-  border-color:#2563eb;
-  box-shadow:0 0 0 3px rgba(37,99,235,.1);
-}
-
-.primary{
-  background:#2563eb;
-  color:white;
-  padding:13px 20px;
-  border-radius:11px;
-  font-weight:700;
-  margin-top:18px;
-}
-
-.primary:hover{background:#1d4ed8}
-
-.secondary{
-  background:#eef2ff;
-  color:#3730a3;
-  padding:11px 17px;
-  border-radius:10px;
-  font-weight:700;
-}
-
-.danger{
-  background:#fee2e2;
-  color:#b91c1c;
-  padding:10px 15px;
-  border-radius:10px;
-}
-
-.dashboard-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-}
-
-.subject-card{
-  padding:24px;
-  border-radius:18px;
-  color:white;
-  min-height:175px;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  box-shadow:0 8px 20px rgba(0,0,0,.08);
-}
-
-.subject-card.math{background:linear-gradient(135deg,#2563eb,#0ea5e9)}
-.subject-card.science{background:linear-gradient(135deg,#059669,#22c55e)}
-.subject-card.computing{background:linear-gradient(135deg,#7c3aed,#ec4899)}
-
-.subject-icon{
-  font-size:38px;
-}
-
-.subject-card h3{
-  font-size:22px;
-}
-
-.subject-card button{
-  background:white;
-  color:#172033;
-  padding:10px 14px;
-  border-radius:10px;
-  font-weight:700;
-  margin-top:12px;
-}
-
-.topic-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:14px;
-}
-
-.topic-card{
-  background:white;
-  border:1px solid #e2e8f0;
-  padding:18px;
-  border-radius:15px;
-  transition:.2s;
-}
-
-.topic-card:hover{
-  transform:translateY(-2px);
-  box-shadow:0 7px 18px rgba(0,0,0,.08);
-}
-
-.topic-number{
-  width:34px;
-  height:34px;
-  border-radius:50%;
-  background:#e0e7ff;
-  color:#3730a3;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:800;
-  margin-bottom:12px;
-}
-
-.topic-card h3{
-  font-size:17px;
-  margin-bottom:10px;
-}
-
-.topic-card button{
-  width:100%;
-  padding:10px;
-  background:#2563eb;
-  color:white;
-  border-radius:9px;
-  font-weight:700;
-}
-
-.lesson-title{
-  font-size:30px;
-  margin-bottom:7px;
-}
-
-.lesson-subtitle{
-  color:#64748b;
-  margin-bottom:22px;
-}
-
-.lesson-section{
-  background:white;
-  padding:22px;
-  border-radius:16px;
-  margin-bottom:15px;
-  border-left:5px solid #2563eb;
-}
-
-.lesson-section h3{
-  margin-bottom:12px;
-  color:#1e40af;
-}
-
-.lesson-section p{
-  line-height:1.7;
-  margin-bottom:9px;
-}
-
-.lesson-section ul{
-  padding-left:22px;
-  line-height:1.7;
-}
-
-.example{
-  background:#eff6ff;
-  padding:15px;
-  border-radius:11px;
-  margin:10px 0;
-}
-
-.activity{
-  background:#ecfdf5;
-  border-left-color:#059669;
-}
-
-.think{
-  background:#fff7ed;
-  border-left-color:#f97316;
-}
-
-.remember{
-  background:#fefce8;
-  border-left-color:#eab308;
-}
-
-.practice-question{
-  background:white;
-  padding:20px;
-  border-radius:15px;
-  margin-bottom:15px;
-  box-shadow:0 4px 14px rgba(0,0,0,.05);
-}
-
-.practice-question h3{
-  margin-bottom:13px;
-}
-
-.option{
-  display:block;
-  width:100%;
-  text-align:left;
-  background:#f8fafc;
-  border:1px solid #dbe2ea;
-  padding:12px;
-  border-radius:10px;
-  margin:8px 0;
-}
-
-.option:hover{
-  background:#eff6ff;
-}
-
-.option.selected{
-  background:#dbeafe;
-  border-color:#2563eb;
-}
-
-.option.correct{
-  background:#dcfce7;
-  border-color:#16a34a;
-}
-
-.option.wrong{
-  background:#fee2e2;
-  border-color:#dc2626;
-}
-
-.score-box{
-  text-align:center;
-  padding:35px 20px;
-}
-
-.score{
-  font-size:70px;
-  font-weight:900;
-  color:#2563eb;
-}
-
-.progress-bar{
-  height:16px;
-  background:#e2e8f0;
-  border-radius:20px;
-  overflow:hidden;
-  margin:10px 0 20px;
-}
-
-.progress-fill{
-  height:100%;
-  background:linear-gradient(90deg,#2563eb,#7c3aed);
-  width:0;
-}
-
-.stats{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
-}
-
-.stat{
-  background:white;
-  padding:20px;
-  border-radius:15px;
-  text-align:center;
-}
-
-.stat strong{
-  display:block;
-  font-size:30px;
-  color:#2563eb;
-}
-
-.action-row{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top:20px;
-}
-
-.bottom-nav{
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  height:65px;
-  background:white;
-  border-top:1px solid #e2e8f0;
-  display:flex;
-  justify-content:center;
-  z-index:30;
-}
-
-.bottom-nav button{
-  background:white;
-  color:#64748b;
-  flex:1;
-  max-width:180px;
-  font-size:12px;
-}
-
-.bottom-nav button.active{
-  color:#2563eb;
-  font-weight:800;
-}
-
-.empty{
-  text-align:center;
-  padding:30px;
-  color:#64748b;
-}
-
-.small{
-  color:#64748b;
-  font-size:14px;
-}
-
-.badge{
-  display:inline-block;
-  background:#dcfce7;
-  color:#166534;
-  padding:5px 9px;
-  border-radius:20px;
-  font-size:12px;
-  font-weight:700;
-}
-
-@media(max-width:800px){
-  .dashboard-grid,
-  .topic-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .stats{
-    grid-template-columns:1fr 1fr;
-  }
-}
-
-@media(max-width:600px){
-  main{
-    padding:18px 12px 85px;
-  }
-
-  .hero{
-    padding:22px;
-  }
-
-  .hero h1{
-    font-size:25px;
-  }
-
-  .dashboard-grid,
-  .topic-grid,
-  .stats{
-    grid-template-columns:1fr;
-  }
-
-  .login-box{
-    margin:25px auto;
-  }
-
-  .login-box h1{
-    font-size:32px;
-  }
-
-  .lesson-title{
-    font-size:24px;
-  }
-
-  .header-inner{
-    align-items:flex-start;
-  }
-
-  .header-btn{
-    font-size:12px;
-  }
-}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f5f7fb;color:#172033}
+header{background:linear-gradient(135deg,#2563eb,#7c3aed);color:#fff;padding:18px 20px;position:sticky;top:0;z-index:20}
+.brand{font-size:25px;font-weight:800}.tagline{font-size:13px;opacity:.9;margin-top:3px}
+main{max-width:1050px;margin:auto;padding:22px 16px 90px}.page{display:none}.page.active{display:block}
+.card{background:#fff;border-radius:18px;padding:20px;margin-bottom:16px;box-shadow:0 5px 20px rgba(15,23,42,.07)}
+.login{max-width:520px;margin:35px auto;text-align:center}.logo{font-size:48px;margin-bottom:8px}
+h1{font-size:30px;margin:8px 0}h2{margin:5px 0 14px}h3{margin:8px 0}
+input,select,button{width:100%;padding:13px;border-radius:11px;border:1px solid #d7ddea;font-size:15px}
+input,select{background:#fff;margin:6px 0 12px}button{border:0;background:#2563eb;color:#fff;font-weight:700;cursor:pointer}
+button:hover{opacity:.92}.secondary{background:#e9eefb;color:#1e3a8a}.danger{background:#dc2626}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.subject{padding:22px;border-radius:18px;color:#fff;min-height:145px;cursor:pointer}
+.subject h3{font-size:20px}.math{background:#2563eb}.science{background:#16a34a}.computing{background:#7c3aed}
+.topic-card{background:#fff;border:1px solid #e4e8f0;border-radius:16px;padding:17px;margin:12px 0;display:flex;align-items:center;gap:13px}
+.topic-number{min-width:38px;height:38px;border-radius:50%;background:#eef2ff;color:#3730a3;display:grid;place-items:center;font-weight:800}
+.topic-card h3{flex:1}.badge{font-size:12px;background:#dcfce7;color:#166534;padding:6px 9px;border-radius:999px}
+.hero{background:linear-gradient(135deg,#eef4ff,#f4edff);border-radius:20px;padding:22px;margin-bottom:18px}
+.lesson-section{border-left:5px solid #2563eb;background:#fff;padding:17px 18px;margin:14px 0;border-radius:12px;box-shadow:0 3px 14px rgba(0,0,0,.04)}
+.lesson-section h3{color:#1d4ed8}.example{background:#f8fafc;padding:12px;border-radius:10px;margin:8px 0}
+.question{background:#fff;border-radius:15px;padding:18px;margin:14px 0;box-shadow:0 4px 15px rgba(0,0,0,.06)}
+.option{display:block;text-align:left;background:#f8fafc;color:#172033;border:1px solid #dce2ec;margin:8px 0}
+.option.selected{background:#dbeafe;border-color:#2563eb}.option.correct{background:#dcfce7;border-color:#16a34a}.option.wrong{background:#fee2e2;border-color:#dc2626}
+.progressbar{height:13px;background:#e5e7eb;border-radius:20px;overflow:hidden}.progressbar div{height:100%;background:#2563eb}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.stat{text-align:center;background:#f8fafc;border-radius:14px;padding:16px}.stat strong{font-size:26px;display:block;color:#2563eb}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #ddd;display:flex;justify-content:center;gap:5px;padding:8px;z-index:30}.bottom button{max-width:180px;background:transparent;color:#334155;padding:9px;font-size:12px}
+.back{width:auto;background:#e9eefb;color:#1e3a8a;padding:9px 14px;margin-bottom:12px}.small{font-size:13px;color:#64748b}.center{text-align:center}
+@media(max-width:720px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.topic-card{align-items:flex-start;flex-wrap:wrap}.topic-card h3{min-width:calc(100% - 52px)}.topic-card button{width:100%}}
 </style>
 </head>
-
 <body>
-
-<div class="app">
-
 <header>
-  <div class="header-inner">
-    <div>
-      <div class="brand">📚 Smart Steps</div>
-      <div class="tagline">Learn. Practice. Improve.</div>
-    </div>
-    <button class="header-btn" onclick="showDashboard()">Dashboard</button>
-  </div>
+  <div class="brand">📚 Smart Steps</div>
+  <div class="tagline">Learn. Practice. Improve.</div>
 </header>
 
 <main>
-
-<!-- LOGIN -->
 <section id="loginPage" class="page active">
-  <div class="card login-box">
-    <h1>📚 Smart Steps</h1>
-    <div class="tag">Learn. Practice. Improve.</div>
-
-    <label for="studentName">Student Name</label>
-    <input id="studentName" type="text" placeholder="Enter your name">
-
-    <label for="studentClass">Select Class</label>
-    <select id="studentClass">
-      <option value="">Choose your class</option>
-      <option>Primary 1</option>
-      <option>Primary 2</option>
-      <option>Primary 3</option>
-      <option>Primary 4</option>
-      <option>Primary 5</option>
-      <option>Primary 6</option>
-      <option>JHS 1</option>
-      <option>JHS 2</option>
-      <option>JHS 3</option>
-    </select>
-
-    <button class="primary" style="width:100%" onclick="startLearning()">
-      🚀 Start Learning
-    </button>
-  </div>
-</section>
-
-<!-- DASHBOARD -->
-<section id="dashboardPage" class="page">
-
-  <div class="hero">
-    <h1>Welcome, <span id="dashName"></span>! 👋</h1>
-    <p>Class: <strong id="dashClass"></strong></p>
-    <p style="margin-top:10px">Your goal today: learn something new and practise what you know.</p>
-  </div>
-
-  <div class="card">
-    <h2>🎯 Today's Learning Goal</h2>
-    <p style="margin-top:8px">
-      Choose a subject below, study a topic, and complete the practice questions.
-    </p>
-  </div>
-
-  <div class="dashboard-grid">
-
-    <div class="subject-card math">
-      <div class="subject-icon">➗</div>
-      <div>
-        <h3>Mathematics</h3>
-        <p>Numbers, problem solving and reasoning.</p>
-        <button onclick="openSubject('Mathematics')">Open Mathematics</button>
-      </div>
-    </div>
-
-    <div class="subject-card science">
-      <div class="subject-icon">🔬</div>
-      <div>
-        <h3>Science</h3>
-        <p>Explore living things, matter, energy and more.</p>
-        <button onclick="openSubject('Science')">Open Science</button>
-      </div>
-    </div>
-
-    <div class="subject-card computing">
-      <div class="subject-icon">💻</div>
-      <div>
-        <h3>Computing</h3>
-        <p>Build digital knowledge and problem-solving skills.</p>
-        <button onclick="openSubject('Computing')">Open Computing</button>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="card" style="margin-top:20px">
-    <h2>⚡ Quick Practice</h2>
-    <p class="small" style="margin-top:5px">
-      Start with Mathematics.
-    </p>
-    <button class="primary" onclick="quickPractice()">Start Quick Practice</button>
-  </div>
-
-</section>
-
-<!-- TOPICS -->
-<section id="topicsPage" class="page">
-  <div class="card">
-    <button class="secondary" onclick="showDashboard()">← Dashboard</button>
-    <h1 id="topicsTitle" style="margin-top:18px"></h1>
-    <p class="small" id="topicsSubtitle"></p>
-  </div>
-
-  <div id="topicsContainer" class="topic-grid"></div>
-</section>
-
-<!-- LESSON -->
-<section id="lessonPage" class="page">
-
-  <div class="card">
-    <button class="secondary" onclick="backToTopics()">← Back to Topics</button>
-    <h1 class="lesson-title" id="lessonTitle" style="margin-top:18px"></h1>
-    <p class="lesson-subtitle" id="lessonSubtitle"></p>
-  </div>
-
-  <div id="lessonContainer"></div>
-
-  <div class="card">
-    <button class="primary" onclick="startPractice()">📝 Start Practice</button>
-  </div>
-
-</section>
-
-<!-- PRACTICE -->
-<section id="practicePage" class="page">
-
-  <div class="card">
-    <button class="secondary" onclick="backToLesson()">← Back to Lesson</button>
-    <h1 style="margin-top:18px">📝 Practice</h1>
-    <p id="practiceTitle" class="small"></p>
-  </div>
-
-  <div id="questionsContainer"></div>
-
-  <div class="card">
-    <button class="primary" onclick="checkAnswers()">Check My Answers</button>
-  </div>
-
-</section>
-
-<!-- RESULT -->
-<section id="resultPage" class="page">
-
-  <div class="card score-box">
-    <h1>🎉 Practice Complete!</h1>
-    <p id="resultTopic" class="small" style="margin-top:8px"></p>
-
-    <div class="score" id="scoreDisplay">0%</div>
-
-    <h2 id="resultMessage"></h2>
-
-    <div class="action-row" style="justify-content:center">
-      <button class="primary" onclick="retryLesson()">🔄 Try Again</button>
-      <button class="secondary" onclick="backToLesson()">📖 Review Lesson</button>
-      <button class="secondary" onclick="backToTopics()">📚 More Topics</button>
-    </div>
-  </div>
-
-</section>
-
-<!-- PROGRESS -->
-<section id="progressPage" class="page">
-
-  <div class="card">
-    <h1>📊 My Progress</h1>
-    <p class="small">Keep learning and improving every day.</p>
-  </div>
-
-  <div class="stats">
-    <div class="stat">
-      <strong id="progressTopics">0</strong>
-      <span>Topics Completed</span>
-    </div>
-
-    <div class="stat">
-      <strong id="progressQuestions">0</strong>
-      <span>Questions Answered</span>
-    </div>
-
-    <div class="stat">
-      <strong id="progressBest">0%</strong>
-      <span>Best Score</span>
-    </div>
-  </div>
-
-  <div class="card" style="margin-top:18px">
-    <h2>Overall Topic Progress</h2>
-    <div class="progress-bar">
-      <div id="progressFill" class="progress-fill"></div>
-    </div>
-    <p id="progressPercent" class="small"></p>
-  </div>
-
-  <div class="card">
-    <h2>🔥 Learning Streak</h2>
-    <p style="font-size:30px;margin-top:10px">
-      <strong id="progressStreak">0</strong> days
-    </p>
-  </div>
-
-</section>
-
-<!-- PROFILE -->
-<section id="profilePage" class="page">
-
-  <div class="card">
-    <h1>👤 My Profile</h1>
-
-    <label>Name</label>
-    <input id="profileName" type="text">
-
+  <div class="card login">
+    <div class="logo">🎓</div>
+    <h1>Welcome to Smart Steps</h1>
+    <p>Learn, practise and improve one step at a time.</p>
+    <label>Student Name</label>
+    <input id="studentName" placeholder="Enter your name">
     <label>Class</label>
-    <select id="profileClass">
-      <option>Primary 1</option>
-      <option>Primary 2</option>
-      <option>Primary 3</option>
-      <option>Primary 4</option>
-      <option>Primary 5</option>
-      <option>Primary 6</option>
-      <option>JHS 1</option>
-      <option>JHS 2</option>
-      <option>JHS 3</option>
+    <select id="studentClass">
+      <option value="">Select your class</option>
+      <option>Primary 1</option><option>Primary 2</option><option>Primary 3</option>
+      <option>Primary 4</option><option>Primary 5</option><option>Primary 6</option>
+      <option>JHS 1</option><option>JHS 2</option><option>JHS 3</option>
     </select>
-
-    <button class="primary" onclick="saveProfile()">Save Profile</button>
-    <button class="danger" onclick="logout()" style="margin-top:12px">Logout</button>
+    <button onclick="startLearning()">Start Learning 🚀</button>
   </div>
-
 </section>
 
+<section id="dashboardPage" class="page">
+  <div class="hero">
+    <h2 id="welcomeText">Welcome!</h2>
+    <p>Choose a subject and start learning today.</p>
+    <strong>Today's Learning Goal:</strong>
+    <p>Complete one lesson and practise what you learned.</p>
+  </div>
+  <h2>Subjects</h2>
+  <div class="grid">
+    <div class="subject math" onclick="openSubject('Mathematics')"><div>➗</div><h3>Mathematics</h3><p>Numbers, reasoning and problem solving.</p></div>
+    <div class="subject science" onclick="openSubject('Science')"><div>🔬</div><h3>Science</h3><p>Discover how the world works.</p></div>
+    <div class="subject computing" onclick="openSubject('Computing')"><div>💻</div><h3>Computing</h3><p>Technology, digital skills and problem solving.</p></div>
+  </div>
+  <div class="card"><h3>⚡ Quick Practice</h3><p>Review completed topics and improve your score.</p><button onclick="showProgress()">View My Progress</button></div>
+</section>
+
+<section id="topicsPage" class="page">
+  <button class="back" onclick="showDashboard()">← Dashboard</button>
+  <div class="hero"><h2 id="topicsTitle"></h2><p id="topicsSubtitle"></p></div>
+  <div id="topicsContainer"></div>
+</section>
+
+<section id="lessonPage" class="page">
+  <button class="back" onclick="openSubject(currentSubject)">← Topics</button>
+  <div id="lessonContainer"></div>
+</section>
+
+<section id="practicePage" class="page">
+  <button class="back" onclick="openLesson(currentTopic)">← Lesson</button>
+  <div class="hero"><h2 id="practiceTitle"></h2><p>Answer all questions, then check your answers.</p></div>
+  <div id="questionsContainer"></div>
+  <button onclick="checkAnswers()">Check Answers ✓</button>
+</section>
+
+<section id="resultPage" class="page">
+  <div class="card center">
+    <div style="font-size:55px">🏆</div><h1 id="resultTitle"></h1>
+    <p id="resultText"></p><div class="progressbar"><div id="resultBar"></div></div>
+    <br><button onclick="openLesson(currentTopic)">Review Lesson</button>
+    <button class="secondary" onclick="openSubject(currentSubject)">Back to Topics</button>
+  </div>
+</section>
+
+<section id="progressPage" class="page">
+  <button class="back" onclick="showDashboard()">← Dashboard</button>
+  <div class="card"><h2>📈 My Progress</h2><div class="stats">
+    <div class="stat"><strong id="statTopics">0</strong>Topics Completed</div>
+    <div class="stat"><strong id="statQuestions">0</strong>Questions Answered</div>
+    <div class="stat"><strong id="statBest">0%</strong>Best Score</div>
+  </div></div>
+  <div class="card"><h3>Topic Completion</h3><div class="progressbar"><div id="overallBar"></div></div><p id="overallText"></p></div>
+</section>
+
+<section id="profilePage" class="page">
+  <button class="back" onclick="showDashboard()">← Dashboard</button>
+  <div class="card"><h2>👤 My Profile</h2><p><strong>Name:</strong> <span id="profileName"></span></p><p><strong>Class:</strong> <span id="profileClass"></span></p>
+  <button class="danger" onclick="logout()">Log Out</button></div>
+</section>
 </main>
 
-<nav class="bottom-nav">
-  <button id="navHome" onclick="showDashboard()">🏠<br>Home</button>
-  <button id="navProgress" onclick="showProgress()">📊<br>Progress</button>
-  <button id="navProfile" onclick="showProfile()">👤<br>Profile</button>
-</nav>
-
+<div class="bottom" id="bottomNav" style="display:none">
+  <button onclick="showDashboard()">🏠<br>Home</button>
+  <button onclick="showProgress()">📈<br>Progress</button>
+  <button onclick="showProfile()">👤<br>Profile</button>
 </div>
 
 <script>
-
-/* =========================================================
-   SMART STEPS
-   ========================================================= */
-
-const STORAGE_KEY = "smartStepsStudent";
-
-/* =========================================================
-   CURRICULUM
-   ========================================================= */
-
-const curriculum = {
-
-"Primary 1":{
-"Mathematics":[
-"Numbers and Counting",
-"Comparing Numbers",
-"Place Value",
-"Addition",
-"Subtraction",
-"Multiplication as Repeated Addition",
-"Division and Sharing",
-"Fractions",
-"Shapes",
-"Patterns",
-"Measurement",
-"Time",
-"Money",
-"Position and Direction",
-"Simple Data and Charts"
-],
-"Science":[
-"Living and Non-Living Things",
-"Plants",
-"Parts of a Plant",
-"Animals",
-"Animal Groups",
-"Our Body",
-"Our Five Senses",
-"Food and Nutrition",
-"Water",
-"Air",
-"Weather",
-"Light and Shadows",
-"Sound",
-"Materials Around Us",
-"Keeping Our Environment Clean"
-],
-"Computing":[
-"What is a Computer?",
-"Parts of a Computer",
-"Uses of Computers",
-"Keyboard",
-"Mouse",
-"Monitor",
-"Printer",
-"Computer Icons",
-"Opening and Closing Programs",
-"Typing Practice",
-"Drawing on a Computer",
-"Saving and Opening Files",
-"Computer Care",
-"Computer Safety",
-"Introduction to the Internet"
-]
-},
-
-"Primary 2":{
-"Mathematics":[
-"Numbers and Place Value","Comparing Numbers","Addition","Subtraction",
-"Multiplication","Division","Fractions","Money","Time","Length and Height",
-"Mass","Capacity","Shapes","Patterns","Simple Data"
-],
-"Science":[
-"Plants and Their Needs","Parts of Plants","Animals","Animal Habitats",
-"The Human Body","Healthy Living","Materials","Solids and Liquids","Water",
-"Air","Weather","Light","Sound","Heat","Keeping Our Environment Clean"
-],
-"Computing":[
-"Computer Parts","Keyboard","Mouse Skills","Monitor","Printer",
-"Input and Output Devices","Files","Folders","Typing","Drawing Programs",
-"Word Processing","Computer Care","Computer Safety","Internet Basics",
-"Digital Responsibility"
-]
-},
-
-"Primary 3":{
-"Mathematics":[
-"Numbers and Place Value","Addition and Subtraction","Multiplication","Division",
-"Fractions","Decimals","Money","Time","Length and Perimeter","Mass and Capacity",
-"Shapes","Angles","Patterns","Data and Tables","Bar Charts"
-],
-"Science":[
-"Plants","Parts and Functions of Plants","Animals","Animal Groups","Habitats",
-"Matter","Changes in Matter","Light","Sound","Heat","Forces","The Human Body",
-"Food and Nutrition","Weather","The Environment"
-],
-"Computing":[
-"Input Devices","Output Devices","Storage Devices","Keyboard Skills","Mouse Skills",
-"Files and Folders","Word Processing","Presentations","Drawing Tools",
-"Internet Basics","Search Skills","Digital Safety","Passwords","Algorithms",
-"Problem Solving with Computers"
-]
-},
-
-"Primary 4":{
-"Mathematics":[
-"Place Value","Addition","Subtraction","Multiplication","Division",
-"Factors and Multiples","Fractions","Decimals","Money","Time","Perimeter",
-"Area","Angles","Shapes and Symmetry","Data and Charts"
-],
-"Science":[
-"Plants","Animal Groups","Habitats","Matter","Changes of State","Energy",
-"Heat","Light","Sound","Forces","The Human Body","Digestion","Food and Nutrition",
-"Weather and Climate","The Environment"
-],
-"Computing":[
-"Computer Hardware","Software","Operating Systems","Word Processing",
-"Presentation Software","Internet","Search Engines","Email","Networks",
-"Data","Storage","Online Safety","Passwords and Privacy","Algorithms",
-"Problem Solving"
-]
-},
-
-"Primary 5":{
-"Mathematics":[
-"Whole Numbers","Factors and Multiples","Fractions","Decimals","Percentages",
-"Ratio","Money","Time","Measurement","Perimeter","Area","Angles","Geometry",
-"Data and Graphs","Problem Solving"
-],
-"Science":[
-"The Human Body","Nutrition","Digestion","Respiration","Plants",
-"Reproduction in Plants","Matter","Energy","Forces","Light","Sound",
-"Electricity","Weather","Environment","Conservation"
-],
-"Computing":[
-"Computer Networks","Internet","Data","Information","Word Processing",
-"Presentations","Spreadsheets","Algorithms","Programming Concepts",
-"Digital Citizenship","Cyber Safety","Passwords","Privacy","Digital Research",
-"Problem Solving"
-]
-},
-
-"Primary 6":{
-"Mathematics":[
-"Whole Numbers and Operations","Factors and Multiples","Fractions","Decimals",
-"Percentages","Ratio and Proportion","Money and Profit","Time and Timetables",
-"Measurement","Perimeter and Area","Angles","Geometry","Data Handling",
-"Probability","Mathematical Problem Solving"
-],
-"Science":[
-"Living Things","Human Body Systems","Nutrition and Digestion","Respiration",
-"Reproduction","Plants and Reproduction","Matter","Energy","Electricity",
-"Magnetism","Forces and Motion","Light","Sound","Environment","Scientific Investigation"
-],
-"Computing":[
-"Computer Systems","Hardware and Software","Operating Systems",
-"Networks","Internet Services","Data and Information","Word Processing",
-"Spreadsheets","Presentations","Databases","Algorithms","Programming",
-"Cybersecurity","Digital Citizenship","Computational Problem Solving"
-]
-},
-
-"JHS 1":{
-"Mathematics":[
-"Number Systems","Integers","Fractions","Decimals","Percentages","Ratio",
-"Rates","Algebraic Expressions","Linear Equations","Geometry","Angles",
-"Perimeter and Area","Data Handling","Probability","Problem Solving"
-],
-"Science":[
-"Scientific Method","Cells","Living Things","Nutrition","Digestion",
-"Respiration","Reproduction","Matter","Mixtures","Energy","Heat","Light",
-"Sound","Forces","Environment"
-],
-"Computing":[
-"Computer Systems","Data Representation","Hardware","Software","Operating Systems",
-"Networks","Internet","Cybersecurity","Digital Citizenship","Word Processing",
-"Spreadsheets","Databases","Algorithms","Programming","Problem Solving"
-]
-},
-
-"JHS 2":{
-"Mathematics":[
-"Number Bases","Indices","Standard Form","Ratio and Proportion","Percentages",
-"Algebraic Expressions","Equations","Simultaneous Equations","Geometry",
-"Construction","Mensuration","Graphs","Statistics","Probability","Problem Solving"
-],
-"Science":[
-"Cells and Tissues","Nutrition","Transport Systems","Respiration","Excretion",
-"Reproduction","Inheritance","Matter","Chemical Changes","Energy",
-"Electricity","Magnetism","Waves","Forces","Ecology"
-],
-"Computing":[
-"Computer Architecture","Data Representation","Networks","Internet Protocols",
-"Cyber Threats","Cybersecurity","Databases","Spreadsheets","Programming",
-"Algorithms","Web Technology","Digital Communication","Privacy",
-"Ethics","Computational Thinking"
-]
-},
-
-"JHS 3":{
-"Mathematics":[
-"Real Numbers","Indices and Logarithms","Surds","Algebra","Equations",
-"Sequences","Functions","Coordinate Geometry","Geometry","Mensuration",
-"Trigonometry","Statistics","Probability","Financial Mathematics",
-"Advanced Problem Solving"
-],
-"Science":[
-"Cells","Human Body Systems","Genetics","Reproduction","Health",
-"Chemical Reactions","Acids and Bases","Energy","Electricity",
-"Electromagnetism","Waves","Light","Forces","Environment","Scientific Investigation"
-],
-"Computing":[
-"Computer Architecture","Data and Information","Networks","Internet Technologies",
-"Cybersecurity","Cryptography","Databases","Spreadsheets","Programming",
-"Algorithms","Web Technologies","Artificial Intelligence","Digital Ethics",
-"Data Analysis","Computational Problem Solving"
-]
-}
-
-};
-
-/* =========================================================
-   STATE
-   ========================================================= */
-
-let currentSubject = "";
-let currentTopic = "";
-let currentQuestions = [];
-let selectedAnswers = {};
-let currentScore = 0;
-
-/* =========================================================
-   STUDENT
-   ========================================================= */
+const curriculum = {"Primary 1": {"Mathematics": ["Numbers and Counting", "Comparing Numbers", "Place Value", "Addition", "Subtraction", "Multiplication as Repeated Addition", "Division and Sharing", "Fractions", "Shapes", "Patterns", "Measurement", "Time", "Money", "Position and Direction", "Simple Data and Charts"], "Science": ["Living and Non-Living Things", "Plants", "Parts of a Plant", "Animals", "Animal Groups", "Our Body", "Our Five Senses", "Food and Nutrition", "Water", "Air", "Weather", "Light and Shadows", "Sound", "Materials Around Us", "Keeping Our Environment Clean"], "Computing": ["What is a Computer?", "Parts of a Computer", "Uses of Computers", "Keyboard", "Mouse", "Monitor", "Printer", "Computer Icons", "Opening and Closing Programs", "Typing Practice", "Drawing on a Computer", "Saving and Opening Files", "Computer Care", "Computer Safety", "Introduction to the Internet"]}, "Primary 2": {"Mathematics": ["Numbers and Place Value", "Comparing Numbers", "Addition", "Subtraction", "Multiplication", "Division", "Fractions", "Money", "Time", "Length and Height", "Mass", "Capacity", "Shapes", "Patterns", "Simple Data"], "Science": ["Plants and Their Needs", "Parts of Plants", "Animals", "Animal Habitats", "The Human Body", "Healthy Living", "Materials", "Solids and Liquids", "Water", "Air", "Weather", "Light", "Sound", "Heat", "Keeping Our Environment Clean"], "Computing": ["Computer Parts", "Keyboard", "Mouse Skills", "Monitor", "Printer", "Input and Output Devices", "Files", "Folders", "Typing", "Drawing Programs", "Word Processing", "Computer Care", "Computer Safety", "Internet Basics", "Digital Responsibility"]}, "Primary 3": {"Mathematics": ["Numbers and Place Value", "Addition and Subtraction", "Multiplication", "Division", "Fractions", "Decimals", "Money", "Time", "Length and Perimeter", "Mass and Capacity", "Shapes", "Angles", "Patterns", "Data and Tables", "Bar Charts"], "Science": ["Plants", "Parts and Functions of Plants", "Animals", "Animal Groups", "Habitats", "Matter", "Changes in Matter", "Light", "Sound", "Heat", "Forces", "The Human Body", "Food and Nutrition", "Weather", "The Environment"], "Computing": ["Input Devices", "Output Devices", "Storage Devices", "Keyboard Skills", "Mouse Skills", "Files and Folders", "Word Processing", "Presentations", "Drawing Tools", "Internet Basics", "Search Skills", "Digital Safety", "Passwords", "Algorithms", "Problem Solving with Computers"]}, "Primary 4": {"Mathematics": ["Place Value", "Addition", "Subtraction", "Multiplication", "Division", "Factors and Multiples", "Fractions", "Decimals", "Money", "Time", "Perimeter", "Area", "Angles", "Shapes and Symmetry", "Data and Charts"], "Science": ["Plants", "Animal Groups", "Habitats", "Matter", "Changes of State", "Energy", "Heat", "Light", "Sound", "Forces", "The Human Body", "Digestion", "Food and Nutrition", "Weather and Climate", "The Environment"], "Computing": ["Computer Hardware", "Software", "Operating Systems", "Word Processing", "Presentation Software", "Internet", "Search Engines", "Email", "Networks", "Data", "Storage", "Online Safety", "Passwords and Privacy", "Algorithms", "Problem Solving"]}, "Primary 5": {"Mathematics": ["Whole Numbers", "Factors and Multiples", "Fractions", "Decimals", "Percentages", "Ratio", "Money", "Time", "Measurement", "Perimeter", "Area", "Angles", "Geometry", "Data and Graphs", "Problem Solving"], "Science": ["The Human Body", "Nutrition", "Digestion", "Respiration", "Plants", "Reproduction in Plants", "Matter", "Energy", "Forces", "Light", "Sound", "Electricity", "Weather", "Environment", "Conservation"], "Computing": ["Computer Networks", "Internet", "Data", "Information", "Word Processing", "Presentations", "Spreadsheets", "Algorithms", "Programming Concepts", "Digital Citizenship", "Cyber Safety", "Passwords", "Privacy", "Digital Research", "Problem Solving"]}, "Primary 6": {"Mathematics": ["Whole Numbers and Operations", "Factors and Multiples", "Fractions", "Decimals", "Percentages", "Ratio and Proportion", "Money and Profit", "Time and Timetables", "Measurement", "Perimeter and Area", "Angles", "Geometry", "Data Handling", "Probability", "Mathematical Problem Solving"], "Science": ["Living Things", "Human Body Systems", "Nutrition and Digestion", "Respiration", "Reproduction", "Plants and Reproduction", "Matter", "Energy", "Electricity", "Magnetism", "Forces and Motion", "Light", "Sound", "Environment", "Scientific Investigation"], "Computing": ["Computer Systems", "Hardware and Software", "Operating Systems", "Networks", "Internet Services", "Data and Information", "Word Processing", "Spreadsheets", "Presentations", "Databases", "Algorithms", "Programming", "Cybersecurity", "Digital Citizenship", "Computational Problem Solving"]}, "JHS 1": {"Mathematics": ["Number Systems", "Integers", "Fractions", "Decimals", "Percentages", "Ratio", "Rates", "Algebraic Expressions", "Linear Equations", "Geometry", "Angles", "Perimeter and Area", "Data Handling", "Probability", "Problem Solving"], "Science": ["Scientific Method", "Cells", "Living Things", "Nutrition", "Digestion", "Respiration", "Reproduction", "Matter", "Mixtures", "Energy", "Heat", "Light", "Sound", "Forces", "Environment"], "Computing": ["Computer Systems", "Data Representation", "Hardware", "Software", "Operating Systems", "Networks", "Internet", "Cybersecurity", "Digital Citizenship", "Word Processing", "Spreadsheets", "Databases", "Algorithms", "Programming", "Problem Solving"]}, "JHS 2": {"Mathematics": ["Number Bases", "Indices", "Standard Form", "Ratio and Proportion", "Percentages", "Algebraic Expressions", "Equations", "Simultaneous Equations", "Geometry", "Construction", "Mensuration", "Graphs", "Statistics", "Probability", "Problem Solving"], "Science": ["Cells and Tissues", "Nutrition", "Transport Systems", "Respiration", "Excretion", "Reproduction", "Inheritance", "Matter", "Chemical Changes", "Energy", "Electricity", "Magnetism", "Waves", "Forces", "Ecology"], "Computing": ["Computer Architecture", "Data Representation", "Networks", "Internet Protocols", "Cyber Threats", "Cybersecurity", "Databases", "Spreadsheets", "Programming", "Algorithms", "Web Technology", "Digital Communication", "Privacy", "Ethics", "Computational Thinking"]}, "JHS 3": {"Mathematics": ["Real Numbers", "Indices and Logarithms", "Surds", "Algebra", "Equations", "Sequences", "Functions", "Coordinate Geometry", "Geometry", "Mensuration", "Trigonometry", "Statistics", "Probability", "Financial Mathematics", "Advanced Problem Solving"], "Science": ["Cells", "Human Body Systems", "Genetics", "Reproduction", "Health", "Chemical Reactions", "Acids and Bases", "Energy", "Electricity", "Electromagnetism", "Waves", "Light", "Forces", "Environment", "Scientific Investigation"], "Computing": ["Computer Architecture", "Data and Information", "Networks", "Internet Technologies", "Cybersecurity", "Cryptography", "Databases", "Spreadsheets", "Programming", "Algorithms", "Web Technologies", "Artificial Intelligence", "Digital Ethics", "Data Analysis", "Computational Problem Solving"]}};
+let currentSubject="";
+let currentTopic="";
+let currentQuestions=[];
+let selectedAnswers={};
 
 function getStudent(){
-  try{
-    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || null;
-  }catch(e){
-    return null;
-  }
+  try{return JSON.parse(localStorage.getItem("smartStepsStudent"))||null}catch(e){return null}
 }
-
-function saveStudent(student){
-  localStorage.setItem(STORAGE_KEY,JSON.stringify(student));
-}
-
+function saveStudent(s){localStorage.setItem("smartStepsStudent",JSON.stringify(s))}
 function getProgress(){
-  const student=getStudent();
-
-  if(!student) return {
-    topics:0,
-    questions:0,
-    bestScore:0,
-    streak:0,
-    completedTopics:[]
-  };
-
-  if(!student.progress){
-    student.progress={
-      topics:0,
-      questions:0,
-      bestScore:0,
-      streak:0,
-      completedTopics:[]
-    };
-    saveStudent(student);
-  }
-
-  return student.progress;
+  const s=getStudent();
+  return s?.progress||{topics:0,questions:0,best:0,completedTopics:[],streak:0};
 }
-
-/* =========================================================
-   PAGE CONTROL
-   ========================================================= */
-
-function hideAllPages(){
-  document.querySelectorAll(".page").forEach(page=>{
-    page.classList.remove("active");
-  });
-}
-
-function setActiveNav(name){
-  document.querySelectorAll(".bottom-nav button").forEach(btn=>{
-    btn.classList.remove("active");
-  });
-
-  const target=document.getElementById("nav"+name);
-
-  if(target) target.classList.add("active");
-}
-
-/* =========================================================
-   START LEARNING
-   ========================================================= */
-
-function startLearning(){
-
-  const nameInput=document.getElementById("studentName");
-  const classInput=document.getElementById("studentClass");
-
-  const name=nameInput.value.trim();
-  const className=classInput.value;
-
-  if(!name){
-    alert("Please enter the student's name.");
-    nameInput.focus();
-    return;
-  }
-
-  if(!className){
-    alert("Please select a class.");
-    classInput.focus();
-    return;
-  }
-
-  const existing=getStudent();
-
-  const student={
-    name:name,
-    className:className,
-    progress:existing && existing.progress ? existing.progress : {
-      topics:0,
-      questions:0,
-      bestScore:0,
-      streak:0,
-      completedTopics:[]
-    }
-  };
-
-  saveStudent(student);
-
-  showDashboard();
-}
-
-/* =========================================================
-   DASHBOARD
-   ========================================================= */
-
+function hideAllPages(){document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"))}
+function showPage(id){hideAllPages();document.getElementById(id).classList.add("active")}
 function showDashboard(){
-
-  const student=getStudent();
-
-  if(!student){
-    hideAllPages();
-    document.getElementById("loginPage").classList.add("active");
-    return;
-  }
-
-  document.getElementById("dashName").textContent=student.name;
-  document.getElementById("dashClass").textContent=student.className;
-
-  hideAllPages();
-  document.getElementById("dashboardPage").classList.add("active");
-
-  setActiveNav("Home");
+  const s=getStudent(); if(!s){showPage("loginPage");return}
+  document.getElementById("welcomeText").textContent="Welcome, "+s.name+" 👋";
+  document.getElementById("bottomNav").style.display="flex"; showPage("dashboardPage");
 }
-
-/* =========================================================
-   SUBJECT
-   ========================================================= */
-
-function openSubject(subject){
-
-  const student=getStudent();
-
-  if(!student){
-    alert("Please start learning first.");
-    return;
-  }
-
-  currentSubject=subject;
-
-  const topics=curriculum[student.className][subject];
-
-  document.getElementById("topicsTitle").textContent=subject;
-  document.getElementById("topicsSubtitle").textContent=
-    student.className+" • "+topics.length+" topics";
-
-  const container=document.getElementById("topicsContainer");
-  container.innerHTML="";
-
-  topics.forEach((topic,index)=>{
-
-    const completed=getProgress().completedTopics.includes(
-      student.className+"|"+subject+"|"+topic
-    );
-
-    const div=document.createElement("div");
-    div.className="topic-card";
-
-    div.innerHTML=`
-      <div class="topic-number">${index+1}</div>
-      <h3>${escapeHTML(topic)}</h3>
-      ${completed ? '<span class="badge">✓ Completed</span>' : ''}
-      <button style="margin-top:12px" onclick="openLesson(${JSON.stringify(topic)})">
-        ${completed ? "Review Topic" : "Study Topic"}
-      </button>
-    `;
-
-    container.appendChild(div);
-  });
-
-  hideAllPages();
-  document.getElementById("topicsPage").classList.add("active");
-}
-
-/* =========================================================
-   LESSON ENGINE
-   ========================================================= */
-
-function classLevel(className){
-
-  const match=className.match(/\d+/);
-
-  if(!match) return 1;
-
-  const n=parseInt(match[0]);
-
-  return className.startsWith("JHS") ? n+6 : n;
-}
-
-function levelDescription(className){
-
-  const level=classLevel(className);
-
-  if(level<=2) return "Foundation level";
-  if(level<=4) return "Developing level";
-  if(level<=6) return "Upper Primary";
-  if(level<=7) return "JHS foundation";
-  if(level<=8) return "JHS developing";
-  return "JHS advanced";
-}
-
-function openLesson(topic){
-
-  currentTopic=topic;
-
-  const student=getStudent();
-
-  if(!student) return;
-
-  document.getElementById("lessonTitle").textContent=topic;
-
-  document.getElementById("lessonSubtitle").textContent=
-    student.className+" • "+currentSubject+" • "+levelDescription(student.className);
-
-  createLesson(student.className,currentSubject,topic);
-
-  hideAllPages();
-  document.getElementById("lessonPage").classList.add("active");
-}
-
-function createLesson(className,subject,topic){
-
-  const level=classLevel(className);
-  const container=document.getElementById("lessonContainer");
-
-  const intro=getIntroduction(subject,topic,className);
-  const notes=getNotes(subject,topic,className);
-  const explanation=getExplanation(subject,topic,className);
-  const examples=getExamples(subject,topic,className);
-  const thinking=getThinking(subject,topic,className);
-  const activity=getActivity(subject,topic,className);
-  const realLife=getRealLife(subject,topic,className);
-  const remember=getRemember(subject,topic,className);
-
-  container.innerHTML=`
-
-    <div class="lesson-section">
-      <h3>🌟 Topic Introduction</h3>
-      <p>${intro}</p>
-    </div>
-
-    <div class="lesson-section">
-      <h3>📘 Short Notes</h3>
-      ${notes}
-    </div>
-
-    <div class="lesson-section">
-      <h3>🔎 Detailed Explanation</h3>
-      ${explanation}
-    </div>
-
-    <div class="lesson-section">
-      <h3>✏️ Worked Examples</h3>
-      ${examples}
-    </div>
-
-    <div class="lesson-section think">
-      <h3>🤔 Let's Think</h3>
-      <p>${thinking}</p>
-    </div>
-
-    <div class="lesson-section activity">
-      <h3>🧪 Practical Activity</h3>
-      <p>${activity}</p>
-    </div>
-
-    <div class="lesson-section">
-      <h3>🌍 Real-Life Application</h3>
-      <p>${realLife}</p>
-    </div>
-
-    <div class="lesson-section remember">
-      <h3>⭐ Remember</h3>
-      <p>${remember}</p>
-    </div>
-
-    <div class="lesson-section">
-      <h3>🎯 Challenge</h3>
-      <p>
-        Do not just memorize this topic. Try to explain it in your own words,
-        give an example, and describe how it can be used to solve a real problem.
-      </p>
-    </div>
-  `;
-}
-
-/* =========================================================
-   LESSON CONTENT
-   ========================================================= */
-
-function getIntroduction(subject,topic,className){
-
-  if(subject==="Mathematics"){
-    return `<strong>${topic}</strong> is an important part of Mathematics for ${className}.
-    You will learn the main ideas, practise using them and apply them to everyday problems.
-    Mathematics is not only about getting an answer; it is also about explaining how you reached it.`;
-  }
-
-  if(subject==="Science"){
-    return `<strong>${topic}</strong> helps us understand how the world around us works.
-    Scientists observe, ask questions, make predictions, investigate evidence and use what they discover
-    to explain events in nature and everyday life.`;
-  }
-
-  return `<strong>${topic}</strong> is an important Computing topic for ${className}.
-  Computing involves using technology, information and logical thinking to solve problems,
-  communicate, create useful things and work safely in a digital world.`;
-}
-
-function getNotes(subject,topic,className){
-
-  const level=classLevel(className);
-
-  let difficulty="";
-
-  if(level<=2){
-    difficulty="At this level, focus on identifying the important ideas, naming examples and explaining them using simple sentences.";
-  }else if(level<=6){
-    difficulty="At this level, focus on definitions, rules, examples, comparisons and using the idea in practical situations.";
-  }else{
-    difficulty="At this level, you should be able to define the concept, explain relationships, analyse situations and justify your answers.";
-  }
-
-  return `
-    <p><strong>Key idea:</strong> ${topic} involves learning important concepts and using them correctly.</p>
-    <p><strong>What to know:</strong> Learn the meaning of important terms, recognise examples and understand the steps or rules involved.</p>
-    <p><strong>What to do:</strong> Practise the concept in different situations instead of memorising only one example.</p>
-    <p><strong>Why it matters:</strong> Knowledge becomes useful when you can apply it to a new situation or explain your reasoning.</p>
-    <p>${difficulty}</p>
-    <ul>
-      <li>Understand the main idea.</li>
-      <li>Learn important vocabulary.</li>
-      <li>Study examples carefully.</li>
-      <li>Practise different types of questions.</li>
-      <li>Check whether your answer makes sense.</li>
-    </ul>
-  `;
-}
-
-function getExplanation(subject,topic,className){
-
-  const level=classLevel(className);
-
-  let text="";
-
-  if(subject==="Mathematics"){
-    text=`Mathematics topics can be understood by looking for relationships between quantities,
-    following clear procedures and checking results. When solving a problem, first identify what
-    information is given and what you need to find. Choose a suitable method, work carefully,
-    then check whether the answer is reasonable.`;
-
-    if(level>=5){
-      text+=` At higher levels, more than one method may be possible. You should compare methods,
-      explain why a method works and recognise when a mathematical rule can be applied to a new situation.`;
-    }
-  }
-
-  else if(subject==="Science"){
-    text=`Science is based on observation and evidence. A scientific explanation should connect
-    what is observed with a scientific idea. When carrying out an investigation, identify the question,
-    make a prediction, decide what to measure or observe, collect evidence and use the evidence to reach
-    a conclusion.`;
-
-    if(level>=5){
-      text+=` More advanced scientific thinking requires distinguishing observation from inference,
-      identifying variables and considering whether the evidence is sufficient to support a conclusion.`;
-    }
-  }
-
-  else{
-    text=`Computing is about information, systems and problem solving. A good computing solution
-    starts by understanding the problem. The problem can then be broken into smaller parts,
-    instructions can be arranged logically and technology can be used to produce a useful result.`;
-
-    if(level>=5){
-      text+=` At higher levels, you should also consider efficiency, security, privacy, reliability
-      and the effect technology can have on people and society.`;
-    }
-  }
-
-  return `<p>${text}</p>
-  <p>Always ask yourself: <strong>What do I know? What do I need to find? Which method or idea should I use? How can I check my answer?</strong></p>`;
-}
-
-function getExamples(subject,topic,className){
-
-  const level=classLevel(className);
-
-  if(subject==="Mathematics"){
-
-    const a=level<=2 ? "7 + 5 = 12" :
-            level<=4 ? "36 + 47 = 83" :
-            level<=6 ? "25% of 200 = 50" :
-            "If 3x + 4 = 19, then 3x = 15 and x = 5.";
-
-    return `
-      <div class="example"><strong>Example 1:</strong><br>${a}</div>
-      <div class="example"><strong>Example 2:</strong><br>
-      A learner should identify the information given, select a suitable operation or rule,
-      perform the calculation and check the result.</div>
-      <div class="example"><strong>Example 3:</strong><br>
-      If the situation changes, ask whether the same mathematical method still applies.
-      Explain why before calculating.</div>
-    `;
-  }
-
-  if(subject==="Science"){
-    return `
-      <div class="example"><strong>Example 1:</strong><br>
-      Observe an object or living thing and list what you can directly see, hear, feel or measure.</div>
-      <div class="example"><strong>Example 2:</strong><br>
-      Make a prediction before an investigation and then compare the prediction with the evidence.</div>
-      <div class="example"><strong>Example 3:</strong><br>
-      If two situations produce different results, identify which condition may have caused the difference.</div>
-    `;
-  }
-
-  return `
-    <div class="example"><strong>Example 1:</strong><br>
-    Identify the technology or computing concept involved before deciding what action to take.</div>
-    <div class="example"><strong>Example 2:</strong><br>
-    Break a large task into smaller steps and arrange the steps in the correct order.</div>
-    <div class="example"><strong>Example 3:</strong><br>
-    Consider both usefulness and safety when choosing a digital solution.</div>
-  `;
-}
-
-function getThinking(subject,topic,className){
-
-  if(subject==="Mathematics"){
-    return `If you changed one number, measurement or condition in a problem about ${topic},
-    what would happen to the answer? Explain your reasoning rather than giving only a number.`;
-  }
-
-  if(subject==="Science"){
-    return `Imagine that you observe something related to ${topic} that is different from what you expected.
-    What evidence would you collect before deciding what caused the difference?`;
-  }
-
-  return `Suppose a friend is using technology to solve a problem involving ${topic}.
-  What could go wrong, and what steps could your friend take to make the solution safer or more reliable?`;
-}
-
-function getActivity(subject,topic,className){
-
-  if(subject==="Mathematics"){
-    return `Create your own everyday problem involving ${topic}. Write the information given,
-    show your method, calculate the answer and explain how you checked it.`;
-  }
-
-  if(subject==="Science"){
-    return `Carry out a safe observation related to ${topic}. Record at least three observations.
-    Where possible, compare two different examples and describe what is similar and what is different.`;
-  }
-
-  return `Use a computer or phone, where appropriate and with permission, to identify one example
-    of ${topic}. Write down what you observed, what the technology is used for and one safety rule
-    that should be followed.`;
-}
-
-function getRealLife(subject,topic,className){
-
-  if(subject==="Mathematics"){
-    return `People use ${topic} when shopping, measuring, planning journeys, managing money,
-    comparing information, building things and making decisions. Strong mathematical reasoning
-    helps people avoid mistakes and choose sensible solutions.`;
-  }
-
-  if(subject==="Science"){
-    return `${topic} can be connected to everyday life through health, food, farming,
-    weather, materials, energy, the environment and the way our bodies and surroundings work.`;
-  }
-
-  return `${topic} can be useful in schools, homes, workplaces, businesses and communication.
-  Understanding it also helps people make safer and more responsible decisions when using technology.`;
-}
-
-function getRemember(subject,topic,className){
-
-  if(subject==="Mathematics"){
-    return `Understand the rule, know when to use it, show your working and check whether your answer is reasonable.`;
-  }
-
-  if(subject==="Science"){
-    return `Science depends on observation, evidence and logical explanations. Do not confuse a guess with evidence.`;
-  }
-
-  return `Technology should be used purposefully, safely, responsibly and logically. Protect information and think before you act.`;
-}
-
-/* =========================================================
-   QUESTIONS
-   ========================================================= */
-
-function q(question,options,answer,category){
-  return {
-    question,
-    options,
-    answer,
-    category:category || "Understanding"
-  };
-}
-
-function createQuestions(className,subject,topic){
-
-  const level=classLevel(className);
-
-  if(subject==="Mathematics"){
-    return mathematicsQuestions(className,topic,level);
-  }
-
-  if(subject==="Science"){
-    return scienceQuestions(className,topic,level);
-  }
-
-  return computingQuestions(className,topic,level);
-}
-
-/* =========================================================
-   MATHEMATICS QUESTIONS
-   ========================================================= */
-
-function mathematicsQuestions(className,topic,level){
-
-  const lower=topic.toLowerCase();
-
-  if(lower.includes("addition")){
-    if(level<=2){
-      return [
-        q("What is 6 + 4?",["8","9","10","11"],2,"Recall"),
-        q("Ama has 5 pencils and gets 3 more. How many pencils does she have?",["7","8","9","10"],1,"Application"),
-        q("Which number sentence equals 12?",["5 + 6","7 + 5","8 + 5","9 + 4"],1,"Reasoning"),
-        q("A basket has 4 oranges and another has 6. How many oranges altogether?",["8","9","10","11"],2,"Application"),
-        q("True or False: 3 + 7 = 10.",["True","False","Cannot tell","None"],0,"Recall"),
-        q("What is 9 + 5?",["12","13","14","15"],2,"Recall"),
-        q("Kofi has 7 books. His teacher gives him 2 more. What operation is needed?",["Addition","Subtraction","Division","Comparison"],0,"Understanding"),
-        q("Which is greater?",["4 + 2","3 + 5","Both are equal","Cannot tell"],1,"Comparison"),
-        q("A class has 8 boys and 7 girls. How many pupils are there?",["14","15","16","17"],1,"Application"),
-        q("If you add 0 to 9, what do you get?",["0","8","9","10"],2,"Reasoning")
-      ];
-    }
-
-    return [
-      q("What is 48 + 37?",["75","85","95","105"],1,"Recall"),
-      q("A shop sold 125 items on Monday and 148 on Tuesday. How many were sold?",["263","273","283","293"],1,"Application"),
-      q("Which estimate is closest to 398 + 204?",["500","600","700","800"],1,"Reasoning"),
-      q("A school has 245 pupils. 38 new pupils join. How many pupils are there now?",["273","283","293","303"],1,"Application"),
-      q("If a calculation gives 999 when adding 501 and 498, is it reasonable?",["Yes","No","Only sometimes","Cannot tell"],0,"Analysis"),
-      q("What is 1,250 + 750?",["1,500","1,750","2,000","2,250"],2,"Recall"),
-      q("A farmer collects 236 eggs in the morning and 189 later. How many eggs?",["415","425","435","445"],1,"Application"),
-      q("Which method helps check addition?",["Estimate the answer","Ignore the numbers","Change all numbers","Guess"],0,"Reasoning"),
-      q("If 275 + x = 500, what is x?",["215","225","235","245"],1,"Problem Solving"),
-      q("A class has 18 boys and 22 girls. If 5 pupils are absent, how many are present?",["30","35","40","45"],1,"Multi-step")
-    ];
-  }
-
-  if(lower.includes("subtraction")){
-    return [
-      q("What is 15 - 7?",["6","7","8","9"],2,"Recall"),
-      q("Kojo has 12 mangoes and gives away 5. How many remain?",["5","6","7","8"],2,"Application"),
-      q("What operation finds how many are left?",["Addition","Subtraction","Multiplication","Division"],1,"Understanding"),
-      q("What is 20 - 9?",["9","10","11","12"],2,"Recall"),
-      q("A bus has 30 passengers. 8 leave. How many remain?",["20","21","22","23"],2,"Application"),
-      q("Which is greater: 18 - 4 or 12?",["18 - 4","12","They are equal","Cannot tell"],2,"Comparison"),
-      q("What is 100 - 45?",["45","55","65","75"],1,"Recall"),
-      q("A shop has 75 drinks and sells 28. How many remain?",["37","47","57","67"],1,"Application"),
-      q("If 60 - x = 25, what is x?",["25","30","35","40"],2,"Problem Solving"),
-      q("Why should you estimate before a subtraction problem?",["To check reasonableness","To make it longer","To avoid reading","To change the question"],0,"Reasoning")
-    ];
-  }
-
-  if(lower.includes("multiplication") || lower.includes("factors")){
-    return [
-      q("What is 3 × 4?",["7","10","12","14"],2,"Recall"),
-      q("4 groups of 5 equal how many?",["9","15","20","25"],2,"Understanding"),
-      q("There are 6 bags with 3 oranges each. How many oranges?",["9","12","18","24"],2,"Application"),
-      q("Which addition represents 4 × 3?",["3+3+3+3","4+4+4","3+4","4+3"],0,"Understanding"),
-      q("What is 7 × 5?",["30","35","40","45"],1,"Recall"),
-      q("A classroom has 8 rows with 5 chairs each. How many chairs?",["35","40","45","50"],1,"Application"),
-      q("Which number is a factor of 24?",["5","6","7","9"],1,"Recall"),
-      q("A farmer plants 9 rows of 12 trees. How many trees?",["98","108","118","128"],1,"Problem Solving"),
-      q("If 6 × x = 42, find x.",["5","6","7","8"],2,"Problem Solving"),
-      q("Why can multiplication be useful when counting equal groups?",["It is repeated addition","It removes numbers","It always gives smaller answers","It is only for money"],0,"Reasoning")
-    ];
-  }
-
-  if(lower.includes("division") || lower.includes("sharing")){
-    return [
-      q("What is 12 ÷ 3?",["3","4","5","6"],1,"Recall"),
-      q("20 sweets are shared equally among 5 children. How many each?",["3","4","5","6"],1,"Application"),
-      q("Which operation means equal sharing?",["Addition","Subtraction","Multiplication","Division"],3,"Understanding"),
-      q("What is 18 ÷ 2?",["7","8","9","10"],2,"Recall"),
-      q("24 books are put equally into 6 boxes. How many per box?",["3","4","5","6"],1,"Application"),
-      q("If 30 ÷ 5 = 6, which multiplication fact checks it?",["5×6=30","5+6=30","30×6=5","6-5=30"],0,"Reasoning"),
-      q("What is 36 ÷ 4?",["7","8","9","10"],2,"Recall"),
-      q("A teacher has 40 pencils and gives 8 pupils equal numbers. How many each?",["4","5","6","8"],1,"Application"),
-      q("If 45 ÷ x = 5, find x.",["7","8","9","10"],2,"Problem Solving"),
-      q("Why is checking division with multiplication useful?",["It checks the result","It changes division to addition","It removes remainders","It makes numbers larger"],0,"Reasoning")
-    ];
-  }
-
-  if(lower.includes("fraction")){
-    return [
-      q("Which fraction means one out of two equal parts?",["1/2","1/3","2/3","2/4"],0,"Recall"),
-      q("Which is greater?",["1/4","1/2","They are equal","Cannot tell"],1,"Comparison"),
-      q("What is 2/4 in its simplest form?",["1/2","1/3","2/3","3/4"],0,"Understanding"),
-      q("A pizza is cut into 8 equal parts. Kofi eats 3. What fraction did he eat?",["3/5","3/8","5/8","8/3"],1,"Application"),
-      q("Which fraction is equivalent to 1/2?",["2/4","2/3","3/5","4/6"],0,"Reasoning"),
-      q("What is 1/4 + 1/4?",["1/8","1/2","2/8","3/4"],1,"Calculation"),
-      q("Which fraction represents three quarters?",["1/3","2/3","3/4","4/3"],2,"Recall"),
-      q("A class has 20 pupils and 1/2 are girls. How many girls?",["5","10","15","20"],1,"Application"),
-      q("If 3/5 of 10 books are storybooks, how many are storybooks?",["4","5","6","8"],2,"Problem Solving"),
-      q("Why must the parts of a fraction represent equal-sized parts?",["So the fraction has a consistent meaning","To make the denominator disappear","To increase the numerator","Because all numbers are equal"],0,"Reasoning")
-    ];
-  }
-
-  if(lower.includes("decimal")){
-    return [
-      q("Which is greater?",["0.4","0.7","0.2","0.1"],1,"Comparison"),
-      q("What is 0.5 as a fraction?",["1/2","1/5","5/10 only","2/5"],0,"Understanding"),
-      q("What is 2.5 + 1.5?",["3","4","5","6"],1,"Calculation"),
-      q("Which decimal represents 75/100?",["0.25","0.5","0.75","1.75"],2,"Recall"),
-      q("A bottle contains 1.5 litres. Another contains 0.5 litres. Total?",["1","1.5","2","2.5"],2,"Application"),
-      q("Which is smaller?",["0.09","0.9","0.99","9.0"],0,"Comparison"),
-      q("What is 4.8 - 1.3?",["2.5","3.5","4.5","5.5"],1,"Calculation"),
-      q("A pencil costs GH₵2.50. How much do 2 pencils cost?",["GH₵4.00","GH₵5.00","GH₵5.50","GH₵6.00"],1,"Application"),
-      q("Why should decimal points be aligned when adding decimals?",["Place values must match","It makes the numbers smaller","It removes zeros","It changes addition to subtraction"],0,"Reasoning"),
-      q("Which is equal to 3.20?",["3.02","3.2","32","0.32"],1,"Understanding")
-    ];
-  }
-
-  if(lower.includes("percentage")){
-    return [
-      q("What is 50% of 100?",["25","40","50","75"],2,"Recall"),
-      q("25% means:",["25 out of 10","25 out of 100","25 out of 1","100 out of 25"],1,"Understanding"),
-      q("What is 10% of 200?",["10","20","30","40"],1,"Application"),
-      q("A shirt costs GH₵100 and has a 20% discount. Discount amount?",["GH₵10","GH₵20","GH₵30","GH₵40"],1,"Application"),
-      q("Which is equal to 50%?",["1/4","1/2","1/3","2/5"],1,"Conversion"),
-      q("What is 75% of 40?",["20","25","30","35"],2,"Calculation"),
-      q("A test has 50 questions. A learner gets 40 correct. What percentage?",["60%","70%","80%","90%"],2,"Application"),
-      q("Which percentage is greatest?",["20%","35%","50%","45%"],2,"Comparison"),
-      q("A price rises from 100 to 120. What is the percentage increase?",["10%","20%","25%","30%"],1,"Problem Solving"),
-      q("Why is percentage useful in shopping?",["It helps compare discounts and changes in price","It only counts objects","It removes money","It replaces measurement"],0,"Real Life")
-    ];
-  }
-
-  if(lower.includes("ratio")){
-    return [
-      q("The ratio 2:3 means:",["2 compared with 3","2 added to 3","3 divided by 2 only","2 minus 3"],0,"Understanding"),
-      q("Simplify 4:8.",["1:2","2:3","4:2","8:4"],0,"Calculation"),
-      q("A class has boys:girls = 2:3. If there are 10 boys, how many girls?",["12","15","18","20"],1,"Application"),
-      q("Which ratio is equivalent to 3:4?",["6:8","3:8","4:3","9:16"],0,"Reasoning"),
-      q("If red:blue = 1:2 and there are 6 red balls, how many blue?",["6","8","12","18"],2,"Application"),
-      q("What does a ratio compare?",["Quantities","Only prices","Only time","Only shapes"],0,"Understanding"),
-      q("Simplify 10:5.",["1:2","2:1","5:1","10:1"],1,"Calculation"),
-      q("A recipe uses flour:sugar = 3:1. If flour is 6 cups, sugar is?",["1 cup","2 cups","3 cups","6 cups"],1,"Application"),
-      q("Why must quantities in a ratio refer to the same type of unit?",["For a meaningful comparison","To make the numbers larger","To remove the ratio","Because ratios cannot use numbers"],0,"Reasoning"),
-      q("If 2:5 represents boys:girls and there are 21 pupils, is that possible?",["Yes, because 7 groups of 3 make 21","No, because 2+5=7 and 21 is not divisible by 7","Yes, always","Cannot tell"],0,"Analysis")
-    ];
-  }
-
-  if(lower.includes("area")){
-    return [
-      q("Area measures:",["The space inside a shape","The distance around a shape","Weight","Time"],0,"Recall"),
-      q("Area of a rectangle 5 cm by 3 cm?",["8 cm²","15 cm²","16 cm²","20 cm²"],1,"Calculation"),
-      q("Which unit is suitable for area?",["cm²","cm","kg","litre"],0,"Understanding"),
-      q("A floor is 6 m long and 4 m wide. Area?",["10 m²","20 m²","24 m²","28 m²"],2,"Application"),
-      q("If a rectangle's length doubles while width stays the same, its area:",["Doubles","Halves","Stays the same","Becomes zero"],0,"Reasoning"),
-      q("A square has side 7 cm. Area?",["14 cm²","28 cm²","49 cm²","56 cm²"],2,"Calculation"),
-      q("Why is area useful when planning a classroom floor?",["It tells how much surface must be covered","It gives the height only","It gives the perimeter only","It measures temperature"],0,"Application"),
-      q("Which has greater area: 5×5 or 4×6?",["5×5","4×6","Equal","Cannot tell"],0,"Comparison"),
-      q("A rectangular garden is 10m by 8m. 20m² is used for a shed. Remaining area?",["40","50","60","70"],2,"Problem Solving"),
-      q("What is the difference between area and perimeter?",["Area is inside space; perimeter is distance around","They are always equal","Area measures weight","Perimeter measures time"],0,"Understanding")
-    ];
-  }
-
-  if(lower.includes("perimeter")){
-    return [
-      q("Perimeter means:",["Distance around a shape","Space inside a shape","Weight","Capacity"],0,"Recall"),
-      q("Rectangle 5cm by 3cm has perimeter:",["8cm","15cm","16cm","20cm"],2,"Calculation"),
-      q("Square with side 6cm has perimeter:",["12cm","18cm","24cm","36cm"],2,"Calculation"),
-      q("A fence goes around a 10m by 5m garden. How much fence?",["15m","20m","30m","50m"],2,"Application"),
-      q("Which measurement is suitable for perimeter?",["metres","square metres","litres","kilograms"],0,"Understanding"),
-      q("If every side of a shape doubles, its perimeter:",["Doubles","Halves","Stays the same","Becomes four times"],0,"Reasoning"),
-      q("A triangle has sides 4cm, 5cm and 6cm. Perimeter?",["10cm","12cm","15cm","20cm"],2,"Calculation"),
-      q("A rectangular field has perimeter 40m and length 12m. Width?",["6m","8m","10m","12m"],1,"Problem Solving"),
-      q("Why is perimeter useful when buying fencing?",["It tells how much distance must be covered","It gives the area","It measures weight","It gives the volume"],0,"Application"),
-      q("Can two different shapes have the same perimeter?",["Yes","No","Only squares","Only triangles"],0,"Analysis")
-    ];
-  }
-
-  if(lower.includes("data") || lower.includes("chart") || lower.includes("graph")){
-    return [
-      q("A bar chart is useful for:",["Comparing quantities","Measuring temperature only","Writing letters","Typing"],0,"Understanding"),
-      q("If Monday sales are 5 and Tuesday sales are 8, which day has more?",["Monday","Tuesday","Both","Cannot tell"],1,"Interpretation"),
-      q("What should a chart usually have?",["Labels","Only colours","No numbers","No title"],0,"Recall"),
-      q("A class records favourite fruits. What is the data about?",["Preferences","Weather","Weight only","Time"],0,"Understanding"),
-      q("If 12 pupils choose mango and 8 choose orange, how many more choose mango?",["2","4","6","20"],1,"Application"),
-      q("Why is a scale important on a graph?",["It helps interpret values correctly","It removes the data","It changes the topic","It makes all values equal"],0,"Reasoning"),
-      q("Which is categorical data?",["Favourite colour","Height in cm","Weight in kg","Age in years"],0,"Classification"),
-      q("Which is numerical data?",["Number of books","Favourite food","Eye colour","Type of music"],0,"Classification"),
-      q("A chart shows 10, 15 and 20 books read by three pupils. Total?",["35","40","45","50"],2,"Application"),
-      q("What should you do before answering a graph question?",["Read the title, labels and scale","Guess","Ignore the scale","Choose the tallest bar only"],0,"Problem Solving")
-    ];
-  }
-
-  if(lower.includes("angle")){
-    return [
-      q("A right angle is:",["45°","90°","180°","360°"],1,"Recall"),
-      q("An angle smaller than 90° is:",["Acute","Right","Obtuse","Straight"],0,"Classification"),
-      q("An angle of 120° is:",["Acute","Right","Obtuse","Zero"],2,"Classification"),
-      q("A straight angle is:",["90°","120°","180°","360°"],2,"Recall"),
-      q("Two right angles make:",["90°","180°","270°","360°"],1,"Calculation"),
-      q("Which tool can measure an angle?",["Protractor","Ruler only","Scale","Compass only"],0,"Application"),
-      q("If an angle is 60°, what type is it?",["Acute","Right","Obtuse","Reflex"],0,"Classification"),
-      q("Angles around a point total:",["90°","180°","270°","360°"],3,"Recall"),
-      q("A triangle has angles 60°, 60° and x. Find x.",["40°","60°","80°","120°"],1,"Problem Solving"),
-      q("Why are angle estimates useful before measuring?",["They help detect unreasonable measurements","They remove the angle","They make all angles equal","They replace the protractor"],0,"Reasoning")
-    ];
-  }
-
-  if(lower.includes("probability")){
-    return [
-      q("Probability describes:",["How likely something is to happen","How heavy something is","Its length","Its colour"],0,"Recall"),
-      q("A fair coin has how many equally likely sides?",["1","2","3","4"],1,"Understanding"),
-      q("What is the probability of getting heads on a fair coin?",["0","1/4","1/2","1"],2,"Calculation"),
-      q("An impossible event has probability:",["0","1/2","1","2"],0,"Recall"),
-      q("A certain event has probability:",["0","1/4","1/2","1"],3,"Recall"),
-      q("A bag has 3 red and 1 blue ball. Which colour is more likely?",["Red","Blue","Equal","Impossible"],0,"Application"),
-      q("Probability can be written as:",["A fraction","Only a word","Only a length","Only a weight"],0,"Understanding"),
-      q("If there are 5 equally likely outcomes and 2 are favourable, probability is:",["1/5","2/5","3/5","5/2"],1,"Calculation"),
-      q("Why are equally likely outcomes important when calculating simple probability?",["They allow fair comparison of chances","They remove uncertainty","They make every event certain","They eliminate numbers"],0,"Reasoning"),
-      q("If an event has probability 0.9, is it likely?",["Yes","No","Impossible","Certain"],0,"Interpretation")
-    ];
-  }
-
-  return [
-    q(`Which approach is useful when solving ${topic}?`,["Understand the information first","Guess immediately","Ignore the question","Use random operations"],0,"Reasoning"),
-    q("Why should mathematical answers be checked?",["To find possible mistakes","To make the work longer","To avoid understanding","To remove units"],0,"Reasoning"),
-    q("Which is most important in a multi-step problem?",["Following the information carefully","Guessing","Skipping steps","Changing the numbers"],0,"Problem Solving"),
-    q("What should you identify first?",["What is given and what is required","The answer only","The longest number","The colour of the page"],0,"Understanding"),
-    q("What can an estimate help you do?",["Check whether an answer is reasonable","Replace every calculation","Avoid reading","Remove units"],0,"Application"),
-    q("If two methods give different answers, what should you do?",["Check both methods","Choose randomly","Ignore both","Add the answers"],0,"Analysis"),
-    q("A good mathematical explanation should:",["Show reasoning","Give only a number","Avoid working","Use unrelated facts"],0,"Communication"),
-    q("Units are important because they:",["Describe what a measurement represents","Change every answer","Are only decoration","Replace numbers"],0,"Understanding"),
-    q("If a problem contains extra information, should you use all of it?",["No; use relevant information","Yes, always","Ignore the question","Choose randomly"],0,"Analysis"),
-    q("What is a strong problem-solving habit?",["Check the final answer against the situation","Never check","Always guess","Skip difficult parts"],0,"Problem Solving")
-  ];
-}
-
-/* =========================================================
-   SCIENCE QUESTIONS
-   ========================================================= */
-
-function scienceQuestions(className,topic,level){
-
-  const lower=topic.toLowerCase();
-
-  if(lower.includes("plant")){
-    return [
-      q("Which part of a plant usually absorbs water from the soil?",["Root","Flower","Fruit","Leaf"],0,"Recall"),
-      q("What is one important job of leaves?",["Making food for the plant","Holding the soil","Absorbing sound","Making stones"],0,"Understanding"),
-      q("Which plant part can produce seeds?",["Flower","Root only","Stem only","Soil"],0,"Recall"),
-      q("Why do plants need sunlight?",["It helps them make food","It gives them sound","It replaces water","It makes roots disappear"],0,"Reasoning"),
-      q("A plant kept without water for many days may:",["Wilt","Grow faster","Become metal","Make more water"],0,"Application"),
-      q("Which is evidence that a plant is living?",["It grows","It is green only","It is made of wood","It is outside"],0,"Analysis"),
-      q("Why are roots important?",["They anchor the plant and absorb water and minerals","They produce sound","They make rain","They store sunlight"],0,"Understanding"),
-      q("Which condition is most suitable for many green plants?",["Light and water","No water and no light","Only stones","Only darkness"],0,"Application"),
-      q("If two identical plants receive different amounts of water, what could be investigated?",["How water affects growth","The colour of the pot only","The name of the plants","The day of the week"],0,"Investigation"),
-      q("Why should an investigation use fair comparisons?",["So the evidence can support a sensible conclusion","So results are always equal","So measurements are unnecessary","So predictions become facts"],0,"Scientific Thinking")
-    ];
-  }
-
-  if(lower.includes("animal") || lower.includes("habitat")){
-    return [
-      q("An animal's habitat is:",["The place where it lives","Its food only","Its colour","Its size"],0,"Recall"),
-      q("Which animal is adapted to living in water?",["Fish","Camel","Chicken","Goat"],0,"Classification"),
-      q("Why do animals need food?",["For energy and growth","To become plants","To make sunlight","To produce rocks"],0,"Understanding"),
-      q("A camel can survive in dry areas partly because it is adapted to:",["Desert conditions","Deep oceans","Snow only","Rain forests only"],0,"Application"),
-      q("Which is a living thing?",["Dog","Rock","Chair","Bottle"],0,"Recall"),
-      q("Which group does a bird belong to?",["Birds","Fish","Reptiles","Amphibians"],0,"Classification"),
-      q("What may happen if an animal loses its habitat?",["It may struggle to find food or shelter","It becomes a plant","It stops needing water","It becomes a rock"],0,"Analysis"),
-      q("Why are food chains important?",["They show feeding relationships","They show only animal colours","They measure rainfall","They list school subjects"],0,"Understanding"),
-      q("If insects disappear from an ecosystem, which could be affected?",["Animals that eat insects","Only rocks","The moon","Computer keyboards"],0,"Application"),
-      q("How can people help protect animal habitats?",["Protect natural areas and reduce pollution","Destroy vegetation","Dump waste","Hunt every animal"],0,"Problem Solving")
-    ];
-  }
-
-  if(lower.includes("body") || lower.includes("digestion") || lower.includes("nutrition") || lower.includes("respiration")){
-    return [
-      q("Which organ pumps blood around the body?",["Heart","Lung","Stomach","Skin"],0,"Recall"),
-      q("Where does digestion begin?",["Mouth","Foot","Ear","Hand"],0,"Recall"),
-      q("What is one function of the lungs?",["Gas exchange","Pumping blood","Digesting food","Making bones"],0,"Understanding"),
-      q("Why do humans need a balanced diet?",["For nutrients needed for health and growth","To avoid drinking water","To stop breathing","To replace exercise"],0,"Reasoning"),
-      q("Which nutrient mainly provides energy?",["Carbohydrates","Water only","Minerals only","Fibre only"],0,"Understanding"),
-      q("What happens during breathing?",["Oxygen enters and carbon dioxide is removed","Food becomes bones immediately","Blood stops moving","The heart stops"],0,"Application"),
-      q("Why is exercise important?",["It supports physical health and fitness","It replaces all food","It stops digestion","It removes the need for sleep"],0,"Application"),
-      q("Which organ absorbs many digested nutrients?",["Small intestine","Ear","Lung","Heart"],0,"Recall"),
-      q("If a person eats only one type of food every day, what is a concern?",["They may not get all needed nutrients","They will never need water","They will automatically become stronger","They cannot digest anything"],0,"Analysis"),
-      q("Why is the body described as a system?",["Different organs work together","Only one organ works","Organs have no functions","The body is a machine made of metal"],0,"Reasoning")
-    ];
-  }
-
-  if(lower.includes("matter") || lower.includes("material") || lower.includes("chemical")){
-    return [
-      q("Which is a state of matter?",["Solid","Sound","Light","Force"],0,"Recall"),
-      q("A solid usually has:",["A definite shape and volume","No volume","No particles","Only gas"],0,"Understanding"),
-      q("When ice melts, it changes from:",["Solid to liquid","Liquid to solid","Gas to solid","Gas to liquid"],0,"Recall"),
-      q("Boiling changes a liquid into:",["Gas","Solid","Metal","Nothing"],0,"Understanding"),
-      q("Why does a liquid take the shape of its container?",["Its particles can move past each other","It has no particles","It becomes a solid","It loses all mass"],0,"Reasoning"),
-      q("Which is a mixture?",["Sand and water","Pure gold only","A single element only","One particle"],0,"Classification"),
-      q("What can happen when some substances react?",["New substances may form","Nothing can change","They become living things","They become planets"],0,"Understanding"),
-      q("Why can filtration separate sand from water?",["Sand is insoluble and can be trapped by the filter","Water becomes solid","Sand disappears","The filter creates sand"],0,"Application"),
-      q("A wet cloth dries because water:",["Evaporates","Freezes","Becomes metal","Disappears without changing"],0,"Application"),
-      q("What should scientists do when investigating a material?",["Observe and record evidence","Guess without testing","Change results","Ignore measurements"],0,"Scientific Thinking")
-    ];
-  }
-
-  if(lower.includes("energy") || lower.includes("heat") || lower.includes("light") || lower.includes("sound") || lower.includes("electricity")){
-    return [
-      q("Energy is needed to:",["Make things happen or change","Make all objects disappear","Stop every movement","Create nothing"],0,"Understanding"),
-      q("Which is a source of light?",["Sun","Book","Chair","Spoon"],0,"Recall"),
-      q("Heat can cause some substances to:",["Change temperature or state","Become invisible always","Stop having particles","Turn into sound only"],0,"Application"),
-      q("Sound is produced by:",["Vibrations","Still objects only","Darkness","Water alone"],0,"Understanding"),
-      q("Which material is usually a good electrical conductor?",["Copper","Rubber","Plastic","Dry wood"],0,"Recall"),
-      q("Why are electrical wires often covered with plastic?",["Plastic is an insulator and helps protect users","Plastic creates electricity","Plastic makes metal disappear","Plastic increases current automatically"],0,"Reasoning"),
-      q("A shadow forms when:",["An object blocks light","Sound blocks water","Heat blocks air","A plant blocks sound"],0,"Understanding"),
-      q("Which change can transfer heat?",["Hot water warming a cooler spoon","A shadow becoming sound","A book becoming electricity","A chair producing sunlight"],0,"Application"),
-      q("Why should electrical equipment be handled safely?",["Electricity can cause injury or damage","Electricity is always harmless","It cannot move","It is only a colour"],0,"Safety"),
-      q("If a bulb does not light, what could be investigated first?",["Whether the circuit is complete","The colour of the bulb only","The weather only","The classroom wall"],0,"Problem Solving")
-    ];
-  }
-
-  if(lower.includes("force") || lower.includes("motion") || lower.includes("magnet")){
-    return [
-      q("A force can:",["Change motion or shape","Create food automatically","Make time stop","Remove mass"],0,"Recall"),
-      q("A push is a type of:",["Force","Matter","Sound","Light"],0,"Understanding"),
-      q("Friction usually acts against:",["Motion","Colour","Temperature","Sound only"],0,"Understanding"),
-      q("Why are rough surfaces often harder to slide across?",["They produce more friction","They have no force","They remove gravity","They create light"],0,"Reasoning"),
-      q("A magnet attracts many objects made from:",["Iron or steel","Glass","Paper","Rubber"],0,"Recall"),
-      q("What can make a moving object slow down?",["Friction","Colour","Light only","Sound only"],0,"Application"),
-      q("If you push a box harder, what may happen?",["It may accelerate more if other conditions remain similar","It becomes liquid","Its mass disappears","It becomes magnetic automatically"],0,"Analysis"),
-      q("Gravity pulls objects:",["Toward Earth","Away from Earth always","Sideways only","Into the sky"],0,"Recall"),
-      q("Why are seat belts important when a vehicle stops suddenly?",["They help restrain passengers because of inertia","They make the car faster","They remove gravity","They create fuel"],0,"Real Life"),
-      q("What should a fair force investigation control?",["Relevant conditions and measurements","All evidence","The final answer","Only the title"],0,"Scientific Thinking")
-    ];
-  }
-
-  if(lower.includes("environment") || lower.includes("conservation") || lower.includes("ecology")){
-    return [
-      q("Which is a natural resource?",["Water","Plastic bottle","Computer","Car"],0,"Recall"),
-      q("Why should forests be protected?",["They support biodiversity and environmental processes","They are useless","They create plastic","They stop all rainfall"],0,"Reasoning"),
-      q("Which action reduces pollution?",["Proper waste disposal","Dumping rubbish in rivers","Burning plastic everywhere","Pouring chemicals into drains"],0,"Application"),
-      q("Recycling means:",["Processing used materials for reuse","Throwing everything away","Using more waste","Destroying all materials"],0,"Understanding"),
-      q("What may happen if habitats are destroyed?",["Biodiversity can decrease","All animals become stronger","Plants need no water","Pollution always disappears"],0,"Analysis"),
-      q("Which is renewable?",["Sunlight","Coal","Petroleum","Natural gas"],0,"Classification"),
-      q("Why is clean water important?",["Living things need it for health and survival","It is only useful for cars","It creates plastic","It replaces oxygen"],0,"Understanding"),
-      q("Which action conserves water?",["Repairing leaking taps","Leaving taps running","Pouring clean water away","Breaking pipes"],0,"Application"),
-      q("Why should evidence be collected before making environmental decisions?",["Good evidence supports better decisions","Evidence is unnecessary","Opinions are always facts","It makes pollution worse"],0,"Reasoning"),
-      q("What is one responsibility people have toward the environment?",["Use resources responsibly","Create unnecessary waste","Destroy habitats","Pollute rivers"],0,"Problem Solving")
-    ];
-  }
-
-  return [
-    q(`What is an important way to study ${topic}?`,["Observe and use evidence","Guess without evidence","Ignore observations","Change results"],0,"Scientific Thinking"),
-    q("Why are measurements useful in science?",["They provide evidence that can be compared","They remove the need for thinking","They are only decoration","They make every result equal"],0,"Understanding"),
-    q("What is a prediction?",["A statement about what may happen","A confirmed fact","A measurement only","A conclusion from no evidence"],0,"Recall"),
-    q("Why repeat an investigation?",["To improve confidence in the results","To change the topic","To avoid evidence","To guarantee the expected answer"],0,"Reasoning"),
-    q("What should be recorded during an investigation?",["Relevant observations and measurements","Only mistakes","Unrelated stories","Nothing"],0,"Application"),
-    q("What is a fair test?",["A test where relevant conditions are controlled","A test with no measurements","A test where results are changed","A test with no question"],0,"Understanding"),
-    q("What should a conclusion be based on?",["Evidence","Guesswork","Popularity","Colour"],0,"Scientific Thinking"),
-    q("If results disagree with a prediction, what should a scientist do?",["Consider the evidence and investigate further","Change the results","Hide the evidence","Assume the prediction was correct"],0,"Analysis"),
-    q("Why is classification useful?",["It helps organise objects or living things using shared features","It makes everything identical","It removes differences","It prevents observation"],0,"Understanding"),
-    q("What makes a scientific explanation stronger?",["Evidence and logical reasoning","A louder voice","A longer guess","A colourful diagram only"],0,"Reasoning")
-  ];
-}
-
-/* =========================================================
-   COMPUTING QUESTIONS
-   ========================================================= */
-
-function computingQuestions(className,topic,level){
-
-  const lower=topic.toLowerCase();
-
-  if(lower.includes("computer") || lower.includes("hardware") || lower.includes("device")){
-    return [
-      q("A computer is an electronic device that can:",["Process information","Grow plants","Make rain","Eat food"],0,"Recall"),
-      q("Which device is commonly used to type?",["Keyboard","Monitor","Speaker","Printer"],0,"Recall"),
-      q("Which device displays information visually?",["Monitor","Keyboard","Mouse","Microphone"],0,"Understanding"),
-      q("Which device is used to print information on paper?",["Printer","Mouse","Monitor","Keyboard"],0,"Recall"),
-      q("A mouse is mainly used to:",["Point, select and interact with items","Print pages","Store electricity","Display sound"],0,"Understanding"),
-      q("Which is an input device?",["Keyboard","Monitor","Printer","Speaker"],0,"Classification"),
-      q("Which is an output device?",["Monitor","Keyboard","Mouse","Scanner"],0,"Classification"),
-      q("Why is hardware called physical?",["You can physically touch it","It exists only online","It is always software","It cannot be seen"],0,"Reasoning"),
-      q("A school wants to display a presentation. Which device is useful?",["Monitor or projector","Keyboard only","Mouse pad","USB cable only"],0,"Application"),
-      q("Why should computer equipment be handled carefully?",["It can be damaged by misuse","It cannot break","It is always waterproof","It does not contain components"],0,"Safety")
-    ];
-  }
-
-  if(lower.includes("keyboard") || lower.includes("typing")){
-    return [
-      q("Which key creates a space between words?",["Spacebar","Enter","Shift","Esc"],0,"Recall"),
-      q("Which key is commonly used to move to a new line?",["Enter","Shift","Ctrl","Alt"],0,"Recall"),
-      q("What does the Backspace key usually do?",["Deletes the character before the cursor","Prints a page","Opens the internet","Turns off the monitor"],0,"Understanding"),
-      q("Why is correct finger positioning useful?",["It can improve typing accuracy and speed","It changes the keyboard","It removes letters","It prints automatically"],0,"Application"),
-      q("Which key can make a capital letter when used with a letter?",["Shift","Spacebar","Enter","Backspace"],0,"Recall"),
-      q("What should you do if you make a typing mistake?",["Correct it carefully","Ignore all mistakes","Delete the whole computer","Turn off the power"],0,"Problem Solving"),
-      q("Why should you practise typing?",["To improve speed and accuracy","To damage keys","To remove files","To change the monitor"],0,"Reasoning"),
-      q("Which key is often used to cancel an action?",["Esc","Spacebar","Caps Lock","Enter"],0,"Recall"),
-      q("A learner types very quickly but makes many errors. What should improve first?",["Accuracy","Speed only","Volume","Screen brightness"],0,"Analysis"),
-      q("Why should you look at the text you typed?",["To identify and correct errors","To make the keyboard larger","To delete the screen","To stop the computer"],0,"Application")
-    ];
-  }
-
-  if(lower.includes("internet") || lower.includes("network") || lower.includes("email")){
-    return [
-      q("The internet is:",["A worldwide network of connected networks","A single computer","A keyboard","A printer"],0,"Recall"),
-      q("A network allows devices to:",["Communicate and share resources","Grow food","Change colour","Become human"],0,"Understanding"),
-      q("Which service can be used to send electronic messages?",["Email","Calculator","Paint","Clock"],0,"Recall"),
-      q("Why might a school use a network?",["To share resources and information","To remove all computers","To stop communication","To replace teachers"],0,"Application"),
-      q("What should you avoid sharing online?",["Passwords and sensitive personal information","Public school subjects","General learning facts","A weather observation"],0,"Safety"),
-      q("A strong password should usually be:",["Difficult for others to guess","Your first name only","123456","The word password"],0,"Cyber Safety"),
-      q("What should you do if a suspicious link arrives?",["Avoid clicking it and verify the source","Click immediately","Share it with everyone","Enter your password"],0,"Problem Solving"),
-      q("Why is reliable information important online?",["False information can lead to poor decisions","All online information is automatically true","It makes computers faster","It removes the need to think"],0,"Critical Thinking"),
-      q("What is one benefit of email?",["Fast electronic communication","It requires no device","It only works on paper","It cannot send attachments"],0,"Application"),
-      q("What is a good digital habit?",["Think before clicking or sharing","Share passwords","Open unknown files","Use the same simple password everywhere"],0,"Digital Citizenship")
-    ];
-  }
-
-  if(lower.includes("password") || lower.includes("privacy") || lower.includes("cyber") || lower.includes("safety")){
-    return [
-      q("A password helps protect:",["An account or information","A chair","A pencil","A window"],0,"Recall"),
-      q("Which password is strongest?",["Ghana123","password","G!7mQ#2zP","123456"],2,"Application"),
-      q("Should you share your password with friends?",["No","Yes","Always","Only online"],0,"Safety"),
-      q("What is privacy?",["Keeping personal information appropriately protected","Posting everything publicly","Deleting every file","Turning off a monitor"],0,"Understanding"),
-      q("Which is personal information?",["Home address","A general maths fact","A public weather report","A school subject"],0,"Classification"),
-      q("Why should passwords be different for important accounts?",["A stolen password is less likely to unlock other accounts","It makes typing impossible","It removes privacy","It makes accounts public"],0,"Reasoning"),
-      q("What should you do if you suspect your account is compromised?",["Change the password and tell a trusted responsible person","Ignore it","Share the password","Delete the keyboard"],0,"Problem Solving"),
-      q("What is phishing?",["A trick used to obtain information by pretending to be trustworthy","A type of printer","A programming language","A storage device"],0,"Recall"),
-      q("Why should software be updated?",["Updates can fix security problems and improve reliability","Updates always delete everything","Updates remove the internet","Updates are only for decoration"],0,"Reasoning"),
-      q("What is responsible digital behaviour?",["Protecting information and respecting others","Bullying others online","Sharing private photos without permission","Guessing passwords"],0,"Digital Citizenship")
-    ];
-  }
-
-  if(lower.includes("file") || lower.includes("folder") || lower.includes("storage")){
-    return [
-      q("A file can contain:",["Information or work","Only electricity","Only sound","Nothing"],0,"Recall"),
-      q("A folder is useful for:",["Organising files","Printing electricity","Increasing screen size","Typing automatically"],0,"Understanding"),
-      q("Which can store digital files?",["USB flash drive","Chair","Desk","Paper clip"],0,"Recall"),
-      q("Why should files be given meaningful names?",["They are easier to find and identify","They become larger","They cannot be opened","They disappear"],0,"Reasoning"),
-      q("Which is a good file name?",["Science_Project_2026","asdfgh","newnewnew","filefilefile"],0,"Application"),
-      q("What should you do before deleting an important file?",["Check that it is no longer needed or make a backup","Delete everything","Turn off the computer","Rename the folder randomly"],0,"Safety"),
-      q("Why are folders useful in school work?",["They keep related files organised","They prevent learning","They make files disappear","They replace storage"],0,"Application"),
-      q("What is a backup?",["An additional copy of important data","A new keyboard","A monitor setting","A password"],0,"Recall"),
-      q("If a computer fails and there is a backup, what can happen?",["Important work may be restored","The computer becomes faster automatically","The keyboard changes","The internet disappears"],0,"Problem Solving"),
-      q("Which behaviour protects important school work?",["Saving regularly and keeping backups","Never saving","Deleting after every task","Using random folders"],0,"Digital Safety")
-    ];
-  }
-
-  if(lower.includes("software") || lower.includes("word processing") || lower.includes("presentation") || lower.includes("spreadsheet")){
-    return [
-      q("Software is:",["Programs or instructions used by a computer","A physical keyboard","A monitor cable","A desk"],0,"Recall"),
-      q("A word processor is useful for:",["Creating and editing text documents","Measuring temperature","Printing electricity","Drawing roads only"],0,"Application"),
-      q("A spreadsheet is useful for:",["Organising data and performing calculations","Only playing music","Replacing a keyboard","Taking photographs only"],0,"Understanding"),
-      q("Presentation software can be used to:",["Create slides","Repair hardware","Measure weight","Cook food"],0,"Recall"),
-      q("Why should a document be saved regularly?",["To reduce the chance of losing work","To make it impossible to edit","To delete text","To slow the computer"],0,"Reasoning"),
-      q("Which feature helps correct typing mistakes?",["Spell checking","Monitor brightness","Printer cable","Mouse pad"],0,"Application"),
-      q("What does a spreadsheet cell contain?",["Data or a formula","Only pictures","Only sound","Nothing"],0,"Recall"),
-      q("Why should a presentation avoid overcrowded slides?",["Clear slides are easier to read and understand","More words always mean better learning","It makes the computer faster","It removes the need for speaking"],0,"Design"),
-      q("A student needs to calculate total expenses. Which tool may help?",["Spreadsheet","Paint only","Media player","Calculator icon only"],0,"Application"),
-      q("What is a good digital document habit?",["Use clear formatting and save work with a meaningful name","Use random names","Never save","Delete backups"],0,"Best Practice")
-    ];
-  }
-
-  if(lower.includes("algorithm") || lower.includes("programming") || lower.includes("problem solving")){
-    return [
-      q("An algorithm is:",["A sequence of steps for solving a problem","A computer screen","A printer","A password"],0,"Recall"),
-      q("Why should algorithm steps be in the correct order?",["The order can affect the result","Order never matters","It changes the keyboard","It removes the problem"],0,"Reasoning"),
-      q("Which is an algorithm?",["Steps for making a sandwich","A random list of words","A picture only","A computer chair"],0,"Classification"),
-      q("What should you do before designing a solution?",["Understand the problem","Guess the answer","Ignore requirements","Start typing randomly"],0,"Problem Solving"),
-      q("Breaking a large problem into smaller parts is called:",["Decomposition","Decoration","Printing","Charging"],0,"Recall"),
-      q("Finding repeated features in problems can help identify:",["Patterns","Passwords","Printers","Monitors"],0,"Understanding"),
-      q("Why is testing important in programming?",["It helps find errors and check whether the solution works","It makes all programs perfect automatically","It removes code","It stops users"],0,"Reasoning"),
-      q("An error in a program is often called a:",["Bug","Folder","Monitor","Network"],0,"Recall"),
-      q("If a program gives the wrong answer, what should you do?",["Test and debug the program","Ignore the result","Delete the computer","Change the monitor"],0,"Problem Solving"),
-      q("What makes an algorithm effective?",["Clear, logical and achievable steps","Random instructions","Missing steps","Contradictory steps"],0,"Analysis")
-    ];
-  }
-
-  if(lower.includes("data") || lower.includes("information") || lower.includes("database")){
-    return [
-      q("Data can be:",["Facts or raw values","Only computers","Only pictures","Only passwords"],0,"Recall"),
-      q("Information is data that has been:",["Processed or organised to have meaning","Deleted","Hidden forever","Changed into hardware"],0,"Understanding"),
-      q("A database is useful for:",["Organising and retrieving related data","Making food","Increasing screen size","Replacing electricity"],0,"Application"),
-      q("Which is an example of school data?",["Student names and scores","Desk colour only","Rain only","The classroom door"],0,"Classification"),
-      q("Why should data be accurate?",["Incorrect data can lead to incorrect decisions","Accuracy is never important","It makes data disappear","It removes privacy"],0,"Reasoning"),
-      q("Why should personal data be protected?",["It can be sensitive and misused","Everyone must know everything","Privacy does not matter","It cannot be copied"],0,"Safety"),
-      q("A table in a database can organise:",["Related records and fields","Only electricity","Only images","Only passwords"],0,"Understanding"),
-      q("If a student's score is entered incorrectly, what problem can occur?",["Wrong results or decisions","Better accuracy","More storage","Faster internet"],0,"Application"),
-      q("Which is a good data practice?",["Check data before using it","Enter random values","Share private data publicly","Ignore errors"],0,"Best Practice"),
-      q("Why is data analysis useful?",["It can help identify patterns and support decisions","It makes all data equal","It removes evidence","It prevents questions"],0,"Reasoning")
-    ];
-  }
-
-  return [
-    q(`What is an important way to approach ${topic}?`,["Understand the problem before choosing a solution","Guess immediately","Ignore the user","Use random steps"],0,"Problem Solving"),
-    q("Why is digital safety important?",["Technology can involve personal information and risks","Computers are always dangerous","Safety is unnecessary","Passwords have no value"],0,"Safety"),
-    q("What should you do when technology does not work as expected?",["Identify the problem and test possible solutions","Give up immediately","Delete everything","Blame another user"],0,"Problem Solving"),
-    q("Why should instructions be clear?",["Clear instructions reduce mistakes","They make systems slower","They remove information","They are only decoration"],0,"Reasoning"),
-    q("What is a good digital habit?",["Save work regularly","Share passwords","Click unknown links","Ignore updates"],0,"Best Practice"),
-    q("Why should users consider privacy?",["Personal information should be protected","All information is public","Privacy is only for computers","Passwords are unnecessary"],0,"Safety"),
-    q("What is computational thinking?",["Using logical approaches to solve problems","Only typing quickly","Playing games","Repairing screens"],0,"Recall"),
-    q("Why should a digital solution be tested?",["To check that it works as intended","Testing is unnecessary","It deletes data","It makes all devices identical"],0,"Reasoning"),
-    q("If two solutions work, what could you compare?",["Efficiency, safety and suitability","Only colour","Only file size","Only the title"],0,"Analysis"),
-    q("What makes a responsible technology user?",["Safe, respectful and thoughtful behaviour","Sharing private data","Ignoring security","Misusing technology"],0,"Digital Citizenship")
-  ];
-}
-
-/* =========================================================
-   PRACTICE
-   ========================================================= */
-
-function startPractice(){
-
-  const student=getStudent();
-
-  if(!student){
-    alert("Please start learning first.");
-    return;
-  }
-
-  currentQuestions=createQuestions(
-    student.className,
-    currentSubject,
-    currentTopic
-  );
-
-  selectedAnswers={};
-
-  document.getElementById("practiceTitle").textContent=
-    currentSubject+" • "+currentTopic;
-
-  const container=document.getElementById("questionsContainer");
-  container.innerHTML="";
-
-  currentQuestions.forEach((item,index)=>{
-
-    const div=document.createElement("div");
-    div.className="practice-question";
-
-    let optionsHTML="";
-
-    item.options.forEach((option,optIndex)=>{
-
-      optionsHTML+=`
-        <button
-          class="option"
-          id="q${index}o${optIndex}"
-          onclick="selectAnswer(${index},${optIndex})">
-          ${String.fromCharCode(65+optIndex)}. ${escapeHTML(option)}
-        </button>
-      `;
-    });
-
-    div.innerHTML=`
-      <h3>${index+1}. ${escapeHTML(item.question)}</h3>
-      <p class="small">${item.category}</p>
-      <div style="margin-top:10px">${optionsHTML}</div>
-    `;
-
-    container.appendChild(div);
-  });
-
-  hideAllPages();
-  document.getElementById("practicePage").classList.add("active");
-}
-
-function selectAnswer(questionIndex,optionIndex){
-
-  selectedAnswers[questionIndex]=optionIndex;
-
-  currentQuestions[questionIndex].options.forEach((_,i)=>{
-    const button=document.getElementById(`q${questionIndex}o${i}`);
-
-    if(button){
-      button.classList.toggle("selected",i===optionIndex);
-    }
-  });
-}
-
-function checkAnswers(){
-
-  if(Object.keys(selectedAnswers).length<currentQuestions.length){
-
-    const unanswered=currentQuestions.length-Object.keys(selectedAnswers).length;
-
-    if(!confirm(
-      `You have ${unanswered} unanswered question(s). Do you want to submit anyway?`
-    )){
-      return;
-    }
-  }
-
-  let score=0;
-
-  currentQuestions.forEach((question,index)=>{
-
-    const selected=selectedAnswers[index];
-
-    const buttons=question.options.map((_,i)=>
-      document.getElementById(`q${index}o${i}`)
-    );
-
-    buttons.forEach((button,i)=>{
-
-      if(!button) return;
-
-      button.classList.remove("selected");
-
-      if(i===question.answer){
-        button.classList.add("correct");
-      }
-
-      if(selected===i && i!==question.answer){
-        button.classList.add("wrong");
-      }
-    });
-
-    if(selected===question.answer){
-      score++;
-    }
-  });
-
-  currentScore=Math.round((score/currentQuestions.length)*100);
-
-  updateProgress(currentScore,currentQuestions.length);
-
-  document.getElementById("scoreDisplay").textContent=currentScore+"%";
-
-  document.getElementById("resultTopic").textContent=
-    currentSubject+" • "+currentTopic;
-
-  let message="Keep practising! 💪";
-
-  if(currentScore>=80){
-    message="Excellent work! 🌟";
-  }else if(currentScore>=60){
-    message="Good work! Keep improving! 👍";
-  }else if(currentScore>=40){
-    message="You're getting there. Review the lesson and try again. 📖";
-  }
-
-  document.getElementById("resultMessage").textContent=message;
-
-  hideAllPages();
-  document.getElementById("resultPage").classList.add("active");
-}
-
-/* =========================================================
-   PROGRESS
-   ========================================================= */
-
-function updateProgress(score,questionCount){
-
-  const student=getStudent();
-
-  if(!student) return;
-
-  const progress=getProgress();
-
-  progress.questions=(progress.questions || 0)+questionCount;
-
-  progress.bestScore=Math.max(
-    progress.bestScore || 0,
-    score
-  );
-
-  if(score>=80){
-
-    const topicKey=
-      student.className+"|"+currentSubject+"|"+currentTopic;
-
-    if(!progress.completedTopics.includes(topicKey)){
-
-      progress.completedTopics.push(topicKey);
-
-      progress.topics=progress.completedTopics.length;
-    }
-
-    progress.streak=(progress.streak || 0)+1;
-
-  }else{
-    progress.streak=0;
-  }
-
-  student.progress=progress;
-
-  saveStudent(student);
-}
-
-function showProgress(){
-
-  const student=getStudent();
-
-  if(!student){
-    showLogin();
-    return;
-  }
-
-  const progress=getProgress();
-
-  const totalTopics=45;
-
-  const percentage=Math.min(
-    100,
-    Math.round(((progress.topics || 0)/totalTopics)*100)
-  );
-
-  document.getElementById("progressTopics").textContent=
-    progress.topics || 0;
-
-  document.getElementById("progressQuestions").textContent=
-    progress.questions || 0;
-
-  document.getElementById("progressBest").textContent=
-    (progress.bestScore || 0)+"%";
-
-  document.getElementById("progressStreak").textContent=
-    progress.streak || 0;
-
-  document.getElementById("progressPercent").textContent=
-    percentage+"% of your 45 topics completed";
-
-  document.getElementById("progressFill").style.width=
-    percentage+"%";
-
-  hideAllPages();
-  document.getElementById("progressPage").classList.add("active");
-
-  setActiveNav("Progress");
-}
-
-/* =========================================================
-   PROFILE
-   ========================================================= */
-
-function showProfile(){
-
-  const student=getStudent();
-
-  if(!student){
-    showLogin();
-    return;
-  }
-
-  document.getElementById("profileName").value=student.name;
-  document.getElementById("profileClass").value=student.className;
-
-  hideAllPages();
-  document.getElementById("profilePage").classList.add("active");
-
-  setActiveNav("Profile");
-}
-
-function saveProfile(){
-
-  const student=getStudent();
-
-  if(!student) return;
-
-  const name=document.getElementById("profileName").value.trim();
-  const className=document.getElementById("profileClass").value;
-
-  if(!name){
-    alert("Please enter a name.");
-    return;
-  }
-
-  student.name=name;
-  student.className=className;
-
-  saveStudent(student);
-
-  alert("Profile saved successfully.");
-
+function startLearning(){
+  const name=document.getElementById("studentName").value.trim();
+  const className=document.getElementById("studentClass").value;
+  if(!name||!className){alert("Please enter your name and select your class.");return}
+  saveStudent({name,className,progress:getProgress()});
   showDashboard();
 }
-
-/* =========================================================
-   QUICK PRACTICE
-   ========================================================= */
-
-function quickPractice(){
-
+function openSubject(subject){
   const student=getStudent();
-
-  if(!student){
-    showLogin();
-    return;
-  }
-
-  currentSubject="Mathematics";
-  currentTopic=curriculum[student.className]["Mathematics"][0];
-
-  startPractice();
+  if(!student){alert("Please start learning first.");return}
+  currentSubject=subject;
+  const classData=curriculum[student.className];
+  if(!classData){alert("Class curriculum not found. Please log out and select your class again.");return}
+  const topics=classData[subject];
+  if(!Array.isArray(topics)){alert("Topics for this subject could not be loaded.");return}
+  document.getElementById("topicsTitle").textContent=subject;
+  document.getElementById("topicsSubtitle").textContent=student.className+" • "+topics.length+" topics";
+  const container=document.getElementById("topicsContainer"); container.innerHTML="";
+  topics.forEach((topic,index)=>{
+    const completed=getProgress().completedTopics.includes(student.className+"|"+subject+"|"+topic);
+    const div=document.createElement("div"); div.className="topic-card";
+    const number=document.createElement("div"); number.className="topic-number"; number.textContent=index+1;
+    const title=document.createElement("h3"); title.textContent=topic;
+    div.append(number,title);
+    if(completed){const badge=document.createElement("span");badge.className="badge";badge.textContent="✓ Completed";div.appendChild(badge)}
+    const button=document.createElement("button");button.style.marginTop="12px";button.textContent=completed?"Review Topic":"Study Topic";
+    button.addEventListener("click",()=>openLesson(topic)); div.appendChild(button);container.appendChild(div);
+  });
+  showPage("topicsPage");
 }
-
-/* =========================================================
-   BACK BUTTONS
-   ========================================================= */
-
-function backToLesson(){
-
-  openLesson(currentTopic);
+function levelNumber(className){
+  const m=className.match(/\d+/); return m?parseInt(m[0]):1;
 }
-
-function backToTopics(){
-
-  openSubject(currentSubject);
+function getIntroduction(topic,subject,level){
+  return topic+" is an important part of "+subject+". In this lesson, you will build a clear understanding of the main ideas, practise using them and connect them to situations you may meet at school or in everyday life.";
 }
-
-function retryLesson(){
-
-  startPractice();
+function getNotes(topic,subject,level){
+  const depth=level<=2?"At this level, focus on simple meanings, clear examples and correct vocabulary.":level<=4?"At this level, connect the main idea to rules, steps, examples and everyday situations.":"At this level, you should explain ideas clearly, identify relationships, justify answers and apply knowledge to unfamiliar situations.";
+  return "<p><strong>"+topic+"</strong> should be studied as both knowledge and a skill. Learn the important terms first, then understand how the idea works and finally practise applying it.</p><p>"+depth+" Do not only memorise an answer: ask what the information means, why it is true, and how it can be used to solve a problem.</p><p><strong>Study habit:</strong> Read the example, try a similar question without looking at the answer, then explain your method in your own words.</p>";
 }
-
-/* =========================================================
-   LOGOUT
-   ========================================================= */
-
-function logout(){
-
-  if(!confirm("Are you sure you want to logout?")){
-    return;
-  }
-
-  localStorage.removeItem(STORAGE_KEY);
-
-  currentSubject="";
-  currentTopic="";
-  currentQuestions=[];
-  selectedAnswers={};
-
-  showLogin();
+function getExplanation(topic,subject,level){
+  return "<p>Start by identifying exactly what the question or situation is asking. Next, identify the facts or information you already know. Then choose a suitable rule, process, method or strategy. Work carefully, check the result and explain your conclusion.</p><p>As you move to higher classes, questions may combine more than one idea. When this happens, break the problem into smaller steps instead of trying to solve everything at once.</p>";
 }
-
-function showLogin(){
-
-  hideAllPages();
-
-  document.getElementById("loginPage").classList.add("active");
-
-  document.getElementById("studentName").value="";
-  document.getElementById("studentClass").value="";
-
-  setActiveNav("");
+function getExamples(topic,subject,level){
+  return "<div class='example'><strong>Worked Example 1:</strong><br>Read the question carefully. Identify the known information, choose the correct method, carry out the steps in order, and check whether the final answer makes sense.</div><div class='example'><strong>Worked Example 2:</strong><br>Imagine the same idea in a real situation. Explain what you would do first, what evidence or information you would use, and how you would decide whether your answer is reasonable.</div>";
 }
-
-/* =========================================================
-   SECURITY / DISPLAY HELPER
-   ========================================================= */
-
-function escapeHTML(value){
-
-  return String(value)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+function getThinking(topic,subject,level){
+  return "Why do you think this topic matters? What could happen if someone used the wrong method or misunderstood the information? Can you find a different way to reach or justify the same conclusion?";
 }
-
-/* =========================================================
-   AUTO LOGIN
-   ========================================================= */
-
-window.addEventListener("DOMContentLoaded",()=>{
-
-  const student=getStudent();
-
-  if(student && student.name && student.className){
-
-    document.getElementById("dashName").textContent=student.name;
-    document.getElementById("dashClass").textContent=student.className;
-
-    showDashboard();
-
-  }else{
-
-    showLogin();
-
-  }
-
-});
-
+function getActivity(topic,subject,level){
+  return "Practical Activity: Find an example of '"+topic+"' around you or create a simple example yourself. Record what you observe, organise the information and explain what you learned.";
+}
+function getRealLife(topic,subject,level){
+  return "Real-Life Application: Think about school, home, work, money, communication, technology or the environment. Identify one situation where knowledge of "+topic+" would help someone make a better decision or solve a problem.";
+}
+function getRemember(topic,subject,level){
+  return "<ul><li>Know the key meaning and vocabulary.</li><li>Understand the steps or rules involved.</li><li>Practise before checking the answer.</li><li>Always check whether your final answer is reasonable.</li></ul>";
+}
+function openLesson(topic){
+  currentTopic=topic;
+  const student=getStudent(); if(!student)return;
+  const level=levelNumber(student.className);
+  document.getElementById("lessonContainer").innerHTML=`
+    <div class="hero"><h2>${escapeHTML(topic)}</h2><p>${escapeHTML(student.className)} • ${escapeHTML(currentSubject)}</p></div>
+    <div class="lesson-section"><h3>📖 Topic Introduction</h3><p>${escapeHTML(getIntroduction(topic,currentSubject,level))}</p></div>
+    <div class="lesson-section"><h3>📝 Short Notes</h3>${getNotes(topic,currentSubject,level)}</div>
+    <div class="lesson-section"><h3>🔎 Detailed Explanation</h3>${getExplanation(topic,currentSubject,level)}</div>
+    <div class="lesson-section"><h3>✏️ Worked Examples</h3>${getExamples(topic,currentSubject,level)}</div>
+    <div class="lesson-section"><h3>🧠 Let's Think</h3><p>${escapeHTML(getThinking(topic,currentSubject,level))}</p></div>
+    <div class="lesson-section"><h3>🧪 Practical Activity</h3><p>${escapeHTML(getActivity(topic,currentSubject,level))}</p></div>
+    <div class="lesson-section"><h3>🌍 Real-Life Application</h3><p>${escapeHTML(getRealLife(topic,currentSubject,level))}</p></div>
+    <div class="lesson-section"><h3>⭐ Remember</h3>${getRemember(topic,currentSubject,level)}</div>
+    <div class="card"><button onclick="startPractice()">Start Practice — 10 Questions</button></div>`;
+  showPage("lessonPage");
+}
+function makeQuestion(topic,subject,i,level){
+  const s=subject.toLowerCase();
+  const bank={
+    mathematics:[
+      ["What is the most important first step when solving a mathematical problem?","Read and understand what is being asked","Guess immediately","Ignore the numbers","Copy someone else"],
+      ["A shopkeeper records the number of items sold each day. Which mathematical skill helps compare the days?","Working with data","Drawing pictures only","Typing","Using a password"],
+      ["If your answer seems impossible, what should you do?","Check the method and calculation","Submit it immediately","Change the question","Ignore the result"],
+      ["Which approach is best for a multi-step problem?","Break it into smaller steps","Do every step at once","Skip the information","Choose randomly"],
+      ["Why are units important in measurement?","They tell us what the number measures","They make every number larger","They replace calculations","They are only for decoration"],
+      ["A learner gets a different answer from a worked example. What is a useful response?","Compare the steps and find where the methods differ","Erase everything","Assume the example is wrong","Stop practising"],
+      ["Which statement shows mathematical reasoning?","Explaining why an answer is correct","Only writing a number","Guessing quickly","Copying a formula without understanding"],
+      ["When comparing two quantities, what should you identify first?","What each quantity represents","Their colours","Who wrote them","The page number"],
+      ["Why can diagrams help in mathematics?","They can represent information visually","They always give the answer automatically","They replace thinking","They are only for art"],
+      ["Challenge: A real-life problem contains extra information. What should you do?","Identify the information that is relevant to the question","Use every number automatically","Ignore the question","Choose the largest number"]
+    ],
+    science:[
+      ["What is a good first step in a scientific investigation?","Identify the question or problem","Guess the conclusion","Hide the observations","Change the results"],
+      ["Why do scientists record observations?","To collect evidence","To decorate reports","To avoid measurements","To replace experiments"],
+      ["What should you do when an observation disagrees with your expectation?","Record it honestly and investigate why","Change it to match the prediction","Delete it","Ignore it"],
+      ["Which is evidence?","Information collected from observations or measurements","A random opinion","A guess with no basis","A copied answer"],
+      ["Why is a fair test important?","It helps make a comparison meaningful","It guarantees the preferred result","It removes all measurements","It avoids questions"],
+      ["A learner wants to know which material absorbs more water. What should be measured?","The amount of water absorbed","The colour of the material only","The learner's name","The classroom number"],
+      ["Why should measurements include suitable units?","So results can be understood and compared","So numbers look bigger","So no one can check them","Because units are decorative"],
+      ["What can a model help scientists do?","Represent or explain something that may be difficult to observe directly","Replace all evidence","Guarantee a prediction","Avoid testing"],
+      ["What is a conclusion?","A statement supported by the evidence collected","The first guess made","A random opinion","A question with no answer"],
+      ["Challenge: Two results are different. What is a sensible response?","Check the method, measurements and conditions before deciding why","Choose the larger result automatically","Delete one result","Assume someone cheated"]
+    ],
+    computing:[
+      ["What is a computer system designed to do?","Process information and perform tasks","Only display pictures","Only play music","Only store paper"],
+      ["Why are files organised into folders?","To make information easier to find and manage","To make computers heavier","To delete programs","To change passwords automatically"],
+      ["Why is a strong password important?","It helps protect an account from unauthorised access","It makes the screen brighter","It increases typing speed","It prints documents"],
+      ["What should you do with a suspicious link?","Avoid opening it and verify the source","Click immediately","Share it with everyone","Enter your password"],
+      ["What is an algorithm?","A step-by-step procedure for solving a problem","A computer screen","A printer cable","A type of keyboard"],
+      ["Why should important data be backed up?","To reduce the risk of losing it","To make it public","To remove security","To slow the computer"],
+      ["Which is an input device?","Keyboard","Monitor","Printer","Speaker"],
+      ["Which is an output device?","Monitor","Keyboard","Mouse","Microphone"],
+      ["What is debugging?","Finding and fixing errors in a program or process","Deleting every file","Buying a computer","Changing a username"],
+      ["Challenge: A program gives the wrong result. What should you do first?","Check the instructions, inputs and steps for an error","Assume the computer is always wrong","Delete the program immediately","Ignore the result"]
+    ]
+  };
+  const q=bank[s][i%bank[s].length];
+  return {question:q[0],options:q.slice(1),answer:q[1]};
+}
+function createQuestions(topic,subject,level){return Array.from({length:10},(_,i)=>makeQuestion(topic,subject,i,level))}
+function startPractice(){
+  const student=getStudent();if(!student)return;
+  currentQuestions=createQuestions(currentTopic,currentSubject,levelNumber(student.className));selectedAnswers={};
+  document.getElementById("practiceTitle").textContent=currentTopic;
+  const c=document.getElementById("questionsContainer");c.innerHTML="";
+  currentQuestions.forEach((q,i)=>{
+    const div=document.createElement("div");div.className="question";
+    div.innerHTML="<h3>"+(i+1)+". "+escapeHTML(q.question)+"</h3>";
+    q.options.forEach((opt,j)=>{
+      const b=document.createElement("button");b.className="option";b.textContent=String.fromCharCode(65+j)+". "+opt;
+      b.onclick=()=>{selectedAnswers[i]=opt;div.querySelectorAll(".option").forEach(x=>x.classList.remove("selected"));b.classList.add("selected")};
+      div.appendChild(b);
+    });c.appendChild(div);
+  });showPage("practicePage");
+}
+function checkAnswers(){
+  if(Object.keys(selectedAnswers).length<currentQuestions.length){alert("Please answer all 10 questions first.");return}
+  let score=0;const boxes=document.querySelectorAll(".question");
+  currentQuestions.forEach((q,i)=>{
+    const box=boxes[i];box.querySelectorAll(".option").forEach(b=>{
+      const text=b.textContent.slice(3);
+      if(text===q.answer)b.classList.add("correct");
+      if(text===selectedAnswers[i]&&text!==q.answer)b.classList.add("wrong");
+    });
+    if(selectedAnswers[i]===q.answer)score++;
+  });
+  const percent=score*10;updateProgress(percent);
+  document.getElementById("resultTitle").textContent=percent>=80?"Excellent work! 🎉":percent>=50?"Good effort! 👍":"Keep practising! 💪";
+  document.getElementById("resultText").textContent="You scored "+score+" out of "+currentQuestions.length+" ("+percent+"%).";
+  document.getElementById("resultBar").style.width=percent+"%";showPage("resultPage");
+}
+function updateProgress(percent){
+  const s=getStudent();const p=s.progress||{topics:0,questions:0,best:0,completedTopics:[],streak:0};
+  p.questions=(p.questions||0)+currentQuestions.length;p.best=Math.max(p.best||0,percent);
+  const key=s.className+"|"+currentSubject+"|"+currentTopic;
+  if(percent>=80&&!p.completedTopics.includes(key)){p.completedTopics.push(key);p.topics=(p.topics||0)+1;p.streak=(p.streak||0)+1}
+  s.progress=p;saveStudent(s);
+}
+function showProgress(){
+  const p=getProgress(),total=45,pct=Math.min(100,Math.round(((p.topics||0)/total)*100));
+  document.getElementById("statTopics").textContent=p.topics||0;document.getElementById("statQuestions").textContent=p.questions||0;
+  document.getElementById("statBest").textContent=(p.best||0)+"%";document.getElementById("overallBar").style.width=pct+"%";
+  document.getElementById("overallText").textContent=(p.topics||0)+" of "+total+" topics completed ("+pct+"%).";showPage("progressPage");
+}
+function showProfile(){const s=getStudent();if(!s)return;document.getElementById("profileName").textContent=s.name;document.getElementById("profileClass").textContent=s.className;showPage("profilePage")}
+function logout(){localStorage.removeItem("smartStepsStudent");document.getElementById("bottomNav").style.display="none";showPage("loginPage")}
+function escapeHTML(value){return String(value).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+document.addEventListener("DOMContentLoaded",()=>{const s=getStudent();if(s){document.getElementById("studentName").value=s.name||"";document.getElementById("studentClass").value=s.className||"";showDashboard()}});
 </script>
-
 </body>
 </html>
